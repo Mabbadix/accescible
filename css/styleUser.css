@@ -1,0 +1,171 @@
+* {
+  box-sizing:border-box
+}
+
+body {
+  font-family: Verdana,sans-serif;
+  margin:auto;
+  max-width: 100%;
+}
+/*****************HEADER**************/
+
+  /**************NavBAR************/
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(233,95,3,0.9);
+    font-size:26px;
+    font-weight: bold;
+}
+
+li {
+    float: left;
+  }
+
+li:last-child {
+    border-right: none;
+    float:right;
+    cursor:pointer;
+}
+
+li a {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    color:rgba(93,90,91, 1);
+}
+
+a:hover:not(.active) {
+    background-color: rgba(233,95,3,1);
+}
+
+.active {
+    background-color:rgba(93,90,91, 1);
+    color:rgba(233,95,3,1);
+}
+
+/*side déroulant navigation*/
+.side {
+    height: 80.6%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    right: 0px;
+    background-color:rgba(93,90,91, 1);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+
+.side a {
+  padding:8px;
+  text-decoration: none;
+  font-size:20px;
+  color:rgba(233,95,3,1);
+  display:block;
+  transition:0.3s;
+  text-align: right;
+}
+
+.side a:hover, .side a:focus {
+  background-color: rgba(233,95,3,0.5);
+}
+
+.boutonFermer{
+  font-size :36px !important;
+}
+
+/****************Btn msgsignal******************/
+.mainUserCarte{
+  z-index: -1;
+}
+.mainLeft{
+  overflow-y: scroll;
+}
+.msgsignal {
+  background-color:rgb(241,240,240);
+  width: auto;
+  border-radius: 12px;
+  border: 5px solid rgb(147,188,218);
+  padding: 15px 32px;
+  margin : 0px;
+  text-decoration: none;
+  color:rgb(223,74,16);
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+
+/***************MAIN************/
+.mainUserCarte {
+  display: block;
+  width: 100%;
+  font-size:20px;
+  font-weight: bold;
+  text-align: center;
+  color:rgba(93,90,91, 1);
+  height: 600px;
+}
+
+.mainLeft{
+  background-color:rgba(93,90,91, 1);
+  float:left;
+  height:inherit;
+  min-width: 30%;
+  color:rgb(229,106,23);
+}
+#mapcanvas {
+  background-color: rgb(245,246,248);
+  cursor:pointer;
+  height: inherit;
+  min-width: 60%;
+}
+
+
+/**************FOOTER*******/
+footer{
+  display: block;
+  overflow: hidden;
+  background-color: rgba(233,95,3,0.9);
+  font-size:26px;
+  font-weight: bold;
+  color:rgba(93,90,91, 1);
+  cursor:pointer;
+  text-align: center;
+  height:auto;
+  bottom: 0px ;
+  z-index: 99;
+}
+
+
+/************MEDIA QUERRY***********/
+@media only screen and (max-width: 500px) {
+  .text{font-size: 10px}
+  .button {font-size:14px}
+  .inscription {margin-top :8px}
+  .side {overflow-x:auto;
+  padding-top: 15px;}
+  .side a {font-size: 20px}
+  .boutonFermer {
+    font-size:25px !important;
+    top:0px;
+    right: 15px;
+  }
+  li:last-child {
+font-size:17px
+  }
+  li a {
+      font-size: 11px;
+    }
+}
+@media only screen and (max-width: 250px) {
+  .text{font-size: 7px}
+  .button {font-size:11px}
+  .inscription {margin-top :8px}
+}
