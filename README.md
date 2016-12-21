@@ -1,5 +1,7 @@
 # accescible
 
+Application à vocation sociale, visant à diminuer les problèmes d'accessibilité, des personnes handicapées ou à mobilité réduite, aux lieux publics et établissements recevant du public (ERP) en se fondant sur leurs besoins réels.
+
 Le projet sera developpé en Camel Case (lowerCamelCase où la première lettre est en minuscule1.Différent du PascalCase).
 
 ATTENTION : le MCD contient un dictionnairer à utiliser notamment pour la création de la BDD et des TABLES
