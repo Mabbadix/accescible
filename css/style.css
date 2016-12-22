@@ -784,3 +784,7 @@ use other properties (H, W; backround-color; color : ; text-decoration:;bakgroun
 tr :hover {background-color ;}
 tr:nth-child(even){background-color: ;} (=zebra-striped)
 table in div for scroll = div { overflow-x: auto;}
+
+.footerdiv {
+  
+}

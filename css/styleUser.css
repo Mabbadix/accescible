@@ -130,17 +130,12 @@ a:hover:not(.active) {
 
 /**************FOOTER*******/
 footer{
-  display: block;
-  overflow: hidden;
   background-color: rgba(233,95,3,0.9);
-  font-size:26px;
-  font-weight: bold;
-  color:rgba(93,90,91, 1);
-  cursor:pointer;
-  text-align: center;
-  height:auto;
-  bottom: 0px ;
-  z-index: 99;
+  height: 200px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 
@@ -168,4 +163,55 @@ font-size:17px
   .text{font-size: 7px}
   .button {font-size:11px}
   .inscription {margin-top :8px}
+}
+
+
+
+.logo {
+  height: 30px;
+  width: 30px;
+}
+
+.fa-facebook-official {
+  color: #3b5998;
+}
+
+.fa-twitter {
+  color: #33ccff;
+}
+
+.reseau {
+  text-align: center;
+}
+
+.footerdiv {
+  text-align: center;
+  width: 33.33%;
+  float: left;
+  padding-top: 30px;
+}
+
+
+
+.fa {
+  padding-top: 40px;
+  padding-right: 15px;
+}
+
+
+
+
+
+.footerdiv img:hover{
+  -webkit-filter: grayscale(0%); /* Chrome, Safari, Opera */
+filter: grayscale(0%);
+-webkit-transition:all 0.9s;
+transition:all 0.9s;
+}
+
+.footerdiv img{
+  width: 200px;
+  padding-top: 30px;
+  -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
+filter: grayscale(100%);
 }
