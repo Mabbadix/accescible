@@ -1,0 +1,4 @@
+/*connexionEtInscription*/
+<?php
+
+?>
