@@ -139,34 +139,6 @@ footer{
 }
 
 
-/************MEDIA QUERRY***********/
-@media only screen and (max-width: 500px) {
-  .text{font-size: 10px}
-  .button {font-size:14px}
-  .inscription {margin-top :8px}
-  .side {overflow-x:auto;
-  padding-top: 15px;}
-  .side a {font-size: 20px}
-  .boutonFermer {
-    font-size:25px !important;
-    top:0px;
-    right: 15px;
-  }
-  li:last-child {
-font-size:17px
-  }
-  li a {
-      font-size: 11px;
-    }
-}
-@media only screen and (max-width: 250px) {
-  .text{font-size: 7px}
-  .button {font-size:11px}
-  .inscription {margin-top :8px}
-}
-
-
-
 .logo {
   height: 30px;
   width: 30px;
@@ -199,9 +171,6 @@ font-size:17px
 }
 
 
-
-
-
 .footerdiv img:hover{
   -webkit-filter: grayscale(0%); /* Chrome, Safari, Opera */
 filter: grayscale(0%);
@@ -214,4 +183,30 @@ transition:all 0.9s;
   padding-top: 30px;
   -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
 filter: grayscale(100%);
+}
+
+/************MEDIA QUERRY***********/
+@media only screen and (max-width: 500px) {
+  .text{font-size: 10px}
+  .button {font-size:14px}
+  .inscription {margin-top :8px}
+  .side {overflow-x:auto;
+  padding-top: 15px;}
+  .side a {font-size: 20px}
+  .boutonFermer {
+    font-size:25px !important;
+    top:0px;
+    right: 15px;
+  }
+  li:last-child {
+font-size:17px
+  }
+  li a {
+      font-size: 11px;
+    }
+}
+@media only screen and (max-width: 250px) {
+  .text{font-size: 7px}
+  .button {font-size:11px}
+  .inscription {margin-top :8px}
 }
