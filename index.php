@@ -62,6 +62,12 @@ session_start();
     header('content-type: text/html; charset=utf-8');
     //******Connect BD********
     require 'connData.php';
+		/*fonction qui recherche toute seule la classe à require*/
+		function chargerClass($classe)
+		{
+		  require $classe.'.php';
+		}
+		spl_autoload_register('chargerClass');
 
       //On récupère les infos saisies
     $Courriel = htmlspecialchars($_POST['Courriel']);
@@ -158,21 +164,24 @@ session_start();
           } else {
               // date du jour
           $date = date('Y-m-d');
-          //enregistrement données saisies
-          $insertInscription = $bdd->prepare("INSERT INTO utilisateur (emailU, mdpU, dateU)
-          VALUES ('$Courriel','$Mdp','$date')");
-              print_r($insertInscription->execute());
-          //Si il y a une erreur
-          if (!$insertInscription) {
-              print($insertInscription->errorInfo());
-          } else {
-						$_SESSION['emailU'] = $result['emailU'];
-						$_SESSION['mdpU'] = $result['mdpU'];
-						//on redirige
-							echo '<div id="ok">Connexion réussie. Redirection en cours GGG...</div>
-							<script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",500) </script>';
-
-          }
+					//on crée un Objet utilisateur, qu'on hydrate ac les données récupérées
+					$utilisateur = new Utilisateur ([
+					  'emailU'=>$Courriel,
+					  'mdpU'=>$Mdp,
+					  'nomU'=>'Nom',
+					  'prenomU'=>'Prenom',
+					  'adresseU'=>'adresse',
+					  'villeU'=>'ville',
+					  'cpU'=>'00000',
+					  'telU'=>'0606060606',
+					  'dateU'=>$date,
+					  'signalU'=>'1',
+					  'valide'=>'0'
+					]);
+					//on crée un objet pour manager utilisateur pour gerer l'utilisateur et BDD
+					$manageU = new UtilisateurManager ($bdd);
+					//on appelle la fonction ajout avec en param l'objet utilisateur
+					$manageU->add($utilisateur);
         }
       }
     }
