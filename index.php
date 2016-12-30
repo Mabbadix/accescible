@@ -1,7 +1,138 @@
 <?php
+header('content-type: text/html; charset=utf-8');
+
+//fonction qui recherche toute seule la classe à requerir
+function chargerClass($classe)
+{
+	require $classe.'.php';
+}
+spl_autoload_register('chargerClass');
+
 //On a créé des sessions et pour que ça fonctionne, il faut en déclarer l'ouverture.
 session_start();
+if (isset($_GET['deconnexion']))
+{
+  require 'deconn.php';
+}
+
+//******Connect BD********
+require 'connData.php';
+$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
+
+//traitement sur la page index
+
+
+	//On récupère les infos saisies dans les imputs
+	$Courriel = htmlspecialchars($_POST['Courriel']);
+	$Mdp = sha1($_POST['Mot_de_passe']);
+
+	// on créé des instances des classe utilisateur et managerUtilisateur
+
+	$managerU = new UtilisateurManager ($bdd);
+
+	//on verifie que le compte existe
+	$exist = $managerU->exists($Courriel, $Mdp);
+
+	/**********SI SE CONNECTER*************/
+
+	if (isset($_POST['se_connecter']))
+	{
+			//si n'existe on informe;
+			if (!$exist) {
+					echo "<script language='JavaScript' type='text/javascript'>";
+					echo 'alert("Aucun compte ne correspond à ces données ! Inscrivez-vous ou verifiez votre saise. Merci");';
+					echo 'history.back(-1)';
+					echo '</script>';
+			}
+				//Si existe
+			elseif ($exist) {
+					//le manager instancie cette utilisateur
+					$ut = $managerU->getUtilisateur($Courriel, $Mdp);
+					//On verfie que pas banni
+
+				if ($ut->getvalide() == 1) {
+						//on verifie que compte n'est pas banni avec la donnée "valide" dela bd (1= bani, 0 = Ok);
+					echo "<script language='JavaScript' type='text/javascript'>";
+						echo 'alert("Votre compte a été bloqué");';
+						echo 'history.back(-1)';
+						echo '</script>';
+				}
+				// Si compte valide on accede au compte
+				elseif ($ut->getvalide() == 0) {
+						//on informe que Ok + on accède à la page Usercate
+					$_SESSION['emailU'] = $ut->getEmailU();
+					$_SESSION['mdpU'] = $ut->getMdpU();
+					//on redirige
+					echo '<div id="ok">Connexion réussie. Redirection en cours...</div>
+					<script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",500) </script>';
+				}
+			}
+	}
+	/**********SI CLIQUE S'INSCRIRE*************/
+	elseif (isset($_POST['boutInscription']))
+	{
+		//On vérifie tout de même que si compte existe ou non si c'est le cas idem que "connexion"
+		if ($exist)
+		//si c'est le cas idem que btn "connexion"
+		{
+			//le manager instancie cet utilisateur
+			$ut = $managerU->getUtilisateur($Courriel, $Mdp);
+			//on verifie que compte n'est pas banni avec la donnée "valide" dela bd
+			if ($ut->getvalide() == 1) {
+					echo "<script language='JavaScript' type='text/javascript'>";
+					echo 'alert("Votre compte a été bloqué, vous ne pouvez vous réinscrire!");';
+					echo 'history.back(-1)';
+					echo '</script>';
+			}
+			elseif ($ut->getvalide() == 0)
+			{
+				//on créer la session
+				$_SESSION['emailU'] = $ut->getEmailU();
+				$_SESSION['mdpU'] = $ut->getMdpU();
+			//on redirige
+				echo '<div id="ok">Connexion réussie mais attention vous avez cliquez sur Inscription au lieu de Connexion</div>
+				<script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",1000) </script>';
+			}
+		}//Si 0 correspondance = aucun compte normalement
+		elseif (!$exist)
+		{
+			//on vérifie toutefois que l'email n'est déjà pas utilisé
+			//verifEmailLibre() retourne vrai si l'email est pris ou false sinon
+			$emailPris = $managerU->verifEmailLibre($Courriel);
+			if ($emailPris)
+			{
+				echo "<script language='JavaScript' type='text/javascript'>";
+				echo 'alert("Ce courriel est déjà utilisé! Connectez-vous ou verifiez votre saise. Merci");';
+				echo 'history.back(-1)';
+				echo '</script>';
+			}
+			elseif (!$emailPris)
+			{
+				// date du jour
+				$date = date('Y-m-d');
+				//on crée un Objet utilisateur, qu'on hydrate ac les données récupérées
+				$utilisateur = new Utilisateur ([
+					'emailU'=>$Courriel,
+					'mdpU'=>$Mdp,
+					'nomU'=>'Nom',
+					'prenomU'=>'Prenom',
+					'adresseU'=>'adresse',
+					'villeU'=>'ville',
+					'cpU'=>'00000',
+					'telU'=>'0606060606',
+					'dateU'=>$date,
+					'signalU'=>'1',
+					'valide'=>'0'
+				]);
+				//on crée un objet pour manager utilisateur pour gerer l'utilisateur et BDD
+				$managerU = new UtilisateurManager ($bdd);
+				//on appelle la fonction ajout avec en param l'objet utilisateur
+				$managerU->add($utilisateur);
+			}
+		}
+	}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -58,134 +189,7 @@ session_start();
 					Inscription</button>
 			</form>
 	</div>
-  <?php
-    header('content-type: text/html; charset=utf-8');
-    //******Connect BD********
-    require 'connData.php';
-		/*fonction qui recherche toute seule la classe à require*/
-		function chargerClass($classe)
-		{
-		  require $classe.'.php';
-		}
-		spl_autoload_register('chargerClass');
 
-      //On récupère les infos saisies
-    $Courriel = htmlspecialchars($_POST['Courriel']);
-    $Mdp = sha1($_POST['Mot_de_passe']);
-    // On compare avec infos de la Bd
-      //Configuration pour selectionner Utilisateur dans la bd
-    $SelectU = $bdd->prepare("SELECT idU, emailU, mdpU, valide FROM utilisateur WHERE emailU = '$Courriel'
-      AND mdpU='$Mdp'");
-    $SelectU->execute();
-      //Interogation de la Bd
-
-    $RetourBd = $SelectU->rowCount();
-          //Si aucune correspondance : info + redirection inscription
-          //on met les données recupérées dans un tableau
-    $result = $SelectU->fetch();
-
-    /**********SI SE CONNECTER*************/
-
-    if (isset($_POST['se_connecter'])) {
-        //si compte n'existe pas
-        if ($RetourBd == 0) {
-            echo "<script language='JavaScript' type='text/javascript'>";
-            echo 'alert("Aucun compte ne correspond à ces données ! Inscrivez-vous ou verifiez votre saise. Merci");';
-            echo 'history.back(-1)';
-            echo '</script>';
-        }
-          //Si 1 correspondance
-        elseif ($RetourBd == 1) {
-            //On verfie que pas banni
-          if ($result['valide'] == 1) {
-              //on verifie que compte n'est pas banni avec la donnée "valide" dela bd
-            echo "<script language='JavaScript' type='text/javascript'>";
-              echo 'alert("Votre compte a été bloqué");';
-              echo 'history.back(-1)';
-              echo '</script>';
-          }
-          // Sinon on accede au compte
-          else {
-              //on créer la session
-            $_SESSION['emailU'] = $result['emailU'];
-            $_SESSION['mdpU'] = $result['mdpU'];
-            //on redirige
-            echo '<div id="ok">Connexion réussie. Redirection en cours...</div>
-            <script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",500) </script>';
-          }
-        }
-    }
-
-    /**********SI CLIQUE S'INSCRIRE*************/
-    if (isset($_POST['boutInscription'])) {
-        //On vérifie que compte existe et si c'est le cas idem que "connexion"
-      if ($RetourBd == 1) {
-          //on verifie que compte n'est pas banni avec la donnée "valide" dela bd
-        if ($result['valide'] == 1) {
-            echo "<script language='JavaScript' type='text/javascript'>";
-            echo 'alert("Votre compte a été bloqué, vous ne pouvez vous réinscrire!");';
-            echo 'history.back(-1)';
-            echo '</script>';
-        } else {
-            //on créer la session
-          $_SESSION['emailU'] = $result['emailU'];
-          $_SESSION['mdpU'] = $result['mdpU'];
-          //on redirige
-            echo '<div id="ok">Connexion réussie. Redirection en cours GGG...</div>
-            <script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",500) </script>';
-        }
-      }
-      //Si 0 correspondance = aucun compte normalement
-      elseif ($RetourBd == 0) {
-
-        //on vérifie toutefois que email n'est pas utilisé avec un autre mot passe
-        $SelectMailU = $bdd->prepare("SELECT idU, emailU, valide FROM utilisateur WHERE emailU = '$Courriel'");
-          $SelectMailU->execute();
-          //Retour de la bd sur le num de ligne correspondante
-        $RetourMailUBd = $SelectMailU->rowCount();
-        //on met les données recupérées dans un tableau
-        $resultMailU = $SelectMailU->fetch();
-
-          if ($RetourMailUBd == 1) {
-              //on verifie que l'email n'est pas banni avec la donnée "valide" dela bd et que tentative réinscription avec un autre mdp
-          	if ($resultMailU['valide'] == 1) {
-              echo "<script language='JavaScript' type='text/javascript'>";
-              echo 'alert("Ce compte a été bloqué, vous ne pouvez vous réinscrire avec un autre mot de passe!");';
-              echo 'history.back(-1)';
-              echo '</script>';
-          	}
-          // si email déjà utilisé
-          	else {
-              echo "<script language='JavaScript' type='text/javascript'>";
-              echo 'alert("Ce courriel est déjà utilisé! Connectez-vous.");';
-              echo 'history.back(-1)';
-              echo '</script>';
-	          }
-          } else {
-              // date du jour
-          $date = date('Y-m-d');
-					//on crée un Objet utilisateur, qu'on hydrate ac les données récupérées
-					$utilisateur = new Utilisateur ([
-					  'emailU'=>$Courriel,
-					  'mdpU'=>$Mdp,
-					  'nomU'=>'Nom',
-					  'prenomU'=>'Prenom',
-					  'adresseU'=>'adresse',
-					  'villeU'=>'ville',
-					  'cpU'=>'00000',
-					  'telU'=>'0606060606',
-					  'dateU'=>$date,
-					  'signalU'=>'1',
-					  'valide'=>'0'
-					]);
-					//on crée un objet pour manager utilisateur pour gerer l'utilisateur et BDD
-					$manageU = new UtilisateurManager ($bdd);
-					//on appelle la fonction ajout avec en param l'objet utilisateur
-					$manageU->add($utilisateur);
-        }
-      }
-    }
-?>
 
 	<script>
 	/*SLIDE SHOW INDEX*/

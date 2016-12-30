@@ -17,8 +17,8 @@ class UtilisateurManager {
   }
 
   /***CRUD***/
+  //ajoute un nouvelle utilisateur = inscription
   public function add(Utilisateur $ut)
-
     {
       $q = $this->_db->prepare("INSERT INTO utilisateur ( emailU, mdpU, nomU, prenomU, adresseU, villeU, cpU, telU, dateU, signalU, valide) VALUES( :emailU, :mdpU, :nomU, :prenomU, :adresseU, :villeU, :cpU, :telU, :dateU, :signalU, :valide)");
 
@@ -45,7 +45,89 @@ class UtilisateurManager {
         echo '</script>';
       }
     }
+
+    //compte le nombre d'utilisateurs et le retourne;
+  public function count()
+  {
+    return $this->_db->query('SELECT COUNT(*) FROM utilisateur')->fetchColumn();
+  }
+
+  //supprime un utilisateur;
+  public function delete(Utilisateur $ut)
+  {
+    $this->_db->exec('DELETE FROM personnages WHERE id = '.$ut->id());
+  }
+
+  //verifie si existe
+  public function exists($courriel, $mdp)
+  {
+
+    $q = $this->_db->prepare("SELECT idU, emailU, mdpU, valide FROM utilisateur WHERE emailU = :emailU AND mdpU=:mdpU");
+    $q->execute([
+      ':emailU' => $courriel,
+      ':mdpU' => $mdp
+    ]);
+  return (bool) $q->fetchColumn();
+  }
+
+  // verif si email déjà utilisé
+  public function verifEmailLibre($courriel)
+  {
+    $q = $this->_db->prepare("SELECT idU, emailU, mdpU, valide FROM utilisateur WHERE emailU = :emailU ");
+    $q->execute([':emailU' => $courriel]);
+    return (bool) $q->fetchColumn();
+  }
+
+  // on renvoi l'ensemble des info utilisateurs
+  public function getUtilisateur($courriel, $mdp)
+  {
+    $q = $this->_db->prepare("SELECT idU, emailU, mdpU, valide FROM utilisateur WHERE emailU = :emailU AND mdpU=:mdpU");
+    $q->execute([
+      ':emailU' => $courriel,
+      ':mdpU' => $mdp
+    ]);
+    return new Utilisateur ($q->fetch(PDO::FETCH_ASSOC));
+
+    }
+
+
+  public function update(Utilisateur $ut){
+
+
+  }
+
+  public function read(Utilisateur $ut){
+
+  }
 }
 
+/*  public function getList($nom)
+  {
+    $persos = [];
 
- ?>
+    $q = $this->_db->prepare('SELECT id, nom, degats FROM personnages WHERE nom <> :nom ORDER BY nom');
+    $q->execute([':nom' => $nom]);
+
+    while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
+    {
+      $persos[] = new Personnage($donnees);
+    }
+
+    return $persos;
+  }
+
+  public function update(Personnage $perso)
+  {
+    $q = $this->_db->prepare('UPDATE personnages SET degats = :degats WHERE id = :id');
+
+    $q->bindValue(':degats', $perso->degats(), PDO::PARAM_INT);
+    $q->bindValue(':id', $perso->id(), PDO::PARAM_INT);
+
+    $q->execute();
+  }
+
+  public function setDb(PDO $db)
+  {
+    $this->_db = $db;
+  }*/
+?>
