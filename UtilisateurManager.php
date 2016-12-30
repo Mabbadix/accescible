@@ -20,9 +20,9 @@ class UtilisateurManager {
   //ajoute un nouvelle utilisateur = inscription
   public function add(Utilisateur $ut)
     {
-      $q = $this->_db->prepare("INSERT INTO utilisateur ( emailU, mdpU, nomU, prenomU, adresseU, villeU, cpU, telU, dateU, signalU, valide) VALUES( :emailU, :mdpU, :nomU, :prenomU, :adresseU, :villeU, :cpU, :telU, :dateU, :signalU, :valide)");
+      $q = $this->_db->prepare("INSERT INTO utilisateur ( emailU, mdpU, nomU, prenomU, adresseU, villeU, cpU, telU, dateU, signalU, valide, confirmKey,  confirme) VALUES( :emailU, :mdpU, :nomU, :prenomU, :adresseU, :villeU, :cpU, :telU, :dateU, :signalU, :valide, :confirmKey, :confirme)");
 
-      /*$q->bindValue(':idU', $ut->getIdU());*/
+      //$q->bindValue(':idU', $ut->getIdU());
       $q->bindValue(':emailU', $ut->getEmailU());
       $q->bindValue(':mdpU', $ut->getMdpU());
       $q->bindValue(':nomU', $ut->getNomU());
@@ -34,11 +34,16 @@ class UtilisateurManager {
       $q->bindValue(':dateU', $ut->getDateU());
       $q->bindValue(':signalU', $ut->getSignalU());
       $q->bindValue(':valide', $ut->getValide());
+      $q->bindValue(':confirmKey', $ut->getConfirmKey());
+      $q->bindValue(':confirme', $ut->getConfirme());
 
       $q->execute();
-      if (!$q) {
+      if (!$q)
+      {
         print($q->errorInfo());
-      } else {
+      }
+      else
+      {
         echo "<script language='JavaScript' type='text/javascript'>";
         echo 'alert("BIENVENUE ! Connectez-vous");';
         echo 'history.back(-1)';
@@ -87,21 +92,17 @@ class UtilisateurManager {
       ':mdpU' => $mdp
     ]);
     return new Utilisateur ($q->fetch(PDO::FETCH_ASSOC));
-
-    }
-
-
-  public function update(Utilisateur $ut){
+  }
 
 
+//RESTE A FAIRE
+  /*public function update(Utilisateur $ut){
   }
 
   public function read(Utilisateur $ut){
-
   }
-}
 
-/*  public function getList($nom)
+public function getList($nom)
   {
     $persos = [];
 
@@ -130,4 +131,5 @@ class UtilisateurManager {
   {
     $this->_db = $db;
   }*/
+}
 ?>

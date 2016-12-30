@@ -1,18 +1,20 @@
 <?php
 /* Objet utilisateur pour enregistrement et autre"*/
 class Utilisateur {
-  private $_idU;
-  private $_emailU;
-  private $_mdpU;
-  private $_nomU;
-  private $_prenomU;
-  private $_adresseU;
-  private $_villeU;
-  private $_cpU;
-  private $_telU;
-  private $_dateU;
-  private $_signalU;
-  private $_valide;
+  protected $idU;
+  protected $emailU;
+  protected $mdpU;
+  protected $nomU;
+  protected $prenomU;
+  protected $adresseU;
+  protected $villeU;
+  protected $cpU;
+  protected $telU;
+  protected $dateU;
+  protected $signalU;
+  protected $valide;
+  protected $confirmKey;
+  protected $confirme;
 
   /************Constructeur***************/
   public function __construct(array $donnees)
@@ -42,7 +44,7 @@ class Utilisateur {
      */
     public function getIdU()
     {
-        return $this->_idU;
+        return $this->idU;
     }
 
     /**
@@ -52,7 +54,7 @@ class Utilisateur {
      */
     public function getEmailU()
     {
-        return $this->_emailU;
+        return $this->emailU;
     }
 
     /**
@@ -62,7 +64,7 @@ class Utilisateur {
      */
     public function getMdpU()
     {
-        return $this->_mdpU;
+        return $this->mdpU;
     }
 
     /**
@@ -72,7 +74,7 @@ class Utilisateur {
      */
     public function getNomU()
     {
-        return $this->_nomU;
+        return $this->nomU;
     }
 
     /**
@@ -82,7 +84,7 @@ class Utilisateur {
      */
     public function getPrenomU()
     {
-        return $this->_prenomU;
+        return $this->prenomU;
     }
 
     /**
@@ -92,7 +94,7 @@ class Utilisateur {
      */
     public function getAdresseU()
     {
-        return $this->_adresseU;
+        return $this->adresseU;
     }
 
     /**
@@ -102,7 +104,7 @@ class Utilisateur {
      */
     public function getVilleU()
     {
-        return $this->_villeU;
+        return $this->villeU;
     }
 
     /**
@@ -112,7 +114,7 @@ class Utilisateur {
      */
     public function getCpU()
     {
-        return $this->_cpU;
+        return $this->cpU;
     }
 
     /**
@@ -122,7 +124,7 @@ class Utilisateur {
      */
     public function getTelU()
     {
-        return $this->_telU;
+        return $this->telU;
     }
 
     /**
@@ -132,7 +134,7 @@ class Utilisateur {
      */
     public function getDateU()
     {
-        return $this->_dateU;
+        return $this->dateU;
     }
 
     /**
@@ -142,7 +144,7 @@ class Utilisateur {
      */
     public function getSignalU()
     {
-        return $this->_signalU;
+        return $this->signalU;
     }
 
     /**
@@ -152,21 +154,29 @@ class Utilisateur {
      */
     public function getValide()
     {
-        return $this->_valide;
+        return $this->valide;
     }
 
+    public function getConfirmKey()
+    {
+        return $this->confirmKey;
+    }
+    public function getConfirme()
+    {
+        return $this->confirme;
+    }
   /*****************SETERS**************/
 
     /**
      * Set the value of Id
      *
-     * @param mixed _idU
+     * @param mixed idU
      *
      * @return self
      */
-    public function setIdU($_idU)
+    public function setIdU($idU)
     {
-        $this->_idU = $_idU;
+        $this->idU = $idU;
 
         return $this;
     }
@@ -174,13 +184,13 @@ class Utilisateur {
     /**
      * Set the value of Email
      *
-     * @param mixed _emailU
+     * @param mixed emailU
      *
      * @return self
      */
-    public function setEmailU($_emailU)
+    public function setEmailU($emailU)
     {
-        $this->_emailU = $_emailU;
+        $this->emailU = $emailU;
 
         return $this;
     }
@@ -188,13 +198,13 @@ class Utilisateur {
     /**
      * Set the value of Mdp
      *
-     * @param mixed _mdpU
+     * @param mixed mdpU
      *
      * @return self
      */
-    public function setMdpU($_mdpU)
+    public function setMdpU($mdpU)
     {
-        $this->_mdpU = $_mdpU;
+        $this->mdpU = $mdpU;
 
         return $this;
     }
@@ -202,13 +212,13 @@ class Utilisateur {
     /**
      * Set the value of Nom
      *
-     * @param mixed _nomU
+     * @param mixed nomU
      *
      * @return self
      */
-    public function setNomU($_nomU)
+    public function setNomU($nomU)
     {
-        $this->_nomU = $_nomU;
+        $this->nomU = $nomU;
 
         return $this;
     }
@@ -220,9 +230,9 @@ class Utilisateur {
      *
      * @return self
      */
-    public function setPrenomU($_prenomU)
+    public function setPrenomU($prenomU)
     {
-        $this->_prenomU = $_prenomU;
+        $this->prenomU = $prenomU;
 
         return $this;
     }
@@ -234,9 +244,9 @@ class Utilisateur {
      *
      * @return self
      */
-    public function setAdresseU($_adresseU)
+    public function setAdresseU($adresseU)
     {
-        $this->_adresseU = $_adresseU;
+        $this->adresseU = $adresseU;
 
         return $this;
     }
@@ -244,13 +254,13 @@ class Utilisateur {
     /**
      * Set the value of Ville
      *
-     * @param mixed _villeU
+     * @param mixed villeU
      *
      * @return self
      */
-    public function setVilleU($_villeU)
+    public function setVilleU($villeU)
     {
-        $this->_villeU = $_villeU;
+        $this->villeU = $villeU;
 
         return $this;
     }
@@ -258,13 +268,13 @@ class Utilisateur {
     /**
      * Set the value of Cp
      *
-     * @param mixed _cpU
+     * @param mixed cpU
      *
      * @return self
      */
-    public function setCpU($_cpU)
+    public function setCpU($cpU)
     {
-        $this->_cpU = $_cpU;
+        $this->cpU = $cpU;
 
         return $this;
     }
@@ -272,13 +282,13 @@ class Utilisateur {
     /**
      * Set the value of Tel
      *
-     * @param mixed _telU
+     * @param mixed telU
      *
      * @return self
      */
     public function setTelU($_telU)
     {
-        $this->_telU = $_telU;
+        $this->telU = $telU;
 
         return $this;
     }
@@ -286,13 +296,13 @@ class Utilisateur {
     /**
      * Set the value of Date
      *
-     * @param mixed _dateU
+     * @param mixed dateU
      *
      * @return self
      */
-    public function setDateU($_dateU)
+    public function setDateU($dateU)
     {
-        $this->_dateU = $_dateU;
+        $this->dateU = $dateU;
 
         return $this;
     }
@@ -300,13 +310,13 @@ class Utilisateur {
     /**
      * Set the value of Signal
      *
-     * @param mixed _signalU
+     * @param mixed signalU
      *
      * @return self
      */
-    public function setSignalU($_signalU)
+    public function setSignalU($signalU)
     {
-        $this->_signalU = $_signalU;
+        $this->signalU = $signalU;
 
         return $this;
     }
@@ -314,18 +324,27 @@ class Utilisateur {
     /**
      * Set the value of Valide
      *
-     * @param mixed _valide
+     * @param mixed valide
      *
      * @return self
      */
     public function setValide($_valide)
     {
-        $this->_valide = $_valide;
+        $this->valide = $valide;
 
         return $this;
     }
 
+    public function setConfirmKey($confirmKey)
+    {
+        $this->confirmKey = $confirmKey;
+        return $this;
+    }
+    public function setConfirme($confirme)
+    {
+      $this->confirme = $confirme;
+      return $this;
+    }
 }
 
-
- ?>
+?>

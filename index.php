@@ -19,15 +19,13 @@ if (isset($_GET['deconnexion']))
 require 'connData.php';
 $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
 
-//traitement sur la page index
-
+/***********traitement sur la page index*/
 
 	//On récupère les infos saisies dans les imputs
 	$Courriel = htmlspecialchars($_POST['Courriel']);
 	$Mdp = sha1($_POST['Mot_de_passe']);
 
-	// on créé des instances des classe utilisateur et managerUtilisateur
-
+	// on créé une instance de UtilisateurManager
 	$managerU = new UtilisateurManager ($bdd);
 
 	//on verifie que le compte existe
@@ -37,43 +35,42 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 
 	if (isset($_POST['se_connecter']))
 	{
-			//si n'existe on informe;
-			if (!$exist) {
-					echo "<script language='JavaScript' type='text/javascript'>";
-					echo 'alert("Aucun compte ne correspond à ces données ! Inscrivez-vous ou verifiez votre saise. Merci");';
+		//si n'existe on informe;
+		if (!$exist) {
+				echo "<script language='JavaScript' type='text/javascript'>";
+				echo 'alert("Aucun compte ne correspond à ces données ! Inscrivez-vous ou verifiez votre saise. Merci");';
+				echo 'history.back(-1)';
+				echo '</script>';
+		}
+			//Si existe
+		elseif ($exist) {
+				//le manager instancie cet utilisateur via getUtilisateur qui renvoie un objet Utilisateur
+				$ut = $managerU->getUtilisateur($Courriel, $Mdp);
+				//On verfie que pas banni
+			if ($ut->getvalide() == 1) {
+					//on verifie que compte n'est pas banni avec la donnée "valide" dela bd (1= bani, 0 = Ok);
+				echo "<script language='JavaScript' type='text/javascript'>";
+					echo 'alert("Votre compte a été bloqué");';
 					echo 'history.back(-1)';
 					echo '</script>';
 			}
-				//Si existe
-			elseif ($exist) {
-					//le manager instancie cette utilisateur
-					$ut = $managerU->getUtilisateur($Courriel, $Mdp);
-					//On verfie que pas banni
-
-				if ($ut->getvalide() == 1) {
-						//on verifie que compte n'est pas banni avec la donnée "valide" dela bd (1= bani, 0 = Ok);
-					echo "<script language='JavaScript' type='text/javascript'>";
-						echo 'alert("Votre compte a été bloqué");';
-						echo 'history.back(-1)';
-						echo '</script>';
-				}
-				// Si compte valide on accede au compte
-				elseif ($ut->getvalide() == 0) {
-						//on informe que Ok + on accède à la page Usercate
-					$_SESSION['emailU'] = $ut->getEmailU();
-					$_SESSION['mdpU'] = $ut->getMdpU();
-					//on redirige
-					echo '<div id="ok">Connexion réussie. Redirection en cours...</div>
-					<script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",500) </script>';
-				}
+			// Si compte valide on accede au compte
+			elseif ($ut->getvalide() == 0) {
+					//créé les parametre de session
+				$_SESSION['emailU'] = $ut->getEmailU();
+				$_SESSION['mdpU'] = $ut->getMdpU();
+				//informe et on redirige
+				echo '<div id="ok">Connexion réussie. Redirection en cours...</div>
+				<script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",500) </script>';
 			}
+		}
 	}
+
 	/**********SI CLIQUE S'INSCRIRE*************/
 	elseif (isset($_POST['boutInscription']))
 	{
-		//On vérifie tout de même que si compte existe ou non si c'est le cas idem que "connexion"
-		if ($exist)
-		//si c'est le cas idem que btn "connexion"
+		//On vérifie tout de même que si compte existe
+		if ($exist)//si c'est le cas idem que btn "connexion"
 		{
 			//le manager instancie cet utilisateur
 			$ut = $managerU->getUtilisateur($Courriel, $Mdp);
@@ -93,11 +90,10 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 				echo '<div id="ok">Connexion réussie mais attention vous avez cliquez sur Inscription au lieu de Connexion</div>
 				<script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",1000) </script>';
 			}
-		}//Si 0 correspondance = aucun compte normalement
-		elseif (!$exist)
+		}
+		elseif (!$exist)//Si aucun compte normalement
 		{
-			//on vérifie toutefois que l'email n'est déjà pas utilisé
-			//verifEmailLibre() retourne vrai si l'email est pris ou false sinon
+			//on vérifie toutefois que l'email est pas pris avec verifEmailLibre()
 			$emailPris = $managerU->verifEmailLibre($Courriel);
 			if ($emailPris)
 			{
@@ -116,16 +112,16 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 					'mdpU'=>$Mdp,
 					'nomU'=>'Nom',
 					'prenomU'=>'Prenom',
-					'adresseU'=>'adresse',
-					'villeU'=>'ville',
+					'adresseU'=>'Adresse',
+					'villeU'=>'Ville',
 					'cpU'=>'00000',
 					'telU'=>'0606060606',
 					'dateU'=>$date,
 					'signalU'=>'1',
-					'valide'=>'0'
+					'valide'=>'0',
+					'confirmKey'=>'ConfirmKey',
+					'confirme'=> '1'
 				]);
-				//on crée un objet pour manager utilisateur pour gerer l'utilisateur et BDD
-				$managerU = new UtilisateurManager ($bdd);
 				//on appelle la fonction ajout avec en param l'objet utilisateur
 				$managerU->add($utilisateur);
 			}
@@ -139,82 +135,79 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 	<head>
 		<!-- Integration de toutes les metas et autres link
 				ATTENTION css propre à la page index = "style.css" -->
-		  <?php include 'head.php'; ?>
+		<?php include 'head.php'; ?>
 		<title>Acces'Cible-Accueil</title>
 	</head>
 
 	<body>
-			<!-- SLIDE SHOW INDEX!-->
-			<div class="slideshow-container">
-				<div class="mySlides fade">
-				  <div class="numbertext">1 / 3</div>
-				  <img src="img/logo7.svg" style="width:100%">
-				  <div class="text">signaler</div>
-				</div>
-				<div class="mySlides fade">
-				  <div class="numbertext">2 / 3</div>
-				  <img src="img/logo7.svg" style="width:100%">
-				  <div class="text">décider</div>
-				</div>
-				<div class="mySlides fade">
-				  <div class="numbertext">3 / 3</div>
-				  <img src="img/logo7.svg" style="width:100%">
-				  <div class="text">adapter</div>
-				</div>
+		<!-- SLIDE SHOW INDEX!-->
+		<div class="slideshow-container">
+			<div class="mySlides fade">
+			  <div class="numbertext">1 / 3</div>
+			  <img src="img/logo7.svg" style="width:100%">
+			  <div class="text">signaler</div>
 			</div>
-			</br>
+			<div class="mySlides fade">
+			  <div class="numbertext">2 / 3</div>
+			  <img src="img/logo7.svg" style="width:100%">
+			  <div class="text">décider</div>
+			</div>
+			<div class="mySlides fade">
+			  <div class="numbertext">3 / 3</div>
+			  <img src="img/logo7.svg" style="width:100%">
+			  <div class="text">adapter</div>
+			</div>
+		</div>
+		</br>
 
-			<!-- BOUTON ROND !-->
-			<div id="dot" style="text-align:center">
-			  <span class="dot"></span>
-			  <span class="dot"></span>
-			  <span class="dot"></span>
-			</div>
-			</br>
-      <div>
+		<!-- BOUTON ROND !-->
+		<div id="dot" style="text-align:center">
+		  <span class="dot"></span>
+		  <span class="dot"></span>
+		  <span class="dot"></span>
+		</div>
+		</br>
+    <div>
 			<!-- CONN ET INSCRIPTION !-->
 			<form name ="formConn" method="post" id="button" style="text-align:center">
 				<label for="Courriel"></label><input class="button connexion" id="Courriel" type="email"
-					name="Courriel" placeholder="dupont@gmail.com<?php if (!empty($_POST['Courriel'])) {
-    echo stripcslashes(htmlspecialchars($_POST['Courriel'], ENT_QUOTES));
-} ?>"  required maxlength="100"><br/>
+					name="Courriel" placeholder="dupont@gmail.com<?php if (!empty($_POST['Courriel'])) {echo stripcslashes(htmlspecialchars($_POST['Courriel'], ENT_QUOTES));} ?>"  required maxlength="100"><br/>
 	      <label for="Mot_de_passe"></label> <input class="button inscription" id="Mot_de_passe" type="password"
-					name="Mot_de_passe" placeholder="Mot de passe<?php if (!empty($_POST['Mot_de_passe'])) {
-    echo stripcslashes(htmlspecialchars($_POST['Mot_de_passe'], ENT_QUOTES));
-} ?>" required maxlength="50"><br/>
+					name="Mot_de_passe" placeholder="Mot de passe<?php if (!empty($_POST['Mot_de_passe'])) {echo stripcslashes(htmlspecialchars($_POST['Mot_de_passe'], ENT_QUOTES));} ?>" required maxlength="50"><br/>
 					<label for="se_connecter"></label>
 				<button class="button connexion" id="se_connecter" type="submit"
 				name="se_connecter"value="se connecter" formaction = "index.php">Connexion</button>
 				<button class="button inscription" type="submit" name="boutInscription" formaction="index.php">
 					Inscription</button>
 			</form>
-	</div>
+		</div>
 
+		<script>
+		/*SLIDE SHOW INDEX*/
+			var slideIndex = 0;
+			showSlides();
 
-	<script>
-	/*SLIDE SHOW INDEX*/
-		var slideIndex = 0;
-		showSlides();
-
-		function showSlides() {
-		    var i;
-		    var slides = document.getElementsByClassName("mySlides");
-		    var dots = document.getElementsByClassName("dot");
-		    for (i = 0; i < slides.length; i++) {
-		       slides[i].style.display = "none";
-		    }
-		    slideIndex++;
-		    if (slideIndex> slides.length) {slideIndex = 1}
-		    for (i = 0; i < dots.length; i++) {
-		        dots[i].className = dots[i].className.replace(" active", "");
-		    }
-		    slides[slideIndex-1].style.display = "block";
-		    dots[slideIndex-1].className += " active";
-		    setTimeout(showSlides, 5000); // Change image every 2 seconds
-		}
-	</script>
-	<noscript><div id="erreur"><b>Votre navigateur ne prend pas en charge JavaScript!</b> Veuillez activer JavaScript afin de profiter pleinement du site.</div></noscript>
-  </body>
+			function showSlides() {
+			    var i;
+			    var slides = document.getElementsByClassName("mySlides");
+			    var dots = document.getElementsByClassName("dot");
+			    for (i = 0; i < slides.length; i++) {
+			       slides[i].style.display = "none";
+			    }
+			    slideIndex++;
+			    if (slideIndex> slides.length) {slideIndex = 1}
+			    for (i = 0; i < dots.length; i++) {
+			        dots[i].className = dots[i].className.replace(" active", "");
+			    }
+			    slides[slideIndex-1].style.display = "block";
+			    dots[slideIndex-1].className += " active";
+			    setTimeout(showSlides, 5000); // Change image every 2 seconds
+			}
+		</script>
+		<noscript>
+			<div id="erreur"><b>Votre navigateur ne prend pas en charge JavaScript!</b> Veuillez activer JavaScript afin de profiter pleinement du site.</div>
+		</noscript>
+	</body>
 </html>
 
 <!--div id="conteneur">
