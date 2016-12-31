@@ -144,18 +144,18 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 		<div class="slideshow-container">
 			<div class="mySlides fade">
 			  <div class="numbertext">1 / 3</div>
-			  <img src="img/logo7.svg" style="width:100%">
+			  <img src="img/logo71.svg" style="width:100%">
 			  <div class="text">signaler</div>
 			</div>
 			<div class="mySlides fade">
 			  <div class="numbertext">2 / 3</div>
-			  <img src="img/logo7.svg" style="width:100%">
-			  <div class="text">décider</div>
+			  <img src="img/logo72.svg" style="width:100%">
+			  <div class="text">signaler - décider</div>
 			</div>
 			<div class="mySlides fade">
 			  <div class="numbertext">3 / 3</div>
-			  <img src="img/logo7.svg" style="width:100%">
-			  <div class="text">adapter</div>
+			  <img src="img/logo73.svg" style="width:100%">
+			  <div class="text">signaler - décider - adapter</div>
 			</div>
 		</div>
 		</br>
@@ -201,7 +201,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 			    }
 			    slides[slideIndex-1].style.display = "block";
 			    dots[slideIndex-1].className += " active";
-			    setTimeout(showSlides, 5000); // Change image every 2 seconds
+			    setTimeout(showSlides, 3500); // Change image every .... seconds
 			}
 		</script>
 		<noscript>

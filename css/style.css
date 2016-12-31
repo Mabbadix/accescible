@@ -41,7 +41,7 @@ body {
 }
 
 /* The dots/bullets/indicators */
-.dot {
+/*.dot {
   height: 13px;
   width: 13px;
   margin: 0 2px;
@@ -60,9 +60,9 @@ body {
   -webkit-animation-duration: 2s;
   animation-name: fade;
   animation-duration: 2s;
-}
+}*/
 /* Fading animation */
-@-webkit-keyframes fade {
+/*@-webkit-keyframes fade {
   from {opacity: .6}
   to {opacity: 1}
 }
@@ -70,7 +70,7 @@ body {
 @keyframes fade {
   from {opacity: .6}
   to {opacity: 1}
-}
+}*/
 
 
 /*BOUTON CONN, INSCRIPTION, SE CONNECTER ETC*/
