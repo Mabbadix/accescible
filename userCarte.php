@@ -74,7 +74,24 @@
               google.maps.event.addListener(marker, 'click', function (event) {
                 alert("Le marqueur a été cliqué."); //message d'alerte
               });
+
+							//autre makerS
+							//tableau contenant tous les marqueurs que nous créerons
+							var tabMarqueurs = new Array();
+							//notez la présence de l'argument "event" entre les parenthèses de "function()"
+							google.maps.event.addListener(map, 'click', function(event) {
+									tabMarqueurs.push(new google.maps.Marker({
+											position: event.latLng,//coordonnée de la position du clic sur la carte
+											map: map//la carte sur laquelle le marqueur doit être affiché
+									}));
+							});
+
             }
+
+						function makerS(){
+
+						}
+
             // Error si carte impossible à afficher
             function showError(error) {
               switch (error.code) {
@@ -94,7 +111,7 @@
             }
             // Test si géolocalisation supporter par navigateur
             if (navigator.geolocation) {
-              navigator.geolocation.getCurrentPosition(showPosition, showError);
+              navigator.geolocation.getCurrentPosition(showPosition,makerS, showError);
             }
             else {
               x.innerHTML = "Geolocation is not supported by this browser.";
