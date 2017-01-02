@@ -40,10 +40,12 @@
         <div id="mapcanvas">
           <!-- Intégration de la carte + Geolocation + placement maker -->
           <!-- Laisser ce script à l'exterieur du script de recupération MAP-->
-          <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-          <script>
-            // Geolocation + Marker
-            //Récuperation de la Div "mapcanvas" du html
+          <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTFqUmefn5-fJ2E20dOfyH-0-jVbZx5Lc">
+
+					</script>
+
+          <script>// Geolocation + Marker
+              //Récuperation de la Div "mapcanvas" du html
             var mapcanvas = document.getElementById("mapcanvas");
             //Geolocation sur map
             function showPosition(position) {
@@ -61,15 +63,15 @@
               var majMap = map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
               // création Maker et son placement
               var marker = new google.maps.Marker({
-                position: latlng
-                , map: map
-                , draggable: true
-                , icon: "img/maker.svg"
-                , animation: google.maps.Animation.BOUNCE
-                , title: "Vous êtes ici ! (à +/- " + position.coords.accuracy + " mètres à la ronde)"
+                position: latlng,
+								map: map,
+								draggable: true,
+								icon: "img/maker.svg",
+								animation: google.maps.Animation.BOUNCE,
+								title: "Vous êtes ici ! (à +/- " + position.coords.accuracy + " mètres à la ronde)"
               });
               // Event de click sur marker de position
-              google.maps.event.addListener(marker, 'click', function () {
+              google.maps.event.addListener(marker, 'click', function (event) {
                 alert("Le marqueur a été cliqué."); //message d'alerte
               });
             }

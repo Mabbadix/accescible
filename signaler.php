@@ -12,15 +12,16 @@ if (isset($_SESSION['emailU'])){
 <html lang="fr">
 	<head>
     <?php include ("headUtilisateur.php"); ?>
-		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-		<title>Acces'Cible-Carte_Signaler</title>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTFqUmefn5-fJ2E20dOfyH-0-jVbZx5Lc">
+		</script>
+		<title>Acces'Cible-Signalement</title>
 	</head>
 
 	<body>
   <header><!-- NAVBAR -->
 		<?php include 'headerNavSignaler.php'; ?>
   </header>
-  <main>
+  <main><!--CENTER-->
 		<div class="mainUserCarte">
 			<div class="mainLeft">
         <form class="unSignalement" name ="signalement" method = "post"
@@ -63,8 +64,11 @@ if (isset($_SESSION['emailU'])){
 						<input type="hidden" name="MAX_FILE_SIZE" value="1000000">
 						<input type="file" name="photoS">
 					</fieldset>
-					<label for="signaler"></label><br/><input  class="unSignalement"
-					type="submit" name="signaler" value="signaler" id="signaler" formaction = "unSignalement.php">
+					<fieldset name="valider">
+						<legend>Valider</legend>
+						<label for="signaler"></label><br/><input  class="unSignalement"
+						type="submit" name="signaler" value="signaler" id="signaler" formaction = "unSignalement.php">
+            </fieldset>
         </form>
 			</div>
 		<div id="mapcanvas">
@@ -117,7 +121,7 @@ if (isset($_SESSION['emailU'])){
 						x.innerHTML = "Geolocation is not supported by this browser.";
 				}
 				function ClicBouton (){
-
+					navigator.geolocation.getCurrentPosition(showPosition, showError);
 					alert ("je n'y arrive pas");
 				}
 			</script>
