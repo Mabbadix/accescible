@@ -59,6 +59,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 					//créé les parametre de session
 				$_SESSION['emailU'] = $ut->getEmailU();
 				$_SESSION['mdpU'] = $ut->getMdpU();
+				$_SESSION['logged'] = true;
 				//informe et on redirige
 				echo '<div id="ok">Connexion réussie. Redirection en cours...</div>
 				<script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",500) </script>';

@@ -93,7 +93,15 @@ class UtilisateurManager {
     ]);
     return new Utilisateur ($q->fetch(PDO::FETCH_ASSOC));
   }
-
+  
+  public function isConnected()
+  {
+    if(isset($_SESSION['logged'])&&($_SESSION['logged'] === true)){
+      return true;
+    }else{
+      return false;
+    }
+  }
 
 //RESTE A FAIRE
   /*public function update(Utilisateur $ut){

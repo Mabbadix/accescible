@@ -2,8 +2,8 @@
 //ouverture de session
 	session_start();
 	require 'connData.php';
-	if (isset($_SESSION['emailU'])){
-
+  require 'UtilisateurManager.php';
+  $manageU = new UtilisateurManager($bdd);
 ?>
   <!DOCTYPE html>
   <html lang="fr">
@@ -40,7 +40,7 @@
         <div id="mapcanvas">
           <!-- Intégration de la carte + Geolocation + placement maker -->
           <!-- Laisser ce script à l'exterieur du script de recupération MAP-->
-          <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+        <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTFqUmefn5-fJ2E20dOfyH-0-jVbZx5Lc"></script>
           <script>
             // Geolocation + Marker
             //Récuperation de la Div "mapcanvas" du html
@@ -105,12 +105,3 @@
   </body>
 
   </html>
-  <?php
-// ATTENTION FERMETURE DE LA SESSION SI ouverture
-}else {
-
-	header("location: index.php");
-
-}
-
- ?>
