@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
     <meta name="description" content="Signaler les problemes d'accessibilité près de chez vous afin que les personnes compétentes y remédient."/>
     <meta name="robots" content="index, follow"/>
-    <meta name="Author" content="Mehdi Abbadi, Dylan Bourdere Andreou, Design Emmanuelle Brasselle">
+    <meta name="Author" content="Mehdi Abbadi, Dylan Bourdere Andreou, Design Emmanuelle Brasselle"/>
     <link rel="stylesheet" type="text/css" href="css/style.css" media="screen"/>
     <link rel="shortcut icon" href="img/logo7.png"/>
     <link rel="icon" type="image/x-icon" sizes="16x16" href="img/logo7.png"/>

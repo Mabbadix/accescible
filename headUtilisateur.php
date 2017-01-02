@@ -1,10 +1,10 @@
 <meta charset=utf-8 />
 <meta http-equiv="Content-Language" content="fr" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-<meta name="description" content="page utilisateur" />
+<meta name="description" content="Carte des problèmes d'accessibilité signalés" />
 <meta name="keywords" content="accessibilité handicap aide" />
 <meta name="robots" content="index,follow" />
-<meta name="author" content="Mehdi Abbadi, Design Emmanuelle Brasselle" />
+<meta name="author" content="Mehdi Abbadi, Dylan Bourdere Andreou, Design Emmanuelle Brasselle"/>
 <link rel="stylesheet" type="text/css" href="css/styleUser.css" media="screen" />
 <link rel="shortcut icon" href="img/logo7.png" />
 <link rel="icon" type="image/x-icon" sizes="16x16" href="img/logo7.png" />
