@@ -85,12 +85,19 @@
 											map: map//la carte sur laquelle le marqueur doit être affiché
 									}));
 							});
+							//autre makerS
+							//tableau contenant tous les marqueurs que nous créerons
+							var tabMarqueurs = new Array();
+							//notez la présence de l'argument "event" entre les parenthèses de "function()"
+							google.maps.event.addListener(map, 'click', function(event) {
+									tabMarqueurs.push(new google.maps.Marker({
+											position: event.latLng,//coordonnée de la position du clic sur la carte
+											map: map//la carte sur laquelle le marqueur doit être affiché
+									}));
+							});
 
-            }
+            }//fin de showposition
 
-						function makerS(){
-
-						}
 
             // Error si carte impossible à afficher
             function showError(error) {
@@ -109,9 +116,9 @@
                 break;
               }
             }
-            // Test si géolocalisation supporter par navigateur
+            //Si géolocalisation supporter par navigateur alors appel de fonction
             if (navigator.geolocation) {
-              navigator.geolocation.getCurrentPosition(showPosition,makerS, showError);
+              navigator.geolocation.getCurrentPosition(showPosition,showError);
             }
             else {
               x.innerHTML = "Geolocation is not supported by this browser.";

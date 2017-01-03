@@ -12,8 +12,8 @@ if (isset($_SESSION['emailU'])){
 <html lang="fr">
 	<head>
     <?php include ("headUtilisateur.php"); ?>
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTFqUmefn5-fJ2E20dOfyH-0-jVbZx5Lc">
-		</script>
+
+
 		<title>Acces'Cible-Signalement</title>
 	</head>
 
@@ -33,10 +33,10 @@ if (isset($_SESSION['emailU'])){
 		          <label for="cpS"></label><input class="unSignalement" id="cpS"
 							 type="text" name="cpS" placeholder="code postal" maxlength=5 ><br/>
 		          <label for="villeS"></label><input class="unSignalement" id="villeS"
-							type="text" name="villeS" placeholder="ville" ><br/>OU
+							type="text" name="villeS" placeholder="ville" ><br/>
+							<label for="geocode"></label><input class="unSignalement" id="geocode" type="button" value="valider"><br/>OU
 							<br/>
-
-						<button class="unSignalement" id="seGeolocaliser" onclick="ClicBouton();">Se géolocaliser</button>
+							<label for="geocodeReverse"></label><input class="unSignalement" id="geocodeReverse" type="button" value="Se géolocaliser"><!--avt onclick="geoCoding();"-->
 					</fieldset>
 					<fieldset name="decrire">
 						<legend>Décrire</legend>
@@ -70,9 +70,49 @@ if (isset($_SESSION['emailU'])){
 						type="submit" name="signaler" value="signaler" id="signaler" formaction = "unSignalement.php">
             </fieldset>
         </form>
+
+
 			</div>
 		<div id="mapcanvas">
+			<script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTFqUmefn5-fJ2E20dOfyH-0-jVbZx5Lc&signed_in=true&callback=initMap">//signed = mettre icon comptegoogle du créateur map + callback = appel de focntion a renvoyer;
+	    </script>
 			<script>
+			function initMap()
+			{
+				var mapcanvas = document.getElementById("mapcanvas");
+				var myOptions = {
+						zoom: 10,
+						center: {lat: -34.397, lng: 150.644},
+						};
+				var map = new google.maps.Map(mapcanvas, myOptions);
+			  var geocoder = new google.maps.Geocoder();
+
+			  document.getElementById('geocode').addEventListener('click', function() {
+			    geocodeAddress(geocoder, map);
+			  });
+			}
+
+			function geocodeAddress(geocoder, resultsMap) {
+			  var addresse = document.getElementById('adresseS').value+" "+document.getElementById('cpS').value+" "+ document.getElementById('villeS').value;
+			  geocoder.geocode({'address': addresse}, function(results, status)
+				{
+			    if (status === google.maps.GeocoderStatus.OK)
+					{
+			      resultsMap.setCenter(results[0].geometry.location);
+			      var marker = new google.maps.Marker({
+			        map: resultsMap,
+			        position: results[0].geometry.location,
+							icon: "img/maker.svg",
+							animation:google.maps.Animation.BOUNCE
+			      });
+		    	} else {
+		      alert('Nous n\'avons pas pu localiser l\'adresse, merci de renseigner correctement les champs demandés.  ' + status);
+		    	}
+		  	});
+			}
+/*
+//original
+
 			var mapcanvas = document.getElementById("mapcanvas");
 
 			function showPosition(position) {
@@ -120,10 +160,10 @@ if (isset($_SESSION['emailU'])){
 				} else {
 						x.innerHTML = "Geolocation is not supported by this browser.";
 				}
-				function ClicBouton (){
+				function geoCoding (){
 					navigator.geolocation.getCurrentPosition(showPosition, showError);
 					alert ("je n'y arrive pas");
-				}
+				}*/
 			</script>
     </div>
   </div>
