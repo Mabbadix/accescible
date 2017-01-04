@@ -128,9 +128,10 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 					'confirmKey'=>$key,
 					'confirme'=> '0'
 				]);
+
 				//on appelle la fonction ajout avec en param l'objet utilisateur
 				$managerU->add($utilisateur);
-				$managerU->envoieMail($Courriel);
+				$managerU->envoieMail($Courriel, $key);
 			}
 		}
 	}
@@ -216,31 +217,3 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 		</noscript>
 	</body>
 </html>
-
-<!--div id="conteneur">
-	<button class="button connexion" >Connexion</button>
-	<button class="button inscription">Inscription</button>
-</div>
-<header>
-
-	header
-</header>
-
-<nav>
-	nav
-</nav>
-<main>
-	main
-	<section>
-		section
-	</section>
-	<article>
-		article
-	</article>
-	<aside>
-			side
-	</aside>
-</main>
-<footer>
-	footer
-</footer!-->

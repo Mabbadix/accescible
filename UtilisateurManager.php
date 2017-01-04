@@ -44,10 +44,10 @@ class UtilisateurManager {
       }
       else
       {
-        echo "<script language='JavaScript' type='text/javascript'>";
+        /*echo "<script language='JavaScript' type='text/javascript'>";
         echo 'alert("BIENVENUE ! Connectez-vous");';
         echo 'history.back(-1)';
-        echo '</script>';
+        echo '</script>';*/
       }
     }
 
@@ -103,7 +103,7 @@ class UtilisateurManager {
     }
   }
 
-  public function envoieMail($dMailU){
+  public function envoieMail($dMailU, $dkey){
     require 'vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
     $dMail = new PHPMailer;
     $dMail->isSMTP();
@@ -117,8 +117,8 @@ class UtilisateurManager {
     $dMail->addAddress("$dMailU", 'Vous');
     $dMail->isHTML(true);
     $dMail->Subject = 'Validation du compte Accescible';
-    $dMail->Body = "Bonjour";
-    $dMail->AltBody = "Bonjour";
+    $dMail->Body = "Bonjour $dkey";
+    $dMail->AltBody = "Bonjour $dkey";
     $dMail->send();
   }
 
