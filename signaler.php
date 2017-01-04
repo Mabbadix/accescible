@@ -125,8 +125,7 @@ if (isset($_SESSION['emailU'])){
 
     var input = /** @type {!HTMLInputElement} */ (document.getElementById('autocomplete'));
 
-
-		/***************MAP AFFICHEE DE BASE*********************/
+		/***************MAPS AFFICHER DE BASE*********************/
 
 		//Affiche la position de l'utilisateur;
 	  function showPosition(position) {
