@@ -2,8 +2,7 @@
 //ouverture de session
 	session_start();
 	require 'connData.php';
-  require 'UtilisateurManager.php';
-  $manageU = new UtilisateurManager($bdd);
+	if (isset($_SESSION['emailU'])){
 ?>
   <!DOCTYPE html>
   <html lang="fr">
@@ -40,10 +39,11 @@
         <div id="mapcanvas">
           <!-- Intégration de la carte + Geolocation + placement maker -->
           <!-- Laisser ce script à l'exterieur du script de recupération MAP-->
-        <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTFqUmefn5-fJ2E20dOfyH-0-jVbZx5Lc"></script>
-          <script>
-            // Geolocation + Marker
-            //Récuperation de la Div "mapcanvas" du html
+          <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTFqUmefn5-fJ2E20dOfyH-0-jVbZx5Lc">
+					</script>
+
+          <script>// Geolocation + Marker
+              //Récuperation de la Div "mapcanvas" du html
             var mapcanvas = document.getElementById("mapcanvas");
             //Geolocation sur map
             function showPosition(position) {
@@ -61,18 +61,42 @@
               var majMap = map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
               // création Maker et son placement
               var marker = new google.maps.Marker({
-                position: latlng
-                , map: map
-                , draggable: true
-                , icon: "img/maker.svg"
-                , animation: google.maps.Animation.BOUNCE
-                , title: "Vous êtes ici ! (à +/- " + position.coords.accuracy + " mètres à la ronde)"
+                position: latlng,
+								map: map,
+								draggable: true,
+								icon: "img/maker.svg",
+								animation: google.maps.Animation.BOUNCE,
+								title: "Vous êtes ici ! (à +/- " + position.coords.accuracy + " mètres à la ronde)"
               });
               // Event de click sur marker de position
-              google.maps.event.addListener(marker, 'click', function () {
+              google.maps.event.addListener(marker, 'click', function (event) {
                 alert("Le marqueur a été cliqué."); //message d'alerte
               });
-            }
+
+							//autre makerS
+							//tableau contenant tous les marqueurs que nous créerons
+							var tabMarqueurs = new Array();
+							//notez la présence de l'argument "event" entre les parenthèses de "function()"
+							google.maps.event.addListener(map, 'click', function(event) {
+									tabMarqueurs.push(new google.maps.Marker({
+											position: event.latLng,//coordonnée de la position du clic sur la carte
+											map: map//la carte sur laquelle le marqueur doit être affiché
+									}));
+							});
+							//autre makerS
+							//tableau contenant tous les marqueurs que nous créerons
+							var tabMarqueurs = new Array();
+							//notez la présence de l'argument "event" entre les parenthèses de "function()"
+							google.maps.event.addListener(map, 'click', function(event) {
+									tabMarqueurs.push(new google.maps.Marker({
+											position: event.latLng,//coordonnée de la position du clic sur la carte
+											map: map//la carte sur laquelle le marqueur doit être affiché
+									}));
+							});
+
+            }//fin de showposition
+
+
             // Error si carte impossible à afficher
             function showError(error) {
               switch (error.code) {
@@ -90,9 +114,9 @@
                 break;
               }
             }
-            // Test si géolocalisation supporter par navigateur
+            //Si géolocalisation supporter par navigateur alors appel de fonction
             if (navigator.geolocation) {
-              navigator.geolocation.getCurrentPosition(showPosition, showError);
+              navigator.geolocation.getCurrentPosition(showPosition,showError);
             }
             else {
               x.innerHTML = "Geolocation is not supported by this browser.";
@@ -105,3 +129,12 @@
   </body>
 
   </html>
+  <?php
+// ATTENTION FERMETURE DE LA SESSION SI ouverture
+}else {
+
+	header("location: index.php");
+
+}
+
+ ?>
