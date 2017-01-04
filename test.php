@@ -96,9 +96,7 @@
     of the Google Places API to help users fill in the information.*/
 
     //Variable we needs
-
-    var placeSearch, autocomplete;
-    var autocompletOk;
+    var autocomplete;
 
     //this var use same name of id component and google array result after autocomplete (=address_components)
     var componentForm = {
@@ -112,14 +110,14 @@
 
     var input = /** @type {!HTMLInputElement} */ (document.getElementById('autocomplete'));
     var text = document.getElementById('text');
-    // Create the autocomplete object, restricting the search to geographical
-    // location types.
+
 
 
 
 
     function initAutocomplete() {
 
+      //First map on the page
       var mapcanvas = document.getElementById("map");
       var myOptions = {
           zoom: 8,
@@ -128,7 +126,8 @@
       var map = new google.maps.Map(mapcanvas, myOptions);
 
 
-
+      // Create the autocomplete object, restricting the search to geographical
+      // location types.
       autocomplete = new google.maps.places.Autocomplete((input),
           {types: ['geocode'], 'componentRestrictions':{country:'FR'}});
 
@@ -210,7 +209,7 @@
     // [END region_geolocation]
     </script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTFqUmefn5-fJ2E20dOfyH-0-jVbZx5Lc&signed_in=true&libraries=places&callback=initAutocomplete" async defer>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_MWlHsvyibanac78IbtJ3DNuX8HImbJs&signed_in=true&libraries=places&callback=initAutocomplete" async defer>
     </script><!--Attention AutocompletionKey-->
 
 
