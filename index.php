@@ -107,6 +107,11 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 			{
 				// date du jour
 				$date = date('Y-m-d');
+				$longueurKey = 16;
+				$key = "";
+				for($i=1;$i<$longueurKey;$i++){
+					$key .= mt_rand(0,9);
+				}
 				//on crée un Objet utilisateur, qu'on hydrate ac les données récupérées
 				$utilisateur = new Utilisateur ([
 					'emailU'=>$Courriel,
@@ -120,11 +125,12 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 					'dateU'=>$date,
 					'signalU'=>'1',
 					'valide'=>'0',
-					'confirmKey'=>'ConfirmKey',
-					'confirme'=> '1'
+					'confirmKey'=>$key,
+					'confirme'=> '0'
 				]);
 				//on appelle la fonction ajout avec en param l'objet utilisateur
 				$managerU->add($utilisateur);
+				$managerU->envoieMail($Courriel);
 			}
 		}
 	}

@@ -103,6 +103,25 @@ class UtilisateurManager {
     }
   }
 
+  public function envoieMail($dMailU){
+    require 'vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
+    $dMail = new PHPMailer;
+    $dMail->isSMTP();
+    $dMail->Host = 'SSL0.OVH.NET';
+    $dMail->SMTPAuth = true;                           
+    $dMail->Username = 'administrateur@projetdev.ovh';                
+    $dMail->Password = 'Tu10madu1';                           
+    $dMail->SMTPSecure = 'ssl';                            
+    $dMail->Port = 465;                                    
+    $dMail->setFrom('Accescible@noreply.org', 'Accescible');
+    $dMail->addAddress("$dMailU", 'Vous');
+    $dMail->isHTML(true);
+    $dMail->Subject = 'Validation du compte Accescible';
+    $dMail->Body = "Bonjour";
+    $dMail->AltBody = "Bonjour";
+    $dMail->send();
+  }
+
 //RESTE A FAIRE
   /*public function update(Utilisateur $ut){
   }
