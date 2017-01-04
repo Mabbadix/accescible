@@ -204,7 +204,7 @@ function geolocate() {
 
 			function geocodeAddress(geocoder, resultsMap) {
 			  var addresse = document.getElementById('adresseS').value+" "+document.getElementById('cpS').value+ document.getElementById('villeS').value;
-				var country = 'FR'
+				var country = 'FR';
 			  geocoder.geocode({'address': addresse, 'componentRestrictions':{country:'FR'} }, function(results, status)
 				{
 			    if (status === google.maps.GeocoderStatus.OK)
