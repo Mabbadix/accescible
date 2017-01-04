@@ -93,7 +93,8 @@ class UtilisateurManager {
     ]);
     return new Utilisateur ($q->fetch(PDO::FETCH_ASSOC));
   }
-  
+
+  //vérification de la connection établie pour redirection des pages
   public function isConnected()
   {
     if(isset($_SESSION['logged'])&&($_SESSION['logged'] === true)){
@@ -103,16 +104,17 @@ class UtilisateurManager {
     }
   }
 
+  //envoi email à l'aide phpmailer avec cette function : parametre = email de l'utilisateur et la clef créée. 
   public function envoieMail($dMailU, $dkey){
     require 'vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
     $dMail = new PHPMailer;
     $dMail->isSMTP();
     $dMail->Host = 'SSL0.OVH.NET';
-    $dMail->SMTPAuth = true;                           
-    $dMail->Username = 'administrateur@projetdev.ovh';                
-    $dMail->Password = 'Tu10madu1';                           
-    $dMail->SMTPSecure = 'ssl';                            
-    $dMail->Port = 465;                                    
+    $dMail->SMTPAuth = true;
+    $dMail->Username = 'administrateur@projetdev.ovh';
+    $dMail->Password = 'Tu10madu1';
+    $dMail->SMTPSecure = 'ssl';
+    $dMail->Port = 465;
     $dMail->setFrom('Accescible@noreply.org', 'Accescible');
     $dMail->addAddress("$dMailU", 'Vous');
     $dMail->isHTML(true);

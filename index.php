@@ -56,9 +56,10 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 			}
 			// Si compte valide on accede au compte
 			elseif ($ut->getvalide() == 0) {
-					//créé les parametre de session
+					//créé les parametres de session
 				$_SESSION['emailU'] = $ut->getEmailU();
 				$_SESSION['mdpU'] = $ut->getMdpU();
+				//on informe que logged est Ok pour redirection sur l'espace des gens inscrits
 				$_SESSION['logged'] = true;
 				//informe et on redirige
 				echo '<div id="ok">Connexion réussie. Redirection en cours...</div>
@@ -87,6 +88,8 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 				//on créer la session
 				$_SESSION['emailU'] = $ut->getEmailU();
 				$_SESSION['mdpU'] = $ut->getMdpU();
+				//on informe que logged est Ok pour redirection sur l'espace des gens inscrits
+				$_SESSION['logged'] = true;
 			//on redirige
 				echo '<div id="ok">Connexion réussie mais attention vous avez cliquez sur Inscription au lieu de Connexion</div>
 				<script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",1000) </script>';
@@ -107,9 +110,11 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 			{
 				// date du jour
 				$date = date('Y-m-d');
+				//création d'une Key pour envoie de mail
 				$longueurKey = 16;
 				$key = "";
-				for($i=1;$i<$longueurKey;$i++){
+				for($i=1;$i<$longueurKey;$i++)
+				{
 					$key .= mt_rand(0,9);
 				}
 				//on crée un Objet utilisateur, qu'on hydrate ac les données récupérées
@@ -131,6 +136,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 
 				//on appelle la fonction ajout avec en param l'objet utilisateur
 				$managerU->add($utilisateur);
+				//on envoie un mail de confirmation 
 				$managerU->envoieMail($Courriel, $key);
 			}
 		}

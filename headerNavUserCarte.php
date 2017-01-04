@@ -1,4 +1,7 @@
-<?php if($manageU->isConnected() === true){?>
+<?php
+//vérfication si la personne est connectée : si oui accès à l'espace des inscrits, sinon accès espace restreint
+if($manageU->isConnected() === true){
+  ?>
 <ul>
   <li><a class="active" href="userCarte.php">Carte</a></li>
   <li><a  href="signaler.php">Signaler</a></li>
