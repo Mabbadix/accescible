@@ -3,6 +3,7 @@
 	session_start();
 	require 'connData.php';
 	if (isset($_SESSION['emailU'])){
+
 ?>
   <!DOCTYPE html>
   <html lang="fr">
@@ -40,6 +41,7 @@
           <!-- Intégration de la carte + Geolocation + placement maker -->
           <!-- Laisser ce script à l'exterieur du script de recupération MAP-->
           <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTFqUmefn5-fJ2E20dOfyH-0-jVbZx5Lc">
+
 					</script>
 
           <script>// Geolocation + Marker
@@ -84,6 +86,8 @@
 											map: map//la carte sur laquelle le marqueur doit être affiché
 									}));
 							});
+
+
             }//fin de showposition
 
 
