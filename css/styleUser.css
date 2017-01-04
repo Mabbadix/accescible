@@ -121,6 +121,30 @@ a:hover:not(.active) {
   color:rgb(229,106,23);
 }
 
+/*********form sur le coté de signaler.php**********/
+
+.unSignalement {
+  width: 99%;
+}
+.slimField {
+  width: 40px;
+}
+
+
+#autocomplete {
+position: relative;
+border: 2px solid rgb(147,188,218);
+background-color: #f0f0ff;
+top: 0px;
+left: 0px;
+width: 99%;
+margin-bottom: 10px;
+}
+#locationField {
+  height: 20px;
+  margin-bottom: 2px;}
+
+/************concernant la map***************/
 #mapcanvas {
   background-color: rgb(245,246,248);
   cursor:pointer;

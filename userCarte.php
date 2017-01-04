@@ -47,13 +47,14 @@
           <script>// Geolocation + Marker
               //Récuperation de la Div "mapcanvas" du html
             var mapcanvas = document.getElementById("mapcanvas");
+						var x = document.getElementById("mapcanvas");//utilisée pour l'affichage des erreurs uniquement
             //Geolocation sur map
             function showPosition(position) {
               //récup lat et lng dans une var
               var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
               // type de map afficher + zoom et placement
               var myOptions = {
-                zoom: 15
+                zoom: 12
                 , center: latlng
                 , mapTypeId: google.maps.MapTypeId.ROADMAP
               };
@@ -85,16 +86,7 @@
 											map: map//la carte sur laquelle le marqueur doit être affiché
 									}));
 							});
-							//autre makerS
-							//tableau contenant tous les marqueurs que nous créerons
-							var tabMarqueurs = new Array();
-							//notez la présence de l'argument "event" entre les parenthèses de "function()"
-							google.maps.event.addListener(map, 'click', function(event) {
-									tabMarqueurs.push(new google.maps.Marker({
-											position: event.latLng,//coordonnée de la position du clic sur la carte
-											map: map//la carte sur laquelle le marqueur doit être affiché
-									}));
-							});
+
 
             }//fin de showposition
 
