@@ -120,11 +120,20 @@ a:hover:not(.active) {
   min-width: 30%;
   color:rgb(229,106,23);
 }
+#floating-panel {
+  height:10%;
+  z-index: 5;
+  background-color: #fff;
+  border: 1px solid #999;
+  text-align: center;
+}
+
+
 #mapcanvas {
   background-color: rgb(245,246,248);
   cursor:pointer;
-  height: inherit;
   min-width: 60%;
+  height: 90%;
 }
 
 
