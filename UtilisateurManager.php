@@ -44,10 +44,10 @@ class UtilisateurManager {
       }
       else
       {
-        echo "<script language='JavaScript' type='text/javascript'>";
+        /*echo "<script language='JavaScript' type='text/javascript'>";
         echo 'alert("BIENVENUE ! Connectez-vous");';
         echo 'history.back(-1)';
-        echo '</script>';
+        echo '</script>';*/
       }
     }
 
@@ -101,6 +101,25 @@ class UtilisateurManager {
     }else{
       return false;
     }
+  }
+
+  public function envoieMail($dMailU, $dkey){
+    require 'vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
+    $dMail = new PHPMailer;
+    $dMail->isSMTP();
+    $dMail->Host = 'SSL0.OVH.NET';
+    $dMail->SMTPAuth = true;                           
+    $dMail->Username = 'administrateur@projetdev.ovh';                
+    $dMail->Password = 'Tu10madu1';                           
+    $dMail->SMTPSecure = 'ssl';                            
+    $dMail->Port = 465;                                    
+    $dMail->setFrom('Accescible@noreply.org', 'Accescible');
+    $dMail->addAddress("$dMailU", 'Vous');
+    $dMail->isHTML(true);
+    $dMail->Subject = 'Validation du compte Accescible';
+    $dMail->Body = "Bonjour $dkey";
+    $dMail->AltBody = "Bonjour $dkey";
+    $dMail->send();
   }
 
 //RESTE A FAIRE

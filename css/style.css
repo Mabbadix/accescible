@@ -118,6 +118,7 @@ body {
     height: 9px;
     width: 9px;
   }
+}
 @media only screen and (max-width: 250px) {
   .text{font-size: 7px}
   .button {font-size:11px}
@@ -132,3 +133,4 @@ body {
 
 }
 */
+}
