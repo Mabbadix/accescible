@@ -42,7 +42,7 @@
 	                   </div><br>';
 						}
 					?> </div>
-        <div id="mapcanvas">
+        <div class= "mapcanvas"  id="mapcanvas">
           <!-- Intégration de la carte + Geolocation + placement maker -->
           <!-- Laisser ce script à l'exterieur du script de recupération MAP-->
         <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTFqUmefn5-fJ2E20dOfyH-0-jVbZx5Lc"></script>

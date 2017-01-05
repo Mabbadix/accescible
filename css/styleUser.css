@@ -14,7 +14,6 @@ body {
   position: fixed;
   z-index: 99;
   width: 100%;
-  height: 6.6%;
 }
 ul {
     list-style-type: none;
@@ -103,11 +102,11 @@ a:hover:not(.active) {
 
 
 /***************MAIN************/
+
 .mainUserCarte {
-  display: block;
+  
   width: 100%;
   height: 600px;
-  padding-top: 6.6%;
   font-size:20px;
   font-weight: bold;
   text-align: center;
@@ -122,6 +121,13 @@ a:hover:not(.active) {
   min-width: 30%;
   color:rgb(229,106,23);
   overflow-y: scroll;
+}
+
+#mapcanvas {
+  background-color: rgb(245,246,248);
+  cursor:pointer;
+  min-width: 60%;
+  height: inherit;
 }
 
 /*form sur le coté de signaler.php*/
@@ -147,12 +153,7 @@ margin-bottom: 10px;
 
 
 /*concernant la map*/
-#mapcanvas {
-  background-color: rgb(245,246,248);
-  cursor:pointer;
-  min-width: 60%;
-  height: inherit;
-}
+
 
 
 /***************FOOTER****************************/
