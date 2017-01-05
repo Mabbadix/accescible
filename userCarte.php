@@ -2,6 +2,9 @@
 //ouverture de session
 	session_start();
 	require 'connData.php';
+  require 'UtilisateurManager.php';
+  $manageU = new UtilisateurManager($bdd);
+	//A voir avec Dylan si on garde session comme ça
 	if (isset($_SESSION['emailU'])){
 
 ?>
@@ -40,12 +43,10 @@
         <div id="mapcanvas">
           <!-- Intégration de la carte + Geolocation + placement maker -->
           <!-- Laisser ce script à l'exterieur du script de recupération MAP-->
-          <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTFqUmefn5-fJ2E20dOfyH-0-jVbZx5Lc">
-
-					</script>
-
-          <script>// Geolocation + Marker
-              //Récuperation de la Div "mapcanvas" du html
+        <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTFqUmefn5-fJ2E20dOfyH-0-jVbZx5Lc"></script>
+          <script>
+            // Geolocation + Marker
+            //Récuperation de la Div "mapcanvas" du html
             var mapcanvas = document.getElementById("mapcanvas");
 						var x = document.getElementById("mapcanvas");//utilisée pour l'affichage des erreurs uniquement
             //Geolocation sur map
@@ -64,18 +65,16 @@
               var majMap = map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
               // création Maker et son placement
               var marker = new google.maps.Marker({
-                position: latlng,
-								map: map,
-								draggable: true,
-								icon: "img/maker.svg",
-								animation: google.maps.Animation.BOUNCE,
-								title: "Vous êtes ici ! (à +/- " + position.coords.accuracy + " mètres à la ronde)"
+                position: latlng
+                , map: map
+                , draggable: true
+                , icon: "img/maker.svg"
+                , animation: google.maps.Animation.BOUNCE
               });
               // Event de click sur marker de position
-              google.maps.event.addListener(marker, 'click', function (event) {
-                alert("Le marqueur a été cliqué."); //message d'alerte
+              google.maps.event.addListener(marker, 'click', function () {
+                alert("Par là quoi, à +/- "+position.coords.accuracy+" m à la ronde :))"); //message d'alerte
               });
-
 							//autre makerS
 							//tableau contenant tous les marqueurs que nous créerons
 							var tabMarqueurs = new Array();
@@ -86,10 +85,7 @@
 											map: map//la carte sur laquelle le marqueur doit être affiché
 									}));
 							});
-
-
             }//fin de showposition
-
 
             // Error si carte impossible à afficher
             function showError(error) {
@@ -108,9 +104,10 @@
                 break;
               }
             }
-            //Si géolocalisation supporter par navigateur alors appel de fonction
+
+            //Si géolocalisation supporter par navigateur alors appelle de fonction
             if (navigator.geolocation) {
-              navigator.geolocation.getCurrentPosition(showPosition,showError);
+              navigator.geolocation.getCurrentPosition(showPosition, showError);
             }
             else {
               x.innerHTML = "Geolocation is not supported by this browser.";
@@ -122,8 +119,9 @@
     <?php include( 'footer.php');?>
   </body>
 
-  </html>
-  <?php
+</html>
+<?php
+	//A voir avec Dylan si on garde session comme ça 
 // ATTENTION FERMETURE DE LA SESSION SI ouverture
 }else {
 
