@@ -20,9 +20,11 @@
 
   <body>
     <header>
-      <!-- Nav Bar + Side -->
-      <!-- ATTENTION headerNav different pour chaque page pour selection du bon onglet" -->
-      <?php include 'headerNavUserCarte.php'; ?>
+			<div class="navFix">
+				<!-- Nav Bar + Side -->
+	      <!-- ATTENTION headerNav different pour chaque page pour selection du bon onglet" -->
+	      <?php include 'headerNavUserCarte.php'; ?>
+			</div>
     </header>
     <main>
       <!-- Partie centrale en dessous de navBar-->
@@ -121,7 +123,7 @@
 
 </html>
 <?php
-	//A voir avec Dylan si on garde session comme ça 
+	//A voir avec Dylan si on garde session comme ça
 // ATTENTION FERMETURE DE LA SESSION SI ouverture
 }else {
 

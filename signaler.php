@@ -18,52 +18,62 @@ if (isset($_SESSION['emailU'])){
 
 	<body>
   <header><!-- NAVBAR -->
+		<div class = "navFix">
 		<?php include 'headerNavSignaler.php'; ?>
+		</div>
   </header>
   <main><!--CENTER-->
 		<div class="mainUserCarte">
 			<div class="mainLeft">
-        <form class="unSignalement" name ="signalement" method = "post"
+        <form class="unSignalementForm" name ="signalement" method = "post"
 				 enctype="multipart/form-data"><center>
 					<fieldset name="localiser">
 						<legend>Localiser</legend>
 
 						<table id="address1">
-							<tr id="locationField">
-								<input class="unSignalement" id="autocomplete" placeholder="Adresse, lieu, commerce ou autre" onFocus="initAutocomplete(), geolocate()" type="text"></input>
-							</tr>
+						<input class="unSignalementField" id="autocomplete" placeholder="Adresse, lieu, commerce ou autres" onFocus="initAutocomplete(), geolocate()" type="text"></input>
 		        <tr>
 							<label for="adresseS"></label>
-		          <td class="slimField">
-								<input class="unSignalement" id="street_number" name="numéro" disabled="true" placeholder="n°"></input>
+		          <td class="slimField1">
+								<input class="unSignalementField" id="street_number" name="numéro" disabled="true" placeholder="n°"></input>
 							</td>
 		          <td class="wideField" >
-								<input class="unSignalement" id="route" name="adresseS" disabled="true" placeholder="type de voie et son intitulé"></input>
+								<input class="unSignalementField" id="route" name="adresseS" disabled="true" placeholder="type de voie et son intitulé"></input>
 							</td>
 		        </tr>
 		        <tr>
 							<label for="cpS"></label>
-		          <td class="slimField">
-								<input class="unSignalement" id="postal_code" name="cpS" disabled="true" placeholder="CP"></input>
+		          <td class="slimField1">
+								<input class="unSignalementField" id="postal_code" name="cpS" disabled="true" placeholder="CP"></input>
 							</td>
 							<label for="villeS"></label>
 		          <td class="wideField">
-								<input class="unSignalement" id="locality" name="villeS" disabled="true" placeholder="Ville"></input>
+								<input class="unSignalementField" id="locality" name="villeS" disabled="true" placeholder="Ville"></input>
 							</td>
-			        </tr>
+			      </tr>
+						</table>
+						<table>
 			        <tr>
 								<label for="regionS"></label>
-			          <td class="wideField">
-									<input class="unSignalement" id="administrative_area_level_1" name="regionS" disabled="true" placeholder="Région"></input>
+								<td class="slimField1">
+									<input class="unSignalementField" type="hidden"></input>
 								</td>
-								<label for="paysS"></label>
 			          <td class="wideField">
-									<input class="unSignalement" id="country" name="paysS" disabled="true" placeholder="Pays"></input>
+									<input class="unSignalementField" id="administrative_area_level_1" name="regionS" disabled="true" placeholder="Région"></input>
+								</td>
+							</tr>
+							<tr>
+								<label for="paysS"></label>
+								<td class="slimField1">
+									<input class="unSignalementField" type="hidden"></input>
+								</td>
+			          <td class="wideField">
+									<input class="unSignalementField" id="country" name="paysS" disabled="true" placeholder="Pays"></input>
 								</td>
 			        </tr>
 	      		</table>
 						OU<br/>
-						<label for="geocodeReverse"></label>
+						<label for="Geolocalisation"></label>
 						<input class="unSignalement" id="geocodeReverse" type="button" value="Se géolocaliser" onFocus="Geolocalisation()"></input><!--avt onclick="geoCoding();"-->
 					</fieldset>
 					<fieldset name="decrire">
@@ -95,7 +105,7 @@ if (isset($_SESSION['emailU'])){
 					<fieldset name="valider">
 						<legend>Valider</legend>
 						<label for="signaler"></label><br/><input  class="unSignalement"
-						type="submit" name="signaler" value="signaler" id="signaler" formaction = "unSignalement.php">
+						type="button" name="signaler" value="signaler" id="signaler" formaction = "unSignalement.php">
             </fieldset>
         </form>
 		</div>
