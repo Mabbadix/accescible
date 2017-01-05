@@ -21,7 +21,7 @@ body {
 
 /* Caption text */
 .text {
-  color: rgb(233,95,3);
+  color: rgb(0,0,0);
   font-size: 15px;
   font-weight: bold;
   position: absolute;
@@ -94,7 +94,7 @@ body {
   margin : 6px;
 }
 .inscription {
-  color:rgb(223,74,16);
+  color:rgba(0,0,0,1);
   margin : 6px;
 }
 .button:hover {

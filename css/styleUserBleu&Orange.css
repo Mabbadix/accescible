@@ -49,16 +49,16 @@ li a {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    color:rgba(93,90,91, 1);
+    color:rgb(4,90,149);
 }
 
 a:hover:not(.active) {
-    background-color: rgba(93,90,91, 0.2);
+    background-color: rgba(4,90,149, 0.4);
 
   }
 
 .active {
-    background-color:rgba(93,90,91, 1);
+    background-color:rgb(4,90,149);
     color:rgba(233,95,3,1);
 }
 
@@ -69,7 +69,7 @@ a:hover:not(.active) {
     position: fixed;
     z-index: 1;
     right: 0px;
-    background-color:rgba(93,90,91, 1);
+    background-color:rgb(4,90,149);
     overflow-x: hidden;
     transition: 0.5s;
 }
@@ -86,7 +86,7 @@ a:hover:not(.active) {
 }
 
 .side a:hover, .side a:focus {
-  background-color: rgba(233,95,3,0.5);
+  background-color: rgba(233,95,3,0.6);
 }
 
 .boutonFermer{
@@ -98,10 +98,10 @@ a:hover:not(.active) {
 .msgsignal {
   background-color:rgb(241,240,240);
   width: auto;
-  border-top: 1px solid rgb(223,74,16);
+  border-top: 1px solid rgb(4,90,149);
   padding: 15px 32px;
   text-decoration: none;
-  color:rgba(93,90,91, 1);
+  color:rgb(223,74,16);
   font-size: 12px;
   font-weight: bold;
   cursor: pointer;
@@ -118,7 +118,7 @@ a:hover:not(.active) {
   font-size:20px;
   font-weight: bold;
   text-align: center;
-  color:rgba(93,90,91, 1);
+  color:rgb(4,90,149);
 
 }
 
@@ -126,7 +126,7 @@ a:hover:not(.active) {
   float:left;
   height:inherit;
   min-width: 20%;
-  color:rgba(93,90,91, 1);
+  color:rgb(4,90,149);
   overflow-y: scroll;
   padding: 0.5em;
 }
@@ -154,7 +154,7 @@ fieldset{
 }
 
 #autocomplete {
-border: 2px solid rgb(147,188,218);
+border: 2px solid rgb(4,90,149);
 background-color: #f0f0ff;
 top: 0px;
 left: 0px;
@@ -176,7 +176,7 @@ footer{
   bottom: 0;
   left: 0;
   right: 0;
-  color:rgba(93,90,91, 1);
+  color:rgb(223,74,16);
   font-size:18px;
   font-weight: bold;
 }

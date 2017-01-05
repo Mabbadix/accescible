@@ -11,8 +11,6 @@ if (isset($_SESSION['emailU'])){
 <html lang="fr">
 	<head>
     <?php include ("headUtilisateur.php"); ?>
-
-
 		<title>Acces'Cible-Signalement</title>
 	</head>
 
@@ -20,8 +18,9 @@ if (isset($_SESSION['emailU'])){
   <header><!-- NAVBAR -->
 		<div class = "navFix">
 		<?php include 'headerNavSignaler.php'; ?>
-		</div>
+	</div>
   </header>
+
   <main><!--CENTER-->
 		<div class="mainUserCarte">
 			<div class="mainLeft">
