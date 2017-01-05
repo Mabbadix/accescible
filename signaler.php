@@ -321,12 +321,11 @@ of the Google Places API to help users fill in the information.*/
 			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTFqUmefn5-fJ2E20dOfyH-0-jVbZx5Lc&signed_in=true&libraries=places" async defer>
 	    // async defer = pas synchronization page ce qui permets de moins attendre
 			</script>
-  </div>
-</main>
-  <footer>
-    <p>Nos partenaires</p>
-  </footer>
-  </body>
+		</div>
+	</main>
+	<?php include( 'footer.php');?>
+	</body>
+
 </html>
 <?php
 // ATTENTION FERMETURE DE LA SESSION SI ouverture
