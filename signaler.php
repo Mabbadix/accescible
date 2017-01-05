@@ -30,7 +30,7 @@ if (isset($_SESSION['emailU'])){
 
 						<table id="address1">
 							<tr id="locationField">
-								<input class="unSignalement" id="autocomplete" placeholder="Adresse, lieu, commerce ou autre" onFocus="initAutocomplete()" type="text"></input>
+								<input class="unSignalement" id="autocomplete" placeholder="Adresse, lieu, commerce ou autre" onFocus="initAutocomplete(), geolocate()" type="text"></input>
 							</tr>
 		        <tr>
 							<label for="adresseS"></label>
@@ -187,8 +187,7 @@ if (isset($_SESSION['emailU'])){
 of the Google Places API to help users fill in the information.*/
 
 		function initAutocomplete() {
-			// this function bias autocompletation and put a bounds limits, only France country, cf. infra;
-			geolocate();
+
       // Create the autocomplete object, restricting the search to geographical location types.
       autocomplete = new google.maps.places.Autocomplete((input),
           {types: ['geocode'], 'componentRestrictions':{country:'FR'}});
