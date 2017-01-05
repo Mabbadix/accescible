@@ -159,11 +159,35 @@ if (isset($_SESSION['emailU'])){
 		      animation:google.maps.Animation.BOUNCE,
 		  });
 
-			//event sur le marker
+			//permet d'avoir toutes les info sur le marker
+			infoBul(map, marker);
+			/*//event sur le marker
 		  google.maps.event.addListener(marker, 'click', function() {
 		  alert("Par là quoi, à +/- "+position.coords.accuracy+" m à la ronde :))");//message d'alerte
-		  });
+		});*/
 		}
+
+		//permet d'avoir toutes les info sur le marker
+		function infoBul(map, marker) {
+		var map = map;
+		var marker = marker;
+		var infowindow = new google.maps.InfoWindow();
+		var service = new google.maps.places.PlacesService(map);
+
+		service.getDetails({
+			placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4'
+		}, function(place, status) {
+			if (status === google.maps.places.PlacesServiceStatus.OK) {
+
+				google.maps.event.addListener(marker, 'click', function() {
+					infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+						'Place ID: ' + place.place_id + '<br>' +
+						place.formatted_address + '</div>');
+					infowindow.open(map, this);
+				});
+			}
+		});
+	}
 
 		// Gestion des erreurs en cas de non-affichage de la map
 	  function showError(error) {
@@ -239,6 +263,7 @@ of the Google Places API to help users fill in the information.*/
 
 			//on appelle la fonction de géocodage et on lui passe l'objet geocodé et un carte;
       geocodeAddress(geocoder, map);
+
     }
 
 		//fonction pour Geocoder = localiser un point sur carte en fonction d'une adresse;
@@ -260,6 +285,26 @@ of the Google Places API to help users fill in the information.*/
 	      alert('Nous n\'avons pas pu localiser l\'adresse, merci de renseigner correctement les champs demandés.  ' + status);
 	    	}
 	  	});
+			var infowindow = new google.maps.InfoWindow();
+			var service = new google.maps.places.PlacesService(map);
+
+			service.getDetails({
+				placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4'
+			}, function(place, status) {
+				if (status === google.maps.places.PlacesServiceStatus.OK) {
+					var marker = new google.maps.Marker({
+						map: map,
+						position: place.geometry.location
+					});
+					google.maps.event.addListener(marker, 'click', function() {
+						infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+							'Place ID: ' + place.place_id + '<br>' +
+							place.formatted_address + '</div>');
+						infowindow.open(map, this);
+					});
+				}
+			});
+
 		}
     // [START region_geolocation]
     // Bias the autocomplete object to the user's geographical location,as supplied by the browser's 'navigator.geolocation' object.
@@ -279,6 +324,8 @@ of the Google Places API to help users fill in the information.*/
       }
     }
     // [END region_geolocation]
+
+
 //Bouton se geolocaliser
 	function Geolocalisation(){
 	  var mapcanvas = document.getElementById("mapcanvas");
