@@ -159,7 +159,6 @@ if (isset($_SESSION['emailU'])){
 		      animation:google.maps.Animation.BOUNCE,
 		  });
 
-			//permet d'avoir toutes les info sur le marker
 			infoBul(map, marker);
 			/*//event sur le marker
 		  google.maps.event.addListener(marker, 'click', function() {

@@ -6,9 +6,21 @@ body {
   font-family: Verdana,sans-serif;
   margin:auto;
   max-width: 100%;
-  background: #fff;
 
 }
+
+
+/**********video***************/
+video {
+  width: 26em;
+  height: 16em;
+  max-width: 100%;
+}
+
+.video{
+  margin-top: 8em;
+}
+
 
 /* Slideshow container */
 
@@ -128,9 +140,5 @@ body {
     width: 6px;
   }
 
-/*
-.footerdiv {
 
-}
-*/
 }

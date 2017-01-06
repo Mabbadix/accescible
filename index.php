@@ -136,7 +136,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 
 				//on appelle la fonction ajout avec en param l'objet utilisateur
 				$managerU->add($utilisateur);
-				//on envoie un mail de confirmation 
+				//on envoie un mail de confirmation
 				$managerU->envoieMail($Courriel, $key);
 			}
 		}
@@ -154,8 +154,31 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 	</head>
 
 	<body>
+		<div class="video"><center>
+			<video preload="auto" poster="img/logo73.svg" onclick="play()"  ondblclick="pause()">
+			<source src="img/rendu_anim_handicap.mp4" type="video/mp4">
+			Your browser does not support the video tag.
+		</video ></center>
+		</div>
+		</br>
+
+		<div>
+			<!-- CONN ET INSCRIPTION !-->
+			<form name ="formConn" method="post" id="button" style="text-align:center">
+				<label for="Courriel"></label><input class="button connexion" id="Courriel" type="email"
+					name="Courriel" placeholder="dupont@gmail.com<?php if (!empty($_POST['Courriel'])) {echo stripcslashes(htmlspecialchars($_POST['Courriel'], ENT_QUOTES));} ?>"  required maxlength="100"><br/>
+				<label for="Mot_de_passe"></label> <input class="button inscription" id="Mot_de_passe" type="password"
+					name="Mot_de_passe" placeholder="Mot de passe<?php if (!empty($_POST['Mot_de_passe'])) {echo stripcslashes(htmlspecialchars($_POST['Mot_de_passe'], ENT_QUOTES));} ?>" required maxlength="50"><br/>
+					<label for="se_connecter"></label>
+				<button class="button connexion" id="se_connecter" type="submit"
+				name="se_connecter"value="se connecter" formaction = "index.php">Connexion</button>
+				<button class="button inscription" type="submit" name="boutInscription" formaction="index.php">
+					Inscription</button>
+			</form>
+		</div>
+			</br>
 		<!-- SLIDE SHOW INDEX!-->
-		<div class="slideshow-container">
+		<!--<div class="slideshow-container">
 			<div class="mySlides fade">
 			  <div class="numbertext">1 / 3</div>
 			  <img src="img/logo71.svg" style="width:100%">
@@ -172,29 +195,18 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 			  <div class="text">signaler - décider - adapter</div>
 			</div>
 		</div>
-		</br>
+
 
 		<!-- BOUTON ROND !-->
-		<div id="dot" style="text-align:center">
+		<!--<div id="dot" style="text-align:center">
 		  <span class="dot"></span>
 		  <span class="dot"></span>
 		  <span class="dot"></span>
 		</div>
-		</br>
-    <div>
-			<!-- CONN ET INSCRIPTION !-->
-			<form name ="formConn" method="post" id="button" style="text-align:center">
-				<label for="Courriel"></label><input class="button connexion" id="Courriel" type="email"
-					name="Courriel" placeholder="dupont@gmail.com<?php if (!empty($_POST['Courriel'])) {echo stripcslashes(htmlspecialchars($_POST['Courriel'], ENT_QUOTES));} ?>"  required maxlength="100"><br/>
-	      <label for="Mot_de_passe"></label> <input class="button inscription" id="Mot_de_passe" type="password"
-					name="Mot_de_passe" placeholder="Mot de passe<?php if (!empty($_POST['Mot_de_passe'])) {echo stripcslashes(htmlspecialchars($_POST['Mot_de_passe'], ENT_QUOTES));} ?>" required maxlength="50"><br/>
-					<label for="se_connecter"></label>
-				<button class="button connexion" id="se_connecter" type="submit"
-				name="se_connecter"value="se connecter" formaction = "index.php">Connexion</button>
-				<button class="button inscription" type="submit" name="boutInscription" formaction="index.php">
-					Inscription</button>
-			</form>
-		</div>
+	</br>!-->
+
+
+
 
 		<script>
 		/*SLIDE SHOW INDEX*/
@@ -215,7 +227,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 			    }
 			    slides[slideIndex-1].style.display = "block";
 			    dots[slideIndex-1].className += " active";
-			    setTimeout(showSlides, 3500); // Change image every .... seconds
+			    setTimeout(showSlides, 3000); // Change image every .... seconds
 			}
 		</script>
 		<noscript>
