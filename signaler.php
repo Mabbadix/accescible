@@ -111,6 +111,8 @@ if (isset($_SESSION['emailU'])){
 
 		<div id="mapcanvas"></div>
 
+
+
 		<script>
 		/******VARIABLES COMMUNES********************/
 
@@ -135,7 +137,7 @@ if (isset($_SESSION['emailU'])){
     var input = /** @type {!HTMLInputElement} */ (document.getElementById('autocomplete'));
 
 
-		/***************MAPS AFFICHER DE BASE*********************/
+		/***************MAPS AFFICHEE DE BASE*********************/
 
 		//Affiche la position de l'utilisateur;
 	  function showPosition(position) {
@@ -160,39 +162,39 @@ if (isset($_SESSION['emailU'])){
 		  });
 
 			infoBul(map, marker);
-			/*//event sur le marker
+			//event sur le marker
 		  google.maps.event.addListener(marker, 'click', function() {
 		  alert("Par là quoi, à +/- "+position.coords.accuracy+" m à la ronde :))");//message d'alerte
-		});*/
+		});
 		}
 
 		//permet d'avoir toutes les info sur le marker
 		function infoBul(map, marker) {
-		var map = map;
-		var marker = marker;
-		var infowindow = new google.maps.InfoWindow();
-		var service = new google.maps.places.PlacesService(map);
+			var map = map;
+			var marker = marker;
+			var infowindow = new google.maps.InfoWindow();
+			var service = new google.maps.places.PlacesService(map);
 
-		service.getDetails({
-			placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4'
-		}, function(place, status) {
-			if (status === google.maps.places.PlacesServiceStatus.OK) {
+			service.getDetails({
+				placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4'
+			}, function(place, status) {
+				if (status === google.maps.places.PlacesServiceStatus.OK) {
 
-				google.maps.event.addListener(marker, 'click', function() {
-					infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-						'Place ID: ' + place.place_id + '<br>' +
-						place.formatted_address + '</div>');
-					infowindow.open(map, this);
-				});
-			}
-		});
+					google.maps.event.addListener(marker, 'click', function() {
+						infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+							'Place ID: ' + place.place_id + '<br>' +
+							place.formatted_address + '</div>');
+						infowindow.open(map, this);
+					});
+				}
+			});
 	}
 
 		// Gestion des erreurs en cas de non-affichage de la map
 	  function showError(error) {
 	    switch(error.code) {
 	        case error.PERMISSION_DENIED:
-	            x.innerHTML = "User denied the request for Geolocation."
+	            x.innerHTML = "User denied the request for Geolocation. Please active your Geolocalisation."
 	            break;
 	        case error.POSITION_UNAVAILABLE:
 	            x.innerHTML = "Location information is unavailable."
@@ -207,11 +209,10 @@ if (isset($_SESSION['emailU'])){
 	  }
 
 	  if (navigator.geolocation) {
-
 			//récupération infos position + lancement de showPosition
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
+      navigator.geolocation.getCurrentPosition(showPosition, showError);
 	  } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
+      x.innerHTML = "Geolocation is not supported by this browser.";
 	  }
 
 /***************Autocpmpletation + Geocodage *********************/
@@ -228,16 +229,17 @@ of the Google Places API to help users fill in the information.*/
         autocomplete.addListener('place_changed', fillInAddress);
       }
 
+
     // [START region_fillform]
     function fillInAddress() {
       // Get the place details from the autocomplete object (une fois le autocomplete fait, l'API retourne un objet avec plein d'infos).
       var place = autocomplete.getPlace();
 
-      //ici on rend dispo les component du form (voir si on garde)
-      /*for (var component in componentForm) {
+      //ici on rend dispo les component du form (réinit + voir si on garde)
+      for (var component in componentForm) {
         document.getElementById(component).value = '';
-        document.getElementById(component).disabled = false;
-      }*/
+        /*document.getElementById(component).disabled = false;*/
+      }
 
       // Get each component of the address from the place details and fill the corresponding field on the form.
       for (var i = 0; i < place.address_components.length; i++) {
@@ -248,9 +250,7 @@ of the Google Places API to help users fill in the information.*/
         }
       }
 
-			//une fois l'autocomplete fait, on fait le géocodage
-
-			//on rappelle les var ici sinon inaccessible pour créer une nouvelle qu'on va utilisé pour le geocodage
+			/*//on rappelle les var ici sinon inaccessible pour créer une nouvelle qu'on va utilisé pour le geocodage
 			var mapcanvas = document.getElementById("mapcanvas");
       var myOptions = {
           zoom: 17
@@ -261,10 +261,53 @@ of the Google Places API to help users fill in the information.*/
       var geocoder = new google.maps.Geocoder();
 
 			//on appelle la fonction de géocodage et on lui passe l'objet geocodé et un carte;
-      geocodeAddress(geocoder, map);
-
+      geocodeAddress(geocoder, map);*/
+			positionS();
     }
+		function positionS(){
 
+			var place = autocomplete.getPlace();
+			var infowindow = new google.maps.InfoWindow();
+
+			//une fois l'autocomplete fait, on fait replace la carte
+			//on rappelle les var ici sinon inaccessibles
+			var mapcanvas = document.getElementById("mapcanvas");
+			var myOptions = {
+					zoom: 17
+					};
+			var map = new google.maps.Map(mapcanvas, myOptions);
+			var marker = new google.maps.Marker({
+					map: map
+				});
+
+			marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+
+
+			if (!place.geometry) {
+				return;
+			}
+			if (place.geometry.viewport) {
+				map.fitBounds(place.geometry.viewport);
+			} else {
+				map.setCenter(place.geometry.location);
+				map.setZoom(17);
+			}
+
+			// Set the position of the marker using the place ID and location.
+			marker.setPlace({
+				placeId: place.place_id,
+				location: place.geometry.location
+			});
+			marker.setVisible(true);
+      infowindow.open(map, marker);
+			infowindow.setContent('<div><strong>' + place.formatted_address+ '</strong><br>' +
+				'Place ID: ' + place.place_id + '<br>' + 'Place ID: ' + place.name + '<br>'+
+				place.geometry.location + '</div>');
+		}
+
+		/*pour le geocodage" DC SUPP POU L'INSTANT
 		//fonction pour Geocoder = localiser un point sur carte en fonction d'une adresse;
     function geocodeAddress(geocoder, resultsMap) {
       var addresse = document.getElementById('autocomplete').value;
@@ -303,8 +346,7 @@ of the Google Places API to help users fill in the information.*/
 					});
 				}
 			});
-
-		}
+		}*/
     // [START region_geolocation]
     // Bias the autocomplete object to the user's geographical location,as supplied by the browser's 'navigator.geolocation' object.
     function geolocate() {
@@ -327,32 +369,47 @@ of the Google Places API to help users fill in the information.*/
 
 //Bouton se geolocaliser
 	function Geolocalisation(){
-	  var mapcanvas = document.getElementById("mapcanvas");
-
 	  function showPosition(position) {
-	    var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-
-	    var myOptions = {
-	      zoom: 17,
-	      center: latlng,
+			var mapcanvas = document.getElementById("mapcanvas");
+	  	var myOptions = {
 	      mapTypeId: google.maps.MapTypeId.ROADMAP
 	    };
-	  var map = new google.maps.Map(mapcanvas, myOptions);
-	  var majMap = map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
-	  var marker = new google.maps.Marker({
-	      position: latlng,
-	      map: map,
-	      draggable:true,
-	      icon: "img/maker.svg",
-	    });
-	  google.maps.event.addListener(marker, 'click', function() {
-	  alert("Le marqueur a été cliqué.");//message d'alerte
-	  });
+	  	var map = new google.maps.Map(mapcanvas, myOptions);
+	  	var majMap = map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+			var posGeo = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+			var latlng = {lat: posGeo.lat(), lng: posGeo.lng()};
+			var geocoder = new google.maps.Geocoder;
+      var infowindow = new google.maps.InfoWindow;
+			geocodeLatLng(geocoder, map, infowindow, latlng);
 	}
+
+	function geocodeLatLng(geocoder, map, infowindow, latlng) {
+		geocoder.geocode({'location': latlng}, function(results, status) {
+			if (status === 'OK') {
+				if (results[1]) {
+					map.setZoom(17);
+					var marker = new google.maps.Marker({
+					 position: latlng,
+					 map: map,
+					 draggable:true,
+					 icon: "img/maker.svg",
+					});
+					infowindow.setContent(results[1].formatted_address);
+					infowindow.open(map, marker);
+				} else {
+					window.alert('No results found');
+				}
+			} else {
+				window.alert('Geocoder failed due to: ' + status);
+			}
+		});
+ }
+
 	  function showError(error) {
 	    switch(error.code) {
 	        case error.PERMISSION_DENIED:
-	            x.innerHTML = "User denied the request for Geolocation."
+	            x.innerHTML = "User denied the request for Geolocation.Merci d'activer votre Geolocalisation."
 	            break;
 	        case error.POSITION_UNAVAILABLE:
 	            x.innerHTML = "Location information is unavailable."

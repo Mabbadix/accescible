@@ -121,7 +121,7 @@ a:hover:not(.active) {
   color:rgba(93,90,91, 1);
 
 }
-
+  /*Concernant le champs à gauche*/
 .mainLeft{
   float:left;
   height:inherit;
@@ -134,13 +134,6 @@ a:hover:not(.active) {
 fieldset{
   border:none;
   border-top: 1px solid rgb(223,74,16);
-}
-
-#mapcanvas {
-
-  cursor:pointer;
-
-  height: inherit;
 }
 
 /*form sur le coté de signaler.php*/
@@ -166,7 +159,14 @@ margin-bottom: 10px;
 
 
 /*concernant la map*/
+#mapcanvas {
+  cursor:pointer;
+  height: inherit;
+}
 
+#infowindow-content{
+  display:none;
+}
 
 
 /***************FOOTER****************************/
