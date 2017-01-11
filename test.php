@@ -1,35 +1,70 @@
 <!DOCTYPE html>
 <html>
-<style>
-html, body {height:100%;margin:0;color: red;}
-#GrandeIntro {height:100%;background:url(http://www.hdwallpapersplus.com/wp-content/uploads/2012/10/Opera-Background-Blue-Swirls1.jpg) no-repeat;background-size:cover;}
-#siteWrapper {margin-top:-80px;}
-#siteWrapper header {height:80px;background:#000;}
-#siteWrapper header.fixed {position:fixed;width:100%;top:0;left:0;}
-#content {padding:60px 0;background:#0c9;}
-#siteWrapper header.fixed+#content {margin-top:80px;}
-#content div {width:80%;height:1500px;margin:auto;border:solid;}
-</style>
-<div id="GrandeIntro"></div>
-<div id="siteWrapper">
-<header>
-  <div id="headerTop">5588</div>
-  <div id="Grandenavigation"><nav>23232323</nav></div>
-</header>
-<section id="content">
-  <div>ghghghg</div>
-</section>
-</div>
-<script>
-var header = document.querySelector("#siteWrapper header");
+  <head>
+  <title>Retrieving Autocomplete Predictions</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #right-panel {
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
 
-function scrolled(){
-	var windowHeight = document.body.clientHeight,
-		currentScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      #right-panel select, #right-panel input {
+        font-size: 15px;
+      }
 
-	header.className = (currentScroll >= windowHeight - header.offsetHeight) ? "fixed" : "";
-}
+      #right-panel select {
+        width: 100%;
+      }
 
-addEventListener("scroll", scrolled, false);
-</script>
+      #right-panel i {
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="right-panel">
+      <p>Query suggestions for 'pizza near Syd':</p>
+      <ul id="results"></ul>
+    </div>
+    <script>
+      // This example retrieves autocomplete predictions programmatically from the
+      // autocomplete service, and displays them as an HTML list.
+
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      function initService() {
+        var displaySuggestions = function(predictions, status) {
+          if (status != google.maps.places.PlacesServiceStatus.OK) {
+            alert(status);
+            return;
+          }
+
+          predictions.forEach(function(prediction) {
+            var li = document.createElement('li');
+            li.appendChild(document.createTextNode(prediction.description));
+            document.getElementById('results').appendChild(li);
+          });
+        };
+
+        var service = new google.maps.places.AutocompleteService();
+        service.getQueryPredictions({ input: 'pizza near Syd' }, displaySuggestions);
+      }
+    </script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTFqUmefn5-fJ2E20dOfyH-0-jVbZx5Lc&libraries=places&callback=initService"
+        async defer></script>
+  </body>
 </html>

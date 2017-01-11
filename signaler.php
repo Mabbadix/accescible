@@ -70,6 +70,16 @@ if (isset($_SESSION['emailU'])){
 									<input class="unSignalementField" id="country" name="paysS" disabled="true" placeholder="Pays"></input>
 								</td>
 			        </tr>
+							<tr>
+								<label for="latlgn"></label>
+								<td class="slimField">
+									<input class="unSignalementField" id="latlng" name="latlng" disabled="true" placeholder="latlng"></input>
+								</td>
+								<label for="placeId"></label>
+								<td class="slimField">
+									<input class="unSignalementField" id="placeId" name="placeId" disabled="true" placeholder="placeId"></input>
+								</td>
+							</tr>
 	      		</table>
 						OU<br/>
 						<label for="Geolocalisation"></label>
@@ -108,8 +118,9 @@ if (isset($_SESSION['emailU'])){
             </fieldset>
         </form>
 		</div>
-
-		<div id="mapcanvas"></div>
+		<div id="mapcanvas">
+			<ul id="results"></ul>
+		</div>
 
 
 
@@ -121,74 +132,28 @@ if (isset($_SESSION['emailU'])){
 		var x = document.getElementById("mapcanvas");//utilisée pour l'affichage des erreurs uniquement
 
 
-		/*Variable pour l'autocomplete et geocode*/
-    var autocomplete;
-
-    //this var use same name of id component and google array result after autocomplete (=address_components)
-    var componentForm = {
-      street_number: 'short_name',
-      route: 'long_name',
-      locality: 'long_name',
-      administrative_area_level_1: 'short_name',
-      country: 'long_name',
-      postal_code: 'short_name'
-    };
-
-    var input = /** @type {!HTMLInputElement} */ (document.getElementById('autocomplete'));
-
 
 		/***************MAPS AFFICHEE DE BASE*********************/
+		// test de la géoloc
+		if (navigator.geolocation) {
+			//récupération infos position + lancement de showPosition
+      navigator.geolocation.getCurrentPosition(showPosition, showError);
+	  } else {
+      x.innerHTML = "Geolocation is not supported by this browser.";
+	  }
 
 		//Affiche la position de l'utilisateur;
 	  function showPosition(position) {
 			//configuration et affichage map
-	    var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-	    var myOptions = {
-	      zoom: 12,
-	      center: latlng
-	    };
+			var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+			var myOptions = {
+				zoom: 12,
+				center: latlng
+			};
 		  var map = new google.maps.Map(mapcanvas, myOptions);
-
 			//mise à jour maps;
 		  var majMap = map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
-
-			//configuration du marker
-		  var marker = new google.maps.Marker({
-		      position: latlng,
-		      map: map,
-		      draggable:true,
-		      icon: "img/maker.svg",
-		      animation:google.maps.Animation.BOUNCE,
-		  });
-
-			infoBul(map, marker);
-			//event sur le marker
-		  google.maps.event.addListener(marker, 'click', function() {
-		  alert("Par là quoi, à +/- "+position.coords.accuracy+" m à la ronde :))");//message d'alerte
-		});
 		}
-
-		//permet d'avoir toutes les info sur le marker
-		function infoBul(map, marker) {
-			var map = map;
-			var marker = marker;
-			var infowindow = new google.maps.InfoWindow();
-			var service = new google.maps.places.PlacesService(map);
-
-			service.getDetails({
-				placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4'
-			}, function(place, status) {
-				if (status === google.maps.places.PlacesServiceStatus.OK) {
-
-					google.maps.event.addListener(marker, 'click', function() {
-						infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-							'Place ID: ' + place.place_id + '<br>' +
-							place.formatted_address + '</div>');
-						infowindow.open(map, this);
-					});
-				}
-			});
-	}
 
 		// Gestion des erreurs en cas de non-affichage de la map
 	  function showError(error) {
@@ -208,37 +173,49 @@ if (isset($_SESSION['emailU'])){
 	    }
 	  }
 
-	  if (navigator.geolocation) {
-			//récupération infos position + lancement de showPosition
-      navigator.geolocation.getCurrentPosition(showPosition, showError);
-	  } else {
-      x.innerHTML = "Geolocation is not supported by this browser.";
-	  }
 
 /***************Autocpmpletation + Geocodage *********************/
-/*Displays an address form, using the autocomplete feature
-of the Google Places API to help users fill in the information.*/
+		/*Displays an address form, using the autocomplete feature
+		of the Google Places API to help users fill in the information.*/
 
+		/*Variable pour l'autocomplete et geocode*/
+		var autocomplete;
+
+		//this var use same name of id component and google array result after autocomplete (=address_components)
+		var componentForm = {
+			street_number: 'short_name',
+			route: 'long_name',
+			locality: 'long_name',
+			administrative_area_level_1: 'short_name',
+			country: 'long_name',
+			postal_code: 'short_name',
+		};
+
+		var input = /** @type {!HTMLInputElement} */ (document.getElementById('autocomplete'));
+
+		//function qui créé l'objet autocplete etl'écoute
 		function initAutocomplete() {
+				// Create the autocomplete object, restricting the search to geographical location types.
+	      autocomplete = new google.maps.places.Autocomplete((input),
+	        {types: ['geocode'], 'componentRestrictions':{country:'FR'}});
+	      // Listen "autocomplete" objet. When the user selects an address from the dropdown (=place_changed), populate the address fields in the form(=fillInAddress).
+				autocomplete.addListener('place_changed', fillInAddress);
 
-      // Create the autocomplete object, restricting the search to geographical location types.
-      autocomplete = new google.maps.places.Autocomplete((input),
-          {types: ['geocode'], 'componentRestrictions':{country:'FR'}});
+    }
 
-        // Listen "autocomplete" objet. When the user selects an address from the dropdown (=place_changed), populate the address fields in the form(=fillInAddress).
-        autocomplete.addListener('place_changed', fillInAddress);
-      }
+    // quand autocomplete selectionné on complete les champs = [START region_fillform]
+    function fillInAddress(geoCode) {
+      // Get the place details from the autocomplete object (une fois l'autocomplete fait, l'API retourne un objet avec plein d'infos ce qui évite le géocodage).
+			if (geoCode){//on distingue en fonction du fait que l'adresse probient de la geoloc ou de l'autocompletion
+				var place = geoCode;
+			}else {
+				var place = autocomplete.getPlace();
+			}
 
-
-    // [START region_fillform]
-    function fillInAddress() {
-      // Get the place details from the autocomplete object (une fois le autocomplete fait, l'API retourne un objet avec plein d'infos).
-      var place = autocomplete.getPlace();
-
-      //ici on rend dispo les component du form (réinit + voir si on garde)
+      //ici on rend dispo les component du form + réinit
       for (var component in componentForm) {
         document.getElementById(component).value = '';
-        /*document.getElementById(component).disabled = false;*/
+        document.getElementById(component).disabled = false;
       }
 
       // Get each component of the address from the place details and fill the corresponding field on the form.
@@ -249,50 +226,51 @@ of the Google Places API to help users fill in the information.*/
           document.getElementById(addressType).value = val;
         }
       }
+			document.getElementById('latlng').value = place.geometry.location;
+			document.getElementById('placeId').value = place.place_id;
 
-			/*//on rappelle les var ici sinon inaccessible pour créer une nouvelle qu'on va utilisé pour le geocodage
-			var mapcanvas = document.getElementById("mapcanvas");
-      var myOptions = {
-          zoom: 17
-          };
-      var map = new google.maps.Map(mapcanvas, myOptions);
+			if (geoCode){//on distingue en fonction du fait que l'adresse probient de la geoloc ou de l'autocompletion
+				positionS(geoCode);
+			}else {
+				positionS();
+			}
 
-			//on crée un objet de géocodage;
-      var geocoder = new google.maps.Geocoder();
-
-			//on appelle la fonction de géocodage et on lui passe l'objet geocodé et un carte;
-      geocodeAddress(geocoder, map);*/
-			positionS();
     }
-		function positionS(){
 
-			var place = autocomplete.getPlace();
+		//Function pour center map sur adresse donnée + afficher une fenetre map
+		function positionS(geoCode){
+			//on récupère un objet avec toute les informations de l'autocomplete
+			if (geoCode){//on distingue en fonction du fait que l'adresse probient de la geoloc ou de l'autocompletion
+				var place = geoCode;
+			}else {
+				var place = autocomplete.getPlace();
+			}
+			//on créé un obj fenetre de map
 			var infowindow = new google.maps.InfoWindow();
 
-			//une fois l'autocomplete fait, on fait replace la carte
-			//on rappelle les var ici sinon inaccessibles
-			var mapcanvas = document.getElementById("mapcanvas");
-			var myOptions = {
-					zoom: 17
-					};
-			var map = new google.maps.Map(mapcanvas, myOptions);
+			//on recentre la carte (=en refaire une)
+			var map = new google.maps.Map(mapcanvas);
 			var marker = new google.maps.Marker({
-					map: map
+					map: map,
+					icon: "img/maker.svg",
+				 	animation:google.maps.Animation.DROP,
 				});
-
+			infowindow.open(map, marker);
+			//on ecoute le marker et si click on affiche info
 			marker.addListener('click', function() {
           infowindow.open(map, marker);
         });
 
-
+			//si les infos géometrique du ne sont pas fournis
 			if (!place.geometry) {
 				return;
 			}
 			if (place.geometry.viewport) {
 				map.fitBounds(place.geometry.viewport);
-			} else {
+			} else {//sinon on centre la map sur ça;
 				map.setCenter(place.geometry.location);
 				map.setZoom(17);
+
 			}
 
 			// Set the position of the marker using the place ID and location.
@@ -300,53 +278,10 @@ of the Google Places API to help users fill in the information.*/
 				placeId: place.place_id,
 				location: place.geometry.location
 			});
-			marker.setVisible(true);
-      infowindow.open(map, marker);
-			infowindow.setContent('<div><strong>' + place.formatted_address+ '</strong><br>' +
-				'Place ID: ' + place.place_id + '<br>' + 'Place ID: ' + place.name + '<br>'+
-				place.geometry.location + '</div>');
+
+			infowindow.setContent('<div><strong> Nom : </strong>' +  place.name+ '<br><div><strong> Adresse : </strong>' + place.formatted_address + '<br></div>');
 		}
 
-		/*pour le geocodage" DC SUPP POU L'INSTANT
-		//fonction pour Geocoder = localiser un point sur carte en fonction d'une adresse;
-    function geocodeAddress(geocoder, resultsMap) {
-      var addresse = document.getElementById('autocomplete').value;
-
-			//on géocode l'objet geocoder avec les paramètre requis;
-		  geocoder.geocode({'address': addresse, 'componentRestrictions':{country:'FR'} }, function(results, status)//results et status sont des retours de l'API
-			{
-		    if (status === google.maps.GeocoderStatus.OK)
-				{
-		      resultsMap.setCenter(results[0].geometry.location);
-		      var marker = new google.maps.Marker({
-		        map: resultsMap,
-		        position: results[0].geometry.location,
-						icon: "img/maker.svg",
-		      });
-	    	} else {
-	      alert('Nous n\'avons pas pu localiser l\'adresse, merci de renseigner correctement les champs demandés.  ' + status);
-	    	}
-	  	});
-			var infowindow = new google.maps.InfoWindow();
-			var service = new google.maps.places.PlacesService(map);
-
-			service.getDetails({
-				placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4'
-			}, function(place, status) {
-				if (status === google.maps.places.PlacesServiceStatus.OK) {
-					var marker = new google.maps.Marker({
-						map: map,
-						position: place.geometry.location
-					});
-					google.maps.event.addListener(marker, 'click', function() {
-						infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-							'Place ID: ' + place.place_id + '<br>' +
-							place.formatted_address + '</div>');
-						infowindow.open(map, this);
-					});
-				}
-			});
-		}*/
     // [START region_geolocation]
     // Bias the autocomplete object to the user's geographical location,as supplied by the browser's 'navigator.geolocation' object.
     function geolocate() {
@@ -366,73 +301,55 @@ of the Google Places API to help users fill in the information.*/
     }
     // [END region_geolocation]
 
-
-//Bouton se geolocaliser
-	function Geolocalisation(){
-	  function showPosition(position) {
-			var mapcanvas = document.getElementById("mapcanvas");
-	  	var myOptions = {
-	      mapTypeId: google.maps.MapTypeId.ROADMAP
-	    };
-	  	var map = new google.maps.Map(mapcanvas, myOptions);
-	  	var majMap = map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
-			var posGeo = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-
-			var latlng = {lat: posGeo.lat(), lng: posGeo.lng()};
-			var geocoder = new google.maps.Geocoder;
-      var infowindow = new google.maps.InfoWindow;
-			geocodeLatLng(geocoder, map, infowindow, latlng);
-	}
-
-	function geocodeLatLng(geocoder, map, infowindow, latlng) {
-		geocoder.geocode({'location': latlng}, function(results, status) {
-			if (status === 'OK') {
-				if (results[1]) {
-					map.setZoom(17);
-					var marker = new google.maps.Marker({
-					 position: latlng,
-					 map: map,
-					 draggable:true,
-					 icon: "img/maker.svg",
-					});
-					infowindow.setContent(results[1].formatted_address);
-					infowindow.open(map, marker);
-				} else {
-					window.alert('No results found');
-				}
-			} else {
-				window.alert('Geocoder failed due to: ' + status);
+		//Bouton se geolocaliser
+		function Geolocalisation(){
+		  function showPosition(position) {
+				var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+				var TabLatlng = {lat: latlng.lat(), lng: latlng.lng()};
+				var geocoder = new google.maps.Geocoder;
+				geocoder.geocode({'location': TabLatlng}, function(results, status) {
+					if (status === 'OK') {
+						if (results[1]) {//tab retourné par geocode
+							document.getElementById('autocomplete').value = results[1].formatted_address;
+							fillInAddress(results[1]);
+						} else {
+							window.alert('No results found');
+						}
+					} else {
+						window.alert('Geocoder failed due to: ' + status);
+					}
+				});
 			}
-		});
- }
 
-	  function showError(error) {
-	    switch(error.code) {
-	        case error.PERMISSION_DENIED:
-	            x.innerHTML = "User denied the request for Geolocation.Merci d'activer votre Geolocalisation."
-	            break;
-	        case error.POSITION_UNAVAILABLE:
-	            x.innerHTML = "Location information is unavailable."
-	            break;
-	        case error.TIMEOUT:
-	            x.innerHTML = "The request to get user location timed out."
-	            break;
-	        case error.UNKNOWN_ERROR:
-	            x.innerHTML = "An unknown error occurred."
-	            break;
-	    }
-	  }
+		  function showError(error) {
+		    switch(error.code) {
+		        case error.PERMISSION_DENIED:
+		            x.innerHTML = "User denied the request for Geolocation.Merci d'activer votre Geolocalisation."
+		            break;
+		        case error.POSITION_UNAVAILABLE:
+		            x.innerHTML = "Location information is unavailable."
+		            break;
+		        case error.TIMEOUT:
+		            x.innerHTML = "The request to get user location timed out."
+		            break;
+		        case error.UNKNOWN_ERROR:
+		            x.innerHTML = "An unknown error occurred."
+		            break;
+		    }
+		  }
 
-	  if (navigator.geolocation) {
+		  if (navigator.geolocation) {
 	        navigator.geolocation.getCurrentPosition(showPosition, showError);
 	    } else {
 	        x.innerHTML = "Geolocation is not supported by this browser.";
 	    }
-	}
-	  </script>
-			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTFqUmefn5-fJ2E20dOfyH-0-jVbZx5Lc&signed_in=true&libraries=places" async defer>
-	    // async defer = pas synchronization page ce qui permets de moins attendre
-			</script>
+		}
+
+		</script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTFqUmefn5-fJ2E20dOfyH-0-jVbZx5Lc&signed_in=true&libraries=places" async defer>
+    // async defer = pas synchronization page ce qui permets de moins attendre
+		</script>
+
 		</div>
 	</main>
 	<?php include( 'footer.php');?>
