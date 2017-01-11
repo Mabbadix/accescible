@@ -206,6 +206,7 @@ if (isset($_SESSION['emailU'])){
     // quand autocomplete selectionné on complete les champs = [START region_fillform]
     function fillInAddress(geoCode) {
       // Get the place details from the autocomplete object (une fois l'autocomplete fait, l'API retourne un objet avec plein d'infos ce qui évite le géocodage).
+
 			if (geoCode){//on distingue en fonction du fait que l'adresse probient de la geoloc ou de l'autocompletion
 				var place = geoCode;
 			}else {
@@ -267,10 +268,11 @@ if (isset($_SESSION['emailU'])){
 			}
 			if (place.geometry.viewport) {
 				map.fitBounds(place.geometry.viewport);
+				map.setCenter(place.geometry.location);
+				map.setZoom(17);
 			} else {//sinon on centre la map sur ça;
 				map.setCenter(place.geometry.location);
 				map.setZoom(17);
-
 			}
 
 			// Set the position of the marker using the place ID and location.
@@ -278,7 +280,7 @@ if (isset($_SESSION['emailU'])){
 				placeId: place.place_id,
 				location: place.geometry.location
 			});
-
+			//info dans fenetre
 			infowindow.setContent('<div><strong> Nom : </strong>' +  place.name+ '<br><div><strong> Adresse : </strong>' + place.formatted_address + '<br></div>');
 		}
 
