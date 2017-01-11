@@ -20,56 +20,6 @@ require 'connData.php';
 $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
 if (isset($_SESSION['emailU'])){
 ?>
-<?php
-/***********traitement d'un Signalement en POO*/
-
-//On récupère les imputs ou créé des infos
-$signalPar = $_SESSION['emailU'];
-/*****Var type de problème*****/
-$typeS = htmlspecialchars($_POST["typeS"]);
-$descriptionS = htmlspecialchars($_POST["descriptionS"]);
-/***Var identification S*///
-$adresseS = htmlspecialchars($_POST["numero"].''.$_POST["adresseS"]);
-$villeS = htmlspecialchars($_POST["villeS"]);
-$cpS = htmlspecialchars($_POST["cpS"]);
-$regionS = htmlspecialchars($_POST["regionS"]);
-$paysS = htmlspecialchars($_POST["paysS"]);
-$latlng = htmlspecialchars($_POST["latlng"]);
-$placeId = htmlspecialchars($_POST["placeId"]);
-$photoS='0';
-$dateS = date("Y-m-d");
-/****var autre de la bd***/
-$resoluS='0';
-$interventionS='0';
-$nSoutienS='0';
-
-	// on créé une instance de SignalementManager
-	$managerS = new SignalementManager($bdd);
-
-	/**********SI CLIQUE SIGNALER*************/
-if (isset($_POST['signaler'])){
-	//on enregistre en bdd
-	$si= new Signalement([
-		'signalPar'=> $signalPar,
-		'typeS'=>	$typeS,
-		'descriptionS'=> $descriptionS,
-		'adresseS'=> $adresseS,
-		'villeS'=> $villeS,
-		'cpS'=> $cpS,
-		'regionS'=>	$regionS,
-		'paysS'=> $paysS,
-		'latlng'=> $latlng,
-		'placeId'=> $placeId,
-		'photoS'=> 	$photoS,
-		'dateS'=> $dateS,
-		'resoluS'=> 	$resoluS,
-		'interventionS'=> $interventionS,
-		'nSoutienS'=>	$nSoutienS
-	]);
-	//on appelle la fonction ajout avec en param l'objet un Signalement
-	$managerS->add($si);
-}
-?>
 
 
 
@@ -139,11 +89,11 @@ if (isset($_POST['signaler'])){
 							<tr>
 								<label for="latlgn"></label>
 								<td class="slimField">
-									<input class="unSignalementField" id="latlng" name="latlng" disabled="true" placeholder="latlng" type="hidden"></input>
+									<input class="unSignalementField" id="latlng" name="latlngS"  type="hidden"></input>
 								</td>
 								<label for="placeId"></label>
 								<td class="slimField">
-									<input class="unSignalementField" id="placeId" name="placeId" disabled="true" placeholder="placeId" type="hidden"></input>
+									<input class="unSignalementField" id="placeId" name="placeIdS" type="hidden"></input>
 								</td>
 							</tr>
 	      		</table>
@@ -155,7 +105,7 @@ if (isset($_POST['signaler'])){
 						<legend>Décrire</legend>
 							<label for="typeS"></label> <select
 							class="typeS" name="typeS" id="typesS"required >
-								<option value=0 name="typeS1" class="typeS" id="typesS">
+								<option name="typeS1" class="typeS" id="typesS">
 									Choisir dans la liste_ _</option>
 								<option name="typeS2" value="place handicapée">
 									Pas de place handicapée</option>
@@ -180,7 +130,7 @@ if (isset($_POST['signaler'])){
 					<fieldset name="valider">
 						<legend>Valider</legend>
 						<label for="signaler"></label><br/><button  class="unSignalement"
-						type="submit" name="signaler" value="signaler" id="signaler" formaction = "signaler.php">SIGNALER</button>
+						type="submit" name="signaler" value="signaler" id="signaler" formaction= "unSignalement.php">SIGNALER</button>
             </fieldset>
         </form>
 		</div>

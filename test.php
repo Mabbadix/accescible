@@ -68,13 +68,16 @@
         async defer></script>
   </body>
 </html>
+<?php
+/***********traitement d'un Signalement en POO*/
+
 //On récupère les imputs ou créé des infos
 $signalPar = $_SESSION['emailU'];
 /*****Var type de problème*****/
 $typeS = htmlspecialchars($_POST["typeS"]);
 $descriptionS = htmlspecialchars($_POST["descriptionS"]);
 /***Var identification S*///
-$adresseS = htmlspecialchars($_POST["adresseS"]);
+$adresseS = htmlspecialchars($_POST["numero"].' '.$_POST["adresseS"]);
 $villeS = htmlspecialchars($_POST["villeS"]);
 $cpS = htmlspecialchars($_POST["cpS"]);
 $regionS = htmlspecialchars($_POST["regionS"]);
@@ -87,3 +90,31 @@ $dateS = date("Y-m-d");
 $resoluS='0';
 $interventionS='0';
 $nSoutienS='0';
+
+	// on créé une instance de SignalementManager
+	$managerS = new SignalementManager($bdd);
+
+	/**********SI CLIQUE SIGNALER*************/
+if (isset($_POST['signaler'])){
+	//on enregistre en bdd
+	$si= new Signalement([
+		'signalPar'=> $signalPar,
+		'typeS'=>	$typeS,
+		'descriptionS'=> $descriptionS,
+		'adresseS'=> $adresseS,
+		'villeS'=> $villeS,
+		'cpS'=> $cpS,
+		'regionS'=>	$regionS,
+		'paysS'=> $paysS,
+		'latlng'=> $latlng,
+		'placeId'=> $placeId,
+		'photoS'=> 	$photoS,
+		'dateS'=> $dateS,
+		'resoluS'=> 	$resoluS,
+		'interventionS'=> $interventionS,
+		'nSoutienS'=>	$nSoutienS
+	]);
+	//on appelle la fonction ajout avec en param l'objet un Signalement
+	$managerS->add($si);
+}
+?>
