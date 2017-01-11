@@ -1,11 +1,77 @@
 <?php
 //ouverture de session
 header( 'content-type: text/html; charset=utf-8' );
+//fonction qui recherche toute seule la classe à requerir
+function chargerClass($classe)
+{
+	require $classe.'.php';
+}
+spl_autoload_register('chargerClass');
+
+//On a créé des sessions et pour que ça fonctionne, il faut en déclarer l'ouverture.
 session_start();
-require("connData.php");
-//Si la session est ouvert alors code s'execute sinon voir fin page
+if (isset($_GET['deconnexion']))
+{
+  require 'deconn.php';
+}
+
+//******Connect BD********
+require 'connData.php';
+$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
 if (isset($_SESSION['emailU'])){
 ?>
+<?php
+/***********traitement d'un Signalement en POO*/
+
+//On récupère les imputs ou créé des infos
+$signalPar = $_SESSION['emailU'];
+/*****Var type de problème*****/
+$typeS = htmlspecialchars($_POST["typeS"]);
+$descriptionS = htmlspecialchars($_POST["descriptionS"]);
+/***Var identification S*///
+$adresseS = htmlspecialchars($_POST["numero"].''.$_POST["adresseS"]);
+$villeS = htmlspecialchars($_POST["villeS"]);
+$cpS = htmlspecialchars($_POST["cpS"]);
+$regionS = htmlspecialchars($_POST["regionS"]);
+$paysS = htmlspecialchars($_POST["paysS"]);
+$latlng = htmlspecialchars($_POST["latlng"]);
+$placeId = htmlspecialchars($_POST["placeId"]);
+$photoS='0';
+$dateS = date("Y-m-d");
+/****var autre de la bd***/
+$resoluS='0';
+$interventionS='0';
+$nSoutienS='0';
+
+	// on créé une instance de SignalementManager
+	$managerS = new SignalementManager($bdd);
+
+	/**********SI CLIQUE SIGNALER*************/
+if (isset($_POST['signaler'])){
+	//on enregistre en bdd
+	$si= new Signalement([
+		'signalPar'=> $signalPar,
+		'typeS'=>	$typeS,
+		'descriptionS'=> $descriptionS,
+		'adresseS'=> $adresseS,
+		'villeS'=> $villeS,
+		'cpS'=> $cpS,
+		'regionS'=>	$regionS,
+		'paysS'=> $paysS,
+		'latlng'=> $latlng,
+		'placeId'=> $placeId,
+		'photoS'=> 	$photoS,
+		'dateS'=> $dateS,
+		'resoluS'=> 	$resoluS,
+		'interventionS'=> $interventionS,
+		'nSoutienS'=>	$nSoutienS
+	]);
+	//on appelle la fonction ajout avec en param l'objet un Signalement
+	$managerS->add($si);
+}
+?>
+
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -26,28 +92,28 @@ if (isset($_SESSION['emailU'])){
 			<div class="mainLeft">
         <form class="unSignalementForm" name ="signalement" method = "post"
 				 enctype="multipart/form-data"><center>
-					<fieldset name="localiser">
+					<fieldset name="localiser" >
 						<legend>Localiser</legend>
-
+						</br>
 						<table id="address1">
-						<input class="unSignalementField" id="autocomplete" placeholder="Adresse, lieu, commerce ou autres" onFocus="initAutocomplete(), geolocate()" type="text"></input>
-		        <tr>
+						<input class="unSignalementField" id="autocomplete" placeholder="Adresse complète, lieu, commerce etc." onFocus="initAutocomplete(), geolocate()" type="text"></input>
+		        <tr >
 							<label for="adresseS"></label>
-		          <td class="slimField1">
-								<input class="unSignalementField" id="street_number" name="numéro" disabled="true" placeholder="n°"></input>
+						  <td class="slimField1">
+								<input class="unSignalementField" id="street_number" name="numero" disabled="true" placeholder="n°" type="hidden"></input>
 							</td>
 		          <td class="wideField" >
-								<input class="unSignalementField" id="route" name="adresseS" disabled="true" placeholder="type de voie et son intitulé"></input>
+								<input class="unSignalementField" id="route" name="adresseS" disabled="true" placeholder="type de voie et son intitulé" type="hidden"></input>
 							</td>
 		        </tr>
 		        <tr>
 							<label for="cpS"></label>
 		          <td class="slimField1">
-								<input class="unSignalementField" id="postal_code" name="cpS" disabled="true" placeholder="CP"></input>
+								<input class="unSignalementField" id="postal_code" name="cpS" disabled="true" placeholder="CP" type="hidden"></input>
 							</td>
 							<label for="villeS"></label>
 		          <td class="wideField">
-								<input class="unSignalementField" id="locality" name="villeS" disabled="true" placeholder="Ville"></input>
+								<input class="unSignalementField" id="locality" name="villeS" disabled="true" placeholder="Ville" type="hidden"></input>
 							</td>
 			      </tr>
 						</table>
@@ -58,7 +124,7 @@ if (isset($_SESSION['emailU'])){
 									<input class="unSignalementField" type="hidden"></input>
 								</td>
 			          <td class="wideField">
-									<input class="unSignalementField" id="administrative_area_level_1" name="regionS" disabled="true" placeholder="Région"></input>
+									<input class="unSignalementField" id="administrative_area_level_1" name="regionS" disabled="true" placeholder="Région" type="hidden"></input>
 								</td>
 							</tr>
 							<tr>
@@ -67,23 +133,23 @@ if (isset($_SESSION['emailU'])){
 									<input class="unSignalementField" type="hidden"></input>
 								</td>
 			          <td class="wideField">
-									<input class="unSignalementField" id="country" name="paysS" disabled="true" placeholder="Pays"></input>
+									<input class="unSignalementField" id="country" name="paysS" disabled="true" placeholder="Pays" type="hidden"></input>
 								</td>
 			        </tr>
 							<tr>
 								<label for="latlgn"></label>
 								<td class="slimField">
-									<input class="unSignalementField" id="latlng" name="latlng" disabled="true" placeholder="latlng"></input>
+									<input class="unSignalementField" id="latlng" name="latlng" disabled="true" placeholder="latlng" type="hidden"></input>
 								</td>
 								<label for="placeId"></label>
 								<td class="slimField">
-									<input class="unSignalementField" id="placeId" name="placeId" disabled="true" placeholder="placeId"></input>
+									<input class="unSignalementField" id="placeId" name="placeId" disabled="true" placeholder="placeId" type="hidden"></input>
 								</td>
 							</tr>
 	      		</table>
-						OU<br/>
+						OU </br></br>
 						<label for="Geolocalisation"></label>
-						<input class="unSignalement" id="geocodeReverse" type="button" value="Se géolocaliser" onFocus="Geolocalisation()"></input><!--avt onclick="geoCoding();"-->
+						<input class="unSignalement" id="geocodeReverse" type="button" value="Se géolocaliser" onFocus="Geolocalisation()"></input>
 					</fieldset>
 					<fieldset name="decrire">
 						<legend>Décrire</legend>
@@ -113,25 +179,18 @@ if (isset($_SESSION['emailU'])){
 					</fieldset>
 					<fieldset name="valider">
 						<legend>Valider</legend>
-						<label for="signaler"></label><br/><input  class="unSignalement"
-						type="button" name="signaler" value="signaler" id="signaler" formaction = "unSignalement.php">
+						<label for="signaler"></label><br/><button  class="unSignalement"
+						type="submit" name="signaler" value="signaler" id="signaler" formaction = "signaler.php">SIGNALER</button>
             </fieldset>
         </form>
 		</div>
-		<div id="mapcanvas">
-			<ul id="results"></ul>
-		</div>
-
-
+		<div id="mapcanvas"></div>
 
 		<script>
 		/******VARIABLES COMMUNES********************/
-
 		/*Var pour map*/
 		var mapcanvas = document.getElementById("mapcanvas");
 		var x = document.getElementById("mapcanvas");//utilisée pour l'affichage des erreurs uniquement
-
-
 
 		/***************MAPS AFFICHEE DE BASE*********************/
 		// test de la géoloc
@@ -172,7 +231,6 @@ if (isset($_SESSION['emailU'])){
 	            break;
 	    }
 	  }
-
 
 /***************Autocpmpletation + Geocodage *********************/
 		/*Displays an address form, using the autocomplete feature
@@ -356,7 +414,6 @@ if (isset($_SESSION['emailU'])){
 	</main>
 	<?php include( 'footer.php');?>
 	</body>
-
 </html>
 <?php
 // ATTENTION FERMETURE DE LA SESSION SI ouverture

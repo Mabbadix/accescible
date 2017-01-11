@@ -11,10 +11,14 @@ require("connData.php");
 /*************Récupération des input dans des variable PHP****/
   /***Var de localisation du pb****/
 
-$adresseS = htmlspecialchars($_POST["adresseS"]);
+$adresseS = htmlspecialchars($_POST["numero"].' '.$_POST["adresseS"]);
 $cpS = htmlspecialchars($_POST["cpS"]);
 $villeS = htmlspecialchars($_POST["villeS"]);
-$geolocS = $_POST["geolocS"];
+$regionS = htmlspecialchars($_POST["regionS"]);
+$paysS = htmlspecialchars($_POST["paysS"]);
+$latlng = htmlspecialchars($_POST["latlng"]);
+$placeId = htmlspecialchars($_POST["placeId"]);
+
 
 
   /*****Var type de problème*****/
@@ -24,22 +28,21 @@ $descriptionS = htmlspecialchars($_POST["descriptionS"]);
 /****var date pb***/
 $dateS = date("Y-m-d");
 
-  /*****var identifiant du signalant***/
+/*****var identifiant du signalant***/
 $Courriel = htmlspecialchars($_POST["Courriel"]);
 $Mdp = sha1($_POST["Mot_de_passe"]);
-
 
 $idU = $_SESSION['emailU'];
 
 
 /************* function enregistrement du S dans la BD***********/
-$enregistrementS = $bdd->prepare("INSERT INTO signalements (signalPar, typeS, descriptionS, adresseS, villeS, cpS, dateS)
+$enregistrementS = $bdd->prepare("INSERT INTO signalements (signalPar, typeS, descriptionS, adresseS, villeS, cpS)
  VALUES ('$idU', '$typeS','$descriptionS','$adresseS','$villeS','$cpS','$dateS')");
-$enregistrementS->execute();
+
 
 function enregistrementSBd(){
-  global $adresseS, $cpS, $villeS,$geolocS,$typeS,$descriptionS,$dateS,$Courriel,$Mdp,$idU, $enregistrementS;
-
+  //*global $adresseS, $cpS, $villeS,$typeS,$descriptionS,$dateS,$Courriel,$Mdp,$idU, $enregistrementS;*/
+  $enregistrementS->execute();
     //oN VÉRIFIE QU'IL N'Y PAS DE PROBLÈME AVEC L'ENRISTREMENT DEs LA BD
    if (!$enregistrementS) {
          die('Requête invalide : ' . mysql_error());
@@ -94,9 +97,9 @@ function enregistrentPhotoS(){
 /**** vérification des données saisies et enregistrement BD**/
 if(isset($_POST['signaler'])){
     //si localiser est vide (soit adresse, soit géoloc)
-    if(empty($geolocS) AND empty($adresseS) OR empty($cpS) OR empty($villeS) ){
+    if(empty($adresseS) AND empty($cpS) OR empty($villeS) ){
       echo ("<script language='JavaScript' type='text/javascript'>");
-      echo ('alert("Merci de localiser le problème ou de vous géolocaliser");');
+      echo ('alert("Merci de localiser le problème ");');
       echo ('history.back(-1)');
       echo ("</script>");
     }
@@ -108,12 +111,12 @@ if(isset($_POST['signaler'])){
       echo ("</script>");
     }
     //Si pas de description ou pas de photo
-    if (empty($descriptionS) AND $_FILES["photoS"][size] == 0){
+    /*if (empty($descriptionS) AND $_FILES["photoS"][size] == 0){
         echo ("<script language='JavaScript' type='text/javascript'>");
         echo ('alert("Merci de faire une petite description OU/ET de joindre une photo");');
-        echo ('history.back(-1)');
+        echo ('history.back()');
         echo ("</script>");
-      }
+      }*/
     else {
       if($_FILES["photoS"][size] > 0){
         enregistrentPhotoS();

@@ -68,3 +68,22 @@
         async defer></script>
   </body>
 </html>
+//On récupère les imputs ou créé des infos
+$signalPar = $_SESSION['emailU'];
+/*****Var type de problème*****/
+$typeS = htmlspecialchars($_POST["typeS"]);
+$descriptionS = htmlspecialchars($_POST["descriptionS"]);
+/***Var identification S*///
+$adresseS = htmlspecialchars($_POST["adresseS"]);
+$villeS = htmlspecialchars($_POST["villeS"]);
+$cpS = htmlspecialchars($_POST["cpS"]);
+$regionS = htmlspecialchars($_POST["regionS"]);
+$paysS = htmlspecialchars($_POST["paysS"]);
+$latlng = htmlspecialchars($_POST["latlng"]);
+$placeId = htmlspecialchars($_POST["placeId"]);
+$photoS='0';
+$dateS = date("Y-m-d");
+/****var autre de la bd***/
+$resoluS='0';
+$interventionS='0';
+$nSoutienS='0';
