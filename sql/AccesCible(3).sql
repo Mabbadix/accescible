@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 11, 2017 at 08:54 PM
+-- Generation Time: Jan 11, 2017 at 11:12 PM
 -- Server version: 5.7.13-0ubuntu0.16.04.2
 -- PHP Version: 7.0.8-0ubuntu0.16.04.3
 
@@ -36,8 +36,8 @@ CREATE TABLE `signalements` (
   `cpS` int(11) NOT NULL,
   `regionS` varchar(100) NOT NULL,
   `paysS` varchar(100) NOT NULL,
-  `latlng` text NOT NULL,
-  `placeId` text NOT NULL,
+  `latlng` varchar(5000) NOT NULL,
+  `placeId` varchar(5000) NOT NULL,
   `photoS` int(11) NOT NULL,
   `dateS` varchar(10) NOT NULL,
   `resoluS` tinyint(1) NOT NULL,
@@ -50,10 +50,9 @@ CREATE TABLE `signalements` (
 --
 
 INSERT INTO `signalements` (`idS`, `signalPar`, `typeS`, `descriptionS`, `adresseS`, `villeS`, `cpS`, `regionS`, `paysS`, `latlng`, `placeId`, `photoS`, `dateS`, `resoluS`, `interventionS`, `nSoutienS`) VALUES
-(1, 'a@a.fr', 'Pb place parking', 'Pas de place handicapées', '187 chemin de ternis', 'Privas', 7000, '', '', '', '0', 0, '2016-07-26', 0, '', 0),
-(6, 'abbadimehdi@hotmail.fr', 'place handicapÃ©e', 'Ã©Ã©Ã©Ã©', '', 'Privas', 7000, 'Auvergne-RhÃ´ne-Alpes', 'France', '', '', 0, '2017-01-11', 0, '0', 0),
-(7, 'abbadimehdi@hotmail.fr', 'place handicapÃ©e', 'Ã©Ã©Ã©Ã©', '', 'Privas', 7000, 'Auvergne-RhÃ´ne-Alpes', 'France', '', '', 0, '2017-01-11', 0, '0', 0),
-(9, 'abbadimehdi@hotmail.fr', 'signal sonore ou lumineux', '552', ' ', 'Privas', 7000, 'Auvergne-RhÃ´ne-Alpes', 'France', '', '', 0, '2017-01-11', 0, '0', 0);
+(25, 'devabbadimehdi@gmail.com', 'place handicapÃ©e', 'ans le disabled', '58 Boulevard Saint-Germain', 'Paris', 75005, 'ÃŽle-de-France', 'France', '(48.8500694, 2.349191499999961)', 'ChIJb-zdo-Zx5kcRygH9Uc6FxmE', 0, '2017-01-11', 0, '0', 0),
+(26, 'devabbadimehdi@gmail.com', 'signal sonore ou lumineux', 'tout fonctionne avec le Id lace et le latlng', '187 Chemin de Ternis', 'Privas', 7000, 'Auvergne-RhÃ´ne-Alpes', 'France', '(44.7362447, 4.592187299999978)', 'ChIJ9TxIle06tRIRT5Pz1SaEg7E', 0, '2017-01-11', 0, '0', 0),
+(27, 'devabbadimehdi@gmail.com', 'sanitaires non adaptÃ©s', 're test', '85 Avenue Jean Breton', 'Privas', 7000, 'Auvergne-RhÃ´ne-Alpes', 'France', '(44.71924999999999, 4.608828399999993)', 'ChIJXe-TX6s7tRIRPzyOTp51DXQ', 0, '2017-01-11', 0, '0', 0);
 
 -- --------------------------------------------------------
 
@@ -113,7 +112,7 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT for table `signalements`
 --
 ALTER TABLE `signalements`
-  MODIFY `idS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `utilisateur`
 --
