@@ -105,22 +105,22 @@ if (isset($_SESSION['emailU'])){
 						<legend>Décrire</legend>
 							<label for="typeS"></label> <select
 							class="typeS" name="typeS" id="typesS"required >
-								<option name="typeS1" class="typeS" id="typesS">
+								<option class="icon1" name="typeS1" class="typeS" id="typesS">
 									Choisir dans la liste_ _</option>
-								<option name="typeS2" value="place handicapée">
+								<option class="icon2" name="typeS2" id="typeS2" value="Place handicapée">
 									Pas de place handicapée</option>
-								<option name="typeS3" value="signal sonore ou lumineux">
+								<option class="icon3" name="typeS3" id="typeS3yo :))" value="Signal sonore ou lumineux">
 									Pas de signal sonore ou lumineux</option>
-								<option name="typeS4" value="Trottoir">
+								<option class="icon4"name="typeS4" id="typeS4" value="Trottoir">
 									Trottoir inadapté ou encombré</option>
-								<option name="typeS5" value="accès en hauteur">
+								<option class="icon5"name="typeS5" id="typeS5" value="accès en hauteur">
 									Pas d'accès en hauteur</option>
-									<option name="typeS6" value="sanitaires non adaptés">
-									Sanitaires pas adaptés</option>
+								<option class="icon6" name="typeS6" id="typeS6" value="sanitaires non adaptés">
+								Sanitaires pas adaptés</option>
 							</select></br></br>
 							<label for="descriptionS"></label>
 							<textarea name="descriptionS" id="descriptionS" rows="5" cols="28"
-							placeholder="Faire un petite description du problème en 140 caractères maximum"></textarea>
+							placeholder="Faire une petite description du problème en 140 caractères maximum"></textarea>
 					</fieldset>
 					<fieldset name="photoUploads">
 						<legend>Photo</legend>
@@ -135,9 +135,7 @@ if (isset($_SESSION['emailU'])){
         </form>
 		</div>
 		<div id="mapcanvas"></div>
-
-	<?php include( 'autocomplete&geoloc.js');?>
-
+		<?php include( 'autocomplete&geoloc.js');?>
 		</div>
 	</main>
 	<?php include( 'footer.php');?>

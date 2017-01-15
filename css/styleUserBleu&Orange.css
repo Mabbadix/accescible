@@ -165,8 +165,22 @@ margin-bottom: 10px;
 }
 
 
-/*concernant la map*/
-
+/*concernant la map
+option {
+min-height: 70px ;/* hauteur image */
+ /* un peu plus large que l'image
+background-color: transparent;
+background-repeat: no-repeat;
+background-position: left center;
+}
+option.icon5 {
+background-image: url(../img/pb2.jpg);
+}
+option.icon6 {
+background-image: url(../img/pb2.jpg);
+}
+option.icone2 {
+background-image: url(.*/
 
 
 /***************FOOTER****************************/
