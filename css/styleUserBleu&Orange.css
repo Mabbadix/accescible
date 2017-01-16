@@ -137,9 +137,7 @@ fieldset{
 }
 
 #mapcanvas {
-
   cursor:pointer;
-
   height: inherit;
 }
 
@@ -164,28 +162,35 @@ height: 30px;
 margin-bottom: 10px;
 }
 
+#geocodeReverse{
+  max-width: 80px;
+  max-height: 80px;
+}
+.imgType{
+  max-width:80px;
+  max-height: 80px;
+  border-radius: 20%;
+}
 
-/*concernant la map
-option {
-min-height: 70px ;/* hauteur image */
- /* un peu plus large que l'image
-background-color: transparent;
-background-repeat: no-repeat;
-background-position: left center;
+.imgType:hover:not(.imgTypeActif) {
+    background-color: rgba(4,90,149,0.5);
+  }
+
+.imgTypeActif {
+    max-width:80px;
+    max-height: 80px;
+    background-color:rgb(4,90,149);
+      border-radius: 30%;
 }
-option.icon5 {
-background-image: url(../img/pb2.jpg);
+
+textarea{
+border: 2px solid rgb(223,74,16);
 }
-option.icon6 {
-background-image: url(../img/pb2.jpg);
-}
-option.icone2 {
-background-image: url(.*/
 
 
 /***************FOOTER****************************/
 footer{
-  background-color: rgba(233,95,3,1);
+
   width: 100%;
   bottom: 0;
   left: 0;
@@ -229,18 +234,23 @@ footer{
 }
 
 
-.footerdiv img:hover{
+#logoPartenaire:hover{
   -webkit-filter: grayscale(0%); /* Chrome, Safari, Opera */
 filter: grayscale(0%);
 -webkit-transition:all 0.9s;
 transition:all 0.9s;
 }
 
-.footerdiv img{
+#logoPartenaire{
   width: 200px;
   padding-top: 30px;
   -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
 filter: grayscale(100%);
+}
+
+#logoF{
+  width: 165px;
+  padding-top: 30px;
 }
 
 /************MEDIA QUERRY***********/

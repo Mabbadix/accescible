@@ -1,4 +1,7 @@
-<script>
+<script type = "text/javascript"  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTFqUmefn5-fJ2E20dOfyH-0-jVbZx5Lc&signed_in=true&libraries=places" async defer>
+// async defer = pas synchronization page ce qui permets de moins attendre
+</script>
+<script type = "text/javascript" >
 /******VARIABLES COMMUNES********************/
 /*Var pour map*/
 var mapcanvas = document.getElementById("mapcanvas");
@@ -217,7 +220,38 @@ function Geolocalisation(){
   }
 }
 
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTFqUmefn5-fJ2E20dOfyH-0-jVbZx5Lc&signed_in=true&libraries=places" async defer>
-// async defer = pas synchronization page ce qui permets de moins attendre
+/**********Fonction pour les icones des types de problèmes******/
+function change(nTypeS) {
+  select = document.getElementById("selectType");
+  descriptionS = document.getElementById("descriptionS");
+  longA = document.getElementsByClassName("imgType").length;//pour le nombre de for
+  longB = document.getElementsByClassName("imgTypeActif").length;//idem mais en prenant le new Classname
+  long = longB+longA;//nombre d'image de types de pb
+  for (var i=1; i<=long; i++){
+    valeur = document.getElementById("typeS"+i);
+    if (i === nTypeS){
+      //on assigne le nom de l'élément comme valeur à l'input caché;
+      select.value = valeur.id;
+      descriptionS.value = valeur.alt;
+      //on met en surbrilance le choix
+      valeur.className =valeur.className+"Actif";
+
+    } else {
+      valeur.className ="imgType";
+
+    }
+  }
+}
+/****On désactive la touche entrée pour le form*****/
+document.addEventListener("keydown", function(event) {
+if (event.keyCode == 13) {
+event.preventDefault();
+return false;
+}
+}, true);
+
+/****On désactive le double clik pour les img A TROUVER*****/
+
+
+/****FIN DU SCRIPT************/
 </script>

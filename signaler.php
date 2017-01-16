@@ -46,8 +46,8 @@ if (isset($_SESSION['emailU'])){
 						<legend>Localiser</legend>
 						</br>
 						<table id="address1">
-						<input class="unSignalementField" id="autocomplete" placeholder="Adresse complète, lieu, commerce etc." onFocus="initAutocomplete(), geolocate()" type="text"></input>
-		        <tr >
+						<input class="unSignalementField" type="text" id="autocomplete" placeholder="Adresse complète, lieu, commerce etc." onFocus="initAutocomplete(), geolocate()" ></input>
+						<tr >
 							<label for="adresseS"></label>
 						  <td class="slimField1">
 								<input class="unSignalementField" id="street_number" name="numero" disabled="true" placeholder="n°" type="hidden"></input>
@@ -99,28 +99,21 @@ if (isset($_SESSION['emailU'])){
 	      		</table>
 						OU </br></br>
 						<label for="Geolocalisation"></label>
-						<input class="unSignalement" id="geocodeReverse" type="button" value="Se géolocaliser" onFocus="Geolocalisation()"></input>
+						<input class="unSignalement" id="geocodeReverse" type="image" src="img/cible.svg" value="Se géolocaliser" onFocus="Geolocalisation()"></input>
 					</fieldset>
-					<fieldset name="decrire">
+					<fieldset id="descriptionSFied" name="decrire">
 						<legend>Décrire</legend>
-							<label for="typeS"></label> <select
-							class="typeS" name="typeS" id="typesS"required >
-								<option class="icon1" name="typeS1" class="typeS" id="typesS">
-									Choisir dans la liste_ _</option>
-								<option class="icon2" name="typeS2" id="typeS2" value="Place handicapée">
-									Pas de place handicapée</option>
-								<option class="icon3" name="typeS3" id="typeS3yo :))" value="Signal sonore ou lumineux">
-									Pas de signal sonore ou lumineux</option>
-								<option class="icon4"name="typeS4" id="typeS4" value="Trottoir">
-									Trottoir inadapté ou encombré</option>
-								<option class="icon5"name="typeS5" id="typeS5" value="accès en hauteur">
-									Pas d'accès en hauteur</option>
-								<option class="icon6" name="typeS6" id="typeS6" value="sanitaires non adaptés">
-								Sanitaires pas adaptés</option>
-							</select></br></br>
-							<label for="descriptionS"></label>
-							<textarea name="descriptionS" id="descriptionS" rows="5" cols="28"
-							placeholder="Faire une petite description du problème en 140 caractères maximum"></textarea>
+						<label for="typeS"></label>
+						<input class="typeS" type = "hidden" name="typeS" id="selectType" required></input>
+							<img class="imgType" alt="Place handicapée absente, occupée et/ou inadéquate." id="typeS1" src="img/typeS1.png "  onclick="change(1)" ></img>
+							<img class="imgType" alt="Absence de signal sonore, tactile ou lumineux." id="typeS2" src="img/typeS2.svg" onclick="change(2)"></img>
+							<img class="imgType" alt="Passage inadapté et/ou encombré." id="typeS3" src="img/typeS3.png" onclick="change(3)"></img></br></br>
+							<img type="image"class="imgType" alt="Problème d'accès en hauteur(rampe, ascenseur...)." id="typeS4" src="img/typeS4.png" onclick="change(4)"></img>
+							<img type="image" class="imgType" alt="Sanitaires absents et/ou non adaptés." id="typeS5" src="img/typeS5.png" onclick="change(5)"></img>
+							<img type="image"class="imgType" id="typeS6" src="img/typeS6.png" alt="Problème autre." onclick="change(6)"></img></br></br>
+						<label for="descriptionS"></label>
+						<textarea name="descriptionS" id="descriptionS" rows="1.8" cols="31"
+						placeholder="Faire une petite description du problème en 140 caractères maximum"></textarea>
 					</fieldset>
 					<fieldset name="photoUploads">
 						<legend>Photo</legend>
@@ -130,9 +123,10 @@ if (isset($_SESSION['emailU'])){
 					<fieldset name="valider">
 						<legend>Valider</legend>
 						<label for="signaler"></label><br/><button  class="unSignalement"
-						type="submit" name="signaler" value="signaler" id="signaler" formaction= "unSignalement.php">SIGNALER</button>
+						type="submit" name="signaler" value="signaler" id="signaler" formaction= "unSignalement.php" >SIGNALER</button>
             </fieldset>
         </form>
+
 		</div>
 		<div id="mapcanvas"></div>
 		<?php include( 'autocomplete&geoloc.js');?>
