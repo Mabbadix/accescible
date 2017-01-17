@@ -4,9 +4,6 @@
 	require 'connData.php';
   require 'UtilisateurManager.php';
   $manageU = new UtilisateurManager($bdd);
-	//A voir avec Dylan si on garde session comme ça
-	if (isset($_SESSION['emailU'])){
-
 ?>
   <!DOCTYPE html>
   <html lang="fr">
@@ -122,13 +119,3 @@
   </body>
 
 </html>
-<?php
-	//A voir avec Dylan si on garde session comme ça
-// ATTENTION FERMETURE DE LA SESSION SI ouverture
-}else {
-
-	header("location: index.php");
-
-}
-
- ?>
