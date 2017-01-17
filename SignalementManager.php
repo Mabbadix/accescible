@@ -42,44 +42,45 @@ class SignalementManager{
       $q->bindValue(':nSoutienS', $si->getNSoutienS());
 
       $q->execute();
-      /*if (!$q)
+      if (!$q)
       {
         print($q->errorInfo());
       }
-      else
-      {
-        echo "<script language='JavaScript' type='text/javascript'>";
-        echo 'alert("OK ENREGISTRE");';
-        echo 'history.back(-1)';
-        echo '</script>';
-      }*/
     }
 
-    //compte le nombre d'utilisateurs et le retourne;
-  /*public function count()
+    //compte le nombre de signalements et le retourne;
+  public function count()
   {
-    return $this->_db->query('SELECT COUNT(*) FROM utilisateur')->fetchColumn();
+    return $this->_db->query('SELECT COUNT(*) FROM signalements')->fetchColumn();
   }
 
-  //supprime un utilisateur;
-  public function delete(Utilisateur $si)
+  //supprime un utilisateur; A VERIFIER
+  public function delete(Signalement $si)
   {
-    $this->_db->exec('DELETE FROM personnages WHERE id = '.$si->id());
+    $this->_db->exec('DELETE FROM sinalements WHERE latlng = '.$si->getLatlng());
   }
 
-  //verifie si existe
-  public function exists($courriel, $mdp)
+  //verifie si existe et retourne nombre// A VERIFIER
+  public function exists($id)
   {
-
-    $q = $this->_db->prepare("SELECT idU, emailU, mdpU, valide FROM utilisateur WHERE emailU = :emailU AND mdpU=:mdpU");
-    $q->execute([
-      ':emailU' => $courriel,
-      ':mdpU' => $mdp
-    ]);
-  return (bool) $q->fetchColumn();
+      $q = $this->_db->prepare("SELECT idS FROM signalements WHERE idS =:idS");
+      $q->execute([
+        ':idS' => $id,
+      ]);
+      return (bool) $q->fetchColumn();//true or false
   }
 
-  // verif si email déjà utilisé
+    // on renvoi l'ensemble des info utilisateurs
+    public function getSignal($id)
+    {
+      $q = $this->_db->prepare("SELECT * FROM signalements WHERE idS =:id");
+      $q->execute([
+        ':id' => $id,
+      ]);
+      return new Signalement ($q->fetch(PDO::FETCH_ASSOC));
+    }
+
+  /*// verif si email déjà utilisé
   public function verifEmailLibre($courriel)
   {
     $q = $this->_db->prepare("SELECT idU, emailU, mdpU, valide FROM utilisateur WHERE emailU = :emailU ");
@@ -87,16 +88,7 @@ class SignalementManager{
     return (bool) $q->fetchColumn();
   }
 
-  // on renvoi l'ensemble des info utilisateurs
-  public function getUtilisateur($courriel, $mdp)
-  {
-    $q = $this->_db->prepare("SELECT idU, emailU, mdpU, valide FROM utilisateur WHERE emailU = :emailU AND mdpU=:mdpU");
-    $q->execute([
-      ':emailU' => $courriel,
-      ':mdpU' => $mdp
-    ]);
-    return new Utilisateur ($q->fetch(PDO::FETCH_ASSOC));
-  }
+
 
   //vérification de la connection établie pour redirection des pages
   public function isConnected()
@@ -164,5 +156,7 @@ public function getList($nom)
   {
     $this->_db = $db;
   }*/
+//ferme la Custom_Image_Header::customize_set_last_used
 }
+
 ?>

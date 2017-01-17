@@ -140,21 +140,11 @@ fieldset{
 }
 
 #mapcanvas {
-
   cursor:pointer;
-
   height: inherit;
 }
 
 /*form sur le coté de signaler.php*/
-
-.unSignalementField{
-  width: 99%;
-  max-width: 300px;
-}
-.slimField1 {
-  width: 50px;
-}
 
 #autocomplete {
 border: 2px solid rgb(4,90,149);
@@ -164,17 +154,102 @@ left: 0px;
 width: 99%;
 margin-bottom: 10px;
 height: 30px;
-margin-bottom: 10px;
 }
 
+#geocodeReverse{
+  min-width: 60px;
+  min-height: 60px;
+  background-size: contain;
+  background-color: rgb(4,90,149);
+  border: 2px solid rgb(4,90,149);
+  background-image: url(../img/cible.svg);
+  border-radius: 100%; no-repeat;
+  -moz-transition-duration:0.3s;
+	-moz-transition-timing-function:ease;
+	-webkit-transition-duration:0.3s;
+	-webkit-transition-timing-function:ease;
+	transition-duration:0.3s;
+	transition-timing-function:ease;
+}
 
-/*concernant la map*/
+#geocodeReverse:hover{
+  -moz-transform: scale(1.2);
+	-webkit-transform: scale(1.2);
+	transform: scale(1.2);
+}
 
+/*****les img symbolisant les pb****/
+.imgType{
+  max-width:80px;
+  max-height: 80px;
+  border-radius: 20%;
+  -moz-transition-duration:0.3s;
+  -moz-transition-timing-function:ease;
+  -webkit-transition-duration:0.3s;
+  -webkit-transition-timing-function:ease;
+  transition-duration:0.3s;
+  transition-timing-function:ease;
+}
 
+.imgType:hover:not(.imgTypeActif) {
+    background-color: rgba(4,90,149,0.5);
+      -moz-transform: scale(1.2);
+      -webkit-transform: scale(1.2);
+      transform: scale(1.2);
+  }
+
+.imgTypeActif {
+    max-width:80px;
+    max-height: 80px;
+    background-color:rgb(4,90,149);
+    border-radius: 30%;
+    -moz-transition-duration:0.3s;
+    -moz-transition-timing-function:ease;
+    -webkit-transition-duration:0.3s;
+    -webkit-transition-timing-function:ease;
+    transition-duration:0.3s;
+  }
+.imgTypeActif:hover{
+  transition-timing-function:ease;
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+/***Description + photo***/
+
+textarea{
+border: 2px solid rgb(223,74,16);
+color:rgb(223,74,16);
+}
+
+.incPhotoS{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/*bouton de signaler /valider*/
+button{
+  background-color: rgb(4,90,149);
+  border: 2px solid rgb(4,90,149);
+  border-radius: 100%;
+  text-align: center;
+  -moz-transition-duration:0.3s;
+	-moz-transition-timing-function:ease;
+	-webkit-transition-duration:0.3s;
+	-webkit-transition-timing-function:ease;
+	transition-duration:0.3s;
+	transition-timing-function:ease-out;
+}
+
+button:hover{
+    -moz-transform: rotate(635deg) scale(1.2);
+  	-webkit-transform: rotate(635deg) scale(1.2);
+  	transform: rotate(635deg) scale(1.2);
+}
 
 /***************FOOTER****************************/
 footer{
-  background-color: rgba(233,95,3,1);
+
   width: 100%;
   bottom: 0;
   left: 0;
@@ -218,18 +293,23 @@ footer{
 }
 
 
-.footerdiv img:hover{
+#logoPartenaire:hover{
   -webkit-filter: grayscale(0%); /* Chrome, Safari, Opera */
 filter: grayscale(0%);
 -webkit-transition:all 0.9s;
 transition:all 0.9s;
 }
 
-.footerdiv img{
+#logoPartenaire{
   width: 200px;
   padding-top: 30px;
   -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
 filter: grayscale(100%);
+}
+
+#logoF{
+  width: 165px;
+  padding-top: 30px;
 }
 
 /************MEDIA QUERRY***********/

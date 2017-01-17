@@ -1,9 +1,31 @@
 <?php
-//ouverture de session
-	session_start();
-	require 'connData.php';
-  require 'UtilisateurManager.php';
+header('content-type: text/html; charset=utf-8');
+
+//fonction qui recherche toute seule la classe à requerir
+function chargerClass($classe)
+{
+	require $classe.'.php';
+}
+spl_autoload_register('chargerClass');
+
+//On a créé des sessions et pour que ça fonctionne, il faut en déclarer l'ouverture.
+session_start();
+if (isset($_GET['deconnexion']))
+{
+  require 'deconn.php';
+}
+
+//******Connect BD********
+require 'connData.php';
+$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
+
+/***********traitement sur la page index*/
+
   $manageU = new UtilisateurManager($bdd);
+<<<<<<< HEAD
+=======
+	//A voir avec Dylan si on garde session comme ça
+>>>>>>> ce6627a86f3709ce016da920e652d3fbf566ed7b
 ?>
   <!DOCTYPE html>
   <html lang="fr">
@@ -12,7 +34,8 @@
     <!-- integration de toutes les metas et autres link
 				ATTENTION link styleUser.css different du "style.css" -->
     <?php include 'headUtilisateur.php'; ?>
-      <title>Acces'Cible-Carte_Utilisateur</title>
+    <title>Acces'Cible-Carte_Utilisateur</title>
+
   </head>
 
   <body>
@@ -27,22 +50,35 @@
       <!-- Partie centrale en dessous de navBar-->
       <div class="mainUserCarte">
         <div class="mainLeft" id="listSignal">
-          <!-- Intégration des signalements à gauche de la carte  -->
-          <?php
-						$reqs = 'SELECT typeS, descriptionS, villeS, dateS FROM signalements';
-						foreach ($bdd->query($reqs) as $row) {
-							echo  '<div class="msgsignal">
-							       <p>'.$row['typeS'].' : </p>
-	                   <p>'.$row['descriptionS'].'</p>
-	                   <p> A '.$row['villeS'].'</p>
-										 <p> Le '.$row['dateS'].'</p>
-	                   </div><br>';
-						}
-					?> </div>
+          <!-- Intégration des signalements à gauche de la carte + effet tournant -->
+							<?php
+							$siMa = new SignalementManager($bdd);
+							$nSignal = $siMa->count();
+							$i=0;//compteur du nombre de signalements
+							$id=0;// compteur des id à augmenter de temps en temps :))
+							while ($i<$nSignal){
+								$siExist = $siMa->exists($id);
+								if(!$siExist){
+									//	ici on pourrait regarder de temps en temps pour faire partir le compteur
+									$id++;
+								}else{
+									$si = $siMa->getSignal($id);
+									echo  '<div class="msgsignal">
+											 <p>'.$si->getTypeS().' : </p>
+											 <p>'.$si->getDescriptionS().'</p>
+											 <p> A '.$si->getVilleS().'</p>
+											 <p> Le '.$si->getDateS().'</p>
+										 </div> <br>';
+									$i++;
+									$id++;
+								}
+							}
+							?>
+				</div>
         <div class= "mapcanvas"  id="mapcanvas">
-          <!-- Intégration de la carte + Geolocation + placement maker -->
+					<!-- Intégration de la carte + Geolocation + placement maker -->
           <!-- Laisser ce script à l'exterieur du script de recupération MAP-->
-        <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTFqUmefn5-fJ2E20dOfyH-0-jVbZx5Lc"></script>
+					<script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTFqUmefn5-fJ2E20dOfyH-0-jVbZx5Lc"></script>
           <script>
             // Geolocation + Marker
             //Récuperation de la Div "mapcanvas" du html
@@ -112,7 +148,7 @@
               x.innerHTML = "Geolocation is not supported by this browser.";
             }
           </script>
-        </div>
+				</div>
       </div>
     </main>
     <?php include( 'footer.php');?>
