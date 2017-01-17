@@ -97,7 +97,7 @@ if (isset($_SESSION['emailU'])){
 								</td>
 							</tr>
 	      		</table>
-						OU </br></br>
+
 						<label for="Geolocalisation"></label>
 						<input class="unSignalement" id="geocodeReverse" type="image" src="img/cible.svg" value="Se géolocaliser" onFocus="Geolocalisation()"></input>
 					</fieldset>
@@ -122,8 +122,9 @@ if (isset($_SESSION['emailU'])){
 					</fieldset>
 					<fieldset name="valider">
 						<legend>Valider</legend>
-						<label for="signaler"></label><br/><button  class="unSignalement"
-						type="submit" name="signaler" value="signaler" id="signaler" formaction= "unSignalement.php" >SIGNALER</button>
+						<label for="signaler"></label><br/>
+						<button  class="unSignalement"
+						type="submit" name="signaler" value="signaler" id="signaler" formaction= "unSignalement.php"><img id="doigt" src="img/doigt.svg"></img></button>
             </fieldset>
         </form>
 
