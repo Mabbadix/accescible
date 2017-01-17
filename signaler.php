@@ -118,7 +118,7 @@ if (isset($_SESSION['emailU'])){
 					<fieldset name="photoUploads">
 						<legend>Photo</legend>
 						<input type="hidden" name="MAX_FILE_SIZE" value="1000000">
-						<input class="incPhotoS" id="incPhotoS" type="file" name="photoS">
+						<input class="incPhotoS" id="incPhotoS" type="file" name="photoS" onclick="photoSave.php">
 					</fieldset>
 					<fieldset name="valider">
 						<legend>Valider</legend>
