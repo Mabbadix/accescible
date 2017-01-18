@@ -17,7 +17,6 @@ if (isset($_GET['deconnexion']))
 
 //******Connect BD********
 require 'connData.php';
-$manageU = new UtilisateurManager($bdd);
 $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
 if (isset($_SESSION['emailU'])){
 ?>
@@ -34,7 +33,7 @@ if (isset($_SESSION['emailU'])){
 	<body>
   <header><!-- NAVBAR -->
 		<div class = "navFix">
-		<?php include 'headerNavUserCarte.php'; ?>
+		<?php include 'headerNavSignaler.php'; ?>
 	</div>
   </header>
 
