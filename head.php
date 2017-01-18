@@ -9,3 +9,7 @@
     <link rel="icon" type="image/x-icon" sizes="16x16" href="img/logo7.png"/>
     <link rel="icon" href="img/logo7.png" sizes="any" type="image/svg">
     <link rel="apple-touch-icon" sizes="16x16" href="img/logo7.png"/>
+    <script
+    src="https://code.jquery.com/jquery-3.1.1.slim.js"
+    integrity="sha256-5i/mQ300M779N2OVDrl16lbohwXNUdzL/R2aVUXyXWA="
+    crossorigin="anonymous"></script>

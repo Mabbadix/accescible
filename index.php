@@ -59,6 +59,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 					//créé les parametres de session
 				$_SESSION['emailU'] = $ut->getEmailU();
 				$_SESSION['mdpU'] = $ut->getMdpU();
+				$_SESSION['confirme'] = $ut->getConfirme();
 				//on informe que logged est Ok pour redirection sur l'espace des gens inscrits
 				$_SESSION['logged'] = true;
 				//informe et on redirige
@@ -88,6 +89,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 				//on créer la session
 				$_SESSION['emailU'] = $ut->getEmailU();
 				$_SESSION['mdpU'] = $ut->getMdpU();
+				$_SESSION['confirme'] = $ut->getConfirme();
 				//on informe que logged est Ok pour redirection sur l'espace des gens inscrits
 				$_SESSION['logged'] = true;
 			//on redirige
