@@ -112,13 +112,13 @@ if (isset($_SESSION['emailU'])){
 							<img type="image" class="imgType" alt="Sanitaires absents et/ou non adaptés." id="typeS5" src="img/typeS5.png" onclick="change(5)"></img>
 							<img type="image"class="imgType" id="typeS6" src="img/typeS6.png" alt="Problème autre." onclick="change(6)"></img></br></br>
 						<label for="descriptionS"></label>
-						<textarea class="descriptionS" name="descriptionS" id="descriptionS" rows="1.8" cols="31"
-						placeholder="Description du problème en 100 caractères maximum"></textarea>
+							<textarea class="descriptionS" name="descriptionS" id="descriptionS" rows="1.8" cols="31"
+							placeholder="Description du problème en 100 caractères maximum"></textarea>
 					</fieldset>
 					<fieldset name="photoUploads">
 						<legend>Photo</legend>
-						<input type="hidden" name="MAX_FILE_SIZE" value="1000000">
-						<input class="incPhotoS" id="incPhotoS" type="file" name="photoS" onclick="photoSave.php">
+						<input type="hidden" name="MAX_FILE_SIZE" value="10000000">
+						<input class="incPhotoS" id="incPhotoS" type="file" name="photoS">
 					</fieldset>
 					<fieldset name="valider">
 						<legend>Valider</legend>

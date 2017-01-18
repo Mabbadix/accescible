@@ -33,8 +33,49 @@ $regionS = htmlspecialchars($_POST["regionS"]);
 $paysS = htmlspecialchars($_POST["paysS"]);
 $latlng = htmlspecialchars($_POST["latlngS"]);
 $placeId = htmlspecialchars($_POST["placeIdS"]);
-$photoS='0';
 $dateS = date("Y-m-d");
+
+/******Gestion enregistrement photo******/
+global $photoControl;
+
+if($_FILES["photoS"]["size"] > 0){
+	//Test que fichier bien envoyé
+if(isset($_FILES["photoS"]) AND $_FILES["photoS"]["error"] == 0){
+	 // Testons si le fichier n"est pas trop gros
+	 $maxsize = 10000000;
+	 if ($_FILES["photoS"]["size"] <= $maxsize){
+			// Testons si l'extension est autorisée
+			$infosfichier = pathinfo($_FILES["photoS"]["name"]);
+			$nomPhotoS = $_FILES["photoS"]["name"];
+			$extension_upload =  strtolower(substr(strrchr($_FILES ["photoS"] ["name"], "."), 1));//ou $infosfichier["extension"]
+			$extension_autorisees = array("jpg", "jpeg", "gif", "png", "svg");
+
+			if (in_array($extension_upload, $extension_autorisees)){
+
+			 //on créé un nom aléatoire a ajouté
+			 $nom = md5(uniqid(rand(), true));
+
+			 //Si tout est bon, on accepte le fichier ac 2 parametres (1=destination temp du fichier, 2= destiantion finale du fichier )
+			 move_uploaded_file($_FILES["photoS"]["tmps_name"], //=1
+				"uploadsPhotoS/".$nom.basename($_FILES["photoS"]["name"]));//=2 en amélioré car on garde le nom du fichier en le telechargement et on le mets dans un dossier /upload
+
+				$photoControl= "uploadsPhotoS/".$nom.basename($_FILES["photoS"]["name"]);
+			}else{
+				$photoControl= "format";
+			}
+		}
+		 elseif ($_FILES["photoS"]["size"] > $maxsize){
+			 $photoControl = "taille";
+		 }
+	}
+	 elseif($_FILES ["photoS"]["error"]>0){
+		 $photoControl = "erreurChargement";
+ }
+}else {
+	$photoControl ="pasDePhoto";
+}
+
+$photoS = $photoControl;
 /****var autre de la bd***/
 $resoluS='0';
 $interventionS='0';
@@ -58,15 +99,22 @@ if(isset($_POST['signaler'])){
 		echo ('alert("Merci de choisir un problème");');
 		echo ('history.back(-1)');
 		echo ("</script>");
-	}
-	//Si pas de description ou pas de photo
-	/*if (empty($descriptionS) AND $_FILES["photoS"][size] == 0){
-			echo ("<script language='JavaScript' type='text/javascript'>");
-			echo ('alert("Merci de faire une petite description OU/ET de joindre une photo");');
-			echo ('history.back()');
-			echo ("</script>");
-		}*/
-	else {//sinon lancement des functions idoines
+	}elseif($photoS == "format"){
+				echo ("<script language='JavaScript' type='text/javascript'>");
+				echo ('alert("Le format du fichier n\'est pas accepté. Seuls sont acceptés,les fichiers en .jpg, .jpeg, .gif, .png, .svg. Merci de recommencer.");');
+				echo ('history.back(-1)');
+				echo ("</script>");
+			}elseif($photoS == "taille"){
+				echo ("<script language='JavaScript' type='text/javascript'>");
+				echo ('alert("Le fichier est trop volumineux. Merci de recommencer.");');
+				echo ('history.back(-1)');
+				echo ("</script>");
+			}elseif($photoS == "erreurChargement"){
+				echo ("<script language='JavaScript' type='text/javascript'>");
+				echo ('alert("Erreur inconue lors du chargement du fichier. Merci de recommencer.");');
+				echo ('history.back(-1)');
+				echo ("</script>");
+	}	else {//sinon lancement des functions idoines
 			/****création d'un obj signalement + enregistrement ****/
 			// on créé une instance de SignalementManager
 		 $managerS = new SignalementManager($bdd);
@@ -93,72 +141,4 @@ if(isset($_POST['signaler'])){
 		 <script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",500) </script>';
 	}
 }
-
-function enregistrementSBd(){
-		/****création d'un obj signalement + enregistrement ****/
-		// on créé une instance de SignalementManager
-	 $managerS = new SignalementManager($bdd);
-	 $si= new Signalement([
-		 'signalPar'=> $signalPar,
-		 'typeS'=>	$typeS,
-		 'descriptionS'=> $descriptionS,
-		 'adresseS'=> $adresseS,
-		 'villeS'=> $villeS,
-		 'cpS'=> $cpS,
-		 'regionS'=>	$regionS,
-		 'paysS'=> $paysS,
-		 'latlng'=> $latlng,
-		 'placeId'=> $placeId,
-		 'photoS'=> 	$photoS,
-		 'dateS'=> $dateS,
-		 'resoluS'=> 	$resoluS,
-		 'interventionS'=> $interventionS,
-		 'nSoutienS'=>	$nSoutienS
-	 ]);
-	 //on appelle la fonction ajout avec en param l'objet un Signalement
-	 $managerS->add($si);
-	 echo '<div id="ok">Signalement enregistré. Redirection en cours...</div>
-	 <script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",500) </script>';
-}
-
-
-function enregistrentPhotoS(){
-  	//Test que fichier bien envoyé
-	if(isset($_FILES["photoS"]) AND $_FILES["photoS"]["error"] == 0){
-     // Testons si le fichier n"est pas trop gros
-     $maxsize = 1000000;
-     if ($_FILES["photoS"]["size"] <= $maxsize){
-        // Testons si l'extension est autorisée
-        $infosfichier = pathinfo($_FILES["photoS"]["name"]);
-        $nomPhotoS = $_FILES["photoS"]["name"];
-        $extension_upload =  $infosfichier["extension"]; //OU $extension_upload = strtolower(substr(strrchr($_FILES ["photoS"] ["name"], "."), 1));
-        $extension_autorisees = array("jpg", "jpeg", "gif", "png");
-        if (in_array($extension_upload, $extension_autorisees)){
-         //Si tout est bon, on accepte le fichier ac 2 parametres (1=destination temp du fichier, 2= destiantion finale du fichier )
-         move_uploaded_file($_FILES["photoS"]["tmps_name"], //=1
-          "uploadsPhotoS/".basename($_FILES["photoS"]["name"]));//=2 en amélioré car on garde le nom du fichier en le telechargement et on le mets dans un dossier /upload
-					echo ("<script language='JavaScript' type='text/javascript'>");
-				 	echo ('alert("le fichier a bien été téléchargé");');
-					enregistrementSBd();
-        }else {
-					echo ("<script language='JavaScript' type='text/javascript'>");
-					echo ('alert("Le format du fichier n\'est pas accepté.Seuls sont acceptés,les fichiers en .jpg, .jpeg, .gif, .png");');
-					echo ("</script>");
-
-        }
-     	}
-	     elseif ($_FILES["photoS"]["size"] > $maxsize){
-				 echo ("<script language='JavaScript' type='text/javascript'>");
-				 echo ('alert("Le fichier est trop gros");');
-				 echo ('history.back(-1)');
-				 echo ("</script>");
-	     }
-		}
-		 elseif($_FILES ["photoS"]["error"]>0){
-			 echo ("<script language='JavaScript' type='text/javascript'>");
-			 echo ('alert("Erreur lors du transfert");');
-			 echo ('history.back(-1)');
-			 echo ("</script>");
-	 }
-};
 ?>
