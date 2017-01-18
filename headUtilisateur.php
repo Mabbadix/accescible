@@ -11,3 +11,7 @@
 <link rel="icon" href="img/logo7.png" sizes="any" type="image/svg">
 <link rel="apple-touch-icon" sizes="16x16" href="img/logo7.png" />
 <script src="https://use.fontawesome.com/46604c9a0f.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.1.1.js"
+  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+  crossorigin="anonymous"></script>

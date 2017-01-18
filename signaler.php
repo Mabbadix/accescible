@@ -17,6 +17,7 @@ if (isset($_GET['deconnexion']))
 
 //******Connect BD********
 require 'connData.php';
+$manageU = new UtilisateurManager($bdd);
 $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
 if (isset($_SESSION['emailU'])){
 ?>
@@ -33,7 +34,7 @@ if (isset($_SESSION['emailU'])){
 	<body>
   <header><!-- NAVBAR -->
 		<div class = "navFix">
-		<?php include 'headerNavSignaler.php'; ?>
+		<?php include 'headerNavUserCarte.php'; ?>
 	</div>
   </header>
 
@@ -99,7 +100,7 @@ if (isset($_SESSION['emailU'])){
 	      		</table>
 
 						<label for="Geolocalisation"></label>
-						<input class="unSignalement" id="geocodeReverse" type="image" src="img/cible.svg" value="Se géolocaliser" onFocus="Geolocalisation()"></input>
+						<input type ="button" class="unSignalement" id="geocodeReverse"  onFocus="Geolocalisation()"></input>
 					</fieldset>
 					<fieldset id="descriptionSFied" name="decrire">
 						<legend>Décrire</legend>
@@ -112,13 +113,13 @@ if (isset($_SESSION['emailU'])){
 							<img type="image" class="imgType" alt="Sanitaires absents et/ou non adaptés." id="typeS5" src="img/typeS5.png" onclick="change(5)"></img>
 							<img type="image"class="imgType" id="typeS6" src="img/typeS6.png" alt="Problème autre." onclick="change(6)"></img></br></br>
 						<label for="descriptionS"></label>
-						<textarea name="descriptionS" id="descriptionS" rows="1.8" cols="31"
-						placeholder="Faire une petite description du problème en 140 caractères maximum"></textarea>
+							<textarea class="descriptionS" name="descriptionS" id="descriptionS" rows="1.8" cols="31"
+							placeholder="Description du problème en 100 caractères maximum"></textarea>
 					</fieldset>
 					<fieldset name="photoUploads">
 						<legend>Photo</legend>
-						<input type="hidden" name="MAX_FILE_SIZE" value="1000000">
-						<input type="file" name="photoS">
+						<input type="hidden" name="MAX_FILE_SIZE" value="10000000">
+						<input class="incPhotoS" id="incPhotoS" type="file" name="photoS">
 					</fieldset>
 					<fieldset name="valider">
 						<legend>Valider</legend>

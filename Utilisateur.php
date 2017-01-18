@@ -161,6 +161,7 @@ class Utilisateur {
     {
         return $this->confirmKey;
     }
+    
     public function getConfirme()
     {
         return $this->confirme;

@@ -86,7 +86,7 @@ class UtilisateurManager {
   // on renvoi l'ensemble des info utilisateurs
   public function getUtilisateur($courriel, $mdp)
   {
-    $q = $this->_db->prepare("SELECT idU, emailU, mdpU, valide FROM utilisateur WHERE emailU = :emailU AND mdpU=:mdpU");
+    $q = $this->_db->prepare("SELECT idU, emailU, mdpU, valide, confirme FROM utilisateur WHERE emailU = :emailU AND mdpU=:mdpU");
     $q->execute([
       ':emailU' => $courriel,
       ':mdpU' => $mdp
@@ -104,8 +104,18 @@ class UtilisateurManager {
     }
   }
 
-  //envoi email à l'aide phpmailer avec cette function : parametre = email de l'utilisateur et la clef créée. 
-  public function envoieMail($dMailU, $dkey){
+  public function isConfirme()
+  {
+    $q = $this->_db->prepare("SELECT confirme FROM utilisateur WHERE emailU = :emailU");
+    $q->execute([
+      'emailU' => $_SESSION['emailU']
+    ]);
+    print_r($_SESSION);
+  }
+
+  //envoi email à l'aide phpmailer avec cette function : parametre = email de l'utilisateur et la clef créée.
+  public function envoieMail($dMailU, $dkey)
+  {
     require 'vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
     $dMail = new PHPMailer;
     $dMail->isSMTP();
@@ -119,11 +129,17 @@ class UtilisateurManager {
     $dMail->addAddress("$dMailU", 'Vous');
     $dMail->isHTML(true);
     $dMail->Subject = 'Validation du compte Accescible';
-    $dMail->Body = "Bonjour $dkey";
+    $dMail->Body = 'lien de confirmation <a href="projetdev.ovh/accescible/verifmail.php?key='.$dkey.'&mail='.$dMailU.'">ICI</a>';
     $dMail->AltBody = "Bonjour $dkey";
     $dMail->send();
   }
 
+  //Si les infos sont exact passe la confirmation a TRUE
+  public function verifEmail($key)
+  {
+    $q = $this->_db->prepare("UPDATE `utilisateur` SET `confirme`=1 WHERE `confirmKey` = :key");
+    $q->execute([':key' => $key]);
+  }
 //RESTE A FAIRE
   /*public function update(Utilisateur $ut){
   }
