@@ -104,7 +104,7 @@ class UtilisateurManager {
     }
   }
 
-  //envoi email à l'aide phpmailer avec cette function : parametre = email de l'utilisateur et la clef créée. 
+  //envoi email à l'aide phpmailer avec cette function : parametre = email de l'utilisateur et la clef créée.
   public function envoieMail($dMailU, $dkey){
     require 'vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
     $dMail = new PHPMailer;
