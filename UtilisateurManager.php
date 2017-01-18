@@ -129,7 +129,7 @@ print_r($_SESSION);
     $dMail->addAddress("$dMailU", 'Vous');
     $dMail->isHTML(true);
     $dMail->Subject = 'Validation du compte Accescible';
-    $dMail->Body = 'Pour confirmer votre inscription cliquez <a href="projetdev.ovh/accescible/verifmail.php?key='.$dkey.'&mail='.$dMailU.'">ICI</a>';
+    $dMail->Body = 'Bienvenue dans la communté Accès\'Cible. Confirmez votre inscriptiion en cliquant <a href="projetdev.ovh/accescible/verifmail.php?key='.$dkey.'&mail='.$dMailU.'">ICI</a>. Merci.';
     $dMail->AltBody = "Bonjour $dkey";
     $dMail->send();
   }
