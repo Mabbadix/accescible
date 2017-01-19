@@ -41,7 +41,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 				<!-- Nav Bar + Side -->
 	      <!-- ATTENTION headerNav different pour chaque page pour selection du bon onglet" -->
 	      <?php
-				$nav_en_cours = 'usercarte'; 
+				$nav_en_cours = 'usercarte';
 				include 'headerNavUserCarte.php'; ?>
 			</div>
     </header>
@@ -54,7 +54,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 							$siMa = new SignalementManager($bdd);
 							$nSignal = $siMa->count();
 							$i=0;//compteur du nombre de signalements
-							$id=0;// compteur des id à augmenter de temps en temps :))
+							$id=100;// compteur des id à augmenter de temps en temps :))
 							while ($i<$nSignal){
 								$siExist = $siMa->exists($id);
 								if(!$siExist){
@@ -63,11 +63,16 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 								}else{
 									$si = $siMa->getSignal($id);
 									echo  '<div class="msgsignal">
-											 <p>'.$si->getTypeS().' : </p>
-											 <p>'.$si->getDescriptionS().'</p>
-											 <p> A '.$si->getVilleS().'</p>
-											 <p> Le '.$si->getDateS().'</p>
+													<div class="hautPost">
+														<div id="imgS"><img  src="img/'.$si->getTypeS().'.png" height=60px></img></div>
+														<div id="soutienS"><button type="submit" name="signaler" value="signaler" id="signaler" formaction= "unSignalement.php"><img id="doigt" src="img/doigt.svg"></img></button>
+														</div>
+													</div>
+													<div class="basPost" id="infoS"><textarea class="sousInfoS" name="descriptionS" id="sousInfoS" rows="5" cols="31"
+													placeholder="'.$si->getDescriptionS().' Signalé le '.$si->getDateS().',  '.$si->getVilleS().'" disabled></textarea>
+													</div>
 										 </div> <br>';
+									$voirS = $si->getPlaceId();
 									$i++;
 									$id++;
 								}
@@ -98,14 +103,14 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
               //MAJ de la map en focntion des new Latlng
               var majMap = map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
               // création Maker et son placement
-              var marker = new google.maps.Marker({
-                position: latlng
-                , map: map
-                , draggable: true
-                , icon: "img/maker.svg"
-                , animation: google.maps.Animation.BOUNCE
-              });
-              // Event de click sur marker de position
+							var marker = new google.maps.Marker({
+								position: latlng;
+								, map: map
+								, draggable: true
+								, icon: "img/maker.svg"
+								, animation: google.maps.Animation.BOUNCE
+							});
+					              // Event de click sur marker de position
               google.maps.event.addListener(marker, 'click', function () {
                 alert("Par là quoi, à +/- "+position.coords.accuracy+" m à la ronde :))"); //message d'alerte
               });

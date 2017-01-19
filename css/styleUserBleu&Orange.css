@@ -94,6 +94,8 @@ a:hover{
 /****************Btn msgsignal******************/
 
 .msgsignal {
+  display:flex;
+  display: -webkit-flex;
   background-color:rgb(241,240,240);
   width: auto;
   border-top: 1px solid rgb(4,90,149);
@@ -103,6 +105,15 @@ a:hover{
   font-size: 12px;
   font-weight: bold;
   cursor: pointer;
+}
+
+.hautPost{
+
+}
+
+.basPost{
+  margin-top: 1.2em;
+  margin-left: 0.5em
 }
 
 
