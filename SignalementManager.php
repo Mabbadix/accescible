@@ -80,6 +80,13 @@ class SignalementManager{
       return new Signalement ($q->fetch(PDO::FETCH_ASSOC));
     }
 
+    public function getTabLatLng()
+    {
+      $q = $this->_db->query("SELECT * FROM signalements");
+      $check = $q->fetchAll(PDO::FETCH_UNIQUE|PDO::FETCH_ASSOC);
+      return $check;
+    }
+
   /*// verif si email déjà utilisé
   public function verifEmailLibre($courriel)
   {
