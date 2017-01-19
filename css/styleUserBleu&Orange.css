@@ -52,12 +52,11 @@ li a {
     color:rgb(4,90,149);
 }
 
-a:hover:not(.active) {
+a:hover{
     background-color: rgba(4,90,149, 0.4);
-
   }
 
-.active {
+#active {
     background-color:rgb(4,90,149);
     color:rgba(233,95,3,1);
 }
@@ -92,10 +91,11 @@ a:hover:not(.active) {
 .boutonFermer{
   font-size :36px !important;
 }
-
 /****************Btn msgsignal******************/
 
 .msgsignal {
+  display:flex;
+  display: -webkit-flex;
   background-color:rgb(241,240,240);
   width: auto;
   border-top: 1px solid rgb(4,90,149);
@@ -107,6 +107,14 @@ a:hover:not(.active) {
   cursor: pointer;
 }
 
+.hautPost{
+
+}
+
+.basPost{
+  margin-top: 1.2em;
+  margin-left: 0.5em
+}
 
 
 
@@ -349,8 +357,8 @@ font-size:17px
   .button {font-size:11px}
   .inscription {margin-top :8px}
 }
-/***************** Notifications **************************/
 
+/***************** Notifications **************************/
 #notif {
   background-image: repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 40px );
   color: #fff;
@@ -381,8 +389,6 @@ font-size:17px
   border-color: #d10;
 }
 /*********************************************************************************/
-
-
 .title-page{
   font-size: 2em;
 }
@@ -408,3 +414,4 @@ font-size:17px
   margin-right: auto;
   background:white;
 }
+

@@ -11,7 +11,7 @@ class UtilisateurManager {
 
   /***Setter db****/
 
-  public function setDb (PDO $db) 
+  public function setDb (PDO $db)
   {
     $this->_db =$db;
   }
@@ -104,16 +104,16 @@ class UtilisateurManager {
     }
   }
 
-  public function isConfirme()
-  {
-    $q = $this->_db->prepare("SELECT confirme FROM utilisateur WHERE emailU = :emailU");
-    $q->execute([
-      'emailU' => $_SESSION['emailU']
-    ]);
-    print_r($_SESSION);
-  }
+public function isConfirme()
+{
+  $q = $this->_db->prepare("SELECT confirme FROM utilisateur WHERE emailU = :emailU");
+  $q->execute([
+  'emailU' => $_SESSION['emailU']
+  ]);
+print_r($_SESSION);
+}
 
-  //envoi email à l'aide phpmailer avec cette function : parametre = email de l'utilisateur et la clef créée. 
+  //envoi email à l'aide phpmailer avec cette function : parametre = email de l'utilisateur et la clef créée.
   public function envoieMail($dMailU, $dkey)
   {
     require 'vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
@@ -129,7 +129,7 @@ class UtilisateurManager {
     $dMail->addAddress("$dMailU", 'Vous');
     $dMail->isHTML(true);
     $dMail->Subject = 'Validation du compte Accescible';
-    $dMail->Body = 'lien de confirmation <a href="projetdev.ovh/accescible/verifmail.php?key='.$dkey.'&mail='.$dMailU.'">ICI</a>';
+    $dMail->Body = 'Bienvenue dans la communté Accès\'Cible. Confirmez votre inscriptiion en cliquant <a href="projetdev.ovh/accescible/verifmail.php?key='.$dkey.'&mail='.$dMailU.'">ICI</a>. Merci.';
     $dMail->AltBody = "Bonjour $dkey";
     $dMail->send();
   }

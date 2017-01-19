@@ -26,7 +26,7 @@ if(isset($_POST['emailF']) and isset($_POST['message'])){
 if(!$dMail->send()) {
     echo 'Message could not be sent.';
     echo 'Mailer Error: ' . $mail->ErrorInfo;
-    
+
 } else {
     ?>
 <div id="notif" class="success">
@@ -50,7 +50,9 @@ if(!$dMail->send()) {
 			<div class="navFix">
 				<!-- Nav Bar + Sidebar -->
 	      <!-- ATTENTION headerNav different pour chaque page pour selection du bon onglet" -->
-	      <?php include 'headerNavUserCarte.php'; ?>
+	      <?php
+        $nav_en_cours == 'contact';
+        include 'headerNavUserCarte.php'; ?>
 			</div>
     </header>
     <main>
@@ -73,4 +75,4 @@ $(document).ready(function(){
   $("#notif").fadeOut(5000);
 });
 </script>
-  </body>
+</body>

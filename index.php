@@ -179,33 +179,6 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 			</form>
 		</div>
 			</br>
-		<!-- SLIDE SHOW INDEX!-->
-		<!--<div class="slideshow-container">
-			<div class="mySlides fade">
-			  <div class="numbertext">1 / 3</div>
-			  <img src="img/logo71.svg" style="width:100%">
-			  <div class="text">signaler</div>
-			</div>
-			<div class="mySlides fade">
-			  <div class="numbertext">2 / 3</div>
-			  <img src="img/logo72.svg" style="width:100%">
-			  <div class="text">signaler - décider</div>
-			</div>
-			<div class="mySlides fade">
-			  <div class="numbertext">3 / 3</div>
-			  <img src="img/logo73.svg" style="width:100%">
-			  <div class="text">signaler - décider - adapter</div>
-			</div>
-		</div>
-
-
-		<!-- BOUTON ROND !-->
-		<!--<div id="dot" style="text-align:center">
-		  <span class="dot"></span>
-		  <span class="dot"></span>
-		  <span class="dot"></span>
-		</div>
-	</br>!-->
 
 
 
