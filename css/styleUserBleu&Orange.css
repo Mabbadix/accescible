@@ -52,9 +52,8 @@ li a {
     color:rgb(4,90,149);
 }
 
-a:hover:not(#active) {
+a:hover{
     background-color: rgba(4,90,149, 0.4);
-
   }
 
 #active {
@@ -92,7 +91,6 @@ a:hover:not(#active) {
 .boutonFermer{
   font-size :36px !important;
 }
-
 /****************Btn msgsignal******************/
 
 .msgsignal {
