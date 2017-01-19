@@ -5,7 +5,7 @@ if($manageU->isConnected() === true && $_SESSION['confirme']==1){
 <ul>
   <li><a <?php if ($nav_en_cours == 'usercarte') {echo ' id="active"';} ?> href="userCarte.php">Carte</a></li>
   <li><a <?php if ($nav_en_cours == 'signaler') {echo ' id="active"';} ?> href="signaler.php">Signaler</a></li>
-  <li><a <?php if ($nav_en_cours == 'moncompte') {echo ' id="active"';} ?>>Mon compte</a></li>
+  <li><a  href="#" id="account">Mon compte</a></li>
   <li><a href="#side">
     <span id="traitside" onclick="ouvrirNav()">
        ☰ </span></a>
@@ -17,7 +17,6 @@ if($manageU->isConnected() === true && $_SESSION['confirme']==1){
           </a>
           <!-- Overlay content -->
           <div class="side-contenu">
-            <a href="#" id="account">Mon compte</a>
             <a href="#">Nos valeurs</a>
             <a href="contact.php">Nous contacter</a>
             <a href="deconn.php " >Déconnection </a>

@@ -188,8 +188,8 @@ height: 30px;
 
 /*****les img symbolisant les pb****/
 .imgType{
-  max-width:80px;
-  max-height: 80px;
+  max-width:60px;
+  max-height: 60px;
   border-radius: 20%;
   -moz-transition-duration:0.3s;
   -moz-transition-timing-function:ease;
@@ -323,6 +323,95 @@ filter: grayscale(100%);
 }
 
 
+/***************** Notifications **************************/
+#notif {
+  background-image: repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 40px );
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+  padding: 5px 10px;
+  box-shadow:	inset 0 1px 0 rgba(255,255,255,0.5);
+  border: 1px solid;
+  margin: 10px 0;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  z-index: 200;
+}
+.info {
+  background-color: #6af;
+  border-color: #48d;
+}
+.warning{
+  background-color: #fa4;
+  border-color: #d82;
+}
+.success{
+  background-color: #8d5;
+  border-color: #6b3;
+}
+.error {
+  background-color: #f31;
+  border-color: #d10;
+}
+/**********************Nous contacter *****************/
+.title-page{
+  font-size: 2em;
+  margin-top: 4em;
+}
+
+.formContact{
+  margin-top: 0;
+  padding :0;
+  margin-bottom: 0;
+}
+.champsContact{
+  background-color:rgb(241,240,240);
+  width: auto;
+  border-radius: 12px;
+  border: 1px solid rgb(147,188,218);
+  padding: 15px 32px;
+  margin : 8px;
+  text-decoration: none;
+  font-size: 26px;
+  font-weight: bold;
+  cursor: pointer;
+}
+#courrielContact {
+  color: rgb(223,74,16);
+  margin : 6px;
+}
+#message{
+  color:rgb(4,90,149);
+  margin : 6px;
+}
+.champsContact:hover {
+    box-shadow: 0 12px 16px 0 rgba(34,112,155,0.3);
+}
+
+
+/*******Page MON COMPTE***********/
+.compte{
+  z-index:1;
+  background-color: rgba(255, 255, 255, .8);
+  width: 100%;
+  position: absolute;
+  top: 0;
+  margin-top:-38px;
+  display: none;
+}
+
+.compte-form{
+  width: 300px;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  background:white;
+}
+
+
 /************MEDIA QUERRY***********/
 @media only screen and (max-width: 500px) {
   header {height:2.555em;background:rgba(233,95,3,1);}
@@ -357,61 +446,3 @@ font-size:17px
   .button {font-size:11px}
   .inscription {margin-top :8px}
 }
-
-/***************** Notifications **************************/
-#notif {
-  background-image: repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 40px );
-  color: #fff;
-  text-shadow: 0 1px 0 rgba(0,0,0,0.2);
-  padding: 5px 10px;
-  box-shadow:	inset 0 1px 0 rgba(255,255,255,0.5);
-  border: 1px solid;
-  margin: 10px 0;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  z-index: 200;
-}
-.info {
-  background-color: #6af;
-  border-color: #48d;
-}
-.warning{
-  background-color: #fa4;
-  border-color: #d82;
-}
-.success{
-  background-color: #8d5;
-  border-color: #6b3;
-}
-.error {
-  background-color: #f31;
-  border-color: #d10;
-}
-/*********************************************************************************/
-.title-page{
-  font-size: 2em;
-}
-
-
-.compte{
-  z-index:1;
-  background-color: rgba(255, 255, 255, .8);
-  width: 100%;
-  position: absolute;
-  top: 0;
-  margin-top:-38px; 
-  display: none;
-}
-
-.compte-form{
-  width: 300px;
-  border: 1px solid black;
-  border-radius: 10px;
-  margin-top: 10px;
-  padding-bottom: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  background:white;
-}
-
