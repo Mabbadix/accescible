@@ -6,7 +6,7 @@ if($manageU->isConnected() === true && $_SESSION['confirme']==1){
 <ul>
   <li><a class="active" href="userCarte.php">Carte</a></li>
   <li><a  href="signaler.php">Signaler</a></li>
-  <li><a href="#contact">Mon Compte</a></li>
+  <li><a href="#contact" id="account">Mon Compte</a></li>
   <li><a href="#side">
     <span id="traitside" onclick="ouvrirNav()">
        ☰ </span></a>
@@ -18,7 +18,7 @@ if($manageU->isConnected() === true && $_SESSION['confirme']==1){
           </a>
           <!-- Overlay content -->
           <div class="side-contenu">
-            <a href="#">Mon compte</a>
+            <a href="#" id="account">Mon compte</a>
             <a href="#">Nos valeurs</a>
             <a href="contact.php">Nous contacter</a>
             <a href="deconn.php " >Déconnection </a>
@@ -34,6 +34,7 @@ if($manageU->isConnected() === true && $_SESSION['confirme']==1){
         </script>
   </li>
 </ul>
+<?php include'test.php';?>
 <?php }elseif ($manageU->isConnected()=== true && $_SESSION['confirme'] == 0){?>
 <ul>
   <li><a class="active" href="userCarte.php">Carte</a></li>

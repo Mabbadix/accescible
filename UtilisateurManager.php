@@ -86,7 +86,7 @@ class UtilisateurManager {
   // on renvoi l'ensemble des info utilisateurs
   public function getUtilisateur($courriel, $mdp)
   {
-    $q = $this->_db->prepare("SELECT idU, emailU, mdpU, valide, confirme FROM utilisateur WHERE emailU = :emailU AND mdpU=:mdpU");
+    $q = $this->_db->prepare("SELECT idU, emailU, mdpU, nomU, prenomU, adresseU, villeU, cpU, telU, valide, confirme FROM utilisateur WHERE emailU = :emailU AND mdpU=:mdpU");
     $q->execute([
       ':emailU' => $courriel,
       ':mdpU' => $mdp
@@ -139,6 +139,24 @@ class UtilisateurManager {
   {
     $q = $this->_db->prepare("UPDATE `utilisateur` SET `confirme`=1 WHERE `confirmKey` = :key");
     $q->execute([':key' => $key]);
+  }
+
+  public function updateUtilisateur($mail, $nom, $prenom, $adresse, $ville, $cp, $tel)
+  {
+    $q = $this->_db->prepare('UPDATE `utilisateur` 
+                              SET `nomU` = :nomU,
+                              `prenomU`  = :prenomU,
+                              `adresseU` = :adresseU,
+                              `villeU`   = :villeU,
+                              `cpU`      = :cpU,
+                              `telU`     = :telU WHERE `emailU` = :emailU');
+    $q->execute([':nomU' => $nom,
+                 ':prenomU' => $prenom,
+                 ':adresseU' => $adresse,
+                 ':villeU' => $ville,
+                 ':cpU' => $cp,
+                 ':telU' => $tel,
+                 ':emailU' => $mail]);
   }
 //RESTE A FAIRE
   /*public function update(Utilisateur $ut){

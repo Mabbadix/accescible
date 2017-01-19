@@ -22,10 +22,6 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 /***********traitement sur la page index*/
 
   $manageU = new UtilisateurManager($bdd);
-<<<<<<< HEAD
-=======
-	//A voir avec Dylan si on garde session comme ça
->>>>>>> ce6627a86f3709ce016da920e652d3fbf566ed7b
 ?>
   <!DOCTYPE html>
   <html lang="fr">

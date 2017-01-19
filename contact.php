@@ -64,7 +64,7 @@ if(!$dMail->send()) {
       <input type="submit" name="submit" value="Envoyer">
     </form>
     <div >
-          <?php include'test.php';?>
+      <?php include'test.php';?>
     </div>
     </main>
         <?php include( 'footer.php');?>
