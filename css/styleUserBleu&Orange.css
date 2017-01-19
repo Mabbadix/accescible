@@ -52,12 +52,12 @@ li a {
     color:rgb(4,90,149);
 }
 
-a:hover:not(.active) {
+a:hover:not(#active) {
     background-color: rgba(4,90,149, 0.4);
 
   }
 
-.active {
+#active {
     background-color:rgb(4,90,149);
     color:rgba(233,95,3,1);
 }

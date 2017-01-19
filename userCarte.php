@@ -30,7 +30,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
   <head>
     <!-- integration de toutes les metas et autres link
 				ATTENTION link styleUser.css different du "style.css" -->
-    <?php include 'headUtilisateur.php'; ?>
+    <?php	include 'headUtilisateur.php'; ?>
     <title>Acces'Cible-Carte_Utilisateur</title>
 
   </head>
@@ -40,7 +40,9 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 			<div class="navFix">
 				<!-- Nav Bar + Side -->
 	      <!-- ATTENTION headerNav different pour chaque page pour selection du bon onglet" -->
-	      <?php include 'headerNavUserCarte.php'; ?>
+	      <?php
+				$nav_en_cours = 'usercarte'; 
+				include 'headerNavUserCarte.php'; ?>
 			</div>
     </header>
     <main>

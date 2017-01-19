@@ -27,14 +27,16 @@ if (isset($_SESSION['emailU'])){
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
-    <?php include ("headUtilisateur.php"); ?>
+    <?php	include ("headUtilisateur.php"); ?>
 		<title>Acces'Cible-Signalement</title>
 	</head>
 
 	<body>
   <header><!-- NAVBAR -->
 		<div class = "navFix">
-		<?php include 'headerNavSignaler.php'; ?>
+		<?php
+		$nav_en_cours = 'signaler';
+		include 'headerNavUserCarte.php'; ?>
 	</div>
   </header>
 

@@ -50,7 +50,9 @@ if(!$dMail->send()) {
 			<div class="navFix">
 				<!-- Nav Bar + Sidebar -->
 	      <!-- ATTENTION headerNav different pour chaque page pour selection du bon onglet" -->
-	      <?php include 'headerNavUserCarte.php'; ?>
+	      <?php
+        $nav_en_cours == 'contact';
+        include 'headerNavUserCarte.php'; ?>
 			</div>
     </header>
     <main>
