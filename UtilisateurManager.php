@@ -104,14 +104,15 @@ class UtilisateurManager {
     }
   }
 
-public function isConfirme()
-{
-  $q = $this->_db->prepare("SELECT confirme FROM utilisateur WHERE emailU = :emailU");
-  $q->execute([
-  'emailU' => $_SESSION['emailU']
-  ]);
-print_r($_SESSION);
-}
+
+  public function isConfirme()
+  {
+    $q = $this->_db->prepare("SELECT confirme FROM utilisateur WHERE emailU = :emailU");
+    $q->execute([
+      'emailU' => $_SESSION['emailU']
+    ]);
+    print_r($_SESSION);
+  }
 
   //envoi email à l'aide phpmailer avec cette function : parametre = email de l'utilisateur et la clef créée.
   public function envoieMail($dMailU, $dkey)
