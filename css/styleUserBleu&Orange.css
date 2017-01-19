@@ -118,7 +118,6 @@ a:hover{
 
 
 
-
 /***************MAIN/CONTENT************/
 
 .mainUserCarte {
@@ -356,9 +355,7 @@ font-size:17px
   .inscription {margin-top :8px}
 }
 
-
 /***************** Notifications **************************/
-
 #notif {
   background-image: repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 40px );
   color: #fff;
@@ -389,7 +386,6 @@ font-size:17px
   border-color: #d10;
 }
 /*********************************************************************************/
-
 .title-page{
   font-size: 2em;
 }
@@ -401,5 +397,4 @@ font-size:17px
   height: 500px;
   position: relative;
   position: absolute;
-
 }

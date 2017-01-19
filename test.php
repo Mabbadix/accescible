@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 <div class="compte">
-=======
-        <div class="compte">
->>>>>>> 936a271d5368ea322610b04a9aa2ba12fe138df7
       <h3 class="title-page">Mon compte</h3>
     <form method="POST" action="#">
       <label for="nomU">Votre nom:</label><br>
@@ -18,10 +14,8 @@
       <label for="telU">Votre numéro de teléphone:</label><br>
       <input type="text" name="telU" value=""><br>
       <input type="submit" name="submit" value="Envoyer">
-
     </form>
-    </div>
-
+</div>
     <script>
 
     </script>

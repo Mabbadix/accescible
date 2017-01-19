@@ -27,8 +27,6 @@ if(!$dMail->send()) {
     echo 'Message could not be sent.';
     echo 'Mailer Error: ' . $mail->ErrorInfo;
 
-
-
 } else {
     ?>
 <div id="notif" class="success">
@@ -52,7 +50,6 @@ if(!$dMail->send()) {
 			<div class="navFix">
 				<!-- Nav Bar + Sidebar -->
 	      <!-- ATTENTION headerNav different pour chaque page pour selection du bon onglet" -->
-
 	      <?php
         $nav_en_cours == 'contact';
         include 'headerNavUserCarte.php'; ?>
@@ -69,7 +66,6 @@ if(!$dMail->send()) {
       <input type="submit" name="submit" value="Envoyer">
     </form>
     <div >
-
       <?php include( 'test.php');?>
     </div>
     </main>
@@ -79,5 +75,4 @@ $(document).ready(function(){
   $("#notif").fadeOut(5000);
 });
 </script>
-
-  </body>
+</body>
