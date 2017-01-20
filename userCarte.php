@@ -53,7 +53,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 							$siMa = new SignalementManager($bdd);
 							$nSignal = $siMa->count();
 							$i=0;//compteur du nombre de signalements
-							$id=100;// compteur des id à augmenter de temps en temps :))
+							$id=0;// compteur des id à augmenter de temps en temps :))
 
 							while ($i<$nSignal){
 								$siExist = $siMa->exists($id);
