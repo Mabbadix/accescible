@@ -51,6 +51,7 @@ if(!$dMail->send()) {
 <div id="notif" class="success">
   <h2>Votre message a bien été envoyé</h2>
 </div>
+<?php header("location: userCarte.php");?>
 <?php
 }
 }
