@@ -37,7 +37,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 	{
 		//si n'existe on informe;
 		if (!$exist) {
-				echo '<div id="notif" class="error"> <h2>Courrieel ou mot de passe incorrect. Vérifiez votre saisie ou insrivez-vous. Merci.</h2></div>';
+				echo '<div id="notif" class="error"> <h2>Courriel ou mot de passe incorrect. Vérifiez votre saisie ou insrivez-vous. Merci.</h2></div><script type="text/javascript"> window.setTimeout("location=(\'index.php\');",1000) </script>';
 		}
 			//Si existe
 		elseif ($exist) {
@@ -47,7 +47,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 				//On verfie que pas banni
 			if ($ut->getValide() == 1) {
 					//on verifie que compte n'est pas banni avec la donnée "valide" dela bd (1= bani, 0 = Ok);
-				echo '<div id="notif" class="error"> <h2>Compte non valide</h2></div>';
+					echo '<div id="notif" class="error"> <h2>Courriel non valide</h2></div><script type="text/javascript"> window.setTimeout("location=(\'index.php\');",1000) </script>';
 			}
 			// Si compte valide on accede au compte
 			elseif ($ut->getValide() == 0) {
@@ -73,7 +73,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 			$ut = $managerU->getUtilisateur($Courriel, $Mdp);
 			//on verifie que compte n'est pas banni avec la donnée "valide" dela bd
 			if ($ut->getValide() == 1) {
-					echo '<div id="notif" class="warning"> <h2>Compte non valide</h2>';
+				echo '<div id="notif" class="error"> <h2>Courriel non valide</h2></div><script type="text/javascript"> window.setTimeout("location=(\'index.php\');",1000) </script>';
 			}
 			elseif ($ut->getValide() == 0)
 			{
@@ -84,7 +84,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 				//on informe que logged est Ok pour redirection sur l'espace des gens inscrits
 				$_SESSION['logged'] = true;
 			//on redirige
-			echo '<div id="notif" class="warning"> <h2>Connexion réussie mais attention vous avez cliquez sur Inscription au lieu de Connexion</h2></div><script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",1000) </script>';
+			echo '<div id="notif" class="warning"> <h2>Connexion réussie mais attention vous avez cliquez sur Inscription au lieu de Connexion</h2></div><script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",1100) </script>';
 			}
 		}
 		elseif (!$exist)//Si aucun compte normalement
@@ -93,7 +93,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 			$emailPris = $managerU->verifEmailLibre($Courriel);
 			if ($emailPris)
 			{
-				echo '<div id="notif" class="warning"> <h2>Ce courriel est déjà utilisé. Verifiez votre saisie. </h2></div>';
+				echo '<div id="notif" class="warning"> <h2>Ce courriel est déjà utilisé. Verifiez votre saisie. </h2></div><script type="text/javascript"> window.setTimeout("location=(\'index.php\');",1000) </script>';
 			}
 			elseif (!$emailPris)
 			{
@@ -127,7 +127,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 				$managerU->add($utilisateur);
 				//on envoie un mail de confirmation
 				$managerU->envoieMail($Courriel, $key);
-				echo '<div id="notif" class="Info"> <h2>Inscription réussie, bienvenue. Un email de confirmation vous a été envoyé.</h2></div><script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",1000) </script>';
+				echo '<div id="notif" class="Info"> <h2>Inscription réussie, bienvenue. Un email de confirmation vous a été envoyé.</h2></div><script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",1200) </script>';
 			}
 		}
 	}
@@ -144,11 +144,6 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 	</head>
 
 	<body>
-		<script>
-		$(document).ready(function(){
-		$("#notif").fadeOut(5000);
-		});
-		</script>
 		<div class="video"><center>
 			<video preload="auto" poster="img/logo73.svg" onclick="play()"  ondblclick="pause()">
 			<source src="img/rendu_anim_handicap.mp4" type="video/mp4">
@@ -173,6 +168,11 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 		</div>
 			</br>
 		<script>
+		/*******Notif qui apparait et disparaît*******/
+
+
+
+
 		/*SLIDE SHOW INDEX*/
 			var slideIndex = 0;
 			showSlides();
