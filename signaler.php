@@ -44,7 +44,7 @@ if (isset($_SESSION['emailU'])){
 		<div class="mainUserCarte">
 			<div class="mainLeft">
         <form class="unSignalementForm" name ="signalement" method = "post"
-				 enctype="multipart/form-data"><center>
+				 enctype="multipart/form-data" action= "unSignalement.php"><center>
 					<fieldset name="localiser" >
 						<legend>Localiser</legend>
 						</br>
@@ -126,8 +126,7 @@ if (isset($_SESSION['emailU'])){
 					<fieldset name="valider">
 						<legend>Valider</legend>
 						<label for="signaler"></label><br/>
-						<button  class="unSignalement"
-						type="submit" name="signaler" value="signaler" id="signaler" formaction= "unSignalement.php"><img id="doigt" src="img/doigt.svg"></img></button>
+						<button name="signaler" id="signaler" ><img id="doigt" src="img/doigt.svg"></img></button>
             </fieldset>
         </form>
 

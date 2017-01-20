@@ -100,7 +100,12 @@ function fillInAddress(geoCode) {
       document.getElementById(addressType).value = val;
     }
   }
-  document.getElementById('latlng').value = place.geometry.location;
+
+  //Remplacement de "document.getElementById('latlng').value = "new google.maps.LatLng"+place.geometry.location;" pour avoir des données BDD plus facile a traiter
+  var coordS =  place.geometry.location;
+  var latS = coordS.lat();
+  var lngS = coordS.lng();
+  document.getElementById('latlng').value = latS+", "+lngS;
   document.getElementById('placeId').value = place.place_id;
 
   if (geoCode){//on distingue en fonction du fait que l'adresse probient de la geoloc ou de l'autocompletion

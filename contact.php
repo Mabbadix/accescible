@@ -1,10 +1,30 @@
 <?php
 //ouverture de session
+header( 'content-type: text/html; charset=utf-8' );
+//fonction qui recherche toute seule la classe à requerir
+function chargerClass($classe)
+{
+	require $classe.'.php';
+}
+spl_autoload_register('chargerClass');
+
+//On a créé des sessions et pour que ça fonctionne, il faut en déclarer l'ouverture.
 session_start();
+if (isset($_GET['deconnexion']))
+{
+  require 'deconn.php';
+}
+
+//******Connect BD********
 require 'connData.php';
-require 'UtilisateurManager.php';
-require 'Utilisateur.php';
+$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
+/***********traitement d'un Signalement en POO*/
 $manageU = new UtilisateurManager($bdd);
+if($manageU->isConnected() === true && $_SESSION['confirme']==1){
+  $recupEmail =  $_SESSION['emailU'];
+  $connu = true;
+  };
+
 if(isset($_POST['emailF']) and isset($_POST['message'])){
     $emailF = htmlspecialchars($_POST['emailF']);
     $message = htmlspecialchars($_POST['message']);
@@ -26,7 +46,6 @@ if(isset($_POST['emailF']) and isset($_POST['message'])){
 if(!$dMail->send()) {
     echo 'Message could not be sent.';
     echo 'Mailer Error: ' . $mail->ErrorInfo;
-
 } else {
     ?>
 <div id="notif" class="success">
@@ -57,20 +76,17 @@ if(!$dMail->send()) {
     </header>
     <main>
     <div class="mainUserCarte">
-      <h3 class="title-page">Contact</h3>
-    <form method="POST" action="#">
-      <label for="emailF">Votre email:</label><br>
-      <input type="text" name="emailF" value=""><br>
-      <label for="message">Votre message:</label><br>
-      <textarea name="message" rows="20" cols="40"></textarea><br>
-      <input type="submit" name="submit" value="Envoyer">
-    </form>
-    <div >
-      <?php include'test.php';?>
-    </div>
+      <div>
+        <form class="formContact" method="POST" action="#">
+          <label class="title-page" for="message">Nous contacter</label><br/><br/>
+          <label for="Courriel"></label><input class="champsContact" id="courrielContact" type="email" name="emailF" <?php if($connu){{echo 'value='.$recupEmail;}} ?> placeholder="dupont@gmail.com" required maxlength="100"></input><br/><br/>
+          <textarea class="champsContact" id="message" type="text" name="message" rows="20" cols="40" placeholder="VOTRE MESSAGE ICI" required ></textarea><br/><br/>
+          <button type="submit" name="submit" value="Envoyer" id="envoyer"><img id="doigt" src="img/doigt.svg" height="80px"></img></button>
+        </form>
+      </div>
     </main>
-        <?php include( 'footer.php');?>
-        <script>
+    <?php include( 'footer.php');?>
+    <script>
 $(document).ready(function(){
   $("#notif").fadeOut(5000);
 });
