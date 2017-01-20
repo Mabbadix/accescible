@@ -132,7 +132,8 @@ if (isset($_SESSION['emailU'])){
 
 		</div>
 		<div id="mapcanvas"></div>
-		<?php include( 'autocomplete&geoloc.js');?>
+		<?php if ($statutEnregistrement == "localiser"){echo '<div id="notif" class="warning"> <h2>Merci de localiser le problème</h2></div><script type="text/javascript">';}
+		include( 'autocomplete&geoloc.js');?>
 		</div>
 	</main>
 	<?php include( 'footer.php');?>
