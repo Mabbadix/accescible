@@ -156,7 +156,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 			<!-- CONN ET INSCRIPTION !-->
 			<form name ="formConn" method="post" id="button" style="text-align:center">
 				<label for="Courriel"></label><input class="button connexion" id="Courriel" type="email"
-					name="Courriel" placeholder="dupont@gmail.com"  required maxlength="100"><br/>
+					name="Courriel" placeholder="dupont@gmail.com"value="<?php if (!empty($_POST['Courriel'])) {echo stripcslashes(htmlspecialchars($_POST['Courriel'], ENT_QUOTES));} ?>"  required maxlength="100"><br/>
 				<label for="Mot_de_passe"></label> <input class="button inscription" id="Mot_de_passe" type="password"
 					name="Mot_de_passe" placeholder="Mot de passe" required maxlength="50"><br/>
 					<label for="se_connecter"></label>

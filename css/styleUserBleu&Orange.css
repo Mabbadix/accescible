@@ -133,7 +133,6 @@ a:hover{
   font-size: 12px;
   font-weight: bold;
   cursor: pointer;
-
 }
 
 .gauchePost{
@@ -144,46 +143,7 @@ a:hover{
   -webkit-flex: 1;
           flex: 1;
 }
-@media only screen and (max-width: 500px) {
-  .mainLeft{
-    float:left;
-    min-width: 100%;
-    color:rgb(229,106,23);
-    overflow-y: scroll;
-    padding: 0em;
-  }
-  .msgsignal{
-    max-width:100%;
-  }
-  .gauchePost{
-    min-width: 60%;
-    margin-left: 0;
-    padding:0;
-  }
-  .droitePost{
-    max-width: 40%;
-    margin-top:0;
-  }
 
-  header {height:2.555em;background:rgba(233,95,3,1);}
-  .text{font-size: 10px}
-  .button {font-size:14px}
-  .inscription {margin-top :8px}
-  .side {overflow-x:auto;
-  padding-top: 15px;}
-  .side a {font-size: 20px}
-  .boutonFermer {
-    font-size:25px !important;
-    top:0px;
-    right: 15px;
-  }
-  li:last-child {
-font-size:17px
-  }
-  li a {
-      font-size: 11px;
-    }
-}
 
 
 /********FORM SIGNALER****************/
@@ -318,8 +278,6 @@ footer{
   font-weight: bold;
 }
 
-
-
 .logo {
   height: 30px;
   width: 30px;
@@ -344,11 +302,10 @@ footer{
   padding-top: 30px;
 }
 
-
-
 .fa {
   padding-top: 40px;
   padding-right: 15px;
+  cursor: pointer;
 }
 
 
@@ -364,11 +321,13 @@ transition:all 0.9s;
   padding-top: 30px;
   -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
 filter: grayscale(100%);
+cursor: pointer;
 }
 
 #logoF{
   width: 165px;
   padding-top: 30px;
+  cursor: pointer;
 }
 
 
@@ -449,21 +408,70 @@ filter: grayscale(100%);
 }
 
 .compte-form{
-  width: 300px;
+  width: 600px;
   border: 1px solid black;
   border-radius: 10px;
-  margin-top: 10px;
+  margin-top: 100px;
   padding-bottom: 10px;
   margin-left: auto;
   margin-right: auto;
   background:white;
+  text-align: center;
 }
 
+.title-account{
+  font-size: 2em;
+   color: rgb(34, 112, 155);
+ }
 
 /************MEDIA QUERRY***********/
+@media only screen and (max-width: 500px) {
+  header {height:2.555em;background:rgba(233,95,3,1);}
+  .mainLeft{
+    float:left;
+    height:auto;
+    min-width: 100%;
+    color:rgb(229,106,23);
+    overflow-y: scroll;
+    padding: 0em;
+  }
+  .msgsignal{
+    max-width:100%;
+  }
+  .gauchePost{
+    min-width: 60%;
+  }
+  .droitePost{
+    max-width: 40%;
+    margin-top:0;
+  }
+  .text{font-size: 10px}
+  .button {font-size:14px}
+  .inscription {margin-top :8px}
+  .side {overflow-x:auto;
+  padding-top: 15px;}
+  .side a {font-size: 20px}
+  .boutonFermer {
+    font-size:25px !important;
+    top:0px;
+    right: 15px;
+  }
+  li:last-child {
+    font-size:17px
+  }
+  li a {
+      font-size: 11px;
+    }
+  .mapcanvas{
+     min-width: 100%;
+   }
+   .footerdiv{
+     min-width: 100%;
+   }
+}
 
 @media only screen and (max-width: 250px) {
-  {height:2.555em;background:rgba(233,95,3,1);}
+  header{height:2.555em;background:rgba(233,95,3,1);}
   .text{font-size: 7px}
   .button {font-size:11px}
   .inscription {margin-top :8px}

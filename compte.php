@@ -14,6 +14,5 @@ session_start();
   print_r($_SESSION);
   echo'ok';
   $manageU->updateUtilisateur($mail, $nom, $prenom, $adresse, $ville, $cp, $tel);
-  echo'ok';
-  header("location: userCarte.php");
+  header("Location: userCarte.php");
 ?>
