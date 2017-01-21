@@ -446,6 +446,12 @@ cursor: pointer;
     max-width: 40%;
     margin-top:0;
   }
+  .title-page{
+    font-size: 20px
+  }
+  .champsContact {
+    font-size: 15px;
+  }
   .text{font-size: 10px}
   .button {font-size:14px}
   .inscription {margin-top :8px}
