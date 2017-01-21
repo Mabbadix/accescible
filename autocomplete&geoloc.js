@@ -236,6 +236,7 @@ function change(nTypeS) {
     valeur = document.getElementById("typeS"+i);
     if (i === nTypeS){
       //on assigne le nom de l'élément comme valeur à l'input caché;
+      valeur.className ="imgType";
       select.value = valeur.id;
       descriptionS.value = valeur.alt;
       //on met en surbrilance le choix

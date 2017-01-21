@@ -418,6 +418,12 @@ filter: grayscale(100%);
   color: rgb(34, 112, 155);
 }
 
+#cross{
+  font-size: 2em;
+  position: absolute;
+  right: 37%;
+}
+
 /************MEDIA QUERRY***********/
 @media only screen and (max-width: 500px) {
   header {height:2.555em;background:rgba(233,95,3,1);}
@@ -457,4 +463,19 @@ font-size:17px
   .text{font-size: 7px}
   .button {font-size:11px}
   .inscription {margin-top :8px}
+}
+@media only screen and (max-width: 400px){
+  .title-page{
+    text-align: center;
+  }
+  .formContact{
+    min-width: 100%;
+    margin-bottom: 10px;
+  }
+  .champsContact{
+    max-width: 95%;
+  }
+  .footerdiv{
+    margin-top: 50px;
+  }
 }
