@@ -16,7 +16,11 @@
       <label for="telU">Votre numéro de teléphone:</label><br>
       <input class="champsContact" type="text" name="telU" value=""><br>
        <button type="submit" name="submit" value="Envoyer" id="envoyer"><img id="doigt" src="img/doigt.svg" height="80px"></img></button>
+<<<<<<< HEAD
     </form>
+=======
+    </form>        
+>>>>>>> 4e2b2cdc1f8082e0cac09b0261ddd0dfc309153e
     </div>
     <script>
         $("#account").click(function(){

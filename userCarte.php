@@ -68,7 +68,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 											</div>
 											<div class="droitePost">
 											<div id="imgS"><img  src="img/'.$si->getTypeS().'.png" height=60px></img></div>
-											<div id="soutienS"><button type="submit" name="signaler" value="signaler" id="signaler" formaction= "unSignalement.php"><img id="doigt" src="img/doigt.svg"></img></button>
+											<div id="soutienS"><button type="submit" name="signaler" ><img id="doigt" src="img/doigt.svg"></img></button>
 											</div>
 											</div>
 										</div> <br>';

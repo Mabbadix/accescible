@@ -412,6 +412,7 @@ cursor: pointer;
   border: 1px solid black;
   border-radius: 10px;
   margin-top: 100px;
+  margin-bottom: auto;
   padding-bottom: 10px;
   margin-left: auto;
   margin-right: auto;
@@ -421,8 +422,8 @@ cursor: pointer;
 
 .title-account{
   font-size: 2em;
-   color: rgb(34, 112, 155);
- }
+  color: rgb(34, 112, 155);
+}
 
 /************MEDIA QUERRY***********/
 @media only screen and (max-width: 500px) {
@@ -463,11 +464,11 @@ cursor: pointer;
       font-size: 11px;
     }
   .mapcanvas{
-     min-width: 100%;
-   }
-   .footerdiv{
-     min-width: 100%;
-   }
+    min-width: 100%;
+  }
+  .footerdiv{
+    min-width: 100%;
+  }
 }
 
 @media only screen and (max-width: 250px) {
