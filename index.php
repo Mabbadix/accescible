@@ -37,25 +37,20 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 	{
 		//si n'existe on informe;
 		if (!$exist) {
-				echo "<script language='JavaScript' type='text/javascript'>";
-				echo 'alert("Aucun compte ne correspond à ces données ! Inscrivez-vous ou verifiez votre saise. Merci");';
-				echo 'history.back(-1)';
-				echo '</script>';
+				echo '<div id="notif" class="error"> <h2>Courriel ou mot de passe incorrect. Vérifiez votre saisie ou insrivez-vous. Merci.</h2></div><script type="text/javascript"> window.setTimeout("location=(\'index.php\');",1000) </script>';
 		}
 			//Si existe
 		elseif ($exist) {
 				//le manager instancie cet utilisateur via getUtilisateur qui renvoie un objet Utilisateur
 				$ut = $managerU->getUtilisateur($Courriel, $Mdp);
+
 				//On verfie que pas banni
-			if ($ut->getvalide() == 1) {
+			if ($ut->getValide() == 1) {
 					//on verifie que compte n'est pas banni avec la donnée "valide" dela bd (1= bani, 0 = Ok);
-				echo "<script language='JavaScript' type='text/javascript'>";
-					echo 'alert("Votre compte a été bloqué");';
-					echo 'history.back(-1)';
-					echo '</script>';
+					echo '<div id="notif" class="error"> <h2>Courriel non valide</h2></div><script type="text/javascript"> window.setTimeout("location=(\'index.php\');",1000) </script>';
 			}
 			// Si compte valide on accede au compte
-			elseif ($ut->getvalide() == 0) {
+			elseif ($ut->getValide() == 0) {
 					//créé les parametres de session
 				$_SESSION['emailU'] = $ut->getEmailU();
 				$_SESSION['mdpU'] = $ut->getMdpU();
@@ -63,8 +58,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 				//on informe que logged est Ok pour redirection sur l'espace des gens inscrits
 				$_SESSION['logged'] = true;
 				//informe et on redirige
-				echo '<div id="ok">Connexion réussie. Redirection en cours...</div>
-				<script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",500) </script>';
+				echo '<div id="notif" class="success"> <h2>Bonjour, content de vous retrouver :)) </h2></div><script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",1000) </script>';
 			}
 		}
 	}
@@ -78,13 +72,10 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 			//le manager instancie cet utilisateur
 			$ut = $managerU->getUtilisateur($Courriel, $Mdp);
 			//on verifie que compte n'est pas banni avec la donnée "valide" dela bd
-			if ($ut->getvalide() == 1) {
-					echo "<script language='JavaScript' type='text/javascript'>";
-					echo 'alert("Votre compte a été bloqué, vous ne pouvez vous réinscrire!");';
-					echo 'history.back(-1)';
-					echo '</script>';
+			if ($ut->getValide() == 1) {
+				echo '<div id="notif" class="error"> <h2>Courriel non valide</h2></div><script type="text/javascript"> window.setTimeout("location=(\'index.php\');",1000) </script>';
 			}
-			elseif ($ut->getvalide() == 0)
+			elseif ($ut->getValide() == 0)
 			{
 				//on créer la session
 				$_SESSION['emailU'] = $ut->getEmailU();
@@ -93,8 +84,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 				//on informe que logged est Ok pour redirection sur l'espace des gens inscrits
 				$_SESSION['logged'] = true;
 			//on redirige
-				echo '<div id="ok">Connexion réussie mais attention vous avez cliquez sur Inscription au lieu de Connexion</div>
-				<script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",1000) </script>';
+			echo '<div id="notif" class="warning"> <h2>Connexion réussie mais attention vous avez cliquez sur Inscription au lieu de Connexion</h2></div><script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",1100) </script>';
 			}
 		}
 		elseif (!$exist)//Si aucun compte normalement
@@ -103,10 +93,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 			$emailPris = $managerU->verifEmailLibre($Courriel);
 			if ($emailPris)
 			{
-				echo "<script language='JavaScript' type='text/javascript'>";
-				echo 'alert("Ce courriel est déjà utilisé! Connectez-vous ou verifiez votre saise. Merci");';
-				echo 'history.back(-1)';
-				echo '</script>';
+				echo '<div id="notif" class="warning"> <h2>Ce courriel est déjà utilisé. Verifiez votre saisie. </h2></div><script type="text/javascript"> window.setTimeout("location=(\'index.php\');",1000) </script>';
 			}
 			elseif (!$emailPris)
 			{
@@ -140,6 +127,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 				$managerU->add($utilisateur);
 				//on envoie un mail de confirmation
 				$managerU->envoieMail($Courriel, $key);
+				echo '<div id="notif" class="Info"> <h2>Inscription réussie, bienvenue. Un email de confirmation vous a été envoyé.</h2></div><script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",1200) </script>';
 			}
 		}
 	}
@@ -167,8 +155,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 		<div>
 			<!-- CONN ET INSCRIPTION !-->
 			<form name ="formConn" method="post" id="button" style="text-align:center">
-				<label for="Courriel"></label><input class="button connexion" id="Courriel" type="email"
-					name="Courriel" placeholder="dupont@gmail.com" value="<?php if (!empty($_POST['Courriel'])) {echo stripcslashes(htmlspecialchars($_POST['Courriel'], ENT_QUOTES));} ?>"  required maxlength="100"><br/>
+				<label for="Courriel"></label><input class="button connexion" id="Courriel" type="email" name="Courriel" placeholder="dupont@gmail.com"value="<?php if (!empty($_POST['Courriel'])) {echo stripcslashes(htmlspecialchars($_POST['Courriel'], ENT_QUOTES));} ?>"  required maxlength="100"><br/>
 				<label for="Mot_de_passe"></label> <input class="button inscription" id="Mot_de_passe" type="password"
 					name="Mot_de_passe" placeholder="Mot de passe" required maxlength="50"><br/>
 					<label for="se_connecter"></label>
@@ -179,11 +166,12 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 			</form>
 		</div>
 			</br>
-
-
-
-
 		<script>
+		/*******Notif qui apparait et disparaît*******/
+
+
+
+
 		/*SLIDE SHOW INDEX*/
 			var slideIndex = 0;
 			showSlides();

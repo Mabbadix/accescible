@@ -132,7 +132,7 @@ if (isset($_SESSION['emailU'])){
 
 		</div>
 		<div id="mapcanvas"></div>
-		<?php include( 'autocomplete&geoloc.js');?>
+		<?php	include( 'autocomplete&geoloc.js');?>
 		</div>
 	</main>
 	<?php include( 'footer.php');?>

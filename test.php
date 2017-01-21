@@ -1,3 +1,4 @@
+
         <div class="compte">
             <div class="compte-form">
             <span id="cross">X</span>
@@ -21,7 +22,6 @@
     <script>
         $("#account").click(function(){
             $(".compte").fadeIn("fast", function(){
-
             });
         });
 

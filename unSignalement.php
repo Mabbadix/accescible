@@ -89,10 +89,15 @@ $managerS = new SignalementManager($bdd);
 if(isset($_POST['signaler'])){
 	//si localiser est vide (soit adresse, soit géoloc)
 	if(empty($adresseS) AND empty($cpS) OR empty($villeS) ){
+		echo '<div id="notif" class="warning"> <h2>Merci de localiser le problème</h2></div><script type="text/javascript">';
 		echo ("<script language='JavaScript' type='text/javascript'>");
 		echo ('alert("Merci de localiser le problème ");');
 		echo ('history.back(-1)');
 		echo ("</script>");
+		/*echo ("<script language='JavaScript' type='text/javascript'>");
+		echo ('alert("Merci de localiser le problème ");');
+		echo ('history.back(-1)');
+		echo ("</script>");*/
 	}//Si choix types EST vide
 	elseif (empty($typeS)){
 		echo ("<script language='JavaScript' type='text/javascript'>");

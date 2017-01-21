@@ -62,16 +62,16 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 									$id++;
 								}else{
 									$si = $siMa->getSignal($id);
-									echo  '<div class="msgsignal">
-													<div class="hautPost">
-														<div id="imgS"><img  src="img/'.$si->getTypeS().'.png" height=60px></img></div>
-														<div id="soutienS"><button type="submit" name="signaler" value="signaler" id="signaler" formaction= "unSignalement.php"><img id="doigt" src="img/doigt.svg"></img></button>
-														</div>
-													</div>
-													<div class="basPost" id="infoS"><textarea class="sousInfoS" name="descriptionS" id="sousInfoS" rows="5" cols="31"
-													placeholder="'.$si->getDescriptionS().' Signalé le '.$si->getDateS().',  '.$si->getVilleS().'" disabled></textarea>
-													</div>
-										 </div> <br>';
+										echo  '<div class="msgsignal">
+											<div class="gauchePost" id="infoS">
+												<p class="sousInfoS" name="descriptionS" id="sousInfoS" >'.$si->getDescriptionS().' Signalé le '.$si->getDateS().',  '.$si->getVilleS().'</p>
+											</div>
+											<div class="droitePost">
+											<div id="imgS"><img  src="img/'.$si->getTypeS().'.png" height=60px></img></div>
+											<div id="soutienS"><button type="submit" name="signaler" ><img id="doigt" src="img/doigt.svg"></img></button>
+											</div>
+											</div>
+										</div> <br>';
 
 									$i++;
 									$id++;

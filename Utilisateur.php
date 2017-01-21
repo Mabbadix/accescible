@@ -161,7 +161,7 @@ class Utilisateur {
     {
         return $this->confirmKey;
     }
-    
+
     public function getConfirme()
     {
         return $this->confirme;
@@ -287,7 +287,7 @@ class Utilisateur {
      *
      * @return self
      */
-    public function setTelU($_telU)
+    public function setTelU($telU)
     {
         $this->telU = $telU;
 
@@ -329,7 +329,7 @@ class Utilisateur {
      *
      * @return self
      */
-    public function setValide($_valide)
+    public function setValide($valide)
     {
         $this->valide = $valide;
 
