@@ -63,12 +63,12 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 								}else{
 									$si = $siMa->getSignal($id);
 										echo  '<div class="msgsignal">
-											<div class="gauchePost" id="infoS">
-												<p class="sousInfoS" name="descriptionS" id="sousInfoS" >'.$si->getDescriptionS().' Signalé le '.$si->getDateS().',  '.$si->getVilleS().'</p>
+											<div class="gauchePost" >
+												<p class="sousInfoS">'.$si->getDescriptionS().' Signalé le '.$si->getDateS().',  '.$si->getVilleS().'</p>
 											</div>
 											<div class="droitePost">
-											<div id="imgS"><img  src="img/'.$si->getTypeS().'.png" height=60px></img></div>
-											<div id="soutienS"><button type="submit" name="signaler" ><img id="doigt" src="img/doigt.svg"></img></button>
+											<div ><img  src="img/'.$si->getTypeS().'.png" alt="Type du problèmes" height=60></div>
+											<div ><button type="submit" name="signaler" ><img src="img/doigt.svg" alt="Doigt"></button>
 											</div>
 											</div>
 										</div> <br>';
