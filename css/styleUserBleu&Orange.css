@@ -113,13 +113,14 @@ a:hover{
   height:inherit;
   min-width: 20%;
   max-width: 30%;
-  margin-top:0.5em;
+
   color:rgb(4,90,149);
   overflow-y: scroll;
   padding: 0.5em;
 }
 /****************postit msgsignal dans userCarte******************/
 .msgsignal {
+  perspective: 800px;
   display:flex;
   display: -webkit-flex;
   -webkit-align-items: center;
@@ -133,10 +134,14 @@ a:hover{
   font-size: 12px;
   font-weight: bold;
   cursor: pointer;
+  transition: 2s;
+  backface-visibility: hidden; /* Permet d'éviter de voir le bloc de dos */
 }
+
 
 .gauchePost{
   width: 60%;
+  font-weight: normal;
 }
 
 .droitePost{
