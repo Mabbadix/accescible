@@ -19,7 +19,7 @@ if (isset($_GET['deconnexion']))
 require 'connData.php';
 $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
 /***********traitement d'un Signalement en POO*/
-
+include ("headUtilisateur.php");
 //On récupère les imputs ou créé des infos
 $signalPar = $_SESSION['emailU'];
 /*****Var type de problème*****/
@@ -89,36 +89,36 @@ $managerS = new SignalementManager($bdd);
 if(isset($_POST['signaler'])){
 	//si localiser est vide (soit adresse, soit géoloc)
 	if(empty($adresseS) AND empty($cpS) OR empty($villeS) ){
-		echo '<div id="notif" class="warning"> <h2>Merci de localiser le problème</h2></div><script type="text/javascript">';
-		echo ("<script language='JavaScript' type='text/javascript'>");
-		echo ('alert("Merci de localiser le problème ");');
-		echo ('history.back(-1)');
-		echo ("</script>");
-		/*echo ("<script language='JavaScript' type='text/javascript'>");
-		echo ('alert("Merci de localiser le problème ");');
-		echo ('history.back(-1)');
-		echo ("</script>");*/
+		echo '<div id="notif" class="warning"> <h2>Merci de localiser le problème</h2></div><script type="text/javascript">
+		$(document).ready(function(){
+		$("#notif").fadeOut(5000);
+		});
+		window.setTimeout("location=(\'signaler.php\');",1500)</script>';
 	}//Si choix types EST vide
 	elseif (empty($typeS)){
-		echo ("<script language='JavaScript' type='text/javascript'>");
-		echo ('alert("Merci de choisir un problème");');
-		echo ('history.back(-1)');
-		echo ("</script>");
+		echo '<div id="notif" class="warning"> <h2>Merci de décrire le problème</h2></div><script type="text/javascript">
+		$(document).ready(function(){
+		$("#notif").fadeOut(5000);
+		});
+		window.setTimeout("location=(\'signaler.php\');",1500)</script>';
 	}elseif($photoS == "format"){
-				echo ("<script language='JavaScript' type='text/javascript'>");
-				echo ('alert("Le format du fichier n\'est pas accepté. Seuls sont acceptés,les fichiers en .jpg, .jpeg, .gif, .png, .svg. Merci de recommencer.");');
-				echo ('history.back(-1)');
-				echo ("</script>");
+		echo '<div id="notif" class="error"> <h2>Le format du fichier n\'est pas accepté. Seuls sont acceptés,les fichiers en .jpg, .jpeg, .gif, .png, .svg. Merci de recommencer.</h2></div><script type="text/javascript">
+		$(document).ready(function(){
+		$("#notif").fadeOut(5000);
+		});
+		window.setTimeout("location=(\'signaler.php\');",1500)</script>';
 			}elseif($photoS == "taille"){
-				echo ("<script language='JavaScript' type='text/javascript'>");
-				echo ('alert("Le fichier est trop volumineux. Merci de recommencer.");');
-				echo ('history.back(-1)');
-				echo ("</script>");
+				echo '<div id="notif" class="error"> <h2>La photo est trop volumineuse. Merci de recommencer.</h2></div><script type="text/javascript">
+				$(document).ready(function(){
+				$("#notif").fadeOut(5000);
+				});
+				window.setTimeout("location=(\'signaler.php\');",1500)</script>';
 			}elseif($photoS == "erreurChargement"){
-				echo ("<script language='JavaScript' type='text/javascript'>");
-				echo ('alert("Erreur inconue lors du chargement du fichier. Merci de recommencer.");');
-				echo ('history.back(-1)');
-				echo ("</script>");
+				echo '<div id="notif" class="error"> <h2>Erreur dinconnue lors du chargement de la photo. Merci de recommencer.</h2></div><script type="text/javascript">
+				$(document).ready(function(){
+				$("#notif").fadeOut(5000);
+				});
+				window.setTimeout("location=(\'signaler.php\');",1500)</script>';
 	}	else {//sinon lancement des functions idoines
 			/****création d'un obj signalement + enregistrement ****/
 			// on créé une instance de SignalementManager
@@ -142,8 +142,11 @@ if(isset($_POST['signaler'])){
 		 ]);
 		 //on appelle la fonction ajout avec en param l'objet un Signalement
 		 $managerS->add($si);
-		 echo '<div id="ok">Signalement enregistré. Redirection en cours...</div>
-		 <script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",500) </script>';
+		 echo '<div id="notif" class="success"> <h2>Votre signalement a bien été enregistré. Merci à vous.</h2></div><script type="text/javascript">
+ 		$(document).ready(function(){
+ 		$("#notif").fadeOut(5000);
+ 		});
+ 		window.setTimeout("location=(\'userCarte.php\');",1500)</script>';
 	}
 }
 ?>
