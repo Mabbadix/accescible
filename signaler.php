@@ -109,19 +109,22 @@ if (isset($_SESSION['emailU'])){
 						<label for="typeS"></label>
 						<input class="typeS" type = "hidden" name="typeS" id="selectType" required></input>
 							<img class="imgType" alt="Place handicapée absente, occupée et/ou inadéquate." id="typeS1" src="img/typeS1.png "  onclick="change(1)" ></img>
-							<img class="imgType" alt="Absence de signal sonore, tactile ou lumineux." id="typeS2" src="img/typeS2.svg" onclick="change(2)"></img>
+							<img class="imgType" alt="Absence de signal sonore, tactile ou lumineux." id="typeS2" src="img/typeS2.png" onclick="change(2)"></img>
 							<img class="imgType" alt="Passage inadapté et/ou encombré." id="typeS3" src="img/typeS3.png" onclick="change(3)"></img><br><br>
 							<img type="image"class="imgType" alt="Problème d'accès en hauteur(rampe, ascenseur...)." id="typeS4" src="img/typeS4.png" onclick="change(4)"></img>
 							<img type="image" class="imgType" alt="Sanitaires absents et/ou non adaptés." id="typeS5" src="img/typeS5.png" onclick="change(5)"></img>
 							<img type="image"class="imgType" id="typeS6" src="img/typeS6.png" alt="Problème autre." onclick="change(6)"></img><br><br>
 						<label for="descriptionS"></label>
-							<textarea class="descriptionS" name="descriptionS" id="descriptionS" rows="1.8" cols="31"
+							<textarea class="descriptionS" name="descriptionS" id="descriptionS" rows="3" cols="29"
 							placeholder="Description du problème en 100 caractères maximum"></textarea>
 					</fieldset>
 					<fieldset name="photoUploads">
 						<legend>Photo</legend>
 						<input type="hidden" name="MAX_FILE_SIZE" value="10000000">
-						<input class="incPhotoS" id="incPhotoS" type="file" name="photoS">
+						<label id="fileContainer">
+							<img src="img/telecharge.jpeg" alt="télécharge" id="putPhotoS"/>
+							<input class="incPhotoS" id="incPhotoS" type="file" name="photoS"/>
+						</label>
 					</fieldset>
 					<fieldset name="valider">
 						<legend>Valider</legend>
