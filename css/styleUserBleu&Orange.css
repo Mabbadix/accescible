@@ -144,8 +144,6 @@ a:hover{
           flex: 1;
 }
 
-
-
 /********FORM SIGNALER****************/
 
 fieldset{
@@ -369,11 +367,12 @@ cursor: pointer;
 .formContact{
   margin-top: 0;
   padding :0;
-  margin-bottom: 0;
 }
 .champsContact{
   background-color:rgb(241,240,240);
   width: auto;
+  max-height: 380px;
+  max-width: 500px;
   border-radius: 12px;
   border: 1px solid rgb(147,188,218);
   padding: 15px 32px;
@@ -430,6 +429,7 @@ cursor: pointer;
   position: absolute;
   right: 37%;
 }
+
 
 /************MEDIA QUERRY***********/
 @media only screen and (max-width: 500px) {

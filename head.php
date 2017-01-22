@@ -1,5 +1,4 @@
     <meta charset=utf-8 />
-    <meta http-equiv="Content-Language" content="fr"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
     <meta name="description" content="Signaler les problemes d'accessibilité près de chez vous afin que les personnes compétentes y remédient."/>
     <meta name="robots" content="index, follow"/>
