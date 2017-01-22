@@ -1,6 +1,7 @@
 
         <div class="compte">
             <div class="compte-form">
+            <span id="cross">X</span>
       <h3 class="title-account">Mon compte</h3>
     <form method="POST" action="compte.php">
       <label for="nomU">Votre nom:</label><br>
@@ -23,6 +24,13 @@
             $(".compte").fadeIn("fast", function(){
             });
         });
+
+        $("#cross").click(function(){
+            $(".compte").fadeOut("fast", function(){
+
+            });
+        });
+
         var height = $("body").height();
         $(".compte").height(height);
     </script>

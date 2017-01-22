@@ -75,7 +75,7 @@ if($manageU->isConnected() === true && $_SESSION['confirme']==1){
        <!-- side deroulant -->
       <div id="sideBar" class="side">
           <!-- Button to close the overlay navigation -->
-          <a href="javascript:void(0)"onclick="fermerNav()" class="boutonFermer">
+          <a href="javascript:void(0)" onclick="fermerNav()" class="boutonFermer">
             X
           </a>
           <!-- Overlay content -->

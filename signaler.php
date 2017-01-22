@@ -44,10 +44,10 @@ if (isset($_SESSION['emailU'])){
 		<div class="mainUserCarte">
 			<div class="mainLeft">
         <form class="unSignalementForm" name ="signalement" method = "post"
-				 enctype="multipart/form-data" action= "unSignalement.php"><center>
+				 enctype="multipart/form-data" action= "unSignalement.php">
 					<fieldset name="localiser" >
 						<legend>Localiser</legend>
-						</br>
+						<br>
 						<table id="address1">
 						<input class="unSignalementField" type="text" id="autocomplete" placeholder="Adresse complète, lieu, commerce etc." onFocus="initAutocomplete(), geolocate()" ></input>
 						<tr >
@@ -110,10 +110,10 @@ if (isset($_SESSION['emailU'])){
 						<input class="typeS" type = "hidden" name="typeS" id="selectType" required></input>
 							<img class="imgType" alt="Place handicapée absente, occupée et/ou inadéquate." id="typeS1" src="img/typeS1.png "  onclick="change(1)" ></img>
 							<img class="imgType" alt="Absence de signal sonore, tactile ou lumineux." id="typeS2" src="img/typeS2.svg" onclick="change(2)"></img>
-							<img class="imgType" alt="Passage inadapté et/ou encombré." id="typeS3" src="img/typeS3.png" onclick="change(3)"></img></br></br>
+							<img class="imgType" alt="Passage inadapté et/ou encombré." id="typeS3" src="img/typeS3.png" onclick="change(3)"></img><br><br>
 							<img type="image"class="imgType" alt="Problème d'accès en hauteur(rampe, ascenseur...)." id="typeS4" src="img/typeS4.png" onclick="change(4)"></img>
 							<img type="image" class="imgType" alt="Sanitaires absents et/ou non adaptés." id="typeS5" src="img/typeS5.png" onclick="change(5)"></img>
-							<img type="image"class="imgType" id="typeS6" src="img/typeS6.png" alt="Problème autre." onclick="change(6)"></img></br></br>
+							<img type="image"class="imgType" id="typeS6" src="img/typeS6.png" alt="Problème autre." onclick="change(6)"></img><br><br>
 						<label for="descriptionS"></label>
 							<textarea class="descriptionS" name="descriptionS" id="descriptionS" rows="1.8" cols="31"
 							placeholder="Description du problème en 100 caractères maximum"></textarea>

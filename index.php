@@ -144,28 +144,31 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 	</head>
 
 	<body>
-		<div class="video"><center>
+		<div class="indexMain">
+			
+		<div class="video">
 			<video preload="auto" poster="img/logo73.svg" onclick="play()"  ondblclick="pause()">
 			<source src="img/rendu_anim_handicap.mp4" type="video/mp4">
 			Your browser does not support the video tag.
-		</video ></center>
+		</video >
 		</div>
-		</br>
+		<br>
 
 		<div>
 			<!-- CONN ET INSCRIPTION !-->
 			<form name ="formConn" method="post" id="button" style="text-align:center">
-				<label for="Courriel"></label><input class="button connexion" id="Courriel" type="email" name="Courriel" placeholder="dupont@gmail.com"value="<?php if (!empty($_POST['Courriel'])) {echo stripcslashes(htmlspecialchars($_POST['Courriel'], ENT_QUOTES));} ?>"  required maxlength="100"><br/>
+				<label for="Courriel"></label><input class="button connexion" id="Courriel" type="email" name="Courriel" placeholder="dupont@gmail.com" value="<?php if (!empty($_POST['Courriel'])) {echo stripcslashes(htmlspecialchars($_POST['Courriel'], ENT_QUOTES));} ?>"  required maxlength="100"><br>
 				<label for="Mot_de_passe"></label> <input class="button inscription" id="Mot_de_passe" type="password"
-					name="Mot_de_passe" placeholder="Mot de passe" required maxlength="50"><br/>
+					name="Mot_de_passe" placeholder="Mot de passe" required maxlength="50"><br>
 					<label for="se_connecter"></label>
 				<button class="button connexion" id="se_connecter" type="submit"
-				name="se_connecter"value="se connecter" formaction = "index.php">Connexion</button>
+				name="se_connecter" value="se connecter" formaction = "index.php">Connexion</button>
 				<button class="button inscription" type="submit" name="boutInscription" formaction="index.php">
 					Inscription</button>
 			</form>
 		</div>
-			</br>
+		</div>
+			<br>
 		<script>
 		/*******Notif qui apparait et disparaît*******/
 

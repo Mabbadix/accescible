@@ -149,8 +149,6 @@ a:hover{
           flex: 1;
 }
 
-
-
 /********FORM SIGNALER****************/
 
 fieldset{
@@ -374,11 +372,12 @@ cursor: pointer;
 .formContact{
   margin-top: 0;
   padding :0;
-  margin-bottom: 0;
 }
 .champsContact{
   background-color:rgb(241,240,240);
   width: auto;
+  max-height: 380px;
+  max-width: 500px;
   border-radius: 12px;
   border: 1px solid rgb(147,188,218);
   padding: 15px 32px;
@@ -429,6 +428,13 @@ cursor: pointer;
   font-size: 2em;
   color: rgb(34, 112, 155);
 }
+
+#cross{
+  font-size: 2em;
+  position: absolute;
+  right: 37%;
+}
+
 
 /************MEDIA QUERRY***********/
 @media only screen and (max-width: 500px) {
@@ -496,5 +502,20 @@ cursor: pointer;
   }
   .msgsignal{
     max-width:100%;
+  }
+}
+@media only screen and (max-width: 400px){
+  .title-page{
+    text-align: center;
+  }
+  .formContact{
+    min-width: 100%;
+    margin-bottom: 10px;
+  }
+  .champsContact{
+    max-width: 95%;
+  }
+  .footerdiv{
+    margin-top: 50px;
   }
 }

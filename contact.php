@@ -76,10 +76,11 @@ if(!$dMail->send()) {
       <div>
         <form class="formContact" method="POST" action="#">
             <?php if ($mailContact==true) {echo '<div id="notif" class="success"> <h2>Votre message a bien été envoyé</h2></div><script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",1500) </script>';}/*else{echo '<div id="notif" class="success"> <h2><=Cliquez  ici pour envoyer</h2></div>';}*/?><label class="title-page" for="message">Nous contacter</label><br/><br/>
-          <label for="Courriel"></label><input class="champsContact" id="courrielContact" type="email" name="emailF" <?php if($connu){{echo 'value='.$recupEmail;}} ?> placeholder="dupont@gmail.com" required maxlength="100"></input><br/><br/>
-          <textarea class="champsContact" id="message" type="text" name="message" rows="20" cols="20" placeholder="VOTRE MESSAGE ICI" required ></textarea><br/><br/>
-          <button type="submit" name="submit" id="envoyer"><img id="doigt" src="img/doigt.svg" height="80px"></img></button>
+          <label data-for="Courriel"></label><input class="champsContact" id="courrielContact" type="email" name="emailF" <?php if($connu){{echo 'value='.$recupEmail;}} ?> placeholder="dupont@gmail.com" required maxlength="100"><br/><br/>
+          <textarea class="champsContact" id="message" name="message" rows="10" cols="20" placeholder="VOTRE MESSAGE ICI" required ></textarea><br/><br/>
+          <button type="submit" name="submit" id="envoyer"><img id="doigt" src="img/doigt.svg" alt="Doigt" height="80"></button>
         </form>
+      </div>
       </div>
     </main>
     <?php include( 'footer.php');?>
