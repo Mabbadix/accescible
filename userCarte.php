@@ -69,7 +69,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 											<div class="droitePost">
 											<div ><img  src="img/'.$si->getTypeS().'.png" alt="Type du problèmes" height=60></div>
 											<div ><button type="submit" name="signaler" ><img src="img/doigt.svg" alt="Doigt"></button>
-											</div>
+											<span class="nbsoutiens">'.$si->getNSoutienS().'<span></div>
 											</div>
 										</div> <br>';
 
