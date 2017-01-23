@@ -144,6 +144,11 @@ a:hover{
           flex: 1;
 }
 
+.nbsoutiens{
+  font-size: 3em;
+  float: right;
+}
+
 /********FORM SIGNALER****************/
 
 fieldset{

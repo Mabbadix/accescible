@@ -68,11 +68,11 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 												<p>Signalé le '.$si->getDateS().'</p>
 											</div>
 											<div class="droitePost">
-												<div id="imgS"><img  src="img/'.$si->getTypeS().'.png" height=60px></img></div>
-												<div id="soutienS"><button type="submit" name="signaler" ><img id="doigt" src="img/doigt.svg"></img></button>
-												</div>
+											<div ><img  src="img/'.$si->getTypeS().'.png" alt="Type du problèmes" height=60></div>
+											<div ><button type="submit" name="signaler" ><img src="img/doigt.svg" alt="Doigt"></button>
+											<span class="nbsoutiens">'.$si->getNSoutienS().'<span></div>
 											</div>
-									</div> </br>';
+										</div> <br>';
 									$i++;
 									$id++;
 								}
