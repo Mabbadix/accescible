@@ -452,10 +452,39 @@ cursor: pointer;
   right: 37%;
 }
 
+/********** Slideshow UnSignalemet*******/
+
+.slideshow-container {
+  max-width: 500px;
+  position: relative;
+  margin: auto;
+  margin-top:20%;
+}
+
+/* Caption text */
+.text {
+  color: rgb(233,95,3);
+  font-size: 30px;
+  font-weight: bold;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  overflow: auto;
+}
+
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
 
 /************MEDIA QUERRY***********/
 @media only screen and (max-width: 1008px) {
-  
+
   .imgType{
     max-width:68px;
     max-height: 68px;
@@ -467,7 +496,7 @@ cursor: pointer;
 @media only screen and (max-width: 500px) {
   header {height:2.555em;background:rgba(233,95,3,1);}
   /**page index + nav****/
-  .text{font-size: 10px}
+  .text{font-size: 15px}
   .button {font-size:14px}
   .inscription {margin-top :8px}
   .side {overflow-x:auto;

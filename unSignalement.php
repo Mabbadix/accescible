@@ -1,25 +1,5 @@
 <?php
-//ouverture de session
-header( 'content-type: text/html; charset=utf-8' );
-//fonction qui recherche toute seule la classe à requerir
-function chargerClass($classe)
-{
-	require $classe.'.php';
-}
-spl_autoload_register('chargerClass');
 
-//On a créé des sessions et pour que ça fonctionne, il faut en déclarer l'ouverture.
-session_start();
-if (isset($_GET['deconnexion']))
-{
-  require 'deconn.php';
-}
-
-//******Connect BD********
-require 'connData.php';
-$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
-/***********traitement d'un Signalement en POO*/
-include ("headUtilisateur.php");
 //On récupère les imputs ou créé des infos
 $signalPar = $_SESSION['emailU'];
 /*****Var type de problème*****/
@@ -89,36 +69,16 @@ $managerS = new SignalementManager($bdd);
 if(isset($_POST['signaler'])){
 	//si localiser est vide (soit adresse, soit géoloc)
 	if(empty($adresseS) AND empty($cpS) OR empty($villeS) ){
-		echo '<div id="notif" class="warning"> <h2>Merci de localiser le problème</h2></div><script type="text/javascript">
-		$(document).ready(function(){
-		$("#notif").fadeOut(5000);
-		});
-		window.setTimeout("location=(\'signaler.php\');",1500)</script>';
+		$etat = "localiser";
 	}//Si choix types EST vide
 	elseif (empty($typeS)){
-		echo '<div id="notif" class="warning"> <h2>Merci de décrire le problème</h2></div><script type="text/javascript">
-		$(document).ready(function(){
-		$("#notif").fadeOut(5000);
-		});
-		window.setTimeout("location=(\'signaler.php\');",1500)</script>';
+		$etat = "decrire";
 	}elseif($photoS == "format"){
-		echo '<div id="notif" class="error"> <h2>Le format du fichier n\'est pas accepté. Seuls sont acceptés,les fichiers en .jpg, .jpeg, .gif, .png, .svg. Merci de recommencer.</h2></div><script type="text/javascript">
-		$(document).ready(function(){
-		$("#notif").fadeOut(5000);
-		});
-		window.setTimeout("location=(\'signaler.php\');",1500)</script>';
+		$etat = "format";
 			}elseif($photoS == "taille"){
-				echo '<div id="notif" class="error"> <h2>La photo est trop volumineuse. Merci de recommencer.</h2></div><script type="text/javascript">
-				$(document).ready(function(){
-				$("#notif").fadeOut(5000);
-				});
-				window.setTimeout("location=(\'signaler.php\');",1500)</script>';
+				$etat = "taille";
 			}elseif($photoS == "erreurChargement"){
-				echo '<div id="notif" class="error"> <h2>Erreur dinconnue lors du chargement de la photo. Merci de recommencer.</h2></div><script type="text/javascript">
-				$(document).ready(function(){
-				$("#notif").fadeOut(5000);
-				});
-				window.setTimeout("location=(\'signaler.php\');",1500)</script>';
+				$etat = "autre";
 	}	else {//sinon lancement des functions idoines
 			/****création d'un obj signalement + enregistrement ****/
 			// on créé une instance de SignalementManager
@@ -142,11 +102,7 @@ if(isset($_POST['signaler'])){
 		 ]);
 		 //on appelle la fonction ajout avec en param l'objet un Signalement
 		 $managerS->add($si);
-		 echo '<div id="notif" class="success"> <h2>Votre signalement a bien été enregistré. Merci à vous.</h2></div><script type="text/javascript">
- 		$(document).ready(function(){
- 		$("#notif").fadeOut(5000);
- 		});
- 		window.setTimeout("location=(\'userCarte.php\');",1500)</script>';
+		 $etat = "ok";
 	}
 }
 ?>

@@ -43,8 +43,35 @@ if (isset($_SESSION['emailU'])){
   <main><!--CENTER-->
 		<div class="mainUserCarte">
 			<div class="mainLeft">
+				<?php	include( 'unSignalement.php');
+					switch ($etat) {
+						case "localiser":
+							echo'<div id="notif" class="warning"> <h2>Merci de localiser le problème</h2></div>';
+							break;
+						case "decrire":
+							echo '<div id="notif" class="warning"> <h2>Merci de décrire le problème</h2></div>';
+							break;
+						case "format":
+							echo '<div id="notif" class="error"> <h2>Le format du fichier n\'est pas accepté. Seuls sont acceptés,les fichiers en .jpg, .jpeg, .gif, .png, .svg. Merci de recommencer.</h2></div>';
+							break;
+						case "taille":
+							echo '<div id="notif" class="error"> <h2>La photo est trop volumineuse. Merci de recommencer.</h2></div>';
+							break;
+						case "autre":
+							echo '<div id="notif" class="error"> <h2>Erreur dinconnue lors du chargement de la photo. Merci de recommencer.</h2></div>';
+							break;
+						case "ok":
+							header("Location: signalementInfo.php");
+							break;
+					}
+				?>
+				<script>
+			$(document).ready(function(){
+			$("#notif").fadeOut(3000);
+			});
+			</script>
         <form class="unSignalementForm" name ="signalement" method = "post"
-				 enctype="multipart/form-data" action= "unSignalement.php">
+				 enctype="multipart/form-data" action=#>
 					<fieldset name="localiser" >
 						<legend>Localiser</legend>
 						<br>
