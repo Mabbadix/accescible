@@ -44,10 +44,10 @@ if(!$dMail->send()) {
 				<span id="crossContact">X</span>
 				<h2 id="titleContact">Nous contacter</h2>
 	        <form class="formContact" method="POST" action=#>
-	          <label for="message">Remplir le formulaire svp</label><br/><br/>
-	          <label data-for="Courriel"></label><input class="champsContact" id="courrielContact" type="email" name="emailF" <?php if($connu){{echo 'value='.$recupEmail;}} ?> placeholder="dupont@gmail.com" required maxlength="100"><br/><br/>
+	          <label for="message">Remplir le formulaire svp</label><br/>
+	          <label data-for="Courriel"></label><input class="champsContact" id="courrielContact" type="email" name="emailF" <?php if($connu){{echo 'value='.$recupEmail;}} ?> placeholder="dupont@gmail.com" required maxlength="100"><br/>
 	          <textarea class="champsContact" id="message" name="message" rows="10" cols="20" placeholder="VOTRE MESSAGE ICI" required ></textarea><br/><br/>
-	          <button type="submit" name="submit" id="envoyer"><img id="doigt" src="img/doigt.svg" alt="Doigt" height="80"></button>
+	          <button type="submit" name="submit" id="doigtContact"><img id="doigtContactImg" src="img/doigt.svg" alt="Doigt" ></button>
       		</form>
 			</div>
 	</div>

@@ -91,7 +91,6 @@ a:hover{
 }
 
 /***************MAIN/CONTENT************/
-
 .mainUserCarte {
   position: relative;
   margin-left: auto;
@@ -102,10 +101,7 @@ a:hover{
   font-weight: bold;
   text-align: center;
   color:rgb(4,90,149);
-
 }
-
-
 .mainLeft{
   float:left;
   height:inherit;
@@ -132,8 +128,6 @@ a:hover{
   transition: 2s;
   backface-visibility: hidden; /* Permet d'éviter de voir le bloc de dos */
 }
-
-
 .gauchePost{
   width: 60%;
   font-weight: normal;
@@ -144,9 +138,21 @@ a:hover{
           flex: 1;
 }
 
+/***bouton soutien dans userCarte****/
+#doigtSoutien{
+  height: 45px;
+  width: 45px;
+}
+
+#doigtSoutienImg{
+  height: 35px;
+  width: 35px;
+}
+
 .nbsoutiens{
   font-size: 3em;
   float: right;
+  font-weight: lighter;
 }
 
 /********FORM SIGNALER****************/
@@ -423,10 +429,9 @@ cursor: pointer;
   z-index:1;
   background-color: rgba(255, 255, 255, .8);
   width: 100%;
-  position: absolute;
-  top: 5%;
   margin-top:-38px;
-  display: none;
+  position: absolute;
+  display:none;
 }
 
 .mentionsLegales{
@@ -434,7 +439,6 @@ cursor: pointer;
   height: 60%;
   border: 2px solid rgb(34, 112, 155);
   border-radius: 10px;
-  margin-top: 100px;
   margin-bottom: auto;
   padding-bottom: 10px;
   margin-left: auto;
@@ -444,7 +448,6 @@ cursor: pointer;
   color: rgba(233,95,3,1);
   font-weight: lighter;
   overflow-y: scroll;
-
 }
 #titleML, h3, h4{
   color:rgb(34, 112, 155);
@@ -454,7 +457,7 @@ cursor: pointer;
   position: absolute;
   color: rgb(34, 112, 155);
   font-weight: bolder;
-  right: 37%;
+  right: 22%;
 }
 /**********************Nous contacter *****************/
 #titleContact{
@@ -468,10 +471,11 @@ cursor: pointer;
   top: 5%;
   margin-top:-38px;
   display: none;
+  overflow-y: scroll;
 }
 
 .pageContact{
-  width: 40%;
+  width: 60%;
   border: 2px solid rgb(34, 112, 155);
   border-radius: 10px;
   margin-top: 100px;
@@ -490,7 +494,7 @@ cursor: pointer;
   position: absolute;
   color: rgba(233,95,3,1);
   font-weight: bolder;
-  right: 37%;
+  right: 23%;
 }
 
 .formContact{
@@ -520,11 +524,17 @@ cursor: pointer;
   margin : 6px;
 }
 
-
 .champsContact:hover {
     box-shadow: 0 12px 16px 0 rgba(34,112,155,0.3);
 }
 
+#doigtContact{
+  height: 80px;
+  width: 80px;
+}
+#doigtContactImg{
+  height: 70px;
+}
 
 /********** Slideshow UnSignalemet*******/
 
@@ -597,7 +607,6 @@ cursor: pointer;
     height:auto;
     min-width: 100%;
     overflow-y: scroll;
-
   }
   /******form sur signaler*******/
   .msgsignal{
@@ -625,6 +634,18 @@ cursor: pointer;
     max-width: 40%;
     margin-top:0;
   }
+  #doigtSoutien{
+    height: 40px;
+    width: 40px;
+  }
+  #doigtSoutienImg{
+    height: 30px;
+    width: 30px;
+  }
+
+  .nbsoutiens{
+    font-size: 2em;
+  }
   /**page contact + moncompte***/
   .title-page{
     font-size: 20px
@@ -632,10 +653,46 @@ cursor: pointer;
   .champsContact {
     font-size: 15px;
   }
-
   /***footer***/
   .footerdiv{
     min-width: 100%;
+  }
+  /******************Page mentions legales**************/
+  .popupFooter{
+    bottom: -300%;
+  }
+  .mentionsLegales{
+    width: 90%;
+    }
+  #crossFooter{
+    right: 10%;
+  }
+  /**********************Nous contacter *****************/
+  #titleContact{
+    font-size: 1em;
+  }
+  .pageContact{
+    width: 90%;
+    margin-top: 15%;
+    border: 2px solid rgb(34, 112, 155);
+  }
+  #crossContact{
+    font-size: 1em;
+    position: absolute;
+    color: rgba(233,95,3,1);
+    font-weight: bolder;
+    right: 10%;
+  }
+  .formContact{
+    margin-top: 0;
+    padding :0;
+  }
+  #doigtContact{
+    height: 60px;
+    width: 60px;
+  }
+  #doigtContactImg{
+    height: 50px;
   }
 }
 
