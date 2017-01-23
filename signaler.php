@@ -43,37 +43,13 @@ if (isset($_SESSION['emailU'])){
   <main><!--CENTER-->
 		<div class="mainUserCarte">
 			<div class="mainLeft">
-				<?php	include( 'unSignalement.php');
-					switch ($etat) {
-						case "localiser":
-							echo'<div id="notif" class="warning"> <h2>Merci de localiser le problème</h2></div>';
-							break;
-						case "decrire":
-							echo '<div id="notif" class="warning"> <h2>Merci de décrire le problème</h2></div>';
-							break;
-						case "format":
-							echo '<div id="notif" class="error"> <h2>Le format du fichier n\'est pas accepté. Seuls sont acceptés,les fichiers en .jpg, .jpeg, .gif, .png, .svg. Merci de recommencer.</h2></div>';
-							break;
-						case "taille":
-							echo '<div id="notif" class="error"> <h2>La photo est trop volumineuse. Merci de recommencer.</h2></div>';
-							break;
-						case "autre":
-							echo '<div id="notif" class="error"> <h2>Erreur dinconnue lors du chargement de la photo. Merci de recommencer.</h2></div>';
-							break;
-						case "ok":
-							header("Location: signalementInfo.php");
-							break;
-					}
-				?>
-				<script>
-			$(document).ready(function(){
-			$("#notif").fadeOut(3000);
-			});
-			</script>
+				<?php	include( 'unSignalement.php');?>
         <form class="unSignalementForm" name ="signalement" method = "post"
 				 enctype="multipart/form-data" action=#>
 					<fieldset name="localiser" >
 						<legend>Localiser</legend>
+						<?php if($etat=="localiser") {
+								echo'<div id="notif" class="warning"> <h2>Merci de localiser le problème</h2></div>';}?>
 						<br>
 						<table id="address1">
 						<input class="unSignalementField" type="text" id="autocomplete" placeholder="Adresse complète, lieu, commerce etc." onFocus="initAutocomplete(), geolocate()" ></input>
@@ -133,6 +109,9 @@ if (isset($_SESSION['emailU'])){
 					</fieldset>
 					<fieldset id="descriptionSFied" name="decrire">
 						<legend>Décrire</legend>
+						<?php if($etat=="decrire"){
+								echo '<div id="notif" class="warning"> <h2>Merci de décrire le problème</h2></div>';
+						}?>
 						<label for="typeS"></label>
 						<input class="typeS" type = "hidden" name="typeS" id="selectType" required></input>
 							<img class="imgType" alt="Place handicapée absente, occupée et/ou inadéquate." id="typeS1" src="img/typeS1.png "  onclick="change(1)" ></img>
@@ -147,6 +126,18 @@ if (isset($_SESSION['emailU'])){
 					</fieldset>
 					<fieldset name="photoUploads">
 						<legend>Photo</legend>
+						<?php
+						switch ($etat) {
+							case "format":
+								echo '<div id="notif" class="error"> <h2>Le format du fichier n\'est pas accepté. Seuls sont acceptés,les fichiers en .jpg, .jpeg, .gif, .png, .svg. Merci de recommencer.</h2></div>';
+								break;
+							case "taille":
+								echo '<div id="notif" class="error"> <h2>La photo est trop volumineuse. Merci de recommencer.</h2></div>';
+								break;
+							case "autre":
+								echo '<div id="notif" class="error"> <h2>Erreur dinconnue lors du chargement de la photo. Merci de recommencer.</h2></div>';
+								break;
+						}?>
 						<input type="hidden" name="MAX_FILE_SIZE" value="10000000">
 						<label id="fileContainer">
 							<img src="img/telecharge.jpeg" alt="télécharge" id="putPhotoS"/>
@@ -155,6 +146,9 @@ if (isset($_SESSION['emailU'])){
 					</fieldset>
 					<fieldset name="valider">
 						<legend>Valider</legend>
+						<?php if($etat=="ok"){
+							header("Location: signalementInfo.php");
+						}?>
 						<label for="signaler"></label><br/>
 						<button name="signaler" id="signaler" ><img id="doigt" src="img/doigt.svg"></img></button>
             </fieldset>

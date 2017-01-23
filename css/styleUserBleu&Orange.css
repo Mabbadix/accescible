@@ -109,16 +109,13 @@ a:hover{
 .mainLeft{
   float:left;
   height:inherit;
-  min-width: 20%;
-  max-width: 30%;
-
+  max-width: 350px;
   color:rgb(4,90,149);
   overflow-y: scroll;
   padding: 0.5em;
 }
 /****************postit msgsignal dans userCarte******************/
 .msgsignal {
-  perspective: 800px;
   display:flex;
   display: -webkit-flex;
   -webkit-align-items: center;
@@ -363,6 +360,7 @@ cursor: pointer;
   position: inherit;
   left: 50%;
   z-index: 200;
+  max-width: 100%;
 }
 .info {
   background-color: #6af;
