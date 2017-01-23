@@ -13,12 +13,12 @@
 			<div class="mySlides fade">
 			  <div class="numbertext">1 / 3</div>
 			  <img src="img/logo71.svg" style="width:100%">
-			  <div class="text">SIGNALEMENT</div>
+			  <div class="text">SIGNALEMENT </div>
 			</div>
 			<div class="mySlides fade">
 			  <div class="numbertext">2 / 3</div>
 			  <img src="img/logo72.svg" style="width:100%">
-			  <div class="text">EN COURS D'ENREGISTREMENT.</div>
+			  <div class="text">EN COURS D'ENREGISTREMENT...</div>
 			</div>
 			<div class="mySlides fade">
 			  <div class="numbertext">3 / 3</div>
@@ -41,7 +41,6 @@
       window.setTimeout("location=(\'userCarte.php\');",2900)
 			var slideIndex = 0;
 			showSlides();
-
 			function showSlides() {
 					var i;
 					var slides = document.getElementsByClassName("mySlides");
