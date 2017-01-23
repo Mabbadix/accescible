@@ -416,7 +416,7 @@ cursor: pointer;
 
 
 /*******Page MON COMPTE***********/
-.compte{
+.popup{
   z-index:1;
   background-color: rgba(255, 255, 255, .8);
   width: 100%;
@@ -447,6 +447,44 @@ cursor: pointer;
 #cross{
   font-size: 2em;
   position: absolute;
+  right: 37%;
+}
+/******************Page mention legale**************/
+.popupFooter{
+  z-index:1;
+  background-color: rgba(255, 255, 255, .8);
+  width: 100%;
+  position: absolute;
+  top: 5%;
+  margin-top:-38px;
+  display: none;
+}
+
+.mentionsLegales{
+  width: 60%;
+  height: 60%;
+  border: 2px solid rgb(34, 112, 155);
+  border-radius: 10px;
+  margin-top: 100px;
+  margin-bottom: auto;
+  padding-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  background:white;
+  text-align: center;
+  color: rgba(233,95,3,1);
+  font-weight: lighter;
+  overflow-y: scroll;
+
+}
+#titleML, h3, h4{
+  color:rgb(34, 112, 155);
+}
+#crossFooter{
+  font-size: 2em;
+  position: absolute;
+  color: rgb(34, 112, 155);;
+  font-weight: bolder;
   right: 37%;
 }
 
