@@ -62,9 +62,10 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 									$id++;
 								}else{
 									$si = $siMa->getSignal($id);
-										echo  '<div class="msgsignal">
-											<div class="gauchePost" >
-												<p class="sousInfoS">'.$si->getDescriptionS().' Signalé le '.$si->getDateS().',  '.$si->getVilleS().'</p>
+									echo  '<div class="msgsignal"id="devant">
+											<div class="gauchePost" id="infoS">
+												<p>'.$si->getDescriptionS().'</p><p> '.$si->getVilleS().'</p>
+												<p>Signalé le '.$si->getDateS().'</p>
 											</div>
 											<div class="droitePost">
 											<div ><img  src="img/'.$si->getTypeS().'.png" alt="Type du problèmes" height=60></div>
@@ -72,7 +73,6 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 											<span class="nbsoutiens">'.$si->getNSoutienS().'<span></div>
 											</div>
 										</div> <br>';
-
 									$i++;
 									$id++;
 								}

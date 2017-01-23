@@ -145,7 +145,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 
 	<body>
 		<div class="indexMain">
-			
+
 		<div class="video">
 			<video preload="auto" poster="img/logo73.svg" onclick="play()"  ondblclick="pause()">
 			<source src="img/rendu_anim_handicap.mp4" type="video/mp4">
@@ -169,33 +169,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 		</div>
 		</div>
 			<br>
-		<script>
-		/*******Notif qui apparait et disparaît*******/
-
-
-
-
-		/*SLIDE SHOW INDEX*/
-			var slideIndex = 0;
-			showSlides();
-
-			function showSlides() {
-			    var i;
-			    var slides = document.getElementsByClassName("mySlides");
-			    var dots = document.getElementsByClassName("dot");
-			    for (i = 0; i < slides.length; i++) {
-			       slides[i].style.display = "none";
-			    }
-			    slideIndex++;
-			    if (slideIndex> slides.length) {slideIndex = 1}
-			    for (i = 0; i < dots.length; i++) {
-			        dots[i].className = dots[i].className.replace(" active", "");
-			    }
-			    slides[slideIndex-1].style.display = "block";
-			    dots[slideIndex-1].className += " active";
-			    setTimeout(showSlides, 3000); // Change image every .... seconds
-			}
-		</script>
+		
 		<noscript>
 			<div id="erreur"><b>Votre navigateur ne prend pas en charge JavaScript!</b> Veuillez activer JavaScript afin de profiter pleinement du site.</div>
 		</noscript>

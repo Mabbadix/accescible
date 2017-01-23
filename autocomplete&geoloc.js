@@ -2,6 +2,12 @@
 // async defer = pas synchronization page ce qui permets de moins attendre
 </script>
 <script type = "text/javascript" >
+/******pour l'information si champs pas rempli*********/
+$(document).ready(function(){
+$("#notif").fadeOut(3000);
+});
+
+
 /******VARIABLES COMMUNES********************/
 /*Var pour map*/
 var mapcanvas = document.getElementById("mapcanvas");
