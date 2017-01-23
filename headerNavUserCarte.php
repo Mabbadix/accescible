@@ -1,10 +1,12 @@
 <?php
+
 //vérfication si la personne est connectée : si oui accès à l'espace des inscrits, sinon accès espace restreint
 if($manageU->isConnected() === true && $_SESSION['confirme']==1){
   ?>
 <ul>
   <li><a <?php if ($nav_en_cours == 'usercarte') {echo ' id="active"';} ?> href="userCarte.php">Carte</a></li>
   <li><a <?php if ($nav_en_cours == 'signaler') {echo ' id="active"';} ?> href="signaler.php">Signaler</a></li>
+
   <li><a href="#side">
     <span id="traitside" onclick="ouvrirNav()">
        ☰ </span></a>
@@ -18,7 +20,7 @@ if($manageU->isConnected() === true && $_SESSION['confirme']==1){
           <div class="side-contenu">
             <a  href="#" id="account">Mon compte</a>
             <a href="#">Nos valeurs</a>
-            <a href="contact.php">Nous contacter</a>
+            <a  href="#" id="nousContacter">Nous contacter</a>
             <a href="deconn.php " >Déconnection </a>
           </div>
       </div>
@@ -32,7 +34,15 @@ if($manageU->isConnected() === true && $_SESSION['confirme']==1){
         </script>
   </li>
 </ul>
+<?php include'contact.php';
+if ($mailContact==true) {echo '<div id="notif" class="success"> <h2>Votre message a bien été envoyé</h2>';}
+?>
 <?php include'compte.php';?>
+<script>
+$(document).ready(function(){
+  $("#notif").fadeOut(5000);
+});
+</script>
 <?php }elseif ($manageU->isConnected()=== true && $_SESSION['confirme'] == 0){?>
 <ul>
   <li><a <?php if ($nav_en_cours == 'usercarte') {echo ' id="active"';} ?> href="userCarte.php">Carte</a></li>
@@ -50,7 +60,7 @@ if($manageU->isConnected() === true && $_SESSION['confirme']==1){
           <div class="side-contenu">
             <a  href="#" id="account">Mon compte</a>
             <a href="#">Nos valeurs</a>
-            <a href="contact.php">Nous contacter</a>
+            <a  href="#" id="nousContacter">Nous contacter</a>
             <a href="deconn.php " >Déconnection </a>
           </div>
       </div>
@@ -64,6 +74,14 @@ if($manageU->isConnected() === true && $_SESSION['confirme']==1){
         </script>
   </li>
 </ul>
+<?php include'contact.php';
+if ($mailContact==true) {echo '<div id="notif" class="success"> <h2>Votre message a bien été envoyé</h2>';}
+?>
+<script>
+$(document).ready(function(){
+  $("#notif").fadeOut(5000);
+});
+</script>
 <?php }else{
 ?>
 <ul>
@@ -82,7 +100,7 @@ if($manageU->isConnected() === true && $_SESSION['confirme']==1){
           <div class="side-contenu">
             <a href="index.php">Connexion/inscription</a>
             <a href="#">Nos valeurs</a>
-            <a href="contact.php">Nous contacter</a>
+            <a  href="#" id="nousContacter">Nous contacter</a>
           </div>
       </div>
         <script>
@@ -95,4 +113,9 @@ if($manageU->isConnected() === true && $_SESSION['confirme']==1){
         </script>
   </li>
 </ul>
-<?php } ?>
+<?php
+/**include de toute la page****/
+include'contact.php';
+if ($mailContact==true) {echo '<div id="notif" class="success"> <h2>Votre message a bien été envoyé</h2>';}
+
+} ?>
