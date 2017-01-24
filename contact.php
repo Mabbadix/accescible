@@ -1,26 +1,11 @@
 <?php
-//ouverture de session
-header( 'content-type: text/html; charset=utf-8' );
-//fonction qui recherche toute seule la classe à requerir
-function chargerClass($classe)
-{
-	require $classe.'.php';
-}
-spl_autoload_register('chargerClass');
-
-//On a créé des sessions et pour que ça fonctionne, il faut en déclarer l'ouverture.
-session_start();
-if (isset($_GET['deconnexion']))
-{
-  require 'deconn.php';
-}
 
 //******Connect BD********
 require 'connData.php';
 $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
 /***********traitement d'un Signalement en POO*/
 $manageU = new UtilisateurManager($bdd);
-if($manageU->isConnected() === true && $_SESSION['confirme']==1){
+if($manageU->isConnected() === true){
   $recupEmail =  $_SESSION['emailU'];
   $connu = true;
   };
@@ -47,46 +32,43 @@ if(!$dMail->send()) {
     echo 'Message could not be sent.';
     echo 'Mailer Error: ' . $mail->ErrorInfo;
 } else {
-    ?>
-<?php $mailContact = true;
+ $mailContact = true;
 }
 }
  ?>
    <!DOCTYPE html>
   <html lang="fr">
 
-  <head>
-    <!-- integration de toutes les metas et autres link
-				ATTENTION link styleUser.css different du "style.css" -->
-    <?php include 'headUtilisateur.php'; ?>
-      <title>Acces'Cible-Nous_contacter</title>
-  </head>
-  <body>
-    <header>
-			<div class="navFix">
-				<!-- Nav Bar + Sidebar -->
-	      <!-- ATTENTION headerNav different pour chaque page pour selection du bon onglet" -->
-	      <?php
-        $nav_en_cours = 'contact';
-        include 'headerNavUserCarte.php'; ?>
+	<div class="popupContact">
+			<div class="pageContact">
+				<span id="crossContact">X</span>
+				<h2 id="titleContact">Nous contacter</h2>
+	        <form class="formContact" method="POST" action=#>
+	          <label for="message">Remplir le formulaire svp</label><br/><br/>
+	          <label data-for="Courriel"></label><input class="champsContact" id="courrielContact" type="email" name="emailF" <?php if($connu){{echo 'value='.$recupEmail;}} ?> placeholder="dupont@gmail.com" required maxlength="100"><br/><br/>
+	          <textarea class="champsContact" id="message" name="message" rows="10" cols="20" placeholder="VOTRE MESSAGE ICI" required ></textarea><br/><br/>
+	          <button type="submit" name="submit" id="envoyer"><img id="doigt" src="img/doigt.svg" alt="Doigt" height="80"></button>
+      		</form>
 			</div>
-    </header>
-    <main>
-    <div class="mainUserCarte">
-      <div>
-        <form class="formContact" method="POST" action="#">
-            <?php if ($mailContact==true) {echo '<div id="notif" class="success"> <h2>Votre message a bien été envoyé</h2></div><script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",1500) </script>';}/*else{echo '<div id="notif" class="success"> <h2><=Cliquez  ici pour envoyer</h2></div>';}*/?><label class="title-page" for="message">Nous contacter</label><br/><br/>
-          <label data-for="Courriel"></label><input class="champsContact" id="courrielContact" type="email" name="emailF" <?php if($connu){{echo 'value='.$recupEmail;}} ?> placeholder="dupont@gmail.com" required maxlength="100"><br/><br/>
-          <textarea class="champsContact" id="message" name="message" rows="10" cols="20" placeholder="VOTRE MESSAGE ICI" required ></textarea><br/><br/>
-          <button type="submit" name="submit" id="envoyer"><img id="doigt" src="img/doigt.svg" alt="Doigt" height="80"></button>
-        </form>
-      </div>
-      </div>
-    </main>
-    <?php include( 'footer.php');?>
+	</div>
+
+
     <script>
 $(document).ready(function(){
   $("#notif").fadeOut(5000);
 });
+
+$("#nousContacter").click(function(){
+    $(".popupContact").fadeIn("fast", function(){
+    });
+});
+
+$("#crossContact").click(function(){
+    $(".popupContact").fadeOut("fast", function(){
+
+    });
+});
+
+var height = $("body").height();
+$(".popupContact").height(height);
 </script>
-</body>

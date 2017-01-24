@@ -43,7 +43,10 @@ if (isset($_SESSION['emailU'])){
   <main><!--CENTER-->
 		<div class="mainUserCarte">
 			<div class="mainLeft">
-				<?php	include( 'unSignalement.php');?>
+				<?php	include( 'unSignalement.php');
+				if($etat=="ok"){
+					header('Location: signalementInfo.php');
+				}?>
         <form class="unSignalementForm" name ="signalement" method = "post"
 				 enctype="multipart/form-data" action=#>
 					<fieldset name="localiser" >
@@ -146,9 +149,7 @@ if (isset($_SESSION['emailU'])){
 					</fieldset>
 					<fieldset name="valider">
 						<legend>Valider</legend>
-						<?php if($etat=="ok"){
-							header("Location: signalementInfo.php");
-						}?>
+
 						<label for="signaler"></label><br/>
 						<button name="signaler" id="signaler" ><img id="doigt" src="img/doigt.svg"></img></button>
             </fieldset>

@@ -383,42 +383,6 @@ cursor: pointer;
   background-color: #f31;
   border-color: #d10;
 }
-/**********************Nous contacter *****************/
-.title-page{
-  font-size: 2em;
-  margin-top: 4em;
-}
-
-.formContact{
-  margin-top: 0;
-  padding :0;
-}
-.champsContact{
-  background-color:rgb(241,240,240);
-  width: auto;
-  max-height: 380px;
-  max-width: 500px;
-  border-radius: 12px;
-  border: 1px solid rgb(147,188,218);
-  padding: 15px 32px;
-  margin : 8px;
-  text-decoration: none;
-  font-size: 26px;
-  font-weight: bold;
-  cursor: pointer;
-}
-#courrielContact {
-  color: rgb(223,74,16);
-  margin : 6px;
-}
-#message{
-  color:rgb(4,90,149);
-  margin : 6px;
-}
-.champsContact:hover {
-    box-shadow: 0 12px 16px 0 rgba(34,112,155,0.3);
-}
-
 
 /*******Page MON COMPTE***********/
 .popup{
@@ -454,6 +418,113 @@ cursor: pointer;
   position: absolute;
   right: 37%;
 }
+/******************Page mentions legales**************/
+.popupFooter{
+  z-index:1;
+  background-color: rgba(255, 255, 255, .8);
+  width: 100%;
+  position: absolute;
+  top: 5%;
+  margin-top:-38px;
+  display: none;
+}
+
+.mentionsLegales{
+  width: 60%;
+  height: 60%;
+  border: 2px solid rgb(34, 112, 155);
+  border-radius: 10px;
+  margin-top: 100px;
+  margin-bottom: auto;
+  padding-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  background:white;
+  text-align: center;
+  color: rgba(233,95,3,1);
+  font-weight: lighter;
+  overflow-y: scroll;
+
+}
+#titleML, h3, h4{
+  color:rgb(34, 112, 155);
+}
+#crossFooter{
+  font-size: 2em;
+  position: absolute;
+  color: rgb(34, 112, 155);
+  font-weight: bolder;
+  right: 37%;
+}
+/**********************Nous contacter *****************/
+#titleContact{
+  color:rgb(34, 112, 155);
+}
+.popupContact{
+  z-index:1;
+  background-color: rgba(255, 255, 255, .8);
+  width: 100%;
+  position: absolute;
+  top: 5%;
+  margin-top:-38px;
+  display: none;
+}
+
+.pageContact{
+  width: 40%;
+  border: 2px solid rgb(34, 112, 155);
+  border-radius: 10px;
+  margin-top: 100px;
+  margin-bottom: auto;
+  padding-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  background:white;
+  text-align: center;
+  color: rgba(233,95,3,1);
+  overflow-y: scroll;
+
+}
+#crossContact{
+  font-size: 2em;
+  position: absolute;
+  color: rgba(233,95,3,1);
+  font-weight: bolder;
+  right: 37%;
+}
+
+.formContact{
+  margin-top: 0;
+  padding :0;
+}
+.champsContact{
+  background-color:rgb(241,240,240);
+  width: auto;
+  max-height: 380px;
+  max-width: 500px;
+  border-radius: 12px;
+  border: 1px solid rgb(147,188,218);
+  padding: 15px 32px;
+  margin : 8px;
+  text-decoration: none;
+  font-size: 26px;
+  font-weight: bold;
+  cursor: pointer;
+}
+#courrielContact {
+  color: rgb(223,74,16);
+  margin : 6px;
+}
+#message{
+  color:rgb(4,90,149);
+  margin : 6px;
+}
+
+
+.champsContact:hover {
+    box-shadow: 0 12px 16px 0 rgba(34,112,155,0.3);
+}
+
 
 /********** Slideshow UnSignalemet*******/
 
