@@ -421,7 +421,7 @@ cursor: pointer;
 
 
 /*******Page MON COMPTE***********/
-.compte{
+.popup{
   z-index:1;
   background-color: rgba(255, 255, 255, .8);
   width: 100%;

@@ -32,7 +32,7 @@ if($manageU->isConnected() === true && $_SESSION['confirme']==1){
         </script>
   </li>
 </ul>
-<?php include'test.php';?>
+<?php include'compte.php';?>
 <?php }elseif ($manageU->isConnected()=== true && $_SESSION['confirme'] == 0){?>
 <ul>
   <li><a <?php if ($nav_en_cours == 'usercarte') {echo ' id="active"';} ?> href="userCarte.php">Carte</a></li>

@@ -2,6 +2,7 @@
 /* Objet utilisateur pour enregistrement et autre"*/
 class Signalement{
   /***Var de localisation du pb****/
+protected $idS;
 protected $signalPar;
 protected $adresseS;
 protected $villeS;
@@ -44,6 +45,11 @@ protected $descriptionS;
   }
 
   /*************GETTERS************/
+
+    public function getIdS()
+    {
+        return $this->idS;
+    }
 
     public function getSignalPar()
     {
@@ -170,6 +176,18 @@ protected $descriptionS;
         return $this->nSoutienS;
     }
   /*****************SETTERS**************/
+
+    /**
+   * Set the value of idS
+   *
+   * @return mixed
+   */
+  public function setIdS($idS)
+  {
+      $this->idS = $idS ;
+      return $this;
+  }
+
   /**
    * Set the value of signalPar
    *

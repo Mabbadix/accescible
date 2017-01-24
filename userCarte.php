@@ -69,8 +69,8 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 											</div>
 											<div class="droitePost">
 											<div ><img  src="img/'.$si->getTypeS().'.png" alt="Type du problèmes" height=60></div>
-											<div ><button type="submit" name="signaler" ><img src="img/doigt.svg" alt="Doigt"></button>
-											<span class="nbsoutiens">'.$si->getNSoutienS().'<span></div>
+											<div ><button type="submit" name="signaler" class="soutiens1" onclick="idS='.$si->getIdS().'"><img src="img/doigt.svg" alt="Doigt"></button>
+											<span class="nbsoutiens">'.$si->getNSoutienS().'</span></div>
 											</div>
 										</div> <br>';
 									$i++;
@@ -79,6 +79,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 							}
 							$tabLatLng = $siMa->getTabLatLng();
 							?>
+							<script src="soutien.js"></script>
 				</div>
 				<div class= "mapcanvas"  id="mapcanvas">
 					<!-- Intégration de la carte + Geolocation + placement maker -->
