@@ -89,6 +89,15 @@ class SignalementManager{
       return $check;
     }
 
+    public function updateSignalement($soutien, $id)
+    {
+      $q = $this->_db->prepare('UPDATE `signalements`
+                                SET `nSoutienS` = :nSoutienS
+                                WHERE `idS` = :idS');
+      $q->execute([':nSoutienS'=>$soutien,
+                  ':idS'=>$id]);
+    }
+
   /*// verif si email déjà utilisé
   public function verifEmailLibre($courriel)
   {

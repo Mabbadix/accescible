@@ -1,4 +1,5 @@
 <?php
+session_start();
 header('content-type: text/html; charset=utf-8');
 
 //fonction qui recherche toute seule la classe à requerir
@@ -8,8 +9,6 @@ function chargerClass($classe)
 }
 spl_autoload_register('chargerClass');
 
-//On a créé des sessions et pour que ça fonctionne, il faut en déclarer l'ouverture.
-session_start();
 if (isset($_GET['deconnexion']))
 {
   require 'deconn.php';
@@ -62,25 +61,25 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 									$id++;
 								}else{
 									$si = $siMa->getSignal($id);
-									echo  '<div class="msgsignal" onclick="zoomPost()"  >
-							        <div class="gauchePost" id="infoS">
-							          <p>'.$si->getDescriptionS().'</p><p> '.$si->getVilleS().'</p>
-							          <p>Signalé le '.$si->getDateS().'</p>
-							        </div>
-							        <div class="droitePost">
-							        <div ><img  src="img/'.$si->getTypeS().'.png" alt="Type du problèmes" height=60></div>
-							        <div><button type="submit" name="submit" id="doigtSoutien"><img id="doigtSoutienImg" src="img/doigt.svg" alt="Doigt"></button>
-							        <span class="nbsoutiens">'.$si->getNSoutienS().'<span></div>
-							        <input  id="lat" class="lat"  type="hidden" value="'.$si->getLat().'"></input>
-							        <input  id="lng" class="lng" type="hidden" value="'.$si->getLng().'"></input>
-							        </div>
-							      </div> <br>';
+									echo  '<div class="msgsignal"id="devant">
+											<div class="gauchePost" id="infoS">
+												<p>'.$si->getDescriptionS().'</p><p> '.$si->getVilleS().'</p>
+												<p>Signalé le '.$si->getDateS().'</p>
+											</div>
+											<div class="droitePost">
+											<div ><img  src="img/'.$si->getTypeS().'.png" alt="Type du problèmes" height=60></div>
+											<div ><button type="submit" name="signaler" class="soutiens1" onclick="idS='.$si->getIdS().'"><img src="img/doigt.svg" alt="Doigt"></button>
+											<span class="nbsoutiens">'.$si->getNSoutienS().'</span></div>
+											</div>
+										</div> <br>';
+>>>>>>> f327c155b21a7d73a841213246e748f2fdbb2ac2
 									$i++;
 									$id++;
 								}
 							}
 							$tabLatLng = $siMa->getTabLatLng();
 							?>
+							<script src="soutien.js"></script>
 				</div>
 				<div class= "mapcanvas"  id="mapcanvas">
 					<!-- Intégration de la carte + Geolocation + placement maker -->

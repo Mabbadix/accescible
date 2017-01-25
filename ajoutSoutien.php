@@ -10,5 +10,4 @@ include 'connData.php';
     $soutien = $nbsoutiens + 1;
     $sm->updateSignalement($soutien, $id);
 
-
 ?>

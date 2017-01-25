@@ -54,6 +54,11 @@ protected $descriptionS;
     }
 
 
+    public function getIdS()
+    {
+        return $this->idS;
+    }
+
     public function getSignalPar()
     {
         return $this->signalPar;
@@ -193,6 +198,18 @@ protected $descriptionS;
 
 
   /*****************SETTERS**************/
+
+    /**
+   * Set the value of idS
+   *
+   * @return mixed
+   */
+  public function setIdS($idS)
+  {
+      $this->idS = $idS ;
+      return $this;
+  }
+
   /**
   * Set the value of idS
   *
