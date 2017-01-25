@@ -45,7 +45,7 @@ if (isset($_SESSION['emailU'])){
 			<div class="mainLeft">
 				<?php	include( 'unSignalement.php');
 				if($etat=="ok"){
-					header('Location: signalementInfo.php');
+				  echo '<script type="text/javascript"> window.setTimeout("location=(\'signalementInfo.php\');",10) </script>';
 				}?>
         <form class="unSignalementForm" name ="signalement" method = "post"
 				 enctype="multipart/form-data" action=#>

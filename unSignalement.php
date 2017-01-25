@@ -13,7 +13,7 @@ $regionS = htmlspecialchars($_POST["regionS"]);
 $paysS = htmlspecialchars($_POST["paysS"]);
 $latlng = htmlspecialchars($_POST["latlngS"]);
 $placeId = htmlspecialchars($_POST["placeIdS"]);
-$dateS = date("Y-m-d");
+$dateS = date("d-m-Y");
 
 /******Gestion enregistrement photo******/
 global $photoControl;

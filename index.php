@@ -98,7 +98,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 			elseif (!$emailPris)
 			{
 				// date du jour
-				$date = date('Y-m-d');
+				$date = date('d-m-Y');
 				//création d'une Key pour envoie de mail
 				$longueurKey = 16;
 				$key = "";
