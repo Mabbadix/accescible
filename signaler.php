@@ -100,6 +100,12 @@ if (isset($_SESSION['emailU'])){
 								<td class="slimField">
 									<input class="unSignalementField" id="latlng" name="latlngS"  type="hidden"></input>
 								</td>
+								<td class="slimField">
+									<input class="unSignalementField" id="lat" name="lat"  type="hidden"></input>
+								</td>
+								<td class="slimField">
+									<input class="unSignalementField" id="lng" name="lng"  type="hidden"></input>
+								</td>
 								<label for="placeId"></label>
 								<td class="slimField">
 									<input class="unSignalementField" id="placeId" name="placeIdS" type="hidden"></input>

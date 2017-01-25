@@ -22,7 +22,7 @@ class SignalementManager{
   public function add(Signalement $si)
     {
 
-      $q = $this->_db->prepare("INSERT INTO signalements ( signalPar, typeS, descriptionS, adresseS, villeS, cpS, regionS, paysS, latlng, placeId, photoS, dateS, resoluS, interventionS, nSoutienS) VALUES( :signalPar, :typeS, :descriptionS, :adresseS, :villeS, :cpS, :regionS, :paysS, :latlng, :placeId, :photoS, :dateS, :resoluS, :interventionS, :nSoutienS)");
+      $q = $this->_db->prepare("INSERT INTO signalements ( signalPar, typeS, descriptionS, adresseS, villeS, cpS, regionS, paysS, latlng, placeId, photoS, dateS, resoluS, interventionS, nSoutienS, lat, lng) VALUES( :signalPar, :typeS, :descriptionS, :adresseS, :villeS, :cpS, :regionS, :paysS, :latlng, :placeId, :photoS, :dateS, :resoluS, :interventionS, :nSoutienS, :lat, :lng)");
 
 
       $q->bindValue(':signalPar', $si->getSignalPar());
@@ -40,6 +40,8 @@ class SignalementManager{
       $q->bindValue(':resoluS', $si->getResoluS());
       $q->bindValue(':interventionS', $si->getInterventionS());
       $q->bindValue(':nSoutienS', $si->getNSoutienS());
+      $q->bindValue(':lat', $si->getLat());
+      $q->bindValue(':lng', $si->getLng());
 
       $q->execute();
       if (!$q)
