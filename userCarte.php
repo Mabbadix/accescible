@@ -62,7 +62,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 									$id++;
 								}else{
 									$si = $siMa->getSignal($id);
-									echo  '<div class="msgsignal" id="latlng" name="latlng"  type="hidden" onclick="zoomPost()"  >
+									echo  '<div class="msgsignal" onclick="zoomPost()"  >
 							        <div class="gauchePost" id="infoS">
 							          <p>'.$si->getDescriptionS().'</p><p> '.$si->getVilleS().'</p>
 							          <p>Signalé le '.$si->getDateS().'</p>
@@ -71,8 +71,8 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 							        <div ><img  src="img/'.$si->getTypeS().'.png" alt="Type du problèmes" height=60></div>
 							        <div><button type="submit" name="submit" id="doigtSoutien"><img id="doigtSoutienImg" src="img/doigt.svg" alt="Doigt"></button>
 							        <span class="nbsoutiens">'.$si->getNSoutienS().'<span></div>
-							        <input class="unSignalementField" id="lat" name="lat"  type="hidden" value="'.$si->getLat().'"></input>
-							        <input class="unSignalementField" id="lng" name="lng" type="hidden" value="'.$si->getLng().'"></input>
+							        <input  id="lat" class="lat"  type="hidden" value="'.$si->getLat().'"></input>
+							        <input  id="lng" class="lng" type="hidden" value="'.$si->getLng().'"></input>
 							        </div>
 							      </div> <br>';
 									$i++;
@@ -87,6 +87,12 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 					<!-- Laisser ce script à l'exterieur du script de recupération MAP-->
 					<script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTFqUmefn5-fJ2E20dOfyH-0-jVbZx5Lc"></script>
 					<script>
+					// Geolocation + Marker
+					//Récuperation de la Div "mapcanvas" du html
+					var mapcanvas = document.getElementById("mapcanvas");
+					var x = document.getElementById("mapcanvas");//utilisée pour l'affichage des erreurs uniquement
+					//Geolocation sur map
+
 					/*$("#latlng").click(function(){
 					var latlngUnique = new google.maps.LatLng(lat, lng);
 
@@ -108,14 +114,12 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 							});
 					});*/
 					function zoomPost(){
-					var latf= new Array();
-					var lngf =new Array();
 					latf = document.getElementById('lat').value;
 					lngf = document.getElementById('lng').value;
 					var latlngG = new google.maps.LatLng(latf, lngf);
-					//x.innerHTML = latlngG;
+					x.innerHTML = latlngG;
 
-					var myOptions = {
+					/*var myOptions = {
 					zoom: 17
 					, center: latlngG
 					, mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -123,15 +127,11 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 					// generation de la map
 					var map = new google.maps.Map(mapcanvas, myOptions);
 					//MAJ de la map en focntion des new Latlng
-					var majMap = map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+					var majMap = map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));*/
 
 					}//fin de zoomPost()
 
-						// Geolocation + Marker
-						//Récuperation de la Div "mapcanvas" du html
-						var mapcanvas = document.getElementById("mapcanvas");
-						var x = document.getElementById("mapcanvas");//utilisée pour l'affichage des erreurs uniquement
-						//Geolocation sur map
+
 
 						//recup des latlng des postits
 
