@@ -89,7 +89,7 @@ class SignalementManager{
 
     public function updateSignalement($soutien, $id)
     {
-      $q = $this->_db->prepare('UPDATE `signalement`
+      $q = $this->_db->prepare('UPDATE `signalements`
                                 SET `nSoutienS` = :nSoutienS
                                 WHERE `idS` = :idS');
       $q->execute([':nSoutienS'=>$soutien,

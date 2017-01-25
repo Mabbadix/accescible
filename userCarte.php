@@ -1,4 +1,5 @@
 <?php
+session_start();
 header('content-type: text/html; charset=utf-8');
 
 //fonction qui recherche toute seule la classe à requerir
@@ -8,8 +9,6 @@ function chargerClass($classe)
 }
 spl_autoload_register('chargerClass');
 
-//On a créé des sessions et pour que ça fonctionne, il faut en déclarer l'ouverture.
-session_start();
 if (isset($_GET['deconnexion']))
 {
   require 'deconn.php';

@@ -3,5 +3,5 @@ $(".soutiens1").click(function(){
         async: false,
         type: 'GET',
         url: 'ajoutSoutien.php?id='+idS
-    })
-})
+    });
+});
