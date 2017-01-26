@@ -1,7 +1,7 @@
 <?php
 /** Importation de l'autoloader **/
 
-require '../Autoloader.php';
+require 'Autoloader.php';
 $autoload = new Autoloader;
 $autoload->register();
 
