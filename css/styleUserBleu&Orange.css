@@ -129,7 +129,7 @@ a:hover{
 }
 
 .crossPostit{
-  font-size: 30px;
+  font-size: 40px;
   color:rgb(4,90,149);
   z-index: 150;
 }
@@ -155,8 +155,9 @@ a:hover{
 }
 
 .nbsoutiens{
+  float: right;
+  font-size: 2.7em;
   font-weight: bold;
-  color:rgb(4,90,149);
 }
 
 /********FORM SIGNALER****************/

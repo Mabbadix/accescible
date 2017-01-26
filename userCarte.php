@@ -28,7 +28,10 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
   <head>
     <!-- integration de toutes les metas et autres link
 				ATTENTION link styleUser.css different du "style.css" -->
-    <?php	include 'headUtilisateur.php'; ?>
+				<?php
+				$type = 'utilisateur';
+				include 'head.php';
+				?>
     <title>Acces'Cible-Carte_Utilisateur</title>
 
   </head>
@@ -62,14 +65,14 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 								}else{
 									$si = $siMa->getSignal($id);
 									echo  '<div class="msgsignal" id="'.$si->getIdS().'">
-											<div class="gauchePost" id="infoS"  onclick="zoomPost('.$si->getLat().', '.$si->getLng().', '.$si->getIdS().')" >
+										<div class="gauchePost" id="infoS"  onclick="zoomPost('.$si->getLat().', '.$si->getLng().', '.$si->getIdS().')" >
 												<p>'.$si->getDescriptionS().'</p><p> '.$si->getVilleS().'</p>
 												<p>Signalé le '.$si->getDateS().'</p>
-												<p class="nbsoutiens"> '.$si->getNSoutienS().' soutiens</p>
 											</div>
 											<div class="droitePost" onclick="zoomPost('.$si->getLat().', '.$si->getLng().', '.$si->getIdS().')" >
 											<div ><img classe="latlng" src="img/'.$si->getTypeS().'.png" alt="Type du problème" height=60></div>
 											<div ><button type="submit" name="signaler" class="soutiens1" id="doigtSoutien" onclick="idS='.$si->getIdS().'"><img src="img/doigt.svg" id="doigtSoutienImg" alt="Doigt"></button>
+											<span class="nbsoutiens"> '.$si->getNSoutienS().'</span>
 											</div>
 											</div>
 											<div class="crossPostit" id="crossPostit'.$si->getIdS().'" onclick="revenir()" style ="display:none">X</div>
