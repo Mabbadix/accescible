@@ -9,7 +9,6 @@ if($manageU->isConnected() === true){
   $recupEmail =  $_SESSION['emailU'];
   $connu = true;
   };
-
 if(isset($_POST['emailF']) and isset($_POST['message'])){
     $emailF = htmlspecialchars($_POST['emailF']);
     $message = htmlspecialchars($_POST['message']);

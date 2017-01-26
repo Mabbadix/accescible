@@ -1,13 +1,11 @@
 <?php
 session_start();
-header('content-type: text/html; charset=utf-8');
 
-//fonction qui recherche toute seule la classe à requerir
-function chargerClass($classe)
-{
-	require $classe.'.php';
-}
-spl_autoload_register('chargerClass');
+/** Importation de l'autoloader **/
+
+require '../Autoloader.php';
+$autoload = new Autoloader;
+$autoload->register();
 
 if (isset($_GET['deconnexion']))
 {
@@ -15,8 +13,8 @@ if (isset($_GET['deconnexion']))
 }
 
 //******Connect BD********
+
 require 'connData.php';
-$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
 
 /***********traitement sur la page index*/
 
@@ -180,7 +178,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 				</div>
       </div>
     </main>
-    <?php include( 'footer.php');?>
+    <?php include 'footer.php';?>
   </body>
 
 </html>

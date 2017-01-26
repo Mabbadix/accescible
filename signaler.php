@@ -1,24 +1,23 @@
 <?php
-//ouverture de session
-header( 'content-type: text/html; charset=utf-8' );
-//fonction qui recherche toute seule la classe à requerir
-function chargerClass($classe)
-{
-	require $classe.'.php';
-}
-spl_autoload_register('chargerClass');
-
-//On a créé des sessions et pour que ça fonctionne, il faut en déclarer l'ouverture.
 session_start();
+
+/** Importation de l'autoloader **/
+
+require '../Autoloader.php';
+$autoload = new Autoloader;
+$autoload->register();
+
 if (isset($_GET['deconnexion']))
 {
   require 'deconn.php';
 }
 
 //******Connect BD********
+
 require 'connData.php';
-$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
+
 $manageU = new UtilisateurManager($bdd);
+
 if (isset($_SESSION['emailU'])){
 ?>
 
@@ -46,7 +45,7 @@ if (isset($_SESSION['emailU'])){
   <main><!--CENTER-->
 		<div class="mainUserCarte">
 			<div class="mainLeft">
-				<?php	include( 'unSignalement.php');
+				<?php	include 'unSignalement.php';
 				if($etat=="ok"){
 					header('Location: signalementInfo.php');
 				}?>
@@ -160,10 +159,10 @@ if (isset($_SESSION['emailU'])){
 
 		</div>
 		<div id="mapcanvas"></div>
-		<?php	include( 'autocomplete&geoloc.js');?>
+		<?php	include 'autocomplete&geoloc.js';?>
 		</div>
 	</main>
-	<?php include( 'footer.php');?>
+	<?php include 'footer.php';?>
 	</body>
 </html>
 <?php

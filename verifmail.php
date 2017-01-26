@@ -1,6 +1,9 @@
 <?php 
-echo'coucou';
-require 'UtilisateurManager.php';
+/** Importation de l'autoloader **/
+
+require '../Autoloader.php';
+$autoload = new Autoloader;
+$autoload->register();
 
 //******Connect BD********
 require 'connData.php';

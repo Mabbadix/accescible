@@ -1,23 +1,13 @@
 <?php
-header('content-type: text/html; charset=utf-8');
+/** Importation de l'autoloader **/
 
-//fonction qui recherche toute seule la classe à requerir
-function chargerClass($classe)
-{
-	require $classe.'.php';
-}
-spl_autoload_register('chargerClass');
-
-//On a créé des sessions et pour que ça fonctionne, il faut en déclarer l'ouverture.
-session_start();
-if (isset($_GET['deconnexion']))
-{
-  require 'deconn.php';
-}
+require '../Autoloader.php';
+$autoload = new Autoloader;
+$autoload->register();
 
 //******Connect BD********
+
 require 'connData.php';
-$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
 
 /***********traitement sur la page index*/
 
