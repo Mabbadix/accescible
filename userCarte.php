@@ -28,7 +28,10 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
   <head>
     <!-- integration de toutes les metas et autres link
 				ATTENTION link styleUser.css different du "style.css" -->
-    <?php	include 'headUtilisateur.php'; ?>
+    <?php	
+		$type = 'utilisateur';
+		include 'head.php';
+		?>
     <title>Acces'Cible-Carte_Utilisateur</title>
 
   </head>
@@ -67,7 +70,7 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 												<p>Signalé le '.$si->getDateS().'</p>
 											</div>
 											<div class="droitePost">
-											<div ><img  src="img/'.$si->getTypeS().'.png" alt="Type du problèmes" height=60></div>
+											<div ><img src="img/'.$si->getTypeS().'.png" alt="Type du problèmes" height=60 onclick="poS='.$si->getLatlng().'"></div>
 											<div ><button type="submit" name="signaler" class="soutiens1" onclick="idS='.$si->getIdS().'"><img src="img/doigt.svg" alt="Doigt"></button>
 											<span class="nbsoutiens">'.$si->getNSoutienS().'</span></div>
 											</div>
