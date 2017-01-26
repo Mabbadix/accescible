@@ -14,7 +14,7 @@ body {
 /*****************HEADER**************/
 
   /**************NavBAR************/
-header {height:3.7em;background:rgba(233,95,3,1);}
+header {height:3.7em;}
 .navFix{
   position: relative;
   position: fixed;
@@ -482,7 +482,7 @@ cursor: pointer;
   background:white;
   text-align: center;
   color: rgba(233,95,3,1);
-  overflow-y: scroll;
+  overflow-y: hidden;
 
 }
 #crossContact{
@@ -632,6 +632,9 @@ cursor: pointer;
   .champsContact {
     font-size: 15px;
   }
+
+  /**ADMIN**/
+
 
   /***footer***/
   .footerdiv{
