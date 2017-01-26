@@ -126,7 +126,12 @@ a:hover{
   font-weight: bold;
   cursor: pointer;
   transition: 2s;
-  backface-visibility: hidden; /* Permet d'éviter de voir le bloc de dos */
+}
+
+.crossPostit{
+  font-size: 30px;
+  color:rgb(4,90,149);
+  z-index: 150;
 }
 .gauchePost{
   width: 60%;
@@ -150,9 +155,8 @@ a:hover{
 }
 
 .nbsoutiens{
-  font-size: 3em;
-  float: right;
-  font-weight: lighter;
+  font-weight: bold;
+  color:rgb(4,90,149);
 }
 
 /********FORM SIGNALER****************/

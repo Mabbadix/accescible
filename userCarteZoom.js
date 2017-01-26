@@ -7,7 +7,7 @@ var x = document.getElementById("mapcanvas");//utilisée pour l'affichage des er
 //Geolocation sur map
 
 
-function zoomPost(lat, lng){
+function zoomPost(lat, lng, idS){
 var latlngG = new google.maps.LatLng(lat, lng);
 var myOptions = {
 zoom: 17
@@ -16,7 +16,6 @@ zoom: 17
 };
 // generation de la map
 var map = new google.maps.Map(mapcanvas, myOptions);
-
 
 //on créé un obj fenetre de map
 var infowindow = new google.maps.InfoWindow();
@@ -32,11 +31,25 @@ var marker = new google.maps.Marker({
 infowindow.open(map, marker);
 //on ecoute le marker et si click on affiche info
 marker.addListener('click', function() {
-    infowindow.open(map, marker);
+    location.reload();
   });
+
+infowindow.setContent('<div class="crossPostit" id="crossPostit"" >Acces\'cible Signalement</div>')
+
+
+//On modifie le postit pour que sélection soit visible et qu'il soit possible de revenir sur la vue générale
+
+var postits = document.getElementsByClassName('msgsignal');
+var post = document.getElementById(idS);
+var cross = document.getElementById("crossPostit"+idS);
+post.style.backgroundColor="rgba(34,112,155,0.3)";
+cross.style.display="";
 
 }//fin de zoomPost()
 
+function revenir (){
+  location.reload();
+}
 
 //Funtion de vues initial
 
@@ -59,7 +72,7 @@ marker.addListener('click', function() {
         position: new google.maps.LatLng(<?php echo $tab["latlng"]?>),
         map: map,
         icon: "img/maker.svg",
-        animation:google.maps.Animation.DROP
+        animation:google.maps.Animation.BOUNCE//google.maps.Animation.DROP
     });
   <?php } ?>
 

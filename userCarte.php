@@ -61,18 +61,18 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 									$id++;
 								}else{
 									$si = $siMa->getSignal($id);
-									echo  '<div class="msgsignal" onclick="zoomPost('.$si->getLat().', '.$si->getLng().')"  >
-											<div class="gauchePost" id="infoS">
+									echo  '<div class="msgsignal" id="'.$si->getIdS().'">
+											<div class="gauchePost" id="infoS"  onclick="zoomPost('.$si->getLat().', '.$si->getLng().', '.$si->getIdS().')" >
 												<p>'.$si->getDescriptionS().'</p><p> '.$si->getVilleS().'</p>
 												<p>Signalé le '.$si->getDateS().'</p>
+												<p class="nbsoutiens"> '.$si->getNSoutienS().' soutiens</p>
 											</div>
-											<div class="droitePost">
+											<div class="droitePost" onclick="zoomPost('.$si->getLat().', '.$si->getLng().', '.$si->getIdS().')" >
 											<div ><img classe="latlng" src="img/'.$si->getTypeS().'.png" alt="Type du problème" height=60></div>
 											<div ><button type="submit" name="signaler" class="soutiens1" id="doigtSoutien" onclick="idS='.$si->getIdS().'"><img src="img/doigt.svg" id="doigtSoutienImg" alt="Doigt"></button>
-											<span class="nbsoutiens">'.$si->getNSoutienS().'</span></div>
-											<input  id="lat" class="lat"  type="hidden" value="'.$si->getLat().'"></input>
-									    <input  id="lng" class="lng" type="hidden" value="'.$si->getLng().'"></input>
 											</div>
+											</div>
+											<div class="crossPostit" id="crossPostit'.$si->getIdS().'" onclick="revenir()" style ="display:none">X</div>
 										</div> <br>';
 
 									$i++;
@@ -81,12 +81,10 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 							}
 							$tabLatLng = $siMa->getTabLatLng();
 							?>
+							<script src="soutien.js"></script>
 				</div>
 				<div class= "mapcanvas"  id="mapcanvas">
-					<?php	include( 'userCarteZoom.js');?>
-					<!-- Intégration de la carte + Geolocation + placement maker -->
-					<!-- Laisser ce script à l'exterieur du script de recupération MAP-->
-
+				<?php include( 'userCarteZoom.js');?>
 				</div>
       </div>
     </main>
