@@ -139,10 +139,10 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
 	<head>
 		<!-- Integration de toutes les metas et autres link
 				ATTENTION css propre à la page index = "style.css" -->
-				<?php
-				$type = 'index';
-				include 'head.php'; 
-				?>
+		<?php
+		$type = 'index';
+		include 'head.php';
+		?>
 		<title>Acces'Cible-Accueil</title>
 	</head>
 

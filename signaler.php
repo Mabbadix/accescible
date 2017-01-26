@@ -27,10 +27,10 @@ if (isset($_SESSION['emailU'])){
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
-		<?php
-		$type = 'utilisateur';
-		include 'head.php';
-		?>
+    <?php
+	$type = "utilisateur";
+	include 'head.php';
+	?>
 		<title>Acces'Cible-Signalement</title>
 	</head>
 

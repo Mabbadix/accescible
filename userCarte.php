@@ -28,10 +28,10 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une ale
   <head>
     <!-- integration de toutes les metas et autres link
 				ATTENTION link styleUser.css different du "style.css" -->
-				<?php
-				$type = 'utilisateur';
-				include 'head.php';
-				?>
+    <?php
+		$type = 'utilisateur';
+		include 'head.php';
+		?>
     <title>Acces'Cible-Carte_Utilisateur</title>
 
   </head>
