@@ -1,7 +1,6 @@
 <div class="popupFooter">
-
     <div class="mentionsLegales">
-      <span id="crossFooter">X</span>
+      <span id="crossFooter">X</span></br>
       <h2 id="titleML">Mentions Légales</h2>
        <article class="clearfix">
           <p>Le site <a href="https://projetdev.ovh/accescible"></a> est édité par :</p>
@@ -61,7 +60,7 @@
 
       <h3>3. Vos droits :</h3>
   <p>Conformément à la loi Informatique et Libertés du 6 janvier 1978 modifiée par la loi du 6 août 2004, vous disposez de droits d'accès, de rectification et d’opposition aux données personnelles vous concernant, ainsi que d’un droit de consultation de la liste des traitements d'Acces'cible. Vous pouvez exercer ces droits : </p>
-  1.par voie électronique en passant par l'un des formulaires présent dans l'onglet du menu déroulant "Nous contacter", ou 2.par voie postale à l’adresse suivante : XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, ou 3.par email en écrivant au Correspondant Informatique et Liberté de PagesJaunes à l’adresse suivante : XXXXXXXXXXXXXXXXXXXXXXX.
+  1.par voie électronique en passant par l'un des formulaires présent dans l'onglet du menu déroulant "Nous contacter", ou 2.par voie postale à l’adresse suivante : XXXXXXXXXX   XXXXXXXXXXXXn XXXXXXXXXXXXXXXX, ou 3.par email en écrivant au Correspondant Informatique et Liberté de PagesJaunes à l’adresse suivante : XXXXXXXXXX XXXXXXXXXXXXX.
   <p>S’il existe un doute sur votre identité un justificatif d’identité pourra vous être demandé.</p>
               <h4>Vues immersives</h4>
       <p>Conformément à la loi Informatique et Libertés du 6 janvier 1978, vous pouvez nous signalez un contenu inapproprié ou nous demander de « flouter » une image si vous arrivez à vous reconnaitre ou à reconnaitre un membre de votre famille. Par ailleurs, tout résident, locataire ou propriétaire, lorsqu'il est seul occupant d'un immeuble ou d'une maison ainsi que l'ensemble des copropriétaires d'un immeuble peuvent demander la suppression d’une vue immersive de cet immeuble ou maison sous réserve de fournir un justificatif de domicile.Vous pouvez exercer les droits ci-dessus décrits en utilisant le formulaire prévu à cet effet sur le site web:jjjjjjjjjjj</p>

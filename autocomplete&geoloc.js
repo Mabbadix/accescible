@@ -113,6 +113,8 @@ function fillInAddress(geoCode) {
   var lngS = coordS.lng();
   document.getElementById('latlng').value = latS+", "+lngS;
   document.getElementById('placeId').value = place.place_id;
+  document.getElementById('lat').value = latS;
+  document.getElementById('lng').value = lngS;
 
   if (geoCode){//on distingue en fonction du fait que l'adresse probient de la geoloc ou de l'autocompletion
     positionS(geoCode);

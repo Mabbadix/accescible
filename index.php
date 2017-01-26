@@ -27,7 +27,7 @@ require 'connData.php';
 	{
 		//si n'existe on informe;
 		if (!$exist) {
-				echo '<div id="notif" class="error"> <h2>Courriel ou mot de passe incorrect. Vérifiez votre saisie ou insrivez-vous. Merci.</h2></div><script type="text/javascript"> window.setTimeout("location=(\'index.php\');",1000) </script>';
+				echo '<div id="notif" class="error"> <h2>Courriel ou mot de passe incorrect. </h2></div><script type="text/javascript"> window.setTimeout("location=(\'index.php\');",1000) </script>';
 		}
 			//Si existe
 		elseif ($exist) {
@@ -48,7 +48,7 @@ require 'connData.php';
 				//on informe que logged est Ok pour redirection sur l'espace des gens inscrits
 				$_SESSION['logged'] = true;
 				//informe et on redirige
-				echo '<div id="notif" class="success"> <h2>Bonjour, content de vous retrouver :)) </h2></div><script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",1000) </script>';
+				echo '<div id="notif" class="success"> <h2>Content de vous retrouver </h2></div><script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",1000) </script>';
 			}
 		}
 	}
@@ -74,7 +74,7 @@ require 'connData.php';
 				//on informe que logged est Ok pour redirection sur l'espace des gens inscrits
 				$_SESSION['logged'] = true;
 			//on redirige
-			echo '<div id="notif" class="warning"> <h2>Connexion réussie mais attention vous avez cliquez sur Inscription au lieu de Connexion</h2></div><script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",1100) </script>';
+			echo '<div id="notif" class="warning"> <h2>Connexion réussie, attention vous avez cliqué sur Inscription</h2></div><script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",1100) </script>';
 			}
 		}
 		elseif (!$exist)//Si aucun compte normalement
@@ -83,12 +83,12 @@ require 'connData.php';
 			$emailPris = $managerU->verifEmailLibre($Courriel);
 			if ($emailPris)
 			{
-				echo '<div id="notif" class="warning"> <h2>Ce courriel est déjà utilisé. Verifiez votre saisie. </h2></div><script type="text/javascript"> window.setTimeout("location=(\'index.php\');",1000) </script>';
+				echo '<div id="notif" class="warning"> <h2>Ce courriel est déjà utilisé. </h2></div><script type="text/javascript"> window.setTimeout("location=(\'index.php\');",1000) </script>';
 			}
 			elseif (!$emailPris)
 			{
 				// date du jour
-				$date = date('Y-m-d');
+				$date = date('d-m-Y');
 				//création d'une Key pour envoie de mail
 				$longueurKey = 16;
 				$key = "";
@@ -117,7 +117,7 @@ require 'connData.php';
 				$managerU->add($utilisateur);
 				//on envoie un mail de confirmation
 				$managerU->envoieMail($Courriel, $key);
-				echo '<div id="notif" class="Info"> <h2>Inscription réussie, bienvenue. Un email de confirmation vous a été envoyé.</h2></div><script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",1200) </script>';
+				echo '<div id="notif" class="Info"> <h2>Inscription réussie. Bienvenue. Un email de confirmation vous a été envoyé.</h2></div><script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",1200) </script>';
 			}
 		}
 	}
@@ -129,9 +129,9 @@ require 'connData.php';
 	<head>
 		<!-- Integration de toutes les metas et autres link
 				ATTENTION css propre à la page index = "style.css" -->
-		<?php 
+		<?php
 		$type = 'index';
-		include 'head.php'; 
+		include 'head.php';
 		?>
 		<title>Acces'Cible-Accueil</title>
 	</head>
@@ -162,7 +162,7 @@ require 'connData.php';
 		</div>
 		</div>
 			<br>
-		
+
 		<noscript>
 			<div id="erreur"><b>Votre navigateur ne prend pas en charge JavaScript!</b> Veuillez activer JavaScript afin de profiter pleinement du site.</div>
 		</noscript>

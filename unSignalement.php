@@ -12,8 +12,10 @@ $cpS = htmlspecialchars($_POST["cpS"]);
 $regionS = htmlspecialchars($_POST["regionS"]);
 $paysS = htmlspecialchars($_POST["paysS"]);
 $latlng = htmlspecialchars($_POST["latlngS"]);
+$lat = htmlspecialchars($_POST["lat"]);
+$lng = htmlspecialchars($_POST["lng"]);
 $placeId = htmlspecialchars($_POST["placeIdS"]);
-$dateS = date("Y-m-d");
+$dateS = date("d-m-Y");
 
 /******Gestion enregistrement photo******/
 global $photoControl;
@@ -98,7 +100,9 @@ if(isset($_POST['signaler'])){
 			 'dateS'=> $dateS,
 			 'resoluS'=> 	$resoluS,
 			 'interventionS'=> $interventionS,
-			 'nSoutienS'=>	$nSoutienS
+			 'nSoutienS'=>	$nSoutienS,
+			 'lat'=> $lat,
+			 'lng'=> $lng,
 		 ]);
 		 //on appelle la fonction ajout avec en param l'objet un Signalement
 		 $managerS->add($si);

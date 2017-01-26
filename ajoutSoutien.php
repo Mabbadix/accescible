@@ -16,5 +16,4 @@ $nbsoutiens = $si->getNSoutienS();
 $soutien = $nbsoutiens + 1;
 $sm->updateSignalement($soutien, $id);
 
-
 ?>

@@ -18,7 +18,6 @@ switch ($type) {
     crossorigin="anonymous"></script>
         <?php
         break;
-
         case 'admin':
         ?>
     <meta charset=utf-8 />
@@ -37,7 +36,7 @@ switch ($type) {
     crossorigin="anonymous"></script>
     <?php
         break;
-
+        
         case 'utilisateur':
         ?>
         <meta charset=utf-8 />
@@ -59,8 +58,6 @@ switch ($type) {
 
         <?php
         break;
-
-    
     default:
         ?>
         <meta charset=utf-8 />

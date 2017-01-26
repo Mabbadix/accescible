@@ -10,6 +10,7 @@ protected $cpS;
 protected $regionS;
 protected $paysS;
 protected $latlng;
+
 protected $placeId;
 protected $photoS;
 protected $dateS;
@@ -18,6 +19,8 @@ protected $dateS;
 protected $resoluS;
 protected $interventionS;
 protected $nSoutienS;
+protected $lat;
+protected $lng;
 
 /*****Var type de problème*****/
 protected $typeS;
@@ -175,18 +178,32 @@ protected $descriptionS;
     {
         return $this->nSoutienS;
     }
-  /*****************SETTERS**************/
 
-    /**
-   * Set the value of idS
-   *
-   * @return mixed
-   */
+    public function getLat()
+    {
+        return $this->lat;
+    }
+
+    public function getLng()
+    {
+        return $this->lng;
+    }
+
+
+
+
+  /*****************SETTERS**************/
+  /**
+  * Set the value of idS
+  *
+  * @return mixed
+  */
   public function setIdS($idS)
   {
       $this->idS = $idS ;
       return $this;
-  }
+    }
+
 
   /**
    * Set the value of signalPar
@@ -336,6 +353,19 @@ protected $descriptionS;
       $this->nSoutienS = $nSoutienS ;
       return $this->nSoutienS;
   }
+
+  public function setLat($lat)
+  {
+      $this->lat = $lat;
+      return $this;
+  }
+
+  public function setLng($lng)
+  {
+      $this->lng = $lng ;
+      return $this;
+  }
+
 }
 
 ?>
