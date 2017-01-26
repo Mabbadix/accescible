@@ -86,7 +86,7 @@ class UtilisateurManager {
   // on renvoi l'ensemble des info utilisateurs
   public function getUtilisateur($courriel, $mdp)
   {
-    $q = $this->_db->prepare("SELECT idU, emailU, mdpU, nomU, prenomU, adresseU, villeU, cpU, telU, valide, confirme FROM utilisateur WHERE emailU = :emailU AND mdpU=:mdpU");
+    $q = $this->_db->prepare("SELECT idU, emailU, mdpU, nomU, prenomU, adresseU, villeU, cpU, telU, valide, confirme, admin FROM utilisateur WHERE emailU = :emailU AND mdpU=:mdpU");
     $q->execute([
       ':emailU' => $courriel,
       ':mdpU' => $mdp
@@ -104,11 +104,18 @@ class UtilisateurManager {
     }
   }
 
+  public function isAdmin($mail)
+  {
+    $q = $this->_db->prepare("SELECT admin FROM utilisateur WHERE emailU = :emailU");
+    $q->execute([':emailU' => $mail]);
+    return $q->fetch();
+  }
+
 public function isConfirme()
 {
   $q = $this->_db->prepare("SELECT confirme FROM utilisateur WHERE emailU = :emailU");
   $q->execute([
-  'emailU' => $_SESSION['emailU']
+  ':emailU' => $_SESSION['emailU']
   ]);
 print_r($_SESSION);
 }
@@ -158,41 +165,5 @@ print_r($_SESSION);
                  ':telU' => $tel,
                  ':emailU' => $mail]);
   }
-//RESTE A FAIRE
-  /*public function update(Utilisateur $ut){
-  }
-
-  public function read(Utilisateur $ut){
-  }
-
-public function getList($nom)
-  {
-    $persos = [];
-
-    $q = $this->_db->prepare('SELECT id, nom, degats FROM personnages WHERE nom <> :nom ORDER BY nom');
-    $q->execute([':nom' => $nom]);
-
-    while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
-    {
-      $persos[] = new Personnage($donnees);
-    }
-
-    return $persos;
-  }
-
-  public function update(Personnage $perso)
-  {
-    $q = $this->_db->prepare('UPDATE personnages SET degats = :degats WHERE id = :id');
-
-    $q->bindValue(':degats', $perso->degats(), PDO::PARAM_INT);
-    $q->bindValue(':id', $perso->id(), PDO::PARAM_INT);
-
-    $q->execute();
-  }
-
-  public function setDb(PDO $db)
-  {
-    $this->_db = $db;
-  }*/
 }
 ?>

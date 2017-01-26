@@ -1,5 +1,5 @@
 <?php
-/* Objet utilisateur pour enregistrement et autre"*/
+/* Objet utilisateur pour enregistrement et autre*/
 class Utilisateur {
   protected $idU;
   protected $emailU;
@@ -15,6 +15,7 @@ class Utilisateur {
   protected $valide;
   protected $confirmKey;
   protected $confirme;
+  protected $admin;
 
   /************Constructeur***************/
   public function __construct(array $donnees)
@@ -157,15 +158,36 @@ class Utilisateur {
         return $this->valide;
     }
 
+    /**
+    * Get the value of confirmKey
+    *
+    * @return mixed
+    */
     public function getConfirmKey()
     {
         return $this->confirmKey;
     }
 
+    /**
+    * Get the value of confirme
+    *
+    * @return mixed
+    */
     public function getConfirme()
     {
         return $this->confirme;
     }
+
+    /**
+    * Get the value of admin
+    * 
+    * @return mixed
+    */
+    public function getAdmin()
+    {
+        return $this->confirme;
+    }
+
   /*****************SETERS**************/
 
     /**
@@ -336,16 +358,45 @@ class Utilisateur {
         return $this;
     }
 
+    /**
+     * Set the value of confirmKey
+     *
+     * @param mixed confirmKey
+     *
+     * @return self
+     */
     public function setConfirmKey($confirmKey)
     {
         $this->confirmKey = $confirmKey;
         return $this;
     }
+
+    /**
+     * Set the value of confirme
+     *
+     * @param mixed confirme
+     *
+     * @return self
+     */
     public function setConfirme($confirme)
     {
       $this->confirme = $confirme;
       return $this;
     }
+
+    /**
+    * Set the value of confirme
+    *
+    * @param mixed confirme
+    *
+    * @return self
+    */
+    public function setAdmin($admin)
+    {
+        $this->admin = $admin;
+        return $this;
+    }
+
 }
 
 ?>
