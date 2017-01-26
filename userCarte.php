@@ -70,8 +70,8 @@ require 'connData.php';
 											<div class="droitePost" onclick="zoomPost('.$si->getLat().', '.$si->getLng().', '.$si->getIdS().')" >
 											<div ><img classe="latlng" src="img/'.$si->getTypeS().'.png" alt="Type du problème" height=60></div>
 											<div ><button type="submit" name="signaler" class="soutiens1" id="doigtSoutien" onclick="idS='.$si->getIdS().'"><img src="img/doigt.svg" id="doigtSoutienImg" alt="Doigt"></button>
-											<span class="nbsoutiens"> '.$si->getNSoutienS().'</span>
 											</div>
+                      <span class="nbsoutiens"> '.$si->getNSoutienS().'</span>
 											</div>
 											<div class="crossPostit" id="crossPostit'.$si->getIdS().'" onclick="revenir()" style ="display:none">X</div>
 										</div> <br>';
@@ -82,10 +82,15 @@ require 'connData.php';
 							}
 							$tabLatLng = $siMa->getTabLatLng();
 							?>
-							<script src="soutien.js"></script>
+              <?php
+          if($manageU->isConnected() === true && $_SESSION['confirme']==1){
+              ?>
+          <script src="soutien.js"></script>
+          <?php } ?>
+
 				</div>
 				<div class= "mapcanvas"  id="mapcanvas">
-				<?php include( 'userCarteZoom.js');?>
+				<?php include( 'userCarteZoom.php');?>
 				</div>
       </div>
     </main>
