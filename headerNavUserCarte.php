@@ -1,5 +1,4 @@
 <?php
-
 //vérfication si la personne est connectée : si oui accès à l'espace des inscrits, sinon accès espace restreint
 if($manageU->isConnected() === true && $_SESSION['confirme']==1){
   ?>
