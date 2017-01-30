@@ -5,7 +5,6 @@ $(".button--circle").click(function(){
         type: 'GET',
         url: 'supprimerS.php?id='+idS
     });
-  }else{
-    window.reload();
-    }
+
+  }
 });
