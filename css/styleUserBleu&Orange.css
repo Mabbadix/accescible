@@ -92,7 +92,6 @@ a:hover{
 
 /***************MAIN/CONTENT************/
 .mainUserCarte {
-  position: relative;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
@@ -110,6 +109,58 @@ a:hover{
   overflow-y: scroll;
   padding: 0.5em;
 }
+
+/*******MoncCompteBis*******************/
+.mainUserCarteCompte {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 35em;
+  font-size:20px;
+  font-weight: bold;
+  text-align: center;
+  color:rgb(4,90,149);
+}
+
+.mainLeftCompte{
+  float:left;
+  height:inherit;
+  max-width: 350px;
+  color:rgb(4,90,149);
+  overflow-y: scroll;
+  padding: 0.5em;
+
+}
+.mapcanvasCompte{
+
+}
+
+.mesInfos{
+
+}
+
+.formCompte{
+
+}
+
+.title-account2{
+  font-size: 1.3em;
+  color: rgb(223,74,16);
+}
+
+.champsContact{
+  width: auto;
+  border-radius: 12px;
+  border: 1px solid rgb(147,188,218);
+  padding: 15px 32px;
+  margin : 8px;
+  text-decoration: none;
+  font-size: 26px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 /****************postit msgsignal dans userCarte******************/
 .msgsignal {
   display:flex;
@@ -144,14 +195,10 @@ a:hover{
 }
 
 /***bouton soutien dans userCarte****/
-#doigtSoutien{
-  height: 45px;
-  width: 45px;
-}
 
-#doigtSoutienImg{
-  height: 35px;
-  width: 35px;
+#SoutienImg{
+  height: 55px;
+  width: 55px;
 }
 
 .nbsoutiens{
@@ -279,12 +326,10 @@ font-weight: bold;
   max-height:70px;
 }
 
-/*bouton de signaler /valider*/
-button{
-  background-color: rgb(4,90,149);
+/*bouton de signaler /valider/ soutenirr*/
+.button--circle{
   border: 2px solid rgb(4,90,149);
   border-radius: 100%;
-  text-align: center;
   -moz-transition-duration:0.3s;
 	-moz-transition-timing-function:ease;
 	-webkit-transition-duration:0.3s;
@@ -293,7 +338,7 @@ button{
 	transition-timing-function:ease-out;
 }
 
-button:hover{
+.button--circle:hover{
     -moz-transform: rotate(635deg) scale(1.2);
   	-webkit-transform: rotate(635deg) scale(1.2);
   	transform: rotate(635deg) scale(1.2);
@@ -364,36 +409,6 @@ cursor: pointer;
 }
 
 
-/***************** Notifications **************************/
-#notif {
-  background-image: repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 40px );
-  color: #fff;
-  text-shadow: 0 1px 0 rgba(0,0,0,0.2);
-  padding: 5px 10px;
-  box-shadow:	inset 0 1px 0 rgba(255,255,255,0.5);
-  border: 1px solid;
-  margin: 10px 0;
-  position: inherit;
-  left: 50%;
-  z-index: 200;
-  max-width: 100%;
-}
-.info {
-  background-color: #6af;
-  border-color: #48d;
-}
-.warning{
-  background-color: #fa4;
-  border-color: #d82;
-}
-.success{
-  background-color: #8d5;
-  border-color: #6b3;
-}
-.error {
-  background-color: #f31;
-  border-color: #d10;
-}
 
 /*******Page MON COMPTE***********/
 .popup{
@@ -540,6 +555,38 @@ cursor: pointer;
 #doigtContactImg{
   height: 70px;
 }
+
+/***************** Notifications **************************/
+#notif {
+  background-image: repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 40px );
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+  padding: 5px 10px;
+  box-shadow:	inset 0 1px 0 rgba(255,255,255,0.5);
+  border: 1px solid;
+  margin: 10px 0;
+  position: inherit;
+  left: 50%;
+  z-index: 200;
+  max-width: 100%;
+}
+.info {
+  background-color: #6af;
+  border-color: #48d;
+}
+.warning{
+  background-color: #fa4;
+  border-color: #d82;
+}
+.success{
+  background-color: #8d5;
+  border-color: #6b3;
+}
+.error {
+  background-color: #f31;
+  border-color: #d10;
+}
+
 
 /********** Slideshow UnSignalemet*******/
 

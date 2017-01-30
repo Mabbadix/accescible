@@ -47,7 +47,7 @@ require 'connData.php';
     <main>
       <!-- Partie centrale en dessous de navBar-->
       <div class="mainUserCarte">
-        <div class="mainLeft" id="listSignal">
+        <div class="mainLeft" >
           <!-- Intégration des signalements à gauche de la carte + effet tournant -->
 							<?php
 							$siMa = new SignalementManager($bdd);
@@ -69,11 +69,11 @@ require 'connData.php';
 											</div>
 											<div class="droitePost" onclick="zoomPost('.$si->getLat().', '.$si->getLng().', '.$si->getIdS().')" >
 											<div ><img classe="latlng" src="img/'.$si->getTypeS().'.png" alt="Type du problème" height=60></div>
-											<div ><button type="submit" name="signaler" class="soutiens1" id="doigtSoutien" onclick="idS='.$si->getIdS().'"><img src="img/doigt.svg" id="doigtSoutienImg" alt="Doigt"></button>
+											<div ><input class="button--circle" type="image" id="SoutienImg" src="img/jaime_bleu.svg"  onclick="idS='.$si->getIdS().'"/>
 											</div>
                       <span class="nbsoutiens"> '.$si->getNSoutienS().'</span>
 											</div>
-											<div class="crossPostit" id="crossPostit'.$si->getIdS().'" onclick="revenir()" style ="display:none">X</div>
+											<div class="crossPostit" id="crossPostit'.$si->getIdS().'" onclick="revenir()" style ="display:none">-</div>
 										</div> <br>';
 
 									$i++;

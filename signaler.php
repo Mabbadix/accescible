@@ -159,7 +159,7 @@ if (isset($_SESSION['emailU'])){
 						<legend>Valider</legend>
 
 						<label for="signaler"></label><br/>
-						<button name="signaler" id="signaler" ><img id="doigt" src="img/doigt.svg"></img></button>
+						<button class="button--circle" name="signaler" id="signaler" ><img id="doigt" src="img/doigt.svg"></img></button>
             </fieldset>
         </form>
 

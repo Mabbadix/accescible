@@ -20,7 +20,7 @@ class UtilisateurManager {
   //ajoute un nouvelle utilisateur = inscription
   public function add(Utilisateur $ut)
     {
-      $q = $this->_db->prepare("INSERT INTO utilisateur ( emailU, mdpU, nomU, prenomU, adresseU, villeU, cpU, telU, dateU, signalU, valide, confirmKey,  confirme) VALUES( :emailU, :mdpU, :nomU, :prenomU, :adresseU, :villeU, :cpU, :telU, :dateU, :signalU, :valide, :confirmKey, :confirme)");
+      $q = $this->_db->prepare("INSERT INTO utilisateur ( emailU, mdpU, nomU, prenomU, adresseU, villeU, cpU, telU, dateU, signalU, valide, confirmKey,  confirme, admin) VALUES( :emailU, :mdpU, :nomU, :prenomU, :adresseU, :villeU, :cpU, :telU, :dateU, :signalU, :valide, :confirmKey, :confirme, :admin)");
 
       //$q->bindValue(':idU', $ut->getIdU());
       $q->bindValue(':emailU', $ut->getEmailU());
@@ -36,6 +36,7 @@ class UtilisateurManager {
       $q->bindValue(':valide', $ut->getValide());
       $q->bindValue(':confirmKey', $ut->getConfirmKey());
       $q->bindValue(':confirme', $ut->getConfirme());
+      $q->bindValue(':admin', $ut->getAdmin());
 
       $q->execute();
       if (!$q)
@@ -150,7 +151,7 @@ print_r($_SESSION);
 
   public function updateUtilisateur($mail, $nom, $prenom, $adresse, $ville, $cp, $tel)
   {
-    $q = $this->_db->prepare('UPDATE `utilisateur` 
+    $q = $this->_db->prepare('UPDATE `utilisateur`
                               SET `nomU` = :nomU,
                               `prenomU`  = :prenomU,
                               `adresseU` = :adresseU,

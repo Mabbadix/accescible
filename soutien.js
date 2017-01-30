@@ -1,4 +1,4 @@
-$(".soutiens1").click(function(){
+$(".button--circle").click(function(){
     $.ajax({
         async: false,
         type: 'GET',

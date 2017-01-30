@@ -101,17 +101,18 @@ require 'connData.php';
 				$utilisateur = new Utilisateur ([
 					'emailU'=>$Courriel,
 					'mdpU'=>$Mdp,
-					'nomU'=>'Nom',
-					'prenomU'=>'Prenom',
-					'adresseU'=>'Adresse',
-					'villeU'=>'Ville',
-					'cpU'=>'00000',
-					'telU'=>'0606060606',
+					'nomU'=>'',
+					'prenomU'=>'',
+					'adresseU'=>'',
+					'villeU'=>'',
+					'cpU'=>'',
+					'telU'=>'',
 					'dateU'=>$date,
 					'signalU'=>'1',
 					'valide'=>'0',
 					'confirmKey'=>$key,
-					'confirme'=> '0'
+					'confirme'=> '0',
+					'admin'=>'0'
 				]);
 
 				//on appelle la fonction ajout avec en param l'objet utilisateur

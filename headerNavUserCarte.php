@@ -33,7 +33,7 @@ if($manageU->isConnected() === true && $_SESSION['confirme']==1){
         </script>
   </li>
 </ul>
-<?php 
+<?php
 include'contact.php';
 if ($mailContact==true) {echo '<div id="notif" class="success"> <h2>Votre message a bien été envoyé</h2>';}
 ?>
