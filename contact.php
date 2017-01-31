@@ -46,7 +46,7 @@ if(!$dMail->send()) {
 	          <label for="message">Remplir le formulaire svp</label><br/>
 	          <label data-for="Courriel"></label><input class="champsContact" id="courrielContact" type="email" name="emailF" <?php if($connu){{echo 'value='.$recupEmail;}} ?> placeholder="dupont@gmail.com" required maxlength="100"><br/>
 	          <textarea class="champsContact" id="message" name="message" rows="10" cols="20" placeholder="VOTRE MESSAGE ICI" required ></textarea><br/><br/>
-	          <button type="submit" name="submit" id="doigtContact"><img id="doigtContactImg" src="img/doigt.svg" alt="Doigt" ></button>
+	          <button type="submit" name="submit" class="button--circle" id="doigtContact"><img id="doigtContactImg" src="img/doigt.svg" alt="Doigt" ></button>
       		</form>
 			</div>
 	</div>

@@ -82,13 +82,13 @@ function revenir (){
   function showError(error) {
     switch (error.code) {
     case error.PERMISSION_DENIED:
-      x.innerHTML = "User denied the request for Geolocation."
+      x.innerHTML = "User denied the request for Geolocation.</br><video class='videoR' controls preload='auto' poster='img/logo73.svg' ><source src='img/rendu_anim_handicap.mp4' type='video/mp4'>Your browser does not support the video tag.</video >"
       break;
     case error.POSITION_UNAVAILABLE:
-      x.innerHTML = "Location information is unavailable."
+      x.innerHTML = "Location information is unavailable.</br><video class='videoR' controls preload='auto' poster='img/logo73.svg' ><source src='img/rendu_anim_handicap.mp4' type='video/mp4'>Your browser does not support the video tag.</video >"
       break;
     case error.TIMEOUT:
-      x.innerHTML = "The request to get user location timed out."
+      x.innerHTML = "The request to get user location timed out.</br><video class='videoR' controls preload='auto' poster='img/logo73.svg' ><source src='img/rendu_anim_handicap.mp4' type='video/mp4'>Your browser does not support the video tag.</video >"
       break;
     case error.UNKNOWN_ERROR:
       x.innerHTML = "An unknown error occurred."
@@ -101,7 +101,7 @@ function revenir (){
     navigator.geolocation.getCurrentPosition(showPosition, showError);
   }
   else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
+    x.innerHTML = "Geolocation is not supported by this browser.</br><video class='videoR' controls preload='auto' poster='img/logo73.svg' ><source src='img/rendu_anim_handicap.mp4' type='video/mp4'>Your browser does not support the video tag.</video >";
   }
 
   /*var marker = new google.maps.Marker({

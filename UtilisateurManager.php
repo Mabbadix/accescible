@@ -59,9 +59,10 @@ class UtilisateurManager {
   }
 
   //supprime un utilisateur;
-  public function delete(Utilisateur $ut)
+  public function delete($email)
   {
-    $this->_db->exec('DELETE FROM personnages WHERE id = '.$ut->id());
+    $q = $this->_db->prepare("DELETE FROM utilisateur WHERE emailU= :emailU");
+    $q->execute([':emailU'=>$email]);
   }
 
   //verifie si existe

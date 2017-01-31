@@ -109,6 +109,12 @@ a:hover{
   overflow-y: scroll;
   padding: 0.5em;
 }
+/***Vidéo si géoloc ne marche pas********/
+.videoR{
+  max-width: 40em;
+  max-height: 30em;
+}
+
 
 /*******MoncCompteBis*******************/
 .mainUserCarteCompte {
@@ -619,8 +625,7 @@ cursor: pointer;
 }
 
 /************MEDIA QUERRY***********/
-@media only screen and (max-width: 1008px) {
-
+@media only screen and (max-width: 1150px) {
   .imgType{
     max-width:68px;
     max-height: 68px;
@@ -629,6 +634,17 @@ cursor: pointer;
     max-width:68px;
     max-height: 68px;
 }
+.videoR{
+  max-width: 30em;
+  max-height: 25em;
+}
+@media only screen and (max-width: 950px) {
+  .videoR{
+    max-width: 17em;
+    max-height: 11em;
+  }
+}
+
 @media only screen and (max-width: 500px) {
   header {height:2.555em;background:rgba(233,95,3,1);}
   /**page index + nav****/
@@ -652,6 +668,11 @@ cursor: pointer;
   /**autre page****/
   .mapcanvas{
     min-width: 100%;
+    float:left;
+  }
+  .videoR{
+    float:left;
+    max-width: 100%;
     float:left;
   }
   .mainLeft{

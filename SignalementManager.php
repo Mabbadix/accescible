@@ -64,7 +64,8 @@ class SignalementManager{
   //supprime un signalement
   public function delete($idS)
   {
-    $this->_db->exec("DELETE * FROM sinalements WHERE idS= '$idS'");
+    $q = $this->_db->prepare("DELETE FROM signalements WHERE `idS` = :idS");
+    $q->execute([':idS'=>$idS]);
   }
 
   //verifie si existe et retourne nombre// A VERIFIER

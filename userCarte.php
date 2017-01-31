@@ -69,7 +69,7 @@ require 'connData.php';
 											</div>
 											<div class="droitePost" onclick="zoomPost('.$si->getLat().', '.$si->getLng().', '.$si->getIdS().')" >
 											<div ><img classe="latlng" src="img/'.$si->getTypeS().'.png" alt="Type du problème" height=60></div>
-											<div ><input class="button--circle" type="image" id="SoutienImg" src="img/jaime_bleu.svg"  onclick="idS='.$si->getIdS().'"/>
+											<div ><input class="button--circle" type="image" id="SoutienImg" src="img/jaime_orange.svg"  onclick="idS='.$si->getIdS().'"/>
 											</div>
                       <span class="nbsoutiens"> '.$si->getNSoutienS().'</span>
 											</div>
