@@ -42,7 +42,7 @@ infowindow.setContent('<div class="crossPostit" id="crossPostit"" >Ciblé !</div
 var postits = document.getElementsByClassName('msgsignal');
 var post = document.getElementById(idS);
 var cross = document.getElementById("crossPostit"+idS);
-post.style.backgroundColor="rgb(4,90,149)";
+post.style.backgroundColor="rgba(34,112,155,0.3)";
 cross.style.display="";
 
 }//fin de zoomPost()

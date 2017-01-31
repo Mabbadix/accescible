@@ -181,8 +181,9 @@ a:hover{
 }
 
 .crossPostit{
-  font-size: 7em;
-  color:rgb(223,74,16);
+  float: right;
+  font-size: 40px;
+  color: #045a95;
   z-index: 150;
 }
 .gauchePost{
@@ -722,6 +723,7 @@ cursor: pointer;
   .champsContact {
     font-size: 15px;
   }
+
 
   /***footer***/
   .footerdiv{

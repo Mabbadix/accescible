@@ -107,12 +107,13 @@ $manageU = new UtilisateurManager($bdd);
                   <p>Signalé le '.$si->getDateS().'</p>
                 </div>
                 <div class="droitePost" onclick="zoomPost('.$si->getLat().', '.$si->getLng().', '.$si->getIdS().')" >
-                <div ><img classe="latlng" src="img/'.$si->getTypeS().'.png" alt="Type du problème" height=60></div>
+                <div ><img classe="latlng" src="img/'.$si->getTypeS().'.png" alt="Type du problème" height=60>
+                <div class="crossPostit" id="crossPostit'.$si->getIdS().'" onclick="revenir()" style ="display:none">x</div>
+                </div>
                 <div><input class="button--circle" type="image" id="SoutienImg" src="img/fermer.png"  onclick="idS='.$si->getIdS().'"/>
                 </div>
                 <span class="nbsoutiens"> '.$si->getNSoutienS().'</span>
                 </div>
-                <div class="crossPostit" id="crossPostit'.$si->getIdS().'" onclick="revenir()" style ="display:none">X</div>
               </div> <br>';
           }
   				$tabLatLng = $siMa->getTabLatLng();?>
