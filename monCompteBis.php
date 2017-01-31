@@ -72,17 +72,17 @@ $manageU = new UtilisateurManager($bdd);
           <div class="formModif" id="formModif" style="display:none">
             <form classe="formCompte" method="POST" action="compteTraitement.php">
             <label for="nomU">Nom:</label>
-            <input class="champsCompte" type ="text" name="nomU" <?php if (empty($ut->getNomU())) {echo 'value=""';}else{echo 'value="'. $ut->getNomU().'"';}?>><br>
+            </br><input class="champsCompte" type ="text" name="nomU" <?php if (empty($ut->getNomU())) {echo 'value=""';}else{echo 'value="'. $ut->getNomU().'"';}?>><br>
             <label for="prenomU">Prénom :</label>
-            <input class="champsCompte" type ="text" name="prenomU" <?php if (empty($ut->getPrenomU())) {echo 'value=""';}else{echo 'value="'. $ut->getPrenomU().'"';}?>><br>
+            </br><input class="champsCompte" type ="text" name="prenomU" <?php if (empty($ut->getPrenomU())) {echo 'value=""';}else{echo 'value="'. $ut->getPrenomU().'"';}?>><br>
             <label for="adresseU">Adresse :</label>
-            <input class="champsCompte" type ="text" name="adresseU" <?php if (empty($ut->getAdresseU())) {echo 'value=""';}else{echo 'value="'. $ut->getAdresseU().'"';}?>><br>
+            </br><input class="champsCompte" type ="text" name="adresseU" <?php if (empty($ut->getAdresseU())) {echo 'value=""';}else{echo 'value="'. $ut->getAdresseU().'"';}?>><br>
             <label for="villeU">Ville:</label>
-            <input class="champsCompte" type ="text" name="villeU" <?php if (empty($ut->getVilleU())) {echo 'value=""';}else{echo 'value="'. $ut->getVilleU().'"';}?>><br>
+            </br><input class="champsCompte" type ="text" name="villeU" <?php if (empty($ut->getVilleU())) {echo 'value=""';}else{echo 'value="'. $ut->getVilleU().'"';}?>><br>
             <label for="cpU">CP:</label>
-            <input class="champsCompte" type ="text" name="cpU" <?php if (empty($ut->getCpU())) {echo 'value=""';}else{echo 'value="'. $ut->getCpU().'"';}?>><br>
+            </br><input class="champsCompte" type ="text" name="cpU" <?php if (empty($ut->getCpU())) {echo 'value=""';}else{echo 'value="'. $ut->getCpU().'"';}?>><br>
             <label for="telU">Tel :</label>
-            <input class="champsCompte" type ="text" name="telU" <?php if (empty($ut->getTelU())) {echo 'value=""';}else{echo 'value="'. $ut->getTelU().'"';}?>><br>
+            </br><input class="champsCompte" type ="text" name="telU" <?php if (empty($ut->getTelU())) {echo 'value=""';}else{echo 'value="'. $ut->getTelU().'"';}?>><br>
              <button class="ValideModifCompte" type="submit" name="valider">Valider</button>
              <input class="AnnulerModifCompte" type ="button" value="Annuler" onclick="annuler()"/>
             </form>
@@ -115,8 +115,7 @@ $manageU = new UtilisateurManager($bdd);
                 <div class="crossPostit" id="crossPostit'.$si->getIdS().'" onclick="revenir()" style ="display:none">X</div>
               </div> <br>';
           }
-  				$tabLatLng = $siMa->getTabLatLng();
-        ?>
+  				$tabLatLng = $siMa->getTabLatLng();?>
         </div>
         <div class="Désincription">
           <h3 class="title-account2">Se désincrire</h3>

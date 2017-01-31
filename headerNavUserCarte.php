@@ -17,7 +17,7 @@ if($manageU->isConnected() === true && $_SESSION['confirme']==1){
           </a>
           <!-- Overlay content -->
           <div class="side-contenu">
-            <a  href="#" id="account">Mon compte</a>
+            <a  href="monCompteBis.php" id="account">Mon compte</a>
             <a href="#">Nos valeurs</a>
             <a  href="#" id="nousContacter">Nous contacter</a>
             <a href="deconn.php " >Déconnection </a>
@@ -37,7 +37,6 @@ if($manageU->isConnected() === true && $_SESSION['confirme']==1){
 include'contact.php';
 if ($mailContact==true) {echo '<div id="notif" class="success"> <h2>Votre message a bien été envoyé</h2>';}
 ?>
-<?php include'compte.php';?>
 <script>
 $(document).ready(function(){
   $("#notif").fadeOut(5000);
@@ -58,7 +57,7 @@ $(document).ready(function(){
           </a>
           <!-- Overlay content -->
           <div class="side-contenu">
-            <a  href="#" id="account">Mon compte</a>
+            <a  href="monCompteBis.php" id="account">Mon compte</a>
             <a href="#">Nos valeurs</a>
             <a  href="#" id="nousContacter">Nous contacter</a>
             <a href="deconn.php " >Déconnection </a>
