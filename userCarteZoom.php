@@ -8,43 +8,44 @@ var x = document.getElementById("mapcanvas");//utilisée pour l'affichage des er
 
 
 function zoomPost(lat, lng, idS){
-var latlngG = new google.maps.LatLng(lat, lng);
-var myOptions = {
-zoom: 17
-, center: latlngG
-, mapTypeId: google.maps.MapTypeId.ROADMAP
-};
-// generation de la map
-var map = new google.maps.Map(mapcanvas, myOptions);
+  x.innerHTML = "Le problème n'a pas été précisément localisé!"
+  if(lat==0){
+    x.innerHTML = "Le problème n'a pas été précisément localisé!</br>Il est donc impossible de vous le montrer précisément, désolé.</br><video class='videoR' controls preload='auto' poster='img/logo73.svg' ><source src='img/rendu_anim_handicap.mp4' type='video/mp4'>Your browser does not support the video tag.</video >"
+  }else{
+    var latlngG = new google.maps.LatLng(lat, lng);
+    var myOptions = {
+    zoom: 17
+    , center: latlngG
+    , mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    // generation de la map
+    var map = new google.maps.Map(mapcanvas, myOptions);
 
-//on créé un obj fenetre de map
-var infowindow = new google.maps.InfoWindow();
+    //on créé un obj fenetre de map
+    var infowindow = new google.maps.InfoWindow();
 
-//on recentre la carte (=en refaire une)
+    //on recentre la carte (=en refaire une)
 
-var marker = new google.maps.Marker({
-    position: new google.maps.LatLng(lat, lng),
-    map: map,
-    icon: "img/maker.svg",
-    animation:google.maps.Animation.DROP,
-  });
-infowindow.open(map, marker);
-//on ecoute le marker et si click on affiche info
-marker.addListener('click', function() {
-    location.reload();
-  });
+    var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(lat, lng),
+        map: map,
+        icon: "img/maker.svg",
+        animation:google.maps.Animation.DROP,
+      });
+    infowindow.open(map, marker);
+    //on ecoute le marker et si click on affiche info
+    marker.addListener('click', function() {
+        location.reload();
+      });
 
-infowindow.setContent('<div class="crossPostit" id="crossPostit"" >Ciblé !</div>')
-
-
-//On modifie le postit pour que sélection soit visible et qu'il soit possible de revenir sur la vue générale
-
-var postits = document.getElementsByClassName('msgsignal');
-var post = document.getElementById(idS);
-var cross = document.getElementById("crossPostit"+idS);
-post.style.backgroundColor="rgba(34,112,155,0.3)";
-cross.style.display="";
-
+    infowindow.setContent('<div class="crossPostit" id="crossPostit"" >Ciblé !</div>')
+  }
+  //On modifie le postit pour que sélection soit visible et qu'il soit possible de revenir sur la vue générale
+  var postits = document.getElementsByClassName('msgsignal');
+  var post = document.getElementById(idS);
+  var cross = document.getElementById("crossPostit"+idS);
+  post.style.backgroundColor="rgba(34,112,155,0.3)";
+  cross.style.display="";
 }//fin de zoomPost()
 
 function revenir (){

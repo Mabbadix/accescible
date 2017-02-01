@@ -45,9 +45,13 @@ function showError(error) {
             if (finAuto[i].type=="hidden"){
               finAuto[i].type="text"
               finAuto[i].disabled=""
+              if (finAuto[i].id=='rechargePage'){
+                finAuto[i].type="button"
+              }
             }else{
               finAuto[i].type="hidden"
             }
+          document.getElementById("geocodeReverse").type="hidden"
           }
           break;
       case error.POSITION_UNAVAILABLE:
@@ -60,10 +64,8 @@ function showError(error) {
             }else{
               finAuto[i].type="hidden"
             }
+          document.getElementById("geocodeReverse").type="hidden"
           }
-
-
-
           break;
       case error.TIMEOUT:
           x.innerHTML = "The request to get user location timed out.</br><video class='videoR' controls preload='auto' poster='img/logo73.svg' ><source src='img/rendu_anim_handicap.mp4' type='video/mp4'>Your browser does not support the video tag.</video >"
@@ -75,6 +77,7 @@ function showError(error) {
             }else{
               finAuto[i].type="hidden"
             }
+          document.getElementById("geocodeReverse").type="hidden"
           }
           break;
       case error.UNKNOWN_ERROR:
@@ -87,6 +90,7 @@ function showError(error) {
             }else{
               finAuto[i].type="hidden"
             }
+          document.getElementById("geocodeReverse").type="hidden"
           }
           break;
   }

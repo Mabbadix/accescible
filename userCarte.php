@@ -70,7 +70,7 @@ require 'connData.php';
 											<div class="droitePost" onclick="zoomPost('.$si->getLat().', '.$si->getLng().', '.$si->getIdS().')" >
 											<div >
                       <img classe="latlng" src="img/'.$si->getTypeS().'.png" alt="Type du problème" height=60>
-                      <div class="crossPostit" id="crossPostit'.$si->getIdS().'" onclick="revenir()" style ="display:none">X</div>
+                      <div class="crossPostit" id="crossPostit'.$si->getIdS().'" onclick="revenir()" style ="display:none">x</div>
                       </div>
 											<div ><input class="button--circle" type="image" id="SoutienImg" src="img/jaime_orange.svg"  onclick="idS='.$si->getIdS().'"/>
 											</div>
@@ -78,7 +78,6 @@ require 'connData.php';
 											</div>
 
 										</div> <br>';
-
 									$i++;
 									$id++;
 								}
