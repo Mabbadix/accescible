@@ -82,41 +82,41 @@ if (isset($_SESSION['emailU'])){
 			        <tr>
 								<label for="regionS"></label>
 								<td class="slimField1">
-									<input class="unSignalementField" type="hidden"></input>
+									<input class="unSignalementField1" type="hidden"></input>
 								</td>
 			          <td class="wideField">
-									<input class="unSignalementField" id="administrative_area_level_1" name="regionS" disabled="true" placeholder="Région" type="hidden"></input>
+									<input class="unSignalementField1" id="administrative_area_level_1" name="regionS" disabled="true" placeholder="Région" type="hidden" value="nc"></input>
 								</td>
 							</tr>
 							<tr>
 								<label for="paysS"></label>
 								<td class="slimField1">
-									<input class="unSignalementField" type="hidden"></input>
+									<input class="unSignalementField1" type="hidden"></input>
 								</td>
 			          <td class="wideField">
-									<input class="unSignalementField" id="country" name="paysS" disabled="true" placeholder="Pays" type="hidden"></input>
+									<input class="unSignalementField1" id="country" name="paysS" disabled="true" placeholder="Pays" type="hidden" value="France"></input>
 								</td>
 			        </tr>
 							<tr>
 								<label for="latlgn"></label>
 								<td class="slimField">
-									<input class="unSignalementField" id="latlng" name="latlngS"  type="hidden"></input>
+									<input class="unSignalementField1" id="latlng" name="latlngS"  type="hidden" value="nc"></input>
 								</td>
 								<td class="slimField">
-									<input class="unSignalementField" id="lat" name="lat"  type="hidden"></input>
+									<input class="unSignalementField1" id="lat" name="lat"  type="hidden" value="nc"></input>
 								</td>
 								<td class="slimField">
-									<input class="unSignalementField" id="lng" name="lng"  type="hidden"></input>
+									<input class="unSignalementField1" id="lng" name="lng"  type="hidden" value="nc"></input>
 								</td>
 								<label for="placeId"></label>
 								<td class="slimField">
-									<input class="unSignalementField" id="placeId" name="placeIdS" type="hidden"></input>
+									<input class="unSignalementField1" id="placeId" name="placeIdS" type="hidden" value="nc"></input>
 								</td>
 							</tr>
 	      		</table>
 
 						<label for="Geolocalisation"></label>
-						<input type ="button" class="unSignalement" id="geocodeReverse"  onFocus="Geolocalisation()"></input>
+						<input type ="button" class="unSignalementField" id="geocodeReverse"  onFocus="Geolocalisation()"></input>
 					</fieldset>
 					<fieldset id="descriptionSFied" name="decrire">
 						<legend>Décrire</legend>

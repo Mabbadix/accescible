@@ -258,6 +258,15 @@ font-weight: bold;
 	transform: scale(1.2);
 }
 
+/***Si autocomplete et geocodereverse impossible alors form***/
+.unSignalementField{
+  width: 99%;
+  max-width: 300px;
+}
+.slimField1 {
+  width: 50px;
+}
+
 /*****les img symbolisant les pb****/
 .imgType{
   max-width:80px;
