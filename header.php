@@ -16,7 +16,7 @@
     </nav>
   </header>
 <?php
-include'contact.php';
+include'pageContact.php';
 if ($mailContact==true) {echo '<div id="notif" class="notif success"> <h2>Votre message a bien été envoyé</h2></div>';}
 ?>
 <script>

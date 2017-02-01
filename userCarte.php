@@ -3,7 +3,7 @@ session_start();
 
 /** Importation de l'autoloader **/
 
-require 'Autoloader.php';
+require 'class/Autoloader.php';
 $autoload = new Autoloader;
 $autoload->register();
 
@@ -36,7 +36,7 @@ require 'connData.php';
 
   <body>
 		<div class="site-container">
-      <?php include'headtest.php'; ?>
+      <?php include'header.php'; ?>
  		<div class="site-pusher">
 		<div class="site-content">
     <div class="container">
@@ -63,8 +63,8 @@ require 'connData.php';
 												<p>'.$si->getDescriptionS().'</p><p> '.$si->getVilleS().'</p>
 												<p>Signalé le '.$si->getDateS().'</p>
 											</div>
-											<div class="postit--right" onclick="zoomPost('.$si->getLat().', '.$si->getLng().', '.$si->getIdS().')" >
-											<div class="postit--type">
+											<div class="postit--right">
+											<div class="postit--type" onclick="zoomPost('.$si->getLat().', '.$si->getLng().', '.$si->getIdS().')">
                       <img classe="latlng" src="img/'.$si->getTypeS().'.png" alt="Type du problème" height=60>
                       <div class="crossPostit" id="crossPostit'.$si->getIdS().'" onclick="revenir()" style ="display:none">X</div>
                       </div>
@@ -79,7 +79,7 @@ require 'connData.php';
 							$tabLatLng = $siMa->getTabLatLng();
 							if($manageU->isConnected() === true && $_SESSION['confirme']==1){
 								?>
-              <script src="soutien.js"></script>
+              <script src="userCarteSoutien.js"></script>
               <?php } ?>
         </div>
         <div class="mapcanvas" id="mapcanvas">

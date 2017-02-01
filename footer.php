@@ -13,5 +13,5 @@
     <br />
     <img id="logoF" src="img/logo73.svg" alt="Logo Accescible" />
   </div>
-  <?php include'mentionsLegales.php';?>
+  <?php include'footerMentionsL.php';?>
 </footer>

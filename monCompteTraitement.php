@@ -3,7 +3,7 @@ session_start();
 
 /** Importation de l'autoloader **/
 
-require 'Autoloader.php';
+require 'class/Autoloader.php';
 $autoload = new Autoloader;
 $autoload->register();
 
@@ -20,6 +20,5 @@ $tel = $_POST['telU'];
 print_r($_SESSION);
 echo'ok';
 $manageU->updateUtilisateur($mail, $nom, $prenom, $adresse, $ville, $cp, $tel);
-<<<<<<< HEAD
 header("Location: monCompteBis.php");
 ?>

@@ -3,7 +3,7 @@ session_start();
 
 /** Importation de l'autoloader **/
 
-require 'Autoloader.php';
+require 'class/Autoloader.php';
 $autoload = new Autoloader;
 $autoload->register();
 
@@ -21,7 +21,6 @@ $manageU = new UtilisateurManager($bdd);
 ?>
   <!DOCTYPE html>
   <html lang="fr">
-
   <head>
     <!-- integration de toutes les metas et autres link
 				ATTENTION link styleUser.css different du "style.css" -->
@@ -30,17 +29,14 @@ $manageU = new UtilisateurManager($bdd);
     		include 'head.php';
     		?>
     <title>Acces'Cible-Mon_Compte</title>
-
   </head>
-
   <body>
     <div class="site-container">
-      <?php include'headtest.php'; ?>
+      <?php include'header.php'; ?>
  		<div class="site-pusher">
 		<div class="site-content">
     <div class="container">
     <main>
-  <main>
     <?php $ut= $manageU->getUtilisateur($_SESSION['emailU'],$_SESSION['mdpU']);?>
     <!-- Partie centrale en dessous de navBar-->
     <div class="mainUserCarteCompte">
@@ -67,7 +63,7 @@ $manageU = new UtilisateurManager($bdd);
              <input class="BtnModifCompte" type="button" name="modifier" value="Modifier" onclick="modifierMonCompte()"/>
           </div>
           <div class="formModif" id="formModif" style="display:none">
-            <form classe="formCompte" method="POST" action="compteTraitement.php">
+            <form classe="formCompte" method="POST" action="monCompteTraitement.php">
             <label for="nomU">Nom:</label>
             </br><input class="champsCompte" type ="text" name="nomU" <?php if (empty($ut->getNomU())) {echo 'value=""';}else{echo 'value="'. $ut->getNomU().'"';}?>><br>
             <label for="prenomU">Prénom :</label>
@@ -120,17 +116,16 @@ $manageU = new UtilisateurManager($bdd);
           <button class="seDesinscrire" onclick="email='<?php echo $emailU ?>'" >Se désincrire</button>
         </div>
         <?php if($manageU->isConnected() === true && $_SESSION['confirme']==1){
-        ?><script src="supprimerS.js"></script>
+        ?><script src="monCompteSupprimerS.js"></script>
         <?php } ?>
       </div>
-      <div class= "mapcanvas"  id="mapcanvas"></div>
-			<?php include( 'monCompteZoom.php');?>
+    <div class= "mapcanvas"  id="mapcanvas">
+      <?php include( 'monCompteZoom.php');?>
     </div>
-  </div>
-  </div>
-  </main>
-  <?php include 'footer.php';?>
-  </div>
+    </div>
+</main>
+<?php include 'footer.php';?>
+</div>
 </div>
 <div class="site-cache" id="site-cache"></div>
 </div>

@@ -34,7 +34,7 @@ if($manageU->isConnected() === true && $_SESSION['confirme']==1){
   </li>
 </ul>
 <?php
-include'contact.php';
+include'pageContact.php';
 if ($mailContact==true) {echo '<div id="notif" class="success"> <h2>Votre message a bien été envoyé</h2>';}
 ?>
 <script>
@@ -73,7 +73,7 @@ $(document).ready(function(){
         </script>
   </li>
 </ul>
-<?php include'contact.php';
+<?php include'pageContact.php';
 if ($mailContact==true) {echo '<div id="notif" class="success"> <h2>Votre message a bien été envoyé</h2>';}
 ?>
 <script>
