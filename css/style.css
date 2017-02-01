@@ -1,188 +1,141 @@
  * {
-  box-sizing:border-box
-}
-
-body {
-  font-family: Verdana,sans-serif;
-  margin:auto;
-  max-width: 100%;
-
-}
-
-
-/**********video***************/
-
-.indexMain{
-  width: 100%;
-}
-
-video {
-  width: 26em;
-  height: 16em;
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.video{
-  margin-top: 8em;
-  width: 26em;
-  margin-left: auto;
-  margin-right: auto;
-}
+   box-sizing: border-box
+ }
+ 
+ body {
+   font-family: Verdana, sans-serif;
+   margin: auto;
+   max-width: 100%;
+ }
+ /**********video***************/
+ 
+ .indexMain {
+   width: 100%;
+ }
+ 
+ video {
+   width: 26em;
+   height: 16em;
+ }
+ 
+ .video {
+   margin-top: 8em;
+   width: 26em;
+   margin-left: auto;
+   margin-right: auto;
+ }
 
 
-/* Slideshow container */
-
-.slideshow-container {
-  max-width: 500px;
-  position: relative;
-  margin: auto;
-  margin-top:5%;
-}
-
-/* Caption text */
-.text {
-  color: rgb(233,95,3);
-  font-size: 15px;
-  font-weight: bold;
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  overflow: auto;
-}
-
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* The dots/bullets/indicators */
-/*.dot {
-  height: 13px;
-  width: 13px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active {
-  background-color: #717171;
-}
-
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 2s;
-  animation-name: fade;
-  animation-duration: 2s;
-}*/
-/* Fading animation */
-/*@-webkit-keyframes fade {
-  from {opacity: .6}
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .6}
-  to {opacity: 1}
-}*/
-
-
-/*BOUTON CONN, INSCRIPTION, SE CONNECTER ETC*/
-.FormConn{
-  margin-top: 10%;
-}
-.button {
-  background-color:rgb(241,240,240);
-  width: auto;
-  border-radius: 12px;
-  border: 1px solid rgb(147,188,218);
-  padding: 15px 32px;
-  margin : 8px;
-  text-decoration: none;
-  font-size: 26px;
-  font-weight: bold;
-  cursor: pointer;
-}
-.connexion {
-  color: rgb(4,90,149);
-  margin : 6px;
-}
-.inscription {
-  color:rgb(223,74,16);
-  margin : 6px;
-}
-.button:hover {
-    box-shadow: 0 12px 16px 0 rgba(34,112,155,0.3);
-}
-
-#ok{
-  position: fixed;
-  bottom: 0;
-  color: red;
-  left: auto;
-  right: auto;
-}
-
-/***************** Notifications **************************/
-#notif {
-  background-image: repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 40px );
-  color: #fff;
-  text-shadow: 0 1px 0 rgba(0,0,0,0.2);
-  padding: 5px 10px;
-  box-shadow:	inset 0 1px 0 rgba(255,255,255,0.5);
-  border: 1px solid;
-  float: inherit;
-  position: absolute;
-  z-index: 200;
-}
-.info {
-  background-color: #6af;
-  border-color: #48d;
-}
-.warning{
-  background-color: #fa4;
-  border-color: #d82;
-}
-.success{
-  background-color: #8d5;
-  border-color: #6b3;
-}
-.error {
-  background-color: #f31;
-  border-color: #d10;
-}
-/**ADMIN **/
-.centeradmin{
-    text-align: center;
-    color:rgb(223,74,16);
-    font-size: 44px;
-  }
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 421px) {
-  .text{font-size: 10px}
-  .button {font-size:14px}
-  .inscription {margin-top :8px}
-  .dot{
-    height: 9px;
-    width: 9px;
-  }
-}
-@media only screen and (max-width: 250px) {
-  .text{font-size: 7px}
-  .button {font-size:11px}
-  .inscription {margin-top :8px}
-  .dot{
-    height: 6px;
-    width: 6px;
-  }
-
-
-}
+ /*BOUTON CONN, INSCRIPTION, SE CONNECTER ETC*/
+ 
+ /*.FormConn {
+   margin-top: 10%;
+ }*/
+ 
+ .button--index {
+   background-color: rgb(241, 240, 240);
+   width: auto;
+   border-radius: 12px;
+   border: 1px solid rgb(147, 188, 218);
+   padding: 15px 32px;
+   margin: 8px;
+   text-decoration: none;
+   font-size: 26px;
+   font-weight: bold;
+   cursor: pointer;
+ }
+ 
+ .connexion {
+   color: rgb(4, 90, 149);
+   margin: 6px;
+ }
+ 
+ .inscription {
+   color: rgb(223, 74, 16);
+   margin: 6px;
+ }
+ 
+ .button--index:hover {
+   box-shadow: 0 12px 16px 0 rgba(34, 112, 155, 0.3);
+ }
+ /*
+ #ok {
+   position: fixed;
+   bottom: 0;
+   color: red;
+   left: auto;
+   right: auto;
+ }*/
+ /***************** Notifications **************************/
+ /*
+ #notif {
+   background-image: repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(255, 255, 255, 0.1) 20px, rgba(255, 255, 255, 0.1) 40px);
+   color: #fff;
+   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+   padding: 5px 10px;
+   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+   border: 1px solid;
+   float: inherit;
+   position: absolute;
+   z-index: 200;
+ }
+ 
+ .info {
+   background-color: #6af;
+   border-color: #48d;
+ }
+ 
+ .warning {
+   background-color: #fa4;
+   border-color: #d82;
+ }
+ 
+ .success {
+   background-color: #8d5;
+   border-color: #6b3;
+ }
+ 
+ .error {
+   background-color: #f31;
+   border-color: #d10;
+ }
+ /**ADMIN **/
+ 
+ .centeradmin {
+   text-align: center;
+   color: rgb(223, 74, 16);
+   font-size: 44px;
+ }
+ /* On smaller screens, decrease text size */
+ 
+ @media only screen and (max-width: 421px) {
+   .text {
+     font-size: 10px
+   }
+   .button {
+     font-size: 14px
+   }
+   .inscription {
+     margin-top: 8px
+   }
+   .dot {
+     height: 9px;
+     width: 9px;
+   }
+ }
+ 
+ @media only screen and (max-width: 250px) {
+   .text {
+     font-size: 7px
+   }
+   .button {
+     font-size: 11px
+   }
+   .inscription {
+     margin-top: 8px
+   }
+   .dot {
+     height: 6px;
+     width: 6px;
+   }
+ }

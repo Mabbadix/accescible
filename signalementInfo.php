@@ -1,11 +1,15 @@
 <!--Petit slide show pour la transition + info  -->
 <!DOCTYPE html>
 <html lang="fr">
+<link rel="stylesheet" type="text/css" href="css/styleUserBleu&Orange.css" media="all"/>
 <head>
 	<!-- Integration de toutes les metas et autres link
 			ATTENTION css propre à la page index = "style.css" -->
-	  <?php include 'headUtilisateur.php'; ?>
-	<title>Acces'Cible-Accueil</title>
+			<?php
+			$type = 'utilisateur';
+			include 'head.php';
+			?>
+	<title>Acces'Cible-Infos</title>
 </head>
 <body>
 		<!-- SLIDE SHOW INDEX!-->

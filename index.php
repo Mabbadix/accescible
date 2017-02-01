@@ -28,7 +28,7 @@ require 'connData.php';
 	{
 		//si n'existe on informe;
 		if (!$exist) {
-				echo '<div id="notif" class="error"> <h2>Courriel ou mot de passe incorrect. </h2></div><script type="text/javascript"> window.setTimeout("location=(\'index.php\');",1000) </script>';
+				echo '<div id="notif" class="notif error"> <h2>Courriel ou mot de passe incorrect. </h2></div><script type="text/javascript"> window.setTimeout("location=(\'index.php\');",1000) </script>';
 		}
 			//Si existe
 		elseif ($exist) {
@@ -38,7 +38,7 @@ require 'connData.php';
 				//On verfie que pas banni
 			if ($ut->getValide() == 1) {
 					//on verifie que compte n'est pas banni avec la donnée "valide" dela bd (1= bani, 0 = Ok);
-					echo '<div id="notif" class="error"> <h2>Courriel non valide</h2></div><script type="text/javascript"> window.setTimeout("location=(\'index.php\');",1000) </script>';
+					echo '<div id="notif" class="notif error"> <h2>Courriel non valide</h2></div><script type="text/javascript"> window.setTimeout("location=(\'index.php\');",1000) </script>';
 			}
 			// Si compte valide on accede au compte
 			elseif ($ut->getValide() == 0) {
@@ -49,7 +49,7 @@ require 'connData.php';
 				//on informe que logged est Ok pour redirection sur l'espace des gens inscrits
 				$_SESSION['logged'] = true;
 				//informe et on redirige
-				echo '<div id="notif" class="success"> <h2>Content de vous retrouver </h2></div><script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",1000) </script>';
+				echo '<div id="notif" class="notif success"> <h2>Content de vous retrouver </h2></div><script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",1000) </script>';
 			}
 		}
 	}
@@ -64,7 +64,7 @@ require 'connData.php';
 			$ut = $managerU->getUtilisateur($Courriel, $Mdp);
 			//on verifie que compte n'est pas banni avec la donnée "valide" dela bd
 			if ($ut->getValide() == 1) {
-				echo '<div id="notif" class="error"> <h2>Courriel non valide</h2></div><script type="text/javascript"> window.setTimeout("location=(\'index.php\');",1000) </script>';
+				echo '<div id="notif" class="notif error"> <h2>Courriel non valide</h2></div><script type="text/javascript"> window.setTimeout("location=(\'index.php\');",1000) </script>';
 			}
 			elseif ($ut->getValide() == 0)
 			{
@@ -75,7 +75,7 @@ require 'connData.php';
 				//on informe que logged est Ok pour redirection sur l'espace des gens inscrits
 				$_SESSION['logged'] = true;
 			//on redirige
-			echo '<div id="notif" class="warning"> <h2>Connexion réussie, attention vous avez cliqué sur Inscription</h2></div><script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",1100) </script>';
+			echo '<div id="notif" class="notif warning"> <h2>Connexion réussie, attention vous avez cliqué sur Inscription</h2></div><script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",1100) </script>';
 			}
 		}
 		elseif (!$exist)//Si aucun compte normalement
@@ -84,7 +84,7 @@ require 'connData.php';
 			$emailPris = $managerU->verifEmailLibre($Courriel);
 			if ($emailPris)
 			{
-				echo '<div id="notif" class="warning"> <h2>Ce courriel est déjà utilisé. </h2></div><script type="text/javascript"> window.setTimeout("location=(\'index.php\');",1000) </script>';
+				echo '<div id="notif" class="notif warning"> <h2>Ce courriel est déjà utilisé. </h2></div><script type="text/javascript"> window.setTimeout("location=(\'index.php\');",1000) </script>';
 			}
 			elseif (!$emailPris)
 			{
@@ -119,7 +119,7 @@ require 'connData.php';
 				$managerU->add($utilisateur);
 				//on envoie un mail de confirmation
 				$managerU->envoieMail($Courriel, $key);
-				echo '<div id="notif" class="Info"> <h2>Inscription réussie. Bienvenue. Un email de confirmation vous a été envoyé.</h2></div><script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",1200) </script>';
+				echo '<div id="notif" class="notif Info"> <h2>Inscription réussie. Bienvenue. Un email de confirmation vous a été envoyé.</h2></div><script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",1200) </script>';
 			}
 		}
 	}
@@ -149,16 +149,15 @@ require 'connData.php';
 		</div>
 		<br>
 
-		<div>
+		<div class="form--connection">
 			<!-- CONN ET INSCRIPTION !-->
 			<form name ="formConn" method="post" id="button" style="text-align:center">
-				<label for="Courriel"></label><input class="button connexion" id="Courriel" type="email" name="Courriel" placeholder="dupont@gmail.com" value="<?php if (!empty($_POST['Courriel'])) {echo stripcslashes(htmlspecialchars($_POST['Courriel'], ENT_QUOTES));} ?>"  required maxlength="100"><br>
-				<label for="Mot_de_passe"></label> <input class="button inscription" id="Mot_de_passe" type="password"
+				<input class="button--index connexion" id="Courriel" type="email" name="Courriel" placeholder="dupont@gmail.com" value="<?php if (!empty($_POST['Courriel'])) {echo stripcslashes(htmlspecialchars($_POST['Courriel'], ENT_QUOTES));} ?>"  required maxlength="100"><br>
+				<input class="button--index inscription" id="Mot_de_passe" type="password"
 					name="Mot_de_passe" placeholder="Mot de passe" required maxlength="50"><br>
-					<label for="se_connecter"></label>
-				<button class="button connexion" id="se_connecter" type="submit"
+				<button class="button--index connexion" id="se_connecter" type="submit"
 				name="se_connecter" value="se connecter" formaction = "index.php">Connexion</button>
-				<button class="button inscription" type="submit" name="boutInscription" formaction="index.php">
+				<button class="button--index inscription" type="submit" name="boutInscription" formaction="index.php">
 					Inscription</button>
 			</form>
 		</div>

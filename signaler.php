@@ -23,37 +23,35 @@ if (isset($_SESSION['emailU'])){
 
 
 
-<!DOCTYPE html>
-<html lang="fr">
-	<head>
+  <!DOCTYPE html>
+  <html lang="fr">
+
+  <head>
     <?php
 	$type = "utilisateur";
 	include 'head.php';
 	?>
-		<title>Acces'Cible-Signalement</title>
-	</head>
+      <title>Acces'Cible-Signalement</title>
+  </head>
 
-	<body>
-  <header><!-- NAVBAR -->
-		<div class = "navFix">
-		<?php
-		$nav_en_cours = 'signaler';
-		include 'headerNavUserCarte.php'; ?>
-	</div>
-  </header>
-
-  <main><!--CENTER-->
-		<div class="mainUserCarte">
-			<div class="mainLeft">
-				<?php	include 'unSignalement.php';
+  <body>
+    <div class="site-container">
+      <?php include'headtest.php';?>
+    <div class="site-pusher">
+  <div class="site-content">
+    <div class="container">
+    <main>
+      <!--CENTER-->
+      <div class="mainUserCarte">
+        <div class="mainLeft">
+          <?php	include 'unSignalement.php';
 				if($etat=="ok"){
 				  echo '<script type="text/javascript"> window.setTimeout("location=(\'signalementInfo.php\');",10) </script>';
 				}?>
-        <form class="unSignalementForm" name ="signalement" method = "post"
-				 enctype="multipart/form-data" action=#>
-					<fieldset name="localiser" >
-						<legend>Localiser</legend>
-						<?php if($etat=="localiser") {
+            <form class="unSignalementForm" name="signalement" method="post" enctype="multipart/form-data" action=#>
+              <fieldset name="localiser">
+                <legend>Localiser</legend>
+                <?php if($etat=="localiser") {
 								echo'<div id="notif" class="warning"> <h2>Merci de localiser le problème</h2></div>';}?>
 						<br>
 						<table id="address1">
@@ -123,21 +121,24 @@ if (isset($_SESSION['emailU'])){
 						<?php if($etat=="decrire"){
 								echo '<div id="notif" class="warning"> <h2>Merci de décrire le problème</h2></div>';
 						}?>
-						<label for="typeS"></label>
-						<input class="typeS" type = "hidden" name="typeS" id="selectType" required></input>
-							<img class="imgType" alt="Place handicapée absente, occupée et/ou inadéquate." id="typeS1" src="img/typeS1.png "  onclick="change(1)" ></img>
-							<img class="imgType" alt="Absence de signal sonore, tactile ou lumineux." id="typeS2" src="img/typeS2.png" onclick="change(2)"></img>
-							<img class="imgType" alt="Passage inadapté et/ou encombré." id="typeS3" src="img/typeS3.png" onclick="change(3)"></img><br><br>
-							<img type="image"class="imgType" alt="Problème d'accès en hauteur(rampe, ascenseur...)." id="typeS4" src="img/typeS4.png" onclick="change(4)"></img>
-							<img type="image" class="imgType" alt="Sanitaires absents et/ou non adaptés." id="typeS5" src="img/typeS5.png" onclick="change(5)"></img>
-							<img type="image"class="imgType" id="typeS6" src="img/typeS6.png" alt="Problème autre." onclick="change(6)"></img><br><br>
-						<label for="descriptionS"></label>
-							<textarea class="descriptionS" name="descriptionS" id="descriptionS" rows="3" cols="29"
-							placeholder="Description du problème en 100 caractères maximum"></textarea>
-					</fieldset>
-					<fieldset name="photoUploads">
-						<legend>Photo</legend>
-						<?php
+                  <label for="typeS"></label>
+                  <input class="typeS" type="hidden" name="typeS" id="selectType" required></input>
+                  <img class="imgType" alt="Place handicapée absente, occupée et/ou inadéquate." id="typeS1" src="img/typeS1.png " onclick="change(1)"></img>
+                  <img class="imgType" alt="Absence de signal sonore, tactile ou lumineux." id="typeS2" src="img/typeS2.png" onclick="change(2)"></img>
+                  <img class="imgType" alt="Passage inadapté et/ou encombré." id="typeS3" src="img/typeS3.png" onclick="change(3)"></img>
+                  <br>
+                  <br>
+                  <img type="image" class="imgType" alt="Problème d'accès en hauteur(rampe, ascenseur...)." id="typeS4" src="img/typeS4.png" onclick="change(4)"></img>
+                  <img type="image" class="imgType" alt="Sanitaires absents et/ou non adaptés." id="typeS5" src="img/typeS5.png" onclick="change(5)"></img>
+                  <img type="image" class="imgType" id="typeS6" src="img/typeS6.png" alt="Problème autre." onclick="change(6)"></img>
+                  <br>
+                  <br>
+                  <label for="descriptionS"></label>
+                  <textarea class="descriptionS" name="descriptionS" id="descriptionS" rows="3" cols="29" placeholder="Description du problème en 100 caractères maximum"></textarea>
+              </fieldset>
+              <fieldset name="photoUploads">
+                <legend>Photo</legend>
+                <?php
 						switch ($etat) {
 							case "format":
 								echo '<div id="notif" class="error"> <h2>Le format du fichier n\'est pas accepté. Seuls sont acceptés,les fichiers en .jpg, .jpeg, .gif, .png, .svg. Merci de recommencer.</h2></div>';
@@ -157,9 +158,8 @@ if (isset($_SESSION['emailU'])){
 					</fieldset>
 					<fieldset name="valider">
 						<legend>Valider</legend>
-
 						<label for="signaler"></label><br/>
-						<button class="button--circle" name="signaler" id="signaler" ><img id="doigt" src="img/doigt.svg"></img></button>
+						<button class="spin button--circle" name="signaler" id="signaler" ><img id="doigt" src="img/doigt.svg"></img></button>
             </fieldset>
         </form>
 
@@ -168,8 +168,26 @@ if (isset($_SESSION['emailU'])){
 		<?php	include 'autocomplete&geoloc.js';?>
 		</div>
 	</main>
-	<?php include 'footer.php';?>
-	</body>
+  <?php include 'footer.php';?>
+  </div>
+  </div>
+<div class="site-cache" id="site-cache"></div>
+  </div>
+  </div>
+</body>
+<script src="js/app.js"></script>
+ <script>
+  var forEach=function(t,o,r){if("[object Object]"===Object.prototype.toString.call(t))for(var c in t)Object.prototype.hasOwnProperty.call(t,c)&&o.call(r,t[c],c,t);else for(var e=0,l=t.length;l>e;e++)o.call(r,t[e],e,t)};
+
+  var hamburgers = document.querySelectorAll(".hamburger");
+  if (hamburgers.length > 0) {
+    forEach(hamburgers, function(hamburger) {
+      hamburger.addEventListener("click", function() {
+        this.classList.toggle("is-active");
+      }, false);
+    });
+  }
+</script>
 </html>
 <?php
 // ATTENTION FERMETURE DE LA SESSION SI ouverture

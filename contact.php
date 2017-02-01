@@ -1,8 +1,4 @@
 <?php
-
-//******Connect BD********
-require 'connData.php';
-$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
 /***********traitement d'un Signalement en POO*/
 $manageU = new UtilisateurManager($bdd);
 if($manageU->isConnected() === true){
@@ -35,9 +31,6 @@ if(!$dMail->send()) {
 }
 }
  ?>
-   <!DOCTYPE html>
-  <html lang="fr">
-
 	<div class="popupContact">
 			<div class="pageContact">
 				<span id="crossContact">X</span>
@@ -46,7 +39,7 @@ if(!$dMail->send()) {
 	          <label for="message">Remplir le formulaire svp</label><br/>
 	          <label data-for="Courriel"></label><input class="champsContact" id="courrielContact" type="email" name="emailF" <?php if($connu){{echo 'value='.$recupEmail;}} ?> placeholder="dupont@gmail.com" required maxlength="100"><br/>
 	          <textarea class="champsContact" id="message" name="message" rows="10" cols="20" placeholder="VOTRE MESSAGE ICI" required ></textarea><br/><br/>
-	          <button type="submit" name="submit" class="button--circle" id="doigtContact"><img id="doigtContactImg" src="img/doigt.svg" alt="Doigt" ></button>
+	          <button type="submit" name="submit" id="doigtContact" class="button--circle spin"><img id="doigtContactImg" src="img/doigt.svg" alt="Doigt" ></button>
       		</form>
 			</div>
 	</div>
