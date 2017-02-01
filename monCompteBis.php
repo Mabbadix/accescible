@@ -25,10 +25,10 @@ $manageU = new UtilisateurManager($bdd);
   <head>
     <!-- integration de toutes les metas et autres link
 				ATTENTION link styleUser.css different du "style.css" -->
-    <?php
-		$type = 'utilisateur';
-		include 'head.php';
-		?>
+        <?php
+    		$type = 'utilisateur';
+    		include 'head.php';
+    		?>
     <title>Acces'Cible-Mon_Compte</title>
 
   </head>
@@ -127,9 +127,10 @@ $manageU = new UtilisateurManager($bdd);
 			<?php include( 'monCompteZoom.php');?>
     </div>
   </div>
-</main>
-<?php include 'footer.php';?>
-</div>
+  </div>
+  </main>
+  <?php include 'footer.php';?>
+  </div>
 </div>
 <div class="site-cache" id="site-cache"></div>
 </div>
