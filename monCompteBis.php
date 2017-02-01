@@ -55,18 +55,18 @@ $manageU = new UtilisateurManager($bdd);
             <?php echo $_SESSION['emailU'] ?>
           </p>
           <div class="afficheInfos" id="afficheInfos" style ="display:""">
-            <label for="nomU"><?php if (empty($ut->getNomU())) {echo 'Nom inconnu';}else{echo $ut->getNomU();}?></label>
-            <br>
-            <label for="prenomU"><?php if (empty ($ut->getPrenomU())) {echo 'Prénom inconnu';}else{echo $ut->getPrenomU();}?></label>
-            <br>
-            <label for="adresseU"><?php if (empty ($ut->getAdresseU())) {echo 'Adresse inconnue ';}else{echo $ut->getAdresseU();}?></label>
-            <br>
-            <label for="villeU"><?php if (empty($ut->getVilleU())) {echo 'Ville inconnue';}else{echo $ut->getVilleU();}?></label>
-            <br>
-            <label for="cpU"><?php if (empty($ut->getCpU())) {echo 'CP inconnu';}else{echo $ut->getCpU();}?></label>
-            <br>
-            <label for="telU"><?php if (empty($ut->getTelU())) {echo 'Tel  inconnu';}else{echo $ut->getTelU();}?></label>
-            <br>
+            <label for="nomU">Nom:</label>
+          </br><input class="champsCompte" disabled="true" type ="text" name="nomU" <?php if (empty($ut->getNomU())) {echo 'value="inconnu"';}else{echo 'value="'. $ut->getNomU().'"';}?>><br>
+            <label for="prenomU">Prénom :</label>
+          </br><input class="champsCompte" disabled="true" type ="text" name="prenomU" <?php if (empty($ut->getPrenomU())) {echo 'value="inconnu"';}else{echo 'value="'. $ut->getPrenomU().'"';}?>><br>
+            <label for="adresseU">Adresse :</label>
+          </br><input class="champsCompte" disabled="true" type ="text" name="adresseU" <?php if (empty($ut->getAdresseU())) {echo 'value="inconnue"';}else{echo 'value="'. $ut->getAdresseU().'"';}?>><br>
+            <label for="villeU">Ville:</label>
+          </br><input class="champsCompte" disabled="true" type ="text" name="villeU" <?php if (empty($ut->getVilleU())) {echo 'value="inconnue"';}else{echo 'value="'. $ut->getVilleU().'"';}?>><br>
+            <label for="cpU">CP:</label>
+          </br><input class="champsCompte" disabled="true" type ="text" name="cpU" <?php if (empty($ut->getCpU())) {echo 'value="inconnu"';}else{echo 'value="'. $ut->getCpU().'"';}?>><br>
+            <label for="telU">Tel :</label>
+          </br><input class="champsCompte" disabled="true" type ="text" name="telU" <?php if (empty($ut->getTelU())) {echo 'value="inconnu"';}else{echo 'value="'. $ut->getTelU().'"';}?>><br>
              <input class="BtnModifCompte" type="button" name="modifier" value="Modifier" onclick="modifierMonCompte()"/>
           </div>
           <div class="formModif" id="formModif" style="display:none">
