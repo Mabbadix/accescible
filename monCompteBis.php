@@ -127,7 +127,7 @@ $manageU = new UtilisateurManager($bdd);
         <?php } ?>
       </div>
       <div class= "mapcanvas"  id="mapcanvas"></div>
-			<?php include( 'userCarteZoom.php');?>
+			<?php include( 'monCompteZoom.php');?>
     </div>
   </main>
     <?php include 'footer.php';?>
