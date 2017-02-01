@@ -53,13 +53,19 @@ class SignalementManager{
     //compte le nombre de signalements et le retourne;
   public function count()
   {
-    return $this->_db->query('SELECT COUNT(*) FROM signalements')->fetchColumn();
+    return $this->_db->query('SELECT COUNT(idS) FROM signalements')->fetchColumn();
+  }
+  //nbr de signalement par utilisateur
+  public function countSignalPar($email)
+  {
+    return $this->_db->query("SELECT COUNT(*) FROM signalements WHERE signalPar='$email'")->fetchColumn();
   }
 
-  //supprime un utilisateur; A VERIFIER
-  public function delete(Signalement $si)
+  //supprime un signalement
+  public function delete($idS)
   {
-    $this->_db->exec('DELETE FROM sinalements WHERE latlng = '.$si->getLatlng());
+    $q = $this->_db->prepare("DELETE FROM signalements WHERE `idS` = :idS");
+    $q->execute([':idS'=>$idS]);
   }
 
   //verifie si existe et retourne nombre// A VERIFIER
@@ -72,7 +78,16 @@ class SignalementManager{
       return (bool) $q->fetchColumn();//true or false
   }
 
-    // on renvoi l'ensemble des info utilisateurs
+  //on récupère dans un tbl tous les signalements d'une seule personne
+  public function getTabSignalPar($email)
+  {
+    $q = $this->_db->query("SELECT * FROM signalements WHERE signalPar='$email'");
+    $check = $q->fetchAll(PDO::FETCH_ASSOC);
+    return $check;
+  }
+
+
+    // on renvoi l'ensemble des infos d'un signalement
     public function getSignal($id)
     {
       $q = $this->_db->prepare("SELECT * FROM signalements WHERE idS =:id");
@@ -82,6 +97,7 @@ class SignalementManager{
       return new Signalement ($q->fetch(PDO::FETCH_ASSOC));
     }
 
+    //on récupère dans un tbl tous les lat et lng des signalent
     public function getTabLatLng()
     {
       $q = $this->_db->query("SELECT * FROM signalements");

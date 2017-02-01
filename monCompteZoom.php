@@ -38,7 +38,7 @@ function zoomPost(lat, lng, idS){
         location.reload();
       });
 
-  infowindow.setContent('<div class="crossPostit" id="crossPostit"" >Acces\'cible Signalement</div>')
+    infowindow.setContent('<div class="crossPostit" id="crossPostit"" >Acces\'cible Signalement</div>')
   }
   //On modifie le postit pour que sélection soit visible et qu'il soit possible de revenir sur la vue générale
   var postits = document.getElementsByClassName('postit');
@@ -59,7 +59,7 @@ function revenir (){
     //x.innerHTML = latlng;
 
     var myOptions = {
-      zoom: 12
+      zoom: 5
       , center: latlngG
       , mapTypeId: google.maps.MapTypeId.ROADMAP
     };
@@ -67,8 +67,8 @@ function revenir (){
     var map = new google.maps.Map(mapcanvas, myOptions);
     //MAJ de la map en focntion des new Latlng
     var majMap = map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
-    // création Maker et son placement pour chaque latlng qu'il y a dans la BDD PHP/JS
-    <?php foreach ($tabLatLng as $tab){ ?>
+    // création Maker et son placement pour chaque latlng qu'il y a dans la BDD PHP/JS $tabSignalPar as $signal
+    <?php foreach ($tabSignalPar as $tab){ ?>
     new google.maps.Marker({
         position: new google.maps.LatLng(<?php echo $tab["latlng"]?>),
         map: map,
@@ -76,58 +76,33 @@ function revenir (){
         animation:google.maps.Animation.BOUNCE//google.maps.Animation.DROP
     });
   <?php } ?>
-}//fin de showposition
+
+  }//fin de showposition
 
   // Error si carte impossible à afficher
   function showError(error) {
-  switch (error.code) {
-  case error.PERMISSION_DENIED:
-    x.innerHTML = "User denied the request for Geolocation.</br><video class='videoR' controls preload='auto' poster='img/logo73.svg' ><source src='img/rendu_anim_handicap.mp4' type='video/mp4'>Your browser does not support the video tag.</video >"
-    break;
-  case error.POSITION_UNAVAILABLE:
-    x.innerHTML = "Location information is unavailable.</br><video class='videoR' controls preload='auto' poster='img/logo73.svg' ><source src='img/rendu_anim_handicap.mp4' type='video/mp4'>Your browser does not support the video tag.</video >"
-    break;
-  case error.TIMEOUT:
-    x.innerHTML = "The request to get user location timed out.</br><video class='videoR' controls preload='auto' poster='img/logo73.svg' ><source src='img/rendu_anim_handicap.mp4' type='video/mp4'>Your browser does not support the video tag.</video >"
-    break;
-  case error.UNKNOWN_ERROR:
-    x.innerHTML = "An unknown error occurred."
-    break;
+    switch (error.code) {
+    case error.PERMISSION_DENIED:
+      x.innerHTML = "User denied the request for Geolocation.</br><video class='videoR' controls preload='auto' poster='img/logo73.svg' ><source src='img/rendu_anim_handicap.mp4' type='video/mp4'>Your browser does not support the video tag.</video >"
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML = "Location information is unavailable.</br><video class='videoR' controls preload='auto' poster='img/logo73.svg' ><source src='img/rendu_anim_handicap.mp4' type='video/mp4'>Your browser does not support the video tag.</video >"
+      break;
+    case error.TIMEOUT:
+      x.innerHTML = "The request to get user location timed out.</br><video class='videoR' controls preload='auto' poster='img/logo73.svg' ><source src='img/rendu_anim_handicap.mp4' type='video/mp4'>Your browser does not support the video tag.</video >"
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML = "An unknown error occurred."
+      break;
+    }
   }
-}
 
-//Si géolocalisation supporter par navigateur alors appelle de fonction
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(showPosition, showError);
-}
-else {
-  x.innerHTML = "Geolocation is not supported by this browser.</br><video class='videoR' controls preload='auto' poster='img/logo73.svg' ><source src='img/rendu_anim_handicap.mp4' type='video/mp4'>Your browser does not support the video tag.</video >";
-}
+  //Si géolocalisation supporter par navigateur alors appelle de fonction
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition, showError);
+  }
+  else {
+    x.innerHTML = "Geolocation is not supported by this browser.</br><video class='videoR' controls preload='auto' poster='img/logo73.svg' ><source src='img/rendu_anim_handicap.mp4' type='video/mp4'>Your browser does not support the video tag.</video >";
+  }
 
-
-    /*var marker = new google.maps.Marker({
-        position: voirS,
-        map: map,
-        icon: "img/maker.svg",
-        animation:google.maps.Animation.DROP,
-      });*/
-
-    /*marker.setPlace({
-      placeId: voirS,
-      //location: place.geometry.location
-    });*/
-    // Event de click sur marker de position
-    /*google.maps.event.addListener(marker, 'click', function () {
-      alert("Par là quoi, à +/- "+position.coords.accuracy+" m à la ronde :))"); //message d'alerte
-    });*/
-    //autre makerS
-    //tableau contenant tous les marqueurs que nous créerons
-    /*var tabMarqueurs = new Array();
-    //notez la présence de l'argument "event" entre les parenthèses de "function()"
-    google.maps.event.addListener(map, 'click', function(event) {
-        tabMarqueurs.push(new google.maps.Marker({
-            position: event.latLng,//coordonnée de la position du clic sur la carte
-            map: map//la carte sur laquelle le marqueur doit être affiché
-        }));
-    });*/
 </script>

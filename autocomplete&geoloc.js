@@ -19,7 +19,7 @@ if (navigator.geolocation) {
   //récupération infos position + lancement de showPosition
   navigator.geolocation.getCurrentPosition(showPosition, showError);
 } else {
-  x.innerHTML = "Geolocation is not supported by this browser.";
+  x.innerHTML = "Geolocation is not supported by this browser./br><video class='videoR' controls preload='auto' poster='img/logo73.svg' ><source src='img/rendu_anim_handicap.mp4' type='video/mp4'>Your browser does not support the video tag.</video >";
 }
 
 //Affiche la position de l'utilisateur;
@@ -39,16 +39,59 @@ function showPosition(position) {
 function showError(error) {
   switch(error.code) {
       case error.PERMISSION_DENIED:
-          x.innerHTML = "User denied the request for Geolocation. Please active your Geolocalisation."
+          x.innerHTML = "User denied the request for Geolocation. Please active your Geolocalisation.</br><video class='videoR' controls preload='auto' poster='img/logo73.svg' ><source src='img/rendu_anim_handicap.mp4' type='video/mp4'>Your browser does not support the video tag.</video >"
+          var finAuto = document.getElementsByClassName('unSignalementField')
+          for (var i=0; i<finAuto.length+1; i++){
+            if (finAuto[i].type=="hidden"){
+              finAuto[i].type="text"
+              finAuto[i].disabled=""
+              if (finAuto[i].id=='rechargePage'){
+                finAuto[i].type="button"
+              }
+            }else{
+              finAuto[i].type="hidden"
+            }
+          document.getElementById("geocodeReverse").type="hidden"
+          }
           break;
       case error.POSITION_UNAVAILABLE:
-          x.innerHTML = "Location information is unavailable."
+          x.innerHTML = "Location information is unavailable.</br><video class='videoR' controls preload='auto' poster='img/logo73.svg' ><source src='img/rendu_anim_handicap.mp4' type='video/mp4'>Your browser does not support the video tag.</video >"
+          var finAuto = document.getElementsByClassName('unSignalementField')
+          for (var i=0; i<finAuto.length+1; i++){
+            if (finAuto[i].type=="hidden"){
+              finAuto[i].type="text"
+              finAuto[i].disabled=""
+            }else{
+              finAuto[i].type="hidden"
+            }
+          document.getElementById("geocodeReverse").type="hidden"
+          }
           break;
       case error.TIMEOUT:
-          x.innerHTML = "The request to get user location timed out."
+          x.innerHTML = "The request to get user location timed out.</br><video class='videoR' controls preload='auto' poster='img/logo73.svg' ><source src='img/rendu_anim_handicap.mp4' type='video/mp4'>Your browser does not support the video tag.</video >"
+          var finAuto = document.getElementsByClassName('unSignalementField')
+          for (var i=0; i<finAuto.length+1; i++){
+            if (finAuto[i].type=="hidden"){
+              finAuto[i].type="text"
+              finAuto[i].disabled=""
+            }else{
+              finAuto[i].type="hidden"
+            }
+          document.getElementById("geocodeReverse").type="hidden"
+          }
           break;
       case error.UNKNOWN_ERROR:
-          x.innerHTML = "An unknown error occurred."
+          x.innerHTML = "An unknown error occurred./br><video class='videoR' controls preload='auto' poster='img/logo73.svg' ><source src='img/rendu_anim_handicap.mp4' type='video/mp4'>Your browser does not support the video tag.</video >"
+          var finAuto = document.getElementsByClassName('unSignalementField')
+          for (var i=0; i<finAuto.length+1; i++){
+            if (finAuto[i].type=="hidden"){
+              finAuto[i].type="text"
+              finAuto[i].disabled=""
+            }else{
+              finAuto[i].type="hidden"
+            }
+          document.getElementById("geocodeReverse").type="hidden"
+          }
           break;
   }
 }
@@ -212,16 +255,52 @@ function Geolocalisation(){
   function showError(error) {
     switch(error.code) {
         case error.PERMISSION_DENIED:
-            x.innerHTML = "User denied the request for Geolocation.Merci d'activer votre Geolocalisation."
+            x.innerHTML = "User denied the request for Geolocation.Merci d'activer votre Geolocalisation.</br><video class='videoR' controls preload='auto' poster='img/logo73.svg' ><source src='img/rendu_anim_handicap.mp4' type='video/mp4'>Your browser does not support the video tag.</video >"
+            var finAuto = document.getElementsByClassName('unSignalementField')
+            for (var i=0; i<finAuto.length+1; i++){
+              if (finAuto[i].type=="hidden"){
+                finAuto[i].type="text"
+                finAuto[i].disabled=""
+              }else{
+                finAuto[i].type="hidden"
+              }
+            }
             break;
         case error.POSITION_UNAVAILABLE:
-            x.innerHTML = "Location information is unavailable."
+            x.innerHTML = "Location information is unavailable.</br><video class='videoR' controls preload='auto' poster='img/logo73.svg' ><source src='img/rendu_anim_handicap.mp4' type='video/mp4'>Your browser does not support the video tag.</video >"
+            var finAuto = document.getElementsByClassName('unSignalementField')
+            for (var i=0; i<finAuto.length+1; i++){
+              if (finAuto[i].type=="hidden"){
+                finAuto[i].type="text"
+                finAuto[i].disabled=""
+              }else{
+                finAuto[i].type="hidden"
+              }
+            }
             break;
         case error.TIMEOUT:
-            x.innerHTML = "The request to get user location timed out."
+            x.innerHTML = "The request to get user location timed out.</br><video class='videoR' controls preload='auto' poster='img/logo73.svg' ><source src='img/rendu_anim_handicap.mp4' type='video/mp4'>Your browser does not support the video tag.</video >"
+            var finAuto = document.getElementsByClassName('unSignalementField')
+            for (var i=0; i<finAuto.length+1; i++){
+              if (finAuto[i].type=="hidden"){
+                finAuto[i].type="text"
+                finAuto[i].disabled=""
+              }else{
+                finAuto[i].type="hidden"
+              }
+            }
             break;
         case error.UNKNOWN_ERROR:
-            x.innerHTML = "An unknown error occurred."
+            x.innerHTML = "An unknown error occurred.</br><video class='videoR' controls preload='auto' poster='img/logo73.svg' ><source src='img/rendu_anim_handicap.mp4' type='video/mp4'>Your browser does not support the video tag.</video >"
+            var finAuto = document.getElementsByClassName('unSignalementField')
+            for (var i=0; i<finAuto.length+1; i++){
+              if (finAuto[i].type=="hidden"){
+                finAuto[i].type="text"
+                finAuto[i].disabled=""
+              }else{
+                finAuto[i].type="hidden"
+              }
+            }
             break;
     }
   }

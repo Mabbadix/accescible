@@ -20,5 +20,6 @@ $tel = $_POST['telU'];
 print_r($_SESSION);
 echo'ok';
 $manageU->updateUtilisateur($mail, $nom, $prenom, $adresse, $ville, $cp, $tel);
-header("Location: userCarte.php");
+<<<<<<< HEAD
+header("Location: monCompteBis.php");
 ?>

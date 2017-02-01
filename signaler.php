@@ -53,72 +53,72 @@ if (isset($_SESSION['emailU'])){
                 <legend>Localiser</legend>
                 <?php if($etat=="localiser") {
 								echo'<div id="notif" class="warning"> <h2>Merci de localiser le problème</h2></div>';}?>
-                  <br>
-                  <table id="address1">
-                    <input class="unSignalementField" type="text" id="autocomplete" placeholder="Adresse complète, lieu, commerce etc." onFocus="initAutocomplete(), geolocate()"></input>
-                    <tr>
-                      <label for="adresseS"></label>
-                      <td class="slimField1">
-                        <input class="unSignalementField" id="street_number" name="numero" disabled="true" placeholder="n°" type="hidden"></input>
-                      </td>
-                      <td class="wideField">
-                        <input class="unSignalementField" id="route" name="adresseS" disabled="true" placeholder="type de voie et son intitulé" type="hidden"></inputs>
-                      </td>
-                    </tr>
-                    <tr>
-                      <label for="cpS"></label>
-                      <td class="slimField1">
-                        <input class="unSignalementField" id="postal_code" name="cpS" disabled="true" placeholder="CP" type="hidden"></input>
-                      </td>
-                      <label for="villeS"></label>
-                      <td class="wideField">
-                        <input class="unSignalementField" id="locality" name="villeS" disabled="true" placeholder="Ville" type="hidden"></input>
-                      </td>
-                    </tr>
-                  </table>
-                  <table>
-                    <tr>
-                      <label for="regionS"></label>
-                      <td class="slimField1">
-                        <input class="unSignalementField" type="hidden"></input>
-                      </td>
-                      <td class="wideField">
-                        <input class="unSignalementField" id="administrative_area_level_1" name="regionS" disabled="true" placeholder="Région" type="hidden"></input>
-                      </td>
-                    </tr>
-                    <tr>
-                      <label for="paysS"></label>
-                      <td class="slimField1">
-                        <input class="unSignalementField" type="hidden"></input>
-                      </td>
-                      <td class="wideField">
-                        <input class="unSignalementField" id="country" name="paysS" disabled="true" placeholder="Pays" type="hidden"></input>
-                      </td>
-                    </tr>
-                    <tr>
-                      <label for="latlgn"></label>
-                      <td class="slimField">
-                        <input class="unSignalementField" id="latlng" name="latlngS" type="hidden"></input>
-                      </td>
-                      <td class="slimField">
-                        <input class="unSignalementField" id="lat" name="lat" type="hidden"></input>
-                      </td>
-                      <td class="slimField">
-                        <input class="unSignalementField" id="lng" name="lng" type="hidden"></input>
-                      </td>
-                      <label for="placeId"></label>
-                      <td class="slimField">
-                        <input class="unSignalementField" id="placeId" name="placeIdS" type="hidden"></input>
-                      </td>
-                    </tr>
-                  </table>
-
-                  <label for="Geolocalisation"></label>
-                  <input type="button" class="unSignalement" id="geocodeReverse" onFocus="Geolocalisation()"></input>
-              </fieldset>
-              <fieldset id="descriptionSFied" name="decrire">
-                <legend>Décrire</legend>
-                <?php if($etat=="decrire"){
+						<br>
+						<table id="address1">
+						<input class="unSignalementField" type="text" id="autocomplete" placeholder="Adresse complète, lieu, commerce etc." onFocus="initAutocomplete(), geolocate()" ></input>
+						<tr >
+							<label for="adresseS"></label>
+						  <td class="slimField1">
+								<input class="unSignalementField" id="street_number" name="numero" disabled="true" placeholder="n°" type="hidden"></input>
+							</td>
+		          <td class="wideField" >
+								<input class="unSignalementField" id="route" name="adresseS" disabled="true" placeholder="type de voie et son intitulé" type="hidden"></input>
+							</td>
+		        </tr>
+		        <tr>
+							<label for="cpS"></label>
+		          <td class="slimField1">
+								<input class="unSignalementField" id="postal_code" name="cpS" disabled="true" placeholder="CP" type="hidden"></input>
+							</td>
+							<label for="villeS"></label>
+		          <td class="wideField">
+								<input class="unSignalementField" id="locality" name="villeS" disabled="true" placeholder="Ville" type="hidden"></input>
+							</td>
+			      </tr>
+						</table>
+						<table>
+			        <tr>
+								<label for="regionS"></label>
+								<td class="slimField1">
+									<input class="unSignalementField1" type="hidden"></input>
+								</td>
+			          <td class="wideField">
+									<input class="unSignalementField1" id="administrative_area_level_1" name="regionS"  type="hidden" value="nc"></input>
+								</td>
+							</tr>
+							<tr>
+								<label for="paysS"></label>
+								<td class="slimField1">
+									<input class="unSignalementField1" type="hidden"></input>
+								</td>
+			          <td class="wideField">
+									<input class="unSignalementField1" id="country" name="paysS" type="hidden" value="France"></input>
+								</td>
+			        </tr>
+							<tr>
+								<label for="latlgn"></label>
+								<td class="slimField">
+									<input class="unSignalementField1" id="latlng" name="latlngS"  type="hidden" value="0"></input>
+								</td>
+								<td class="slimField">
+									<input class="unSignalementField1" id="lat" name="lat"  type="hidden" value="0"></input>
+								</td>
+								<td class="slimField">
+									<input class="unSignalementField1" id="lng" name="lng"  type="hidden" value="0"></input>
+								</td>
+								<label for="placeId"></label>
+								<td class="slimField">
+									<input class="unSignalementField1" id="placeId" name="placeIdS" type="hidden" value="0"></input>
+								</td>
+							</tr>
+              <input class="unSignalementField" id="rechargePage" name="rechargePage" type="hidden" onclick="location.reload()" value="Essayer la géoloc"></input>
+	      		</table>
+						<label for="Geolocalisation"></label>
+						<input type ="button" class="unSignalementGeoloc" id="geocodeReverse"  onFocus="Geolocalisation()"></input>
+					</fieldset>
+					<fieldset id="descriptionSFied" name="decrire">
+						<legend>Décrire</legend>
+						<?php if($etat=="decrire"){
 								echo '<div id="notif" class="warning"> <h2>Merci de décrire le problème</h2></div>';
 						}?>
                   <label for="typeS"></label>
@@ -150,49 +150,46 @@ if (isset($_SESSION['emailU'])){
 								echo '<div id="notif" class="error"> <h2>Erreur dinconnue lors du chargement de la photo. Merci de recommencer.</h2></div>';
 								break;
 						}?>
-                  <input type="hidden" name="MAX_FILE_SIZE" value="10000000">
-                  <label id="fileContainer">
-                    <img src="img/telecharge.jpeg" alt="télécharge" id="putPhotoS" />
-                    <input class="incPhotoS" id="incPhotoS" type="file" name="photoS" />
-                  </label>
-              </fieldset>
-              <fieldset name="valider">
-                <legend>Valider</legend>
+						<input type="hidden" name="MAX_FILE_SIZE" value="10000000">
+						<label id="fileContainer">
+							<img src="img/telecharge.jpeg" alt="télécharge" id="putPhotoS"/>
+							<input class="incPhotoS" id="incPhotoS" type="file" name="photoS"/>
+						</label>
+					</fieldset>
+					<fieldset name="valider">
+						<legend>Valider</legend>
+						<label for="signaler"></label><br/>
+						<button class="spin button--circle" name="signaler" id="signaler" ><img id="doigt" src="img/doigt.svg"></img></button>
+            </fieldset>
+        </form>
 
-                <label for="signaler"></label>
-                <br/>
-                <button name="signaler" id="signaler" class="spin button--circle"><img id="doigt" src="img/doigt.svg"></img>
-                </button>
-              </fieldset>
-            </form>
+		</div>
+		<div id="mapcanvas"></div>
+		<?php	include 'autocomplete&geoloc.js';?>
+		</div>
+	</main>
+  <?php include 'footer.php';?>
+  </div>
+  </div>
+<div class="site-cache" id="site-cache"></div>
+  </div>
+  </div>
+</body>
+<script src="js/app.js"></script>
+ <script>
+  var forEach=function(t,o,r){if("[object Object]"===Object.prototype.toString.call(t))for(var c in t)Object.prototype.hasOwnProperty.call(t,c)&&o.call(r,t[c],c,t);else for(var e=0,l=t.length;l>e;e++)o.call(r,t[e],e,t)};
 
-        </div>
-        <div id="mapcanvas"></div>
-        <?php	include 'autocomplete&geoloc.js';?>
-      </div>
-    </main>
-    <?php include 'footer.php';?>
-    </div>
-    </div>
-<div class="site-cache" id="site-cache"></div> 
-    </div>
-    </div> 
-  </body>
-  <script src="js/app.js"></script>
-   <script>
-    var forEach=function(t,o,r){if("[object Object]"===Object.prototype.toString.call(t))for(var c in t)Object.prototype.hasOwnProperty.call(t,c)&&o.call(r,t[c],c,t);else for(var e=0,l=t.length;l>e;e++)o.call(r,t[e],e,t)};
-
-    var hamburgers = document.querySelectorAll(".hamburger");
-    if (hamburgers.length > 0) {
-      forEach(hamburgers, function(hamburger) {
-        hamburger.addEventListener("click", function() {
-          this.classList.toggle("is-active");
-        }, false);
-      });
-    }
-  </script>
-  </html>
-  <?php
+  var hamburgers = document.querySelectorAll(".hamburger");
+  if (hamburgers.length > 0) {
+    forEach(hamburgers, function(hamburger) {
+      hamburger.addEventListener("click", function() {
+        this.classList.toggle("is-active");
+      }, false);
+    });
+  }
+</script>
+</html>
+<?php
 // ATTENTION FERMETURE DE LA SESSION SI ouverture
 }else {
 

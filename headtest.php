@@ -10,16 +10,15 @@
     <nav class="menu">
       <a href="userCarte.php">Carte</a>
       <a href="signaler.php">Signaler</a>
-      <a href="#" id="account">Mon compte</a>
+      <a href="monCompteBis.php" id="account">Mon compte</a>
       <a href="#" id="nousContacter">Contact</a>
       <a href="deconn.php">Déconnection</a>
     </nav>
   </header>
-<?php 
+<?php
 include'contact.php';
 if ($mailContact==true) {echo '<div id="notif" class="notif success"> <h2>Votre message a bien été envoyé</h2></div>';}
 ?>
-<?php include'compte.php';?>
 <script>
   $(document).ready(function(){
     $("#notif").fadeOut(5000);

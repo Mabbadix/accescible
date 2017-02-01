@@ -119,14 +119,62 @@ a:hover{
 }
 /*
 .mainLeft {
-    /*float: left;
-    height: inherit;*/
-   /* max-width: 350px;
-    /*color: rgb(4, 90, 149);
-    overflow-y: scroll;*/
-    /*padding: 0.5em;*/
-/*}
+    /float:left;
+  height:inherit;
+  max-width: 350px;
+  color:rgb(4,90,149);
+  overflow-y: scroll;
+  padding: 0.5em;
+}*/
 
+/***Vidéo si géoloc ne marche pas********/
+.videoR{
+  max-width: 40em;
+  max-height: 30em;
+}
+
+
+/*******MoncCompteBis*******************/
+.mainUserCarteCompte {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 35em;
+  font-size:1em;
+  font-weight: bold;
+  text-align: center;
+  color:rgb(4,90,149);
+}
+
+.mainLeftCompte{
+  float:left;
+  height:inherit;
+  max-width: 350px;
+  color:rgb(4,90,149);
+  overflow-y: scroll;
+  padding: 0.5em;
+}
+
+.mesInfos{
+
+}
+
+.title-account2{
+  color: rgb(223,74,16);
+}
+
+.champsCompte{
+  width: auto;
+  border-radius: 12px;
+  border: 0.1em solid rgb(147,188,218);
+  padding: 0.4em 0.8em;
+  margin : 0.2em;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+}
 
 /****************postit msgsignal dans userCarte******************/
 /*
@@ -165,6 +213,10 @@ a:hover{
 
 
 /***bouton soutien dans userCarte****/
+#SoutienImg{
+  height: 55px;
+  width: 55px;
+}
 /*
 .doigtSoutien {
     height: 45px;
@@ -210,6 +262,15 @@ fieldset {
     font-weight: bold;
 }
 
+/***Si autocomplete et geocodereverse impossible alors form***/
+.unSignalementField{
+  width: 99%;
+  max-width: 300px;
+}
+.slimField1 {
+  width: 50px;
+}
+
 #geocodeReverse {
     min-width: 60px;
     min-height: 60px;
@@ -232,7 +293,6 @@ fieldset {
     -webkit-transform: scale(1.2);
     transform: scale(1.2);
 }
-
 
 /*****les img symbolisant les pb****/
 
@@ -309,23 +369,20 @@ textarea {
     max-height: 70px;
 }
 
-
-/*bouton de signaler /valider*/
-
-.button--circle {
-    background-color: rgb(4, 90, 149);
-    border: 2px solid rgb(4, 90, 149);
-    border-radius: 100%;
-    text-align: center;
-    -moz-transition-duration: 0.3s;
-    -moz-transition-timing-function: ease;
-    -webkit-transition-duration: 0.3s;
-    -webkit-transition-timing-function: ease;
-    transition-duration: 0.3s;
-    transition-timing-function: ease-out;
+/*bouton de signaler /valider/ soutenirr*/
+.button--circle{
+  background-color: rgb(4,90,149);
+  border: 2px solid rgb(4,90,149);
+  border-radius: 100%;
+  -moz-transition-duration:0.3s;
+	-moz-transition-timing-function:ease;
+	-webkit-transition-duration:0.3s;
+	-webkit-transition-timing-function:ease;
+	transition-duration:0.3s;
+	transition-timing-function:ease-out;
 }
 
-.button--circle:hover {
+.button--circle:hover{
     -moz-transform: rotate(635deg) scale(1.2);
     -webkit-transform: rotate(635deg) scale(1.2);
     transform: rotate(635deg) scale(1.2);
@@ -400,7 +457,6 @@ footer {
 
 
 /***************** Notifications **************************/
-
 
 /*******Page MON COMPTE***********/
 
@@ -568,7 +624,39 @@ h4 {
 }
 
 
-/********** Slideshow UnSignalemet*******/
+/***************** Notifications **************************/
+/*#notif {
+  background-image: repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 40px );
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+  padding: 5px 10px;
+  box-shadow:	inset 0 1px 0 rgba(255,255,255,0.5);
+  border: 1px solid;
+  margin: 10px 0;
+  position: inherit;
+  left: 50%;
+  z-index: 200;
+  max-width: 100%;
+}
+.info {
+  background-color: #6af;
+  border-color: #48d;
+}
+.warning{
+  background-color: #fa4;
+  border-color: #d82;
+}
+.success{
+  background-color: #8d5;
+  border-color: #6b3;
+}
+.error {
+  background-color: #f31;
+  border-color: #d10;
+}
+*/
+
+/********** Slideshow UnSignalement*******/
 
 .slideshow-container {
     max-width: 500px;
@@ -603,179 +691,213 @@ h4 {
 
 
 /************MEDIA QUERRY***********/
+@media only screen and (max-width: 1150px) {
+  .imgType{
+    max-width:68px;
+    max-height: 68px;
+  }
+  .imgTypeActif{
+    max-width:68px;
+    max-height: 68px;
+}
+.videoR{
+  max-width: 30em;
+  max-height: 25em;
+}
 
-@media only screen and (max-width: 1008px) {
-    .imgType {
-        max-width: 68px;
-        max-height: 68px;
-    }
-    .imgTypeActif {
-        max-width: 68px;
-        max-height: 68px;
-    }
-    @media only screen and (max-width: 500px) {
-        header {
-            height: 2.555em;
-            background: rgba(233, 95, 3, 1);
-        }
-        /**page index + nav****/
-        .text {
-            font-size: 15px
-        }
-        .button {
-            font-size: 14px
-        }
-        .inscription {
-            margin-top: 8px
-        }
-        .side {
-            overflow-x: auto;
-            padding-top: 15px;
-        }
-        .side a {
-            font-size: 20px
-        }
-        .boutonFermer {
-            font-size: 25px !important;
-            top: 0px;
-            right: 15px;
-        }
-        li:last-child {
-            font-size: 17px
-        }
-        li a {
-            font-size: 17px;
-        }
-        /**autre page****/
-        .mapcanvas {
-            min-width: 100%;
-            float: left;
-        }
-        .mainLeft {
-            float: left;
-            height: auto;
-            min-width: 100%;
-            overflow-y: scroll;
-        }
-        /******form sur signaler*******/
-        .msgsignal {
-            max-width: 100%;
-        }
-        .imgType {
-            max-width: 68px;
-            max-height: 68px;
-        }
-        .imgTypeActif {
-            max-width: 68px;
-            max-height: 68px;
-        }
-        #putPhotoS {
-            max-width: 55px;
-            max-height: 55px;
-        }
-        /*****postit sur usercate******/
-        .gauchePost {
-            min-width: 60%;
-        }
-        .droitePost {
-            max-width: 40%;
-            margin-top: 0;
-        }
-        #doigtSoutien {
-            height: 40px;
-            width: 40px;
-        }
-        #doigtSoutienImg {
-            height: 30px;
-            width: 30px;
-        }
-        .nbsoutiens {
-            font-size: 2em;
-        }
-        /**page contact + moncompte***/
-        .title-page {
-            font-size: 20px
-        }
-        .champsContact {
-            font-size: 15px;
-        }
-        /***footer***/
-        .footerdiv {
-            min-width: 100%;
-        }
-        /******************Page mentions legales**************/
+@media only screen and (max-width: 950px) {
+  .videoR{
+    max-width: 17em;
+    max-height: 11em;
+  }
+}
 
-        .mentionsLegales {
-            width: 90%;
-        }
-        #crossFooter {
-            right: 10%;
-        }
-        /**********************Nous contacter *****************/
-        #titleContact {
-            font-size: 1em;
-        }
-        .pageContact {
-            width: 90%;
-            margin-top: 15%;
-            border: 2px solid rgb(34, 112, 155);
-        }
-        #crossContact {
-            font-size: 1em;
-            position: absolute;
-            color: rgba(233, 95, 3, 1);
-            font-weight: bolder;
-            right: 10%;
-        }
-        .formContact {
-            margin-top: 0;
-            padding: 0;
-        }
-        #doigtContact {
-            height: 60px;
-            width: 60px;
-        }
-        #doigtContactImg {
-            height: 50px;
-        }
+@media only screen and (max-width: 500px) {
+  header {
+    height:2.555em;
+    background:rgba(233,95,3,1);
+  }
+  /**page index + nav****/
+  .text{
+    font-size: 15px
+  }
+  .button {
+    font-size:14px
+  }
+  .inscription {
+    margin-top :8px
+  }
+  .side {
+    overflow-x:auto;
+    padding-top: 15px;
+  }
+  .side a {
+    font-size: 20px
+  }
+  .boutonFermer {
+    font-size:25px !important;
+    top:0px;
+    right: 15px;
+  }
+  li:last-child {
+    font-size:17px
+  }
+  li a {
+      font-size: 17px;
     }
-    @media only screen and (max-width: 400px) {
-        .title-page {
-            text-align: center;
-        }
-        .formContact {
-            min-width: 100%;
-            margin-bottom: 10px;
-        }
-        .champsContact {
-            max-width: 95%;
-        }
-        .footerdiv {
-            margin-top: 50px;
-        }
-    }
-    @media only screen and (max-width: 250px) {
-        header {
-            height: 2.555em;
-            background: rgba(233, 95, 3, 1);
-        }
-        .text {
-            font-size: 7px
-        }
-        .button {
-            font-size: 11px
-        }
-        .inscription {
-            margin-top: 8px
-        }
-        .mainLeft {
-            float: left;
-            height: inherit;
-            min-width: 100%;
-            color: rgb(229, 106, 23);
-            overflow-y: scroll;
-        }
-        .msgsignal {
-            max-width: 100%;
-        }
+  /**autre page****/
+  .mapcanvas{
+    min-width: 100%;
+    float:left;
+  }
+  .videoR{
+    max-width: 100%;
+    float:left;
+  }
+  .mainLeft{
+    float:left;
+    height:auto;
+    min-width: 100%;
+    overflow-y: scroll;
+  }
+  /******form sur signaler*******/
+  .msgsignal{
+    max-width:100%;
+  }
+  .imgType{
+    max-width:68px;
+    max-height: 68px;
+  }
+  .imgTypeActif{
+    max-width:68px;
+    max-height: 68px;
+  }
+
+  #putPhotoS{
+    max-width:55px;
+    max-height:55px;
+  }
+
+  /*****postit sur usercate******/
+  .gauchePost{
+    min-width: 60%;
+  }
+  .droitePost{
+    max-width: 40%;
+    margin-top:0;
+  }
+  #doigtSoutien{
+    height: 40px;
+    width: 40px;
+  }
+  #doigtSoutienImg{
+    height: 30px;
+    width: 30px;
+  }
+
+  .nbsoutiens{
+    font-size: 2em;
+  }
+  /**page contact + moncompte***/
+  .title-page{
+    font-size: 20px
+  }
+  .champsContact {
+    font-size: 15px;
+  }
+  /***footer***/
+  .footerdiv{
+    min-width: 100%;
+  }
+  /******************Page mentions legales**************/
+  .popupFooter{
+    bottom: -300%;
+  }
+  .mentionsLegales{
+    width: 90%;
+  }
+
+  /**********************Nous contacter *****************/
+  #titleContact {
+      font-size: 1em;
+  }
+  .pageContact {
+      width: 90%;
+      margin-top: 15%;
+      border: 2px solid rgb(34, 112, 155);
+  }
+  #crossContact {
+      font-size: 1em;
+      position: absolute;
+      color: rgba(233, 95, 3, 1);
+      font-weight: bolder;
+      right: 10%;
+  }
+  .formContact {
+      margin-top: 0;
+      padding: 0;
+  }
+  #doigtContact {
+      height: 60px;
+      width: 60px;
+  }
+  #doigtContactImg {
+      height: 50px;
+  }
+}
+  @media only screen and (max-width: 400px) {
+      .title-page {
+          text-align: center;
+      }
+      .formContact {
+          min-width: 100%;
+          margin-bottom: 10px;
+      }
+      .champsContact {
+          max-width: 95%;
+      }
+      .footerdiv {
+          margin-top: 50px;
+      }
+  }
+  @media only screen and (max-width: 400px) {
+      .title-page {
+          text-align: center;
+      }
+      .formContact {
+          min-width: 100%;
+          margin-bottom: 10px;
+      }
+      .champsContact {
+          max-width: 95%;
+      }
+      .footerdiv {
+          margin-top: 50px;
+      }
+  }
+
+  @media only screen and (max-width: 250px) {
+      header {
+          height: 2.555em;
+          background: rgba(233, 95, 3, 1);
+      }
+      .text {
+          font-size: 7px
+      }
+      .button {
+          font-size: 11px
+      }
+      .inscription {
+          margin-top: 8px
+      }
+      .mainLeft {
+          float: left;
+          height: inherit;
+          min-width: 100%;
+          color: rgb(229, 106, 23);
+          overflow-y: scroll;
+      }
+      .msgsignal {
+          max-width: 100%;
+      }
 }}

@@ -17,8 +17,8 @@
       <label for="telU">Votre numéro de teléphone:</label><br>
       <input class="champsContact" type="text" name="telU" value=""><br>
        <button type="submit" name="submit" value="Envoyer" id="envoyer" class="button--circle spin"><img id="doigt" src="img/doigt.svg" height="80px"></img></button>
-    </form>
-</div>      
+      </form>
+    </div>
     </div>
     <script>
         $("#account").click(function(){

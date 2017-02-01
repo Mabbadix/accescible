@@ -43,8 +43,7 @@ require 'connData.php';
     <main>
       <!-- Partie centrale en dessous de navBar-->
       <div class="mainUserCarte">
-        <div class="mainLeft" id="listSignal">   
-
+        <div class="mainLeft" id="listSignal">
           <!-- Intégration des signalements à gauche de la carte + effet tournant -->
           <?php
 							$siMa = new SignalementManager($bdd);
@@ -69,21 +68,15 @@ require 'connData.php';
                       <img classe="latlng" src="img/'.$si->getTypeS().'.png" alt="Type du problème" height=60>
                       <div class="crossPostit" id="crossPostit'.$si->getIdS().'" onclick="revenir()" style ="display:none">X</div>
                       </div>
-											<div class="postit--signal">
-                      <button type="submit" name="signaler" class="soutiens1 button--circle spin doigtSoutien" onclick="idS='.$si->getIdS().'">
-                      <img src="img/jaime_orange.svg " class="doigtSoutienImg" alt="Doigt">
-                      </button>
+                      <div class="postit--signal"><input class="button--circle" type="image" name="signaler" id="SoutienImg" src="img/jaime_orange.svg"  onclick="idS='.$si->getIdS().'"/>
 											<span class="nbsoutiens"> '.$si->getNSoutienS().'</span>
 											</div>
-											</div>
-										</div>';
+            				</div> </div>';
 									$i++;
 									$id++;
 								}
 							}
 							$tabLatLng = $siMa->getTabLatLng();
-							?>
-            <?php
 							if($manageU->isConnected() === true && $_SESSION['confirme']==1){
 								?>
               <script src="soutien.js"></script>
@@ -95,7 +88,7 @@ require 'connData.php';
       </div>
     </main>
     <?php include 'footer.php';?>
-		    </div>
+	</div>
   </div>
   <div class="site-cache" id="site-cache"></div>
   </div>
