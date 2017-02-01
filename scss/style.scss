@@ -1,0 +1,68 @@
+@import "compass";
+/***********/
+/*Variables*/
+/***********/
+$header-bg:#df4a10;
+$header-font-color:rgb(4,90,149);
+
+*{
+  box-sizing: border-box;
+}
+
+html, body{
+  font-family: Roboto;
+  line-height: 1.4;
+  max-height: 100%;
+  
+  padding: 0;
+  margin: 0;
+}
+a{text-decoration: none; color: inherit;}
+.container{
+  margin: 0;
+  @include clearfix;
+}
+.site-content{padding-top: 66px;}
+
+.header{
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 66px;
+  line-height: 66px;
+  color: $header-font-color;
+  background-color: $header-bg;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.header__logo{
+  font-weight: bold;
+  padding: 0 25px;
+  height: 66px;
+  float: left;
+  img{height: 66px;}
+}
+
+.header__icon{display: none;}
+
+.menu{
+  float: left;
+  
+  a{padding: 0 20px;}
+  a:hover{color:darken($header-font-color,10);}
+}
+
+/*******************************************************\
+                      RESPONSIVE
+\*******************************************************/
+@import "responsive";
+/*******************************************************\
+                      POSTITS
+\*******************************************************/
+@import "postit";
+/*******************************************************\
+                      Notification
+\*******************************************************/
+@import "notification";
+@import "connexion";

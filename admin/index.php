@@ -53,7 +53,7 @@ if (isset($_POST['se_connecter']))
 
             $_SESSION['logged'] = true;
             //informe et on redirige
-            echo '<div id="notif" class="success"> <h2>Bonjour, content de vous retrouver :)) </h2></div><script type="text/javascript"> window.setTimeout("location=(\'userCarte.php\');",1000) </script>';
+            echo '<div id="notif" class="success"> <h2>Bonjour, content de vous retrouver :)) </h2></div><script type="text/javascript"> window.setTimeout("location=(\'paneladmin.php\');",1000) </script>';
 	    }else{
             echo '<div id="notif" class="error"> <h2>Vous n\'etes pas administrateur</h2></div><script type="text/javascript"> window.setTimeout("location=(\'../index.php\');",1000) </script>';
         }  
@@ -86,11 +86,11 @@ if (isset($_POST['se_connecter']))
 		<div>
 			<!-- CONN ET INSCRIPTION !-->
 			<form name ="formConn" method="post" id="button" style="text-align:center">
-				<label for="Courriel"></label><input class="button connexion" id="Courriel" type="email" name="Courriel" placeholder="dupont@gmail.com" value="<?php if (!empty($_POST['Courriel'])) {echo stripcslashes(htmlspecialchars($_POST['Courriel'], ENT_QUOTES));} ?>"  required maxlength="100"><br>
-				<label for="Mot_de_passe"></label> <input class="button inscription" id="Mot_de_passe" type="password"
+				<label for="Courriel"></label><input class="button--index connexion" id="Courriel" type="email" name="Courriel" placeholder="dupont@gmail.com" value="<?php if (!empty($_POST['Courriel'])) {echo stripcslashes(htmlspecialchars($_POST['Courriel'], ENT_QUOTES));} ?>"  required maxlength="100"><br>
+				<label for="Mot_de_passe"></label> <input class="button--index inscription" id="Mot_de_passe" type="password"
 					name="Mot_de_passe" placeholder="Mot de passe" required maxlength="50"><br>
 					<label for="se_connecter"></label>
-				<button class="button connexion" id="se_connecter" type="submit"
+				<button class="button--index" type="submit"
 				name="se_connecter" value="se connecter" formaction = "index.php">Connexion</button>
 			</form>
 		</div>

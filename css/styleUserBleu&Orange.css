@@ -1,19 +1,28 @@
-* {
-  box-sizing:border-box;
+    * {
+    box-sizing: border-box;
 }
-html, body {height:100%;margin:0;}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 
 body {
-  font-family: Verdana,sans-serif;
-  margin:0;
-  max-width: 100%;
-
+    font-family: Verdana, sans-serif;
+    margin: 0;
+    max-width: 100%;
 }
 
 
 /*****************HEADER**************/
 
-  /**************NavBAR************/
+
+/**************NavBAR************/
+
+
+/*
 header {height:3.7em;}
 .navFix{
   position: relative;
@@ -42,6 +51,7 @@ li:last-child {
     cursor:pointer;
 }
 
+
 li a {
     display: block;
     text-align: center;
@@ -58,679 +68,714 @@ a:hover{
     background-color:rgb(4,90,149);
     color:rgba(233,95,3,1);
 }
+*/
+
 
 /*side déroulant navigation*/
+/*
 .side {
-    height:26.9em;
+    height: 26.9em;
     width: 0;
     position: fixed;
     z-index: 1;
     right: 0px;
-    background-color:rgb(4,90,149);
+    background-color: rgb(4, 90, 149);
     overflow-x: hidden;
     transition: 0.5s;
 }
 
-
 .side a {
-  padding:8px;
-  text-decoration: none;
-  font-size:20px;
-  color:rgba(233,95,3,1);
-  display:block;
-  transition:0.3s;
-  text-align: right;
+    padding: 8px;
+    text-decoration: none;
+    font-size: 20px;
+    color: rgba(233, 95, 3, 1);
+    display: block;
+    transition: 0.3s;
+    text-align: right;
 }
 
-.side a:hover, .side a:focus {
-  background-color: rgba(233,95,3,0.6);
+.side a:hover,
+.side a:focus {
+    background-color: rgba(233, 95, 3, 0.6);
 }
 
-.boutonFermer{
-  font-size :36px !important;
+.boutonFermer {
+    font-size: 36px !important;
 }
+
 
 /***************MAIN/CONTENT************/
+
 .mainUserCarte {
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  height: 35em;
-  font-size:20px;
-  font-weight: bold;
-  text-align: center;
-  color:rgb(4,90,149);
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 35em;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(4, 90, 149);
 }
-.mainLeft{
-  float:left;
-  height:inherit;
-  max-width: 350px;
-  color:rgb(4,90,149);
-  overflow-y: scroll;
-  padding: 0.5em;
-}
+/*
+.mainLeft {
+    /*float: left;
+    height: inherit;*/
+   /* max-width: 350px;
+    /*color: rgb(4, 90, 149);
+    overflow-y: scroll;*/
+    /*padding: 0.5em;*/
+/*}
+
+
 /****************postit msgsignal dans userCarte******************/
+/*
 .msgsignal {
-  display:flex;
-  display: -webkit-flex;
-  -webkit-align-items: center;
-          align-items: center;
-  -webkit-justify-content: center;
-          justify-content: center;
-  background-color:rgb(241,240,240);
-  border-top: 1px solid rgb(4,90,149);
-  text-decoration: none;
-  color:rgb(223,74,16);
-  font-size: 12px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 2s;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    background-color: rgb(241, 240, 240);
+    border-top: 1px solid rgb(4, 90, 149);
+    text-decoration: none;
+    color: rgb(223, 74, 16);
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 2s;
 }
 
-.crossPostit{
-  font-size: 40px;
-  color:rgb(4,90,149);
-  z-index: 150;
+.crossPostit {
+    font-size: 40px;
+    color: rgb(4, 90, 149);
+    z-index: 150;
 }
-.gauchePost{
-  width: 60%;
-  font-weight: normal;
+/*
+.gauchePost {
+    width: 60%;
+    font-weight: normal;
 }
 
-.droitePost{
-  -webkit-flex: 1;
-          flex: 1;
+.droitePost {
+    -webkit-flex: 1;
+    flex: 1;
 }
+
 
 /***bouton soutien dans userCarte****/
-#doigtSoutien{
-  height: 45px;
-  width: 45px;
+/*
+.doigtSoutien {
+    height: 45px;
+    width: 45px;
 }
 
-#doigtSoutienImg{
-  height: 35px;
-  width: 35px;
+.doigtSoutienImg {
+    height: 35px;
+    width: 35px;
 }
 
-.nbsoutiens{
-  float: right;
-  font-size: 2.7em;
-  font-weight: bold;
+.nbsoutiens {
+    float: right;
+    font-size: 2.7em;
+    font-weight: bold;
 }
+*/
 
 /********FORM SIGNALER****************/
 
-fieldset{
-  border:none;
-  border-top: 1px solid rgb(223,74,16);
+fieldset {
+    border: none;
+    border-top: 1px solid rgb(223, 74, 16);
 }
 
 #mapcanvas {
-  cursor:pointer;
-  height: inherit;
+    cursor: pointer;
+    height: inherit;
 }
+
 
 /*form sur le coté de signaler.php*/
 
 #autocomplete {
-border: 2px solid rgb(4,90,149);
-background-color: #f0f0ff;
-top: 0px;
-left: 0px;
-width: 99%;
-margin-bottom: 10px;
-height: 30px;
-color: rgb(229,106,23);
-font-weight: bold;
-
+    border: 2px solid rgb(4, 90, 149);
+    background-color: #f0f0ff;
+    top: 0px;
+    left: 0px;
+    width: 99%;
+    margin-bottom: 10px;
+    height: 30px;
+    color: rgb(229, 106, 23);
+    font-weight: bold;
 }
 
-#geocodeReverse{
-  min-width: 60px;
-  min-height: 60px;
-  background-size: contain;
-  background-color: rgb(4,90,149);
-  border: 2px solid rgb(4,90,149);
-  background-image: url(../img/cible.svg);
-  border-radius: 100%; no-repeat;
-  -moz-transition-duration:0.3s;
-	-moz-transition-timing-function:ease;
-	-webkit-transition-duration:0.3s;
-	-webkit-transition-timing-function:ease;
-	transition-duration:0.3s;
-	transition-timing-function:ease;
+#geocodeReverse {
+    min-width: 60px;
+    min-height: 60px;
+    background-size: contain;
+    background-color: rgb(4, 90, 149);
+    border: 2px solid rgb(4, 90, 149);
+    background-image: url(../img/cible.svg);
+    border-radius: 100%;
+    no-repeat;
+    -moz-transition-duration: 0.3s;
+    -moz-transition-timing-function: ease;
+    -webkit-transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
 }
 
-#geocodeReverse:hover{
-  -moz-transform: scale(1.2);
-	-webkit-transform: scale(1.2);
-	transform: scale(1.2);
-}
-
-/*****les img symbolisant les pb****/
-.imgType{
-  max-width:80px;
-  max-height: 80px;
-  border-radius: 20%;
-  -moz-transition-duration:0.3s;
-  -moz-transition-timing-function:ease;
-  -webkit-transition-duration:0.3s;
-  -webkit-transition-timing-function:ease;
-  transition-duration:0.3s;
-  transition-timing-function:ease;
-}
-
-.imgType:hover:not(.imgTypeActif) {
-    background-color: rgba(4,90,149,0.5);
-      -moz-transform: scale(1.2);
-      -webkit-transform: scale(1.2);
-      transform: scale(1.2);
-  }
-
-.imgTypeActif {
-    max-width:80px;
-    max-height: 80px;
-    background-color:rgb(4,90,149);
-    border-radius: 30%;
-    -moz-transition-duration:0.3s;
-    -moz-transition-timing-function:ease;
-    -webkit-transition-duration:0.3s;
-    -webkit-transition-timing-function:ease;
-    transition-duration:0.3s;
-  }
-.imgTypeActif:hover{
-  transition-timing-function:ease;
+#geocodeReverse:hover {
     -moz-transform: scale(1.2);
     -webkit-transform: scale(1.2);
     transform: scale(1.2);
 }
-/***Description + photo***/
 
-textarea{
-border: 2px solid rgb(223,74,16);
 
-color: rgb(4,90,149);
-font-weight: bold;
+/*****les img symbolisant les pb****/
+
+.imgType {
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 20%;
+    -moz-transition-duration: 0.3s;
+    -moz-transition-timing-function: ease;
+    -webkit-transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
 }
 
+.imgType:hover:not(.imgTypeActif) {
+    background-color: rgba(4, 90, 149, 0.5);
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.imgTypeActif {
+    max-width: 80px;
+    max-height: 80px;
+    background-color: rgb(4, 90, 149);
+    border-radius: 30%;
+    -moz-transition-duration: 0.3s;
+    -moz-transition-timing-function: ease;
+    -webkit-transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease;
+    transition-duration: 0.3s;
+}
+
+.imgTypeActif:hover {
+    transition-timing-function: ease;
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+
+/***Description + photo***/
+
+textarea {
+    border: 2px solid rgb(223, 74, 16);
+    color: rgb(4, 90, 149);
+    font-weight: bold;
+}
+
+
 /****champs upload de photo***/
-#fileContainer{
-  overflow: hidden;
-  position: relative;
+
+#fileContainer {
+    overflow: hidden;
+    position: relative;
 }
 
 #fileContainer [type=file] {
-  cursor: inherit;
-   display: block;
-   filter: alpha(opacity=0);
-   min-height: 100%;
-   min-width: 100%;
-   opacity: 0;
-   position: absolute;
-   right: 0;
-   text-align: right;
-   top: 0;
+    cursor: inherit;
+    display: block;
+    filter: alpha(opacity=0);
+    min-height: 100%;
+    min-width: 100%;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 0;
 }
 
-#putPhotoS{
-  max-width:70px;
-  max-height:70px;
+#putPhotoS {
+    max-width: 70px;
+    max-height: 70px;
 }
+
 
 /*bouton de signaler /valider*/
-button{
-  background-color: rgb(4,90,149);
-  border: 2px solid rgb(4,90,149);
-  border-radius: 100%;
-  text-align: center;
-  -moz-transition-duration:0.3s;
-	-moz-transition-timing-function:ease;
-	-webkit-transition-duration:0.3s;
-	-webkit-transition-timing-function:ease;
-	transition-duration:0.3s;
-	transition-timing-function:ease-out;
+
+.button--circle {
+    background-color: rgb(4, 90, 149);
+    border: 2px solid rgb(4, 90, 149);
+    border-radius: 100%;
+    text-align: center;
+    -moz-transition-duration: 0.3s;
+    -moz-transition-timing-function: ease;
+    -webkit-transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
 }
 
-button:hover{
+.button--circle:hover {
     -moz-transform: rotate(635deg) scale(1.2);
-  	-webkit-transform: rotate(635deg) scale(1.2);
-  	transform: rotate(635deg) scale(1.2);
+    -webkit-transform: rotate(635deg) scale(1.2);
+    transform: rotate(635deg) scale(1.2);
 }
+
 
 /***************FOOTER****************************/
-footer{
-  float: left;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  color:rgb(223,74,16);
-  font-size:18px;
-  font-weight: bold;
+
+footer {
+    float: left;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: rgb(223, 74, 16);
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .logo {
-  height: 30px;
-  width: 30px;
+    height: 30px;
+    width: 30px;
 }
 
 .fa-facebook-official {
-  color: #3b5998;
+    color: #3b5998;
 }
 
 .fa-twitter {
-  color: #33ccff;
+    color: #33ccff;
 }
 
 .reseau {
-  text-align: center;
+    text-align: center;
 }
 
 .footerdiv {
-  text-align: center;
-  width: 33.33%;
-  float: left;
-  padding-top: 30px;
+    text-align: center;
+    width: 33.33%;
+    float: left;
+    padding-top: 30px;
 }
 
 .fa {
-  padding-top: 40px;
-  padding-right: 15px;
-  cursor: pointer;
+    padding-top: 40px;
+    padding-right: 15px;
+    cursor: pointer;
 }
 
-
-#logoPartenaire:hover{
-  -webkit-filter: grayscale(0%); /* Chrome, Safari, Opera */
-filter: grayscale(0%);
--webkit-transition:all 0.9s;
-transition:all 0.9s;
+#logoPartenaire:hover {
+    -webkit-filter: grayscale(0%);
+    /* Chrome, Safari, Opera */
+    filter: grayscale(0%);
+    -webkit-transition: all 0.9s;
+    transition: all 0.9s;
 }
 
-#logoPartenaire{
-  width: 200px;
-  padding-top: 30px;
-  -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
-filter: grayscale(100%);
-cursor: pointer;
+#logoPartenaire {
+    width: 200px;
+    padding-top: 30px;
+    -webkit-filter: grayscale(100%);
+    /* Chrome, Safari, Opera */
+    filter: grayscale(100%);
+    cursor: pointer;
 }
 
-#logoF{
-  width: 165px;
-  padding-top: 30px;
-  cursor: pointer;
+#logoF {
+    width: 165px;
+    padding-top: 30px;
+    cursor: pointer;
 }
 
 
 /***************** Notifications **************************/
-#notif {
-  background-image: repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 40px );
-  color: #fff;
-  text-shadow: 0 1px 0 rgba(0,0,0,0.2);
-  padding: 5px 10px;
-  box-shadow:	inset 0 1px 0 rgba(255,255,255,0.5);
-  border: 1px solid;
-  margin: 10px 0;
-  position: inherit;
-  left: 50%;
-  z-index: 200;
-  max-width: 100%;
-}
-.info {
-  background-color: #6af;
-  border-color: #48d;
-}
-.warning{
-  background-color: #fa4;
-  border-color: #d82;
-}
-.success{
-  background-color: #8d5;
-  border-color: #6b3;
-}
-.error {
-  background-color: #f31;
-  border-color: #d10;
-}
+
 
 /*******Page MON COMPTE***********/
-.popup{
-  z-index:1;
-  background-color: rgba(255, 255, 255, .8);
-  width: 100%;
-  position: absolute;
-  top: 0;
-  margin-top:-38px;
-  display: none;
+
+.popup {
+    z-index: 1;
+    background-color: rgba(255, 255, 255, .8);
+    width: 100%;
+    position: absolute;
+    top: 0;
+    margin-top: -38px;
+    display: none;
 }
 
-.compte-form{
-  width: 600px;
-  border: 1px solid black;
-  border-radius: 10px;
-  margin-top: 100px;
-  margin-bottom: auto;
-  padding-bottom: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  background:white;
-  text-align: center;
+.compte-form {
+    width: 600px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 100px;
+    margin-bottom: auto;
+    padding-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+    text-align: center;
 }
 
-.title-account{
-  font-size: 2em;
-  color: rgb(34, 112, 155);
+.title-account {
+    font-size: 2em;
+    color: rgb(34, 112, 155);
 }
 
-#cross{
-  font-size: 2em;
-  position: absolute;
-  right: 37%;
+#cross {
+    font-size: 2em;
+    position: absolute;
+    right: 37%;
 }
+
+
 /******************Page mentions legales**************/
-.popupFooter{
-  z-index:1;
-  background-color: rgba(255, 255, 255, .8);
-  width: 100%;
-  margin-top:-38px;
-  position: absolute;
-  display:none;
+
+.popupFooter {
+    z-index: 1;
+    background-color: rgba(255, 255, 255, .8);
+    width: 100%;
+    margin-top: -38px;
+    top: 0;
+    position: absolute;
+    display: none;
 }
 
-.mentionsLegales{
-  width: 60%;
-  height: 60%;
-  border: 2px solid rgb(34, 112, 155);
-  border-radius: 10px;
-  margin-bottom: auto;
-  padding-bottom: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  background:white;
-  text-align: center;
-  color: rgba(233,95,3,1);
-  font-weight: lighter;
-  overflow-y: scroll;
+.mentionsLegales {
+    width: 60%;
+    height: 60%;
+    border: 2px solid rgb(34, 112, 155);
+    border-radius: 10px;
+    margin-bottom: auto;
+    padding-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    margin-bottom: auto;
+    background: white;
+    text-align: center;
+    color: rgba(233, 95, 3, 1);
+    font-weight: lighter;
+    overflow-y: scroll;
 }
-#titleML, h3, h4{
-  color:rgb(34, 112, 155);
+
+#titleML,
+h3,
+h4 {
+    color: rgb(34, 112, 155);
 }
-#crossFooter{
-  font-size: 2em;
-  position: absolute;
-  color: rgb(34, 112, 155);
-  font-weight: bolder;
-  right: 22%;
+
+#crossFooter {
+    font-size: 2em;
+    position: absolute;
+    color: rgb(34, 112, 155);
+    font-weight: bolder;
+    right: 22%;
 }
+
+
 /**********************Nous contacter *****************/
-#titleContact{
-  color:rgb(34, 112, 155);
-}
-.popupContact{
-  z-index:1;
-  background-color: rgba(255, 255, 255, .8);
-  width: 100%;
-  position: absolute;
-  top: 5%;
-  margin-top:-38px;
-  display: none;
-  overflow-y: scroll;
+
+#titleContact {
+    color: rgb(34, 112, 155);
 }
 
-.pageContact{
-  width: 60%;
-  border: 2px solid rgb(34, 112, 155);
-  border-radius: 10px;
-  margin-top: 100px;
-  margin-bottom: auto;
-  padding-bottom: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  background:white;
-  text-align: center;
-  color: rgba(233,95,3,1);
-  overflow-y: hidden;
-
-}
-#crossContact{
-  font-size: 2em;
-  position: absolute;
-  color: rgba(233,95,3,1);
-  font-weight: bolder;
-  right: 23%;
+.popupContact {
+    z-index: 1;
+    background-color: rgba(255, 255, 255, .8);
+    width: 100%;
+    position: absolute;
+    top: 5%;
+    margin-top: -38px;
+    display: none;
+    overflow-y: scroll;
 }
 
-.formContact{
-  margin-top: 0;
-  padding :0;
+.pageContact {
+    width: 60%;
+    border: 2px solid rgb(34, 112, 155);
+    border-radius: 10px;
+    margin-top: 100px;
+    margin-bottom: auto;
+    padding-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+    text-align: center;
+    color: rgba(233, 95, 3, 1);
+    overflow-y: hidden;
 }
-.champsContact{
-  background-color:rgb(241,240,240);
-  width: auto;
-  max-height: 380px;
-  max-width: 500px;
-  border-radius: 12px;
-  border: 1px solid rgb(147,188,218);
-  padding: 15px 32px;
-  margin : 8px;
-  text-decoration: none;
-  font-size: 26px;
-  font-weight: bold;
-  cursor: pointer;
+
+#crossContact {
+    font-size: 2em;
+    position: absolute;
+    color: rgba(233, 95, 3, 1);
+    font-weight: bolder;
+    right: 23%;
 }
+
+.formContact {
+    margin-top: 0;
+    padding: 0;
+}
+
+.champsContact {
+    background-color: rgb(241, 240, 240);
+    width: auto;
+    max-height: 380px;
+    max-width: 500px;
+    border-radius: 12px;
+    border: 1px solid rgb(147, 188, 218);
+    padding: 15px 32px;
+    margin: 8px;
+    text-decoration: none;
+    font-size: 26px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 #courrielContact {
-  color: rgb(223,74,16);
-  margin : 6px;
+    color: rgb(223, 74, 16);
+    margin: 6px;
 }
-#message{
-  color:rgb(4,90,149);
-  margin : 6px;
+
+#message {
+    color: rgb(4, 90, 149);
+    margin: 6px;
 }
 
 .champsContact:hover {
-    box-shadow: 0 12px 16px 0 rgba(34,112,155,0.3);
+    box-shadow: 0 12px 16px 0 rgba(34, 112, 155, 0.3);
 }
 
-#doigtContact{
-  height: 80px;
-  width: 80px;
+#doigtContact {
+    height: 80px;
+    width: 80px;
 }
-#doigtContactImg{
-  height: 70px;
+
+#doigtContactImg {
+    height: 70px;
 }
+
 
 /********** Slideshow UnSignalemet*******/
 
 .slideshow-container {
-  max-width: 500px;
-  position: relative;
-  margin: auto;
-  margin-top:20%;
+    max-width: 500px;
+    position: relative;
+    margin: auto;
+    margin-top: 20%;
 }
 
+
 /* Caption text */
+
 .text {
-  color: rgb(233,95,3);
-  font-size: 30px;
-  font-weight: bold;
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  overflow: auto;
+    color: rgb(233, 95, 3);
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    overflow: auto;
 }
 
 
 /* Number text (1/3 etc) */
+
 .numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
 }
+
 
 /************MEDIA QUERRY***********/
+
 @media only screen and (max-width: 1008px) {
-
-  .imgType{
-    max-width:68px;
-    max-height: 68px;
-  }
-  .imgTypeActif{
-    max-width:68px;
-    max-height: 68px;
-}
-@media only screen and (max-width: 500px) {
-  header {height:2.555em;background:rgba(233,95,3,1);}
-  /**page index + nav****/
-  .text{font-size: 15px}
-  .button {font-size:14px}
-  .inscription {margin-top :8px}
-  .side {overflow-x:auto;
-  padding-top: 15px;}
-  .side a {font-size: 20px}
-  .boutonFermer {
-    font-size:25px !important;
-    top:0px;
-    right: 15px;
-  }
-  li:last-child {
-    font-size:17px
-  }
-  li a {
-      font-size: 17px;
+    .imgType {
+        max-width: 68px;
+        max-height: 68px;
     }
-  /**autre page****/
-  .mapcanvas{
-    min-width: 100%;
-    float:left;
-  }
-  .mainLeft{
-    float:left;
-    height:auto;
-    min-width: 100%;
-    overflow-y: scroll;
-  }
-  /******form sur signaler*******/
-  .msgsignal{
-    max-width:100%;
-  }
-  .imgType{
-    max-width:68px;
-    max-height: 68px;
-  }
-  .imgTypeActif{
-    max-width:68px;
-    max-height: 68px;
-  }
-
-  #putPhotoS{
-    max-width:55px;
-    max-height:55px;
-  }
-
-  /*****postit sur usercate******/
-  .gauchePost{
-    min-width: 60%;
-  }
-  .droitePost{
-    max-width: 40%;
-    margin-top:0;
-  }
-  #doigtSoutien{
-    height: 40px;
-    width: 40px;
-  }
-  #doigtSoutienImg{
-    height: 30px;
-    width: 30px;
-  }
-
-  .nbsoutiens{
-    font-size: 2em;
-  }
-  /**page contact + moncompte***/
-  .title-page{
-    font-size: 20px
-  }
-  .champsContact {
-    font-size: 15px;
-  }
-
-  /***footer***/
-  .footerdiv{
-    min-width: 100%;
-  }
-  /******************Page mentions legales**************/
-  .popupFooter{
-    bottom: -300%;
-  }
-  .mentionsLegales{
-    width: 90%;
+    .imgTypeActif {
+        max-width: 68px;
+        max-height: 68px;
     }
-  #crossFooter{
-    right: 10%;
-  }
-  /**********************Nous contacter *****************/
-  #titleContact{
-    font-size: 1em;
-  }
-  .pageContact{
-    width: 90%;
-    margin-top: 15%;
-    border: 2px solid rgb(34, 112, 155);
-  }
-  #crossContact{
-    font-size: 1em;
-    position: absolute;
-    color: rgba(233,95,3,1);
-    font-weight: bolder;
-    right: 10%;
-  }
-  .formContact{
-    margin-top: 0;
-    padding :0;
-  }
-  #doigtContact{
-    height: 60px;
-    width: 60px;
-  }
-  #doigtContactImg{
-    height: 50px;
-  }
-}
+    @media only screen and (max-width: 500px) {
+        header {
+            height: 2.555em;
+            background: rgba(233, 95, 3, 1);
+        }
+        /**page index + nav****/
+        .text {
+            font-size: 15px
+        }
+        .button {
+            font-size: 14px
+        }
+        .inscription {
+            margin-top: 8px
+        }
+        .side {
+            overflow-x: auto;
+            padding-top: 15px;
+        }
+        .side a {
+            font-size: 20px
+        }
+        .boutonFermer {
+            font-size: 25px !important;
+            top: 0px;
+            right: 15px;
+        }
+        li:last-child {
+            font-size: 17px
+        }
+        li a {
+            font-size: 17px;
+        }
+        /**autre page****/
+        .mapcanvas {
+            min-width: 100%;
+            float: left;
+        }
+        .mainLeft {
+            float: left;
+            height: auto;
+            min-width: 100%;
+            overflow-y: scroll;
+        }
+        /******form sur signaler*******/
+        .msgsignal {
+            max-width: 100%;
+        }
+        .imgType {
+            max-width: 68px;
+            max-height: 68px;
+        }
+        .imgTypeActif {
+            max-width: 68px;
+            max-height: 68px;
+        }
+        #putPhotoS {
+            max-width: 55px;
+            max-height: 55px;
+        }
+        /*****postit sur usercate******/
+        .gauchePost {
+            min-width: 60%;
+        }
+        .droitePost {
+            max-width: 40%;
+            margin-top: 0;
+        }
+        #doigtSoutien {
+            height: 40px;
+            width: 40px;
+        }
+        #doigtSoutienImg {
+            height: 30px;
+            width: 30px;
+        }
+        .nbsoutiens {
+            font-size: 2em;
+        }
+        /**page contact + moncompte***/
+        .title-page {
+            font-size: 20px
+        }
+        .champsContact {
+            font-size: 15px;
+        }
+        /***footer***/
+        .footerdiv {
+            min-width: 100%;
+        }
+        /******************Page mentions legales**************/
 
-@media only screen and (max-width: 400px){
-  .title-page{
-    text-align: center;
-  }
-  .formContact{
-    min-width: 100%;
-    margin-bottom: 10px;
-  }
-  .champsContact{
-    max-width: 95%;
-  }
-  .footerdiv{
-    margin-top: 50px;
-  }
-}
-
-@media only screen and (max-width: 250px) {
-  header{height:2.555em;background:rgba(233,95,3,1);}
-  .text{font-size: 7px}
-  .button {font-size:11px}
-  .inscription {margin-top :8px}
-  .mainLeft{
-    float:left;
-    height:inherit;
-    min-width: 100%;
-    color:rgb(229,106,23);
-    overflow-y: scroll;
-  }
-  .msgsignal{
-    max-width:100%;
-  }
-}
+        .mentionsLegales {
+            width: 90%;
+        }
+        #crossFooter {
+            right: 10%;
+        }
+        /**********************Nous contacter *****************/
+        #titleContact {
+            font-size: 1em;
+        }
+        .pageContact {
+            width: 90%;
+            margin-top: 15%;
+            border: 2px solid rgb(34, 112, 155);
+        }
+        #crossContact {
+            font-size: 1em;
+            position: absolute;
+            color: rgba(233, 95, 3, 1);
+            font-weight: bolder;
+            right: 10%;
+        }
+        .formContact {
+            margin-top: 0;
+            padding: 0;
+        }
+        #doigtContact {
+            height: 60px;
+            width: 60px;
+        }
+        #doigtContactImg {
+            height: 50px;
+        }
+    }
+    @media only screen and (max-width: 400px) {
+        .title-page {
+            text-align: center;
+        }
+        .formContact {
+            min-width: 100%;
+            margin-bottom: 10px;
+        }
+        .champsContact {
+            max-width: 95%;
+        }
+        .footerdiv {
+            margin-top: 50px;
+        }
+    }
+    @media only screen and (max-width: 250px) {
+        header {
+            height: 2.555em;
+            background: rgba(233, 95, 3, 1);
+        }
+        .text {
+            font-size: 7px
+        }
+        .button {
+            font-size: 11px
+        }
+        .inscription {
+            margin-top: 8px
+        }
+        .mainLeft {
+            float: left;
+            height: inherit;
+            min-width: 100%;
+            color: rgb(229, 106, 23);
+            overflow-y: scroll;
+        }
+        .msgsignal {
+            max-width: 100%;
+        }
+}}

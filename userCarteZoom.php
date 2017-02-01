@@ -17,7 +17,7 @@ zoom: 17
 // generation de la map
 var map = new google.maps.Map(mapcanvas, myOptions);
 
-//on créé un obj fenetre de map
+//on créé un obj fenetre de maps
 var infowindow = new google.maps.InfoWindow();
 
 //on recentre la carte (=en refaire une)

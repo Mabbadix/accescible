@@ -30,26 +30,23 @@ require 'connData.php';
 		$type = 'utilisateur';
 		include 'head.php';
 		?>
-    <title>Acces'Cible-Carte_Utilisateur</title>
+      <title>Acces'Cible-Carte_Utilisateur</title>
 
   </head>
 
   <body>
-    <header>
-			<div class="navFix">
-				<!-- Nav Bar + Side -->
-	      <!-- ATTENTION headerNav different pour chaque page pour selection du bon onglet" -->
-	      <?php
-				$nav_en_cours = 'usercarte';
-				include 'headerNavUserCarte.php'; ?>
-			</div>
-    </header>
+		<div class="site-container">
+      <?php include'headtest.php'; ?>
+ 		<div class="site-pusher">
+		<div class="site-content">
+    <div class="container">
     <main>
       <!-- Partie centrale en dessous de navBar-->
       <div class="mainUserCarte">
-        <div class="mainLeft" id="listSignal">
+        <div class="mainLeft" id="listSignal">   
+
           <!-- Intégration des signalements à gauche de la carte + effet tournant -->
-							<?php
+          <?php
 							$siMa = new SignalementManager($bdd);
 							$nSignal = $siMa->count();
 							$i=0;//compteur du nombre de signalements
@@ -62,34 +59,59 @@ require 'connData.php';
 									$id++;
 								}else{
 									$si = $siMa->getSignal($id);
-									echo  '<div class="msgsignal" id="'.$si->getIdS().'">
-										<div class="gauchePost" id="infoS"  onclick="zoomPost('.$si->getLat().', '.$si->getLng().', '.$si->getIdS().')" >
+									echo  '<div class="postit" id="'.$si->getIdS().'">
+										<div class="postit--left" id="infoS"  onclick="zoomPost('.$si->getLat().', '.$si->getLng().', '.$si->getIdS().')" >
 												<p>'.$si->getDescriptionS().'</p><p> '.$si->getVilleS().'</p>
 												<p>Signalé le '.$si->getDateS().'</p>
 											</div>
-											<div class="droitePost" onclick="zoomPost('.$si->getLat().', '.$si->getLng().', '.$si->getIdS().')" >
-											<div ><img classe="latlng" src="img/'.$si->getTypeS().'.png" alt="Type du problème" height=60></div>
-											<div ><button type="submit" name="signaler" class="soutiens1" id="doigtSoutien" onclick="idS='.$si->getIdS().'"><img src="img/doigt.svg" id="doigtSoutienImg" alt="Doigt"></button>
+											<div class="postit--right" onclick="zoomPost('.$si->getLat().', '.$si->getLng().', '.$si->getIdS().')" >
+											<div class="postit--type">
+                      <img classe="latlng" src="img/'.$si->getTypeS().'.png" alt="Type du problème" height=60>
+                      <div class="crossPostit" id="crossPostit'.$si->getIdS().'" onclick="revenir()" style ="display:none">X</div>
+                      </div>
+											<div class="postit--signal">
+                      <button type="submit" name="signaler" class="soutiens1 button--circle spin doigtSoutien" onclick="idS='.$si->getIdS().'">
+                      <img src="img/jaime_orange.svg " class="doigtSoutienImg" alt="Doigt">
+                      </button>
 											<span class="nbsoutiens"> '.$si->getNSoutienS().'</span>
 											</div>
 											</div>
-											<div class="crossPostit" id="crossPostit'.$si->getIdS().'" onclick="revenir()" style ="display:none">X</div>
-										</div> <br>';
-
+										</div>';
 									$i++;
 									$id++;
 								}
 							}
 							$tabLatLng = $siMa->getTabLatLng();
 							?>
-							<script src="soutien.js"></script>
-				</div>
-				<div class= "mapcanvas"  id="mapcanvas">
-				<?php include( 'userCarteZoom.js');?>
-				</div>
+            <?php
+							if($manageU->isConnected() === true && $_SESSION['confirme']==1){
+								?>
+              <script src="soutien.js"></script>
+              <?php } ?>
+        </div>
+        <div class="mapcanvas" id="mapcanvas">
+          <?php include 'userCarteZoom.php';?>
+        </div>
       </div>
     </main>
     <?php include 'footer.php';?>
+		    </div>
+  </div>
+  <div class="site-cache" id="site-cache"></div>
+  </div>
+  </div>
   </body>
+  <script src="js/app.js"></script>
+   <script>
+    var forEach=function(t,o,r){if("[object Object]"===Object.prototype.toString.call(t))for(var c in t)Object.prototype.hasOwnProperty.call(t,c)&&o.call(r,t[c],c,t);else for(var e=0,l=t.length;l>e;e++)o.call(r,t[e],e,t)};
 
-</html>
+    var hamburgers = document.querySelectorAll(".hamburger");
+    if (hamburgers.length > 0) {
+      forEach(hamburgers, function(hamburger) {
+        hamburger.addEventListener("click", function() {
+          this.classList.toggle("is-active");
+        }, false);
+      });
+    }
+  </script>
+  </html>
