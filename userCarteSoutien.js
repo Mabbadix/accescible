@@ -6,4 +6,5 @@ $(".button--circle").click(function(){
         url: 'userCarteAjoutS.php?id='+idS
     });
   }
+  location.reload();
 });

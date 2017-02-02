@@ -63,8 +63,8 @@ require 'connData.php';
 												<p>'.$si->getDescriptionS().'</p><p> '.$si->getVilleS().'</p>
 												<p>Signalé le '.$si->getDateS().'</p>
 											</div>
-											<div class="postit--right" onclick="zoomPost('.$si->getLat().', '.$si->getLng().', '.$si->getIdS().')" >
-											<div class="postit--type">
+											<div class="postit--right">
+											<div class="postit--type" onclick="zoomPost('.$si->getLat().', '.$si->getLng().', '.$si->getIdS().')">
                       <img classe="latlng" src="img/'.$si->getTypeS().'.png" alt="Type du problème" height=60>
                       <div class="crossPostit" id="crossPostit'.$si->getIdS().'" onclick="revenir()" style ="display:none">X</div>
                       </div>

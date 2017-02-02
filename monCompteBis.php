@@ -21,18 +21,15 @@ $manageU = new UtilisateurManager($bdd);
 ?>
   <!DOCTYPE html>
   <html lang="fr">
-
   <head>
     <!-- integration de toutes les metas et autres link
 				ATTENTION link styleUser.css different du "style.css" -->
-    <?php
-		$type = 'utilisateur';
-		include 'head.php';
-		?>
+        <?php
+    		$type = 'utilisateur';
+    		include 'head.php';
+    		?>
     <title>Acces'Cible-Mon_Compte</title>
-
   </head>
-
   <body>
     <div class="site-container">
       <?php include'header.php'; ?>
@@ -40,7 +37,6 @@ $manageU = new UtilisateurManager($bdd);
 		<div class="site-content">
     <div class="container">
     <main>
-  <main>
     <?php $ut= $manageU->getUtilisateur($_SESSION['emailU'],$_SESSION['mdpU']);?>
     <!-- Partie centrale en dessous de navBar-->
     <div class="mainUserCarteCompte">
@@ -123,10 +119,10 @@ $manageU = new UtilisateurManager($bdd);
         ?><script src="monCompteSupprimerS.js"></script>
         <?php } ?>
       </div>
-      <div class= "mapcanvas"  id="mapcanvas"></div>
-			<?php include( 'monCompteZoom.php');?>
+    <div class= "mapcanvas"  id="mapcanvas">
+      <?php include( 'monCompteZoom.php');?>
     </div>
-  </div>
+    </div>
 </main>
 <?php include 'footer.php';?>
 </div>
