@@ -17,7 +17,7 @@ $(".button--circle").click(function(){
     $.ajax({
         async: false,
         type: 'GET',
-        url: 'supprimerS.php?id='+idS
+        url: 'monCompteSupprimerS.php?id='+idS
     });
   }
 });
@@ -28,7 +28,7 @@ $(".seDesinscrire").click(function(){
     $.ajax({
         async: false,
         type: 'GET',
-        url: 'seDesinscrire.php?emailU='+email
+        url: 'monCompteDesinscription.php?emailU='+email
     });
     window.setTimeout("location=(\'userCarte.php\');",10)
   }

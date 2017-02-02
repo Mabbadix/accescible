@@ -3,7 +3,7 @@ session_start();
 
 /** Importation de l'autoloader **/
 
-require 'Autoloader.php';
+require 'class/Autoloader.php';
 $autoload = new Autoloader;
 $autoload->register();
 
@@ -35,7 +35,7 @@ $manageU = new UtilisateurManager($bdd);
 
   <body>
     <div class="site-container">
-      <?php include'headtest.php'; ?>
+      <?php include'header.php'; ?>
  		<div class="site-pusher">
 		<div class="site-content">
     <div class="container">
@@ -67,7 +67,7 @@ $manageU = new UtilisateurManager($bdd);
              <input class="BtnModifCompte" type="button" name="modifier" value="Modifier" onclick="modifierMonCompte()"/>
           </div>
           <div class="formModif" id="formModif" style="display:none">
-            <form classe="formCompte" method="POST" action="compteTraitement.php">
+            <form classe="formCompte" method="POST" action="monCompteTraitement.php">
             <label for="nomU">Nom:</label>
             </br><input class="champsCompte" type ="text" name="nomU" <?php if (empty($ut->getNomU())) {echo 'value=""';}else{echo 'value="'. $ut->getNomU().'"';}?>><br>
             <label for="prenomU">Prénom :</label>
@@ -120,7 +120,7 @@ $manageU = new UtilisateurManager($bdd);
           <button class="seDesinscrire" onclick="email='<?php echo $emailU ?>'" >Se désincrire</button>
         </div>
         <?php if($manageU->isConnected() === true && $_SESSION['confirme']==1){
-        ?><script src="supprimerS.js"></script>
+        ?><script src="monCompteSupprimerS.js"></script>
         <?php } ?>
       </div>
       <div class= "mapcanvas"  id="mapcanvas"></div>

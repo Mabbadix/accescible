@@ -15,7 +15,7 @@ public static function register(){
 *cet fonction est appelé par la fonction ci dessus
 */
 public static function autoload($class_name){
-    require $class_name.'.php';
+    require 'class/'.$class_name.'.php';
   }
 }
 ?>

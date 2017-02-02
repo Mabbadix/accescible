@@ -3,7 +3,7 @@ session_start();
 
 /** Importation de l'autoloader **/
 
-require 'Autoloader.php';
+require 'class/Autoloader.php';
 $autoload = new Autoloader;
 $autoload->register();
 
@@ -36,7 +36,7 @@ if (isset($_SESSION['emailU'])){
 
   <body>
     <div class="site-container">
-      <?php include'headtest.php';?>
+      <?php include'header.php';?>
     <div class="site-pusher">
   <div class="site-content">
     <div class="container">
@@ -46,7 +46,7 @@ if (isset($_SESSION['emailU'])){
         <div class="mainLeft">
           <?php	include 'unSignalement.php';
 				if($etat=="ok"){
-				  echo '<script type="text/javascript"> window.setTimeout("location=(\'signalementInfo.php\');",10) </script>';
+				  echo '<script type="text/javascript"> window.setTimeout("location=(\'signalerSlideShow.php\');",10) </script>';
 				}?>
             <form class="unSignalementForm" name="signalement" method="post" enctype="multipart/form-data" action=#>
               <fieldset name="localiser">
@@ -165,7 +165,7 @@ if (isset($_SESSION['emailU'])){
 
 		</div>
 		<div id="mapcanvas"></div>
-		<?php	include 'autocomplete&geoloc.js';?>
+		<?php	include 'signalerGeoloc&Autre.js';?>
 		</div>
 	</main>
   <?php include 'footer.php';?>

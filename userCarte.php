@@ -3,7 +3,7 @@ session_start();
 
 /** Importation de l'autoloader **/
 
-require 'Autoloader.php';
+require 'class/Autoloader.php';
 $autoload = new Autoloader;
 $autoload->register();
 
@@ -36,7 +36,7 @@ require 'connData.php';
 
   <body>
 		<div class="site-container">
-      <?php include'headtest.php'; ?>
+      <?php include'header.php'; ?>
  		<div class="site-pusher">
 		<div class="site-content">
     <div class="container">
@@ -79,7 +79,7 @@ require 'connData.php';
 							$tabLatLng = $siMa->getTabLatLng();
 							if($manageU->isConnected() === true && $_SESSION['confirme']==1){
 								?>
-              <script src="soutien.js"></script>
+              <script src="userCarteSoutien.js"></script>
               <?php } ?>
         </div>
         <div class="mapcanvas" id="mapcanvas">
