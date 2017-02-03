@@ -1,0 +1,78 @@
+$cachecolor: rgba(255, 255, 255, .8);
+$popupbg:#FFF;
+$popup-border: rgb(34, 112, 155);
+$mainfontcolor: rgb(34, 112, 155);
+.popup {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    display: none;
+    background-color: $cachecolor;
+    z-index: 1;
+    .popup--inside {
+        width: 60%;
+        border: 2px solid $popup-border;
+        background-color: $popupbg;
+        border-radius: 10px;
+        margin-top: 100px;
+        margin-bottom: auto;
+        padding-bottom: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        color: rgb(233, 95, 3);
+        overflow-y: hidden;
+        .popup--title {
+            color: $mainfontcolor;
+        }
+        .cross {
+            font-size: 2em;
+            position: absolute;
+            color: rgba(233, 95, 3, 1);
+            font-weight: bolder;
+            right: 23%;
+        }
+        .popup--form {
+            margin-top: 0;
+            padding: 0;
+        }
+        .popup--champs {
+            background: rgb(241, 240, 240);
+            width: auto;
+            max-height: 380px;
+            max-width: 750px;
+            border-radius: 12px;
+            border: 1px solid rgb(147, 188, 218);
+            padding: 15px 32px;
+            margin: 8px;
+            text-decoration: none;
+            font-size: 26px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .popup--champs {
+            box-shadow: 0 12px 16px 0 rgba(34, 112, 155, 0.3);
+        }
+    }
+}
+
+#courrielContact {
+    color: rgb(223, 74, 16);
+    margin: 6px;
+}
+
+#message {
+    color: rgb(4, 90, 149);
+    margin: 6px;
+}
+
+#doigtContact {
+    height: 80px;
+    width: 80px;
+}
+
+#doigtContactImg {
+    height: 70px;
+}

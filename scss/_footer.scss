@@ -1,0 +1,16 @@
+footer {
+    float: left;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: rgb(223, 74, 16);
+    font-size: 18px;
+    font-weight: bold;
+    .footerdiv {
+        text-align: center;
+        width: 33.33%;
+        float: left;
+        padding-top: 30px;
+    }
+}
