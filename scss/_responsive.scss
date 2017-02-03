@@ -38,9 +38,7 @@ $menu-width: 250px!default;
     bottom: 0;
     background-color: darken($header-bg, 5);
     width: $menu-width;
-    //display: none;
-    
-    //@include transform(translateX($menu-width));
+
     a{
       display: block;
       height: 40px;
