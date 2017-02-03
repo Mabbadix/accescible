@@ -22,7 +22,6 @@ if(isset($_POST['emailF']) and isset($_POST['message'])){
     $dMail->isHTML(true);
     $dMail->Subject = 'Message';
     $dMail->Body = "$message";
-    $dMail->AltBody = "Bonjour";
 if(!$dMail->send()) {
     echo 'Message could not be sent.';
     echo 'Mailer Error: ' . $mail->ErrorInfo;
@@ -31,14 +30,14 @@ if(!$dMail->send()) {
 }
 }
  ?>
-	<div class="popupContact">
-			<div class="pageContact">
-				<span id="crossContact">X</span>
-				<h2 id="titleContact">Nous contacter</h2>
-	        <form class="formContact" method="POST" action=#>
+	<div class="popup">
+			<div class="pageContact popup--inside">
+				<span id="crossContact" class="cross">X</span>
+				<h2 class="popup--title">Nous contacter</h2>
+	        <form class="popup--form" method="POST" action=#>
 	          <label for="message">Remplir le formulaire svp</label><br/>
-	          <label data-for="Courriel"></label><input class="champsContact" id="courrielContact" type="email" name="emailF" <?php if($connu){{echo 'value='.$recupEmail;}} ?> placeholder="dupont@gmail.com" required maxlength="100"><br/>
-	          <textarea class="champsContact" id="message" name="message" rows="10" cols="20" placeholder="VOTRE MESSAGE ICI" required ></textarea><br/><br/>
+	          <label data-for="Courriel"></label><input class="popup--champs" id="courrielContact" type="email" name="emailF" <?php if($connu){{echo 'value='.$recupEmail;}} ?> placeholder="dupont@gmail.com" required maxlength="100"><br/>
+	          <textarea class="popup--champs" id="message" name="message" rows="10" cols="20" placeholder="VOTRE MESSAGE ICI" required ></textarea><br/><br/>
 	          <button type="submit" name="submit" id="doigtContact" class="button--circle spin"><img id="doigtContactImg" src="img/doigt.svg" alt="Doigt" ></button>
       		</form>
 			</div>
@@ -51,16 +50,19 @@ $(document).ready(function(){
 });
 
 $("#nousContacter").click(function(){
-    $(".popupContact").fadeIn("fast", function(){
+    $('body').removeClass('with--sidebar');
+    $('#hamburger').removeClass('is-active');
+    $(".popup").fadeIn("fast", function(){
     });
 });
 
 $("#crossContact").click(function(){
-    $(".popupContact").fadeOut("fast", function(){
+    $(".popup").fadeOut("fast", function(){
 
     });
 });
 
+
 var height = $("body").height();
-$(".popupContact").height(height);
+$(".popup").height(height);
 </script>
