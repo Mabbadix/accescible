@@ -11,7 +11,22 @@ $postit-border:rgb(4, 90, 149);
     height: inherit;
     max-width: 350px;
     float: left;
+    font-size: 0.8em;
     overflow-y: scroll;
+    .title-account2 {
+        color: rgb(223, 74, 16);
+    }
+    .champsCompte {
+          width: auto;
+          border-radius: 12px;
+          border: 0.1em solid rgb(147, 188, 218);
+          padding: 0.4em 0.8em;
+          margin: 0.2em;
+          text-decoration: none;
+
+          font-weight: bold;
+          cursor: pointer;
+        }
     .postit {
         background-color: $postit-bg;
         color: $header-bg;
@@ -45,15 +60,11 @@ $postit-border:rgb(4, 90, 149);
             .postit--signal {
                 float: right;
                 width: 100%;
-                .doigtSoutien {
-                    height: 45px;
-                    width: 45px;
-                }
-                .doigtSoutienImg {
-                    height: 35px;
-                    width: 35px;
-                }
-                .nbsoutiens {
+                  #supprimerS{
+                    height: 55px;
+                    width: 55px;
+                  }
+                  .nbsoutiens {
                     float: right;
                     font-size: 2.7em;
                     font-weight: bold;
