@@ -39,7 +39,7 @@ $manageU = new UtilisateurManager($bdd);
     <main>
     <?php $ut= $manageU->getUtilisateur($_SESSION['emailU'],$_SESSION['mdpU']);?>
     <!-- Partie centrale en dessous de navBar-->
-    <div class="mainUserCarteCompte">
+    <div class="mainUserCarte">
       <!-- Fin div mesinfos-->
       <div class="mainLeftCompte">
         <div class="mesInfos">
@@ -104,7 +104,7 @@ $manageU = new UtilisateurManager($bdd);
                 <img classe="latlng" src="img/'.$si->getTypeS().'.png" alt="Type du problème" height=60>
                 <div class="crossPostit" id="crossPostit'.$si->getIdS().'" onclick="revenir()" style ="display:none">X</div>
                 </div>
-                <div class="postit--signal"><input class="button--circle" type="image" id="SoutienImg" src="img/fermer.png"  onclick="idS='.$si->getIdS().'"/>
+                <div class="postit--signal"><input class="button--circle" type="image" id="supprimerS" src="img/fermer.png"  onclick="idS='.$si->getIdS().'"/>
                 <span class="nbsoutiens"> '.$si->getNSoutienS().'</span>
                 </div>
               </div> </div>';

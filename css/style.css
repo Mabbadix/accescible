@@ -1,12 +1,12 @@
 /***********/
 /*Variables*/
 /***********/
-/* line 13, C:/xampp/htdocs/accescible/scss/style.scss */
+/* line 13, /home/abbadix/Bureau/PRO/accescible/scss/style.scss */
 * {
   box-sizing: border-box;
 }
 
-/* line 17, C:/xampp/htdocs/accescible/scss/style.scss */
+/* line 17, /home/abbadix/Bureau/PRO/accescible/scss/style.scss */
 html,
 body {
   font-family: Roboto;
@@ -17,25 +17,25 @@ body {
   margin: 0;
 }
 
-/* line 27, C:/xampp/htdocs/accescible/scss/style.scss */
+/* line 27, /home/abbadix/Bureau/PRO/accescible/scss/style.scss */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* line 32, C:/xampp/htdocs/accescible/scss/style.scss */
+/* line 32, /home/abbadix/Bureau/PRO/accescible/scss/style.scss */
 .container {
   margin: 0;
   overflow: hidden;
   *zoom: 1;
 }
 
-/* line 37, C:/xampp/htdocs/accescible/scss/style.scss */
+/* line 37, /home/abbadix/Bureau/PRO/accescible/scss/style.scss */
 .site-content {
   padding-top: 66px;
 }
 
-/* line 41, C:/xampp/htdocs/accescible/scss/style.scss */
+/* line 41, /home/abbadix/Bureau/PRO/accescible/scss/style.scss */
 .header {
   position: fixed;
   left: 0;
@@ -48,7 +48,7 @@ a {
   font-size: 22px;
 }
 
-/* line 53, C:/xampp/htdocs/accescible/scss/style.scss */
+/* line 53, /home/abbadix/Bureau/PRO/accescible/scss/style.scss */
 .header__logo {
   font-weight: bold;
   padding: 0 25px;
@@ -56,12 +56,12 @@ a {
   float: left;
 }
 
-/* line 58, C:/xampp/htdocs/accescible/scss/style.scss */
+/* line 58, /home/abbadix/Bureau/PRO/accescible/scss/style.scss */
 .header__logo img {
   height: 66px;
 }
 
-/* line 63, C:/xampp/htdocs/accescible/scss/style.scss */
+/* line 63, /home/abbadix/Bureau/PRO/accescible/scss/style.scss */
 .mainUserCarte {
   position: relative;
   margin-left: auto;
@@ -74,33 +74,33 @@ a {
   color: #045a95;
 }
 
-/* line 75, C:/xampp/htdocs/accescible/scss/style.scss */
+/* line 75, /home/abbadix/Bureau/PRO/accescible/scss/style.scss */
 .header__icon {
   display: none;
 }
 
-/* line 79, C:/xampp/htdocs/accescible/scss/style.scss */
+/* line 79, /home/abbadix/Bureau/PRO/accescible/scss/style.scss */
 .menu {
   float: left;
 }
 
-/* line 81, C:/xampp/htdocs/accescible/scss/style.scss */
+/* line 81, /home/abbadix/Bureau/PRO/accescible/scss/style.scss */
 .menu a {
   padding: 19px 20px;
 }
 
-/* line 84, C:/xampp/htdocs/accescible/scss/style.scss */
+/* line 84, /home/abbadix/Bureau/PRO/accescible/scss/style.scss */
 .menu a:hover {
   color: #033c63;
 }
 
-/* line 87, C:/xampp/htdocs/accescible/scss/style.scss */
+/* line 87, /home/abbadix/Bureau/PRO/accescible/scss/style.scss */
 .menu .active {
   color: #df4a10;
   background-color: #045a95;
 }
 
-/* line 91, C:/xampp/htdocs/accescible/scss/style.scss */
+/* line 91, /home/abbadix/Bureau/PRO/accescible/scss/style.scss */
 .menu .active:hover {
   color: #f06732;
 }
@@ -108,12 +108,12 @@ a {
 /*******************************************************                      RESPONSIVE
 \*******************************************************/
 @media only screen and (max-width: 875px) {
-  /* line 3, C:/xampp/htdocs/accescible/scss/_responsive.scss */
+  /* line 3, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .site-container {
     overflow: hidden;
     height: 100%;
   }
-  /* line 4, C:/xampp/htdocs/accescible/scss/_responsive.scss */
+  /* line 4, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .site-pusher {
     -webkit-transition-duration: 0.3s;
     -moz-transition-duration: 0.3s;
@@ -126,11 +126,11 @@ a {
     transform: translateX(0px);
     height: 100%;
   }
-  /* line 9, C:/xampp/htdocs/accescible/scss/_responsive.scss */
+  /* line 9, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .header {
     position: static;
   }
-  /* line 10, C:/xampp/htdocs/accescible/scss/_responsive.scss */
+  /* line 10, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .site-content {
     position: absolute;
     top: 0;
@@ -142,7 +142,7 @@ a {
     -webkit-overflow-scrolling: touch;
     background-color: #FFF;
   }
-  /* line 21, C:/xampp/htdocs/accescible/scss/_responsive.scss */
+  /* line 21, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .header__icon {
     position: relative;
     display: block;
@@ -151,19 +151,19 @@ a {
     height: 66px;
     cursor: pointer;
   }
-  /* line 29, C:/xampp/htdocs/accescible/scss/_responsive.scss */
+  /* line 29, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .header__icon .hamburger {
     height: 66px;
   }
-  /* line 30, C:/xampp/htdocs/accescible/scss/_responsive.scss */
+  /* line 30, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .header__icon .hamburger-box {
     padding-bottom: 40px;
   }
-  /* line 31, C:/xampp/htdocs/accescible/scss/_responsive.scss */
+  /* line 31, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .header__icon .hamburger-inner, .header__icon .hamburger-inner::before, .header__icon .hamburger-inner::after {
     background-color: #045a95;
   }
-  /* line 34, C:/xampp/htdocs/accescible/scss/_responsive.scss */
+  /* line 34, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .menu {
     position: absolute;
     right: 0;
@@ -172,7 +172,7 @@ a {
     background-color: #c7420e;
     width: 250px;
   }
-  /* line 42, C:/xampp/htdocs/accescible/scss/_responsive.scss */
+  /* line 42, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .menu a {
     display: block;
     height: 40px;
@@ -181,7 +181,7 @@ a {
     padding: 0px 20px;
     border-bottom: 1px solid #df4a10;
   }
-  /* line 53, C:/xampp/htdocs/accescible/scss/_responsive.scss */
+  /* line 53, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .with--sidebar .site-pusher {
     -webkit-transform: translateX(-250px);
     -moz-transform: translateX(-250px);
@@ -189,7 +189,7 @@ a {
     -o-transform: translateX(-250px);
     transform: translateX(-250px);
   }
-  /* line 54, C:/xampp/htdocs/accescible/scss/_responsive.scss */
+  /* line 54, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .with--sidebar .site-cache {
     position: absolute;
     top: 0;
@@ -202,7 +202,7 @@ a {
 
 /*******************************************************                      POSTITS
 \*******************************************************/
-/* line 3, C:/xampp/htdocs/accescible/scss/_postit.scss */
+/* line 3, /home/abbadix/Bureau/PRO/accescible/scss/_postit.scss */
 .mainLeft {
   padding: 0;
   height: inherit;
@@ -211,7 +211,7 @@ a {
   overflow-y: scroll;
 }
 
-/* line 9, C:/xampp/htdocs/accescible/scss/_postit.scss */
+/* line 9, /home/abbadix/Bureau/PRO/accescible/scss/_postit.scss */
 .mainLeft .postit {
   background-color: #f1f0f0;
   color: #df4a10;
@@ -225,27 +225,27 @@ a {
   margin-bottom: 5px;
 }
 
-/* line 20, C:/xampp/htdocs/accescible/scss/_postit.scss */
+/* line 20, /home/abbadix/Bureau/PRO/accescible/scss/_postit.scss */
 .mainLeft .postit .postit--left {
   width: 60%;
   font-weight: normal;
   float: left;
 }
 
-/* line 25, C:/xampp/htdocs/accescible/scss/_postit.scss */
+/* line 25, /home/abbadix/Bureau/PRO/accescible/scss/_postit.scss */
 .mainLeft .postit .postit--right {
   width: 40%;
   float: right;
 }
 
-/* line 28, C:/xampp/htdocs/accescible/scss/_postit.scss */
+/* line 28, /home/abbadix/Bureau/PRO/accescible/scss/_postit.scss */
 .mainLeft .postit .postit--right .postit--type {
   float: right;
   width: 100%;
   padding-bottom: 15px;
 }
 
-/* line 32, C:/xampp/htdocs/accescible/scss/_postit.scss */
+/* line 32, /home/abbadix/Bureau/PRO/accescible/scss/_postit.scss */
 .mainLeft .postit .postit--right .postit--type .crossPostit {
   float: right;
   font-size: 40px;
@@ -253,48 +253,66 @@ a {
   z-index: 150;
 }
 
-/* line 39, C:/xampp/htdocs/accescible/scss/_postit.scss */
+/* line 39, /home/abbadix/Bureau/PRO/accescible/scss/_postit.scss */
 .mainLeft .postit .postit--right .postit--signal {
   float: right;
   width: 100%;
 }
 
-/* line 42, C:/xampp/htdocs/accescible/scss/_postit.scss */
+/* line 42, /home/abbadix/Bureau/PRO/accescible/scss/_postit.scss */
 .mainLeft .postit .postit--right .postit--signal .doigtSoutien {
   height: 45px;
   width: 45px;
 }
 
-/* line 46, C:/xampp/htdocs/accescible/scss/_postit.scss */
+/* line 46, /home/abbadix/Bureau/PRO/accescible/scss/_postit.scss */
 .mainLeft .postit .postit--right .postit--signal .doigtSoutienImg {
   height: 35px;
   width: 35px;
 }
 
-/* line 50, C:/xampp/htdocs/accescible/scss/_postit.scss */
+/* line 50, /home/abbadix/Bureau/PRO/accescible/scss/_postit.scss */
 .mainLeft .postit .postit--right .postit--signal .nbsoutiens {
   float: right;
   font-size: 2.7em;
   font-weight: bold;
 }
 
-/* line 3, C:/xampp/htdocs/accescible/scss/_postitMonCompte.scss */
+/* line 3, /home/abbadix/Bureau/PRO/accescible/scss/_postitMonCompte.scss */
 .spin:hover {
   -moz-transform: rotate(635deg) scale(1.2);
   -webkit-transform: rotate(635deg) scale(1.2);
   transform: rotate(635deg) scale(1.2);
 }
 
-/* line 9, C:/xampp/htdocs/accescible/scss/_postitMonCompte.scss */
+/* line 9, /home/abbadix/Bureau/PRO/accescible/scss/_postitMonCompte.scss */
 .mainLeftCompte {
   padding: 0;
   height: inherit;
   max-width: 350px;
   float: left;
+  font-size: 0.8em;
   overflow-y: scroll;
 }
 
-/* line 15, C:/xampp/htdocs/accescible/scss/_postitMonCompte.scss */
+/* line 16, /home/abbadix/Bureau/PRO/accescible/scss/_postitMonCompte.scss */
+.mainLeftCompte .title-account2 {
+  color: #df4a10;
+}
+
+/* line 19, /home/abbadix/Bureau/PRO/accescible/scss/_postitMonCompte.scss */
+.mainLeftCompte .champsCompte {
+  width: auto;
+  border-radius: 12px;
+  border: 0.1em solid #93bcda;
+  padding: 0.4em 0.8em;
+  margin: 0.2em;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* line 30, /home/abbadix/Bureau/PRO/accescible/scss/_postitMonCompte.scss */
 .mainLeftCompte .postit {
   background-color: #f1f0f0;
   color: #df4a10;
@@ -308,27 +326,27 @@ a {
   margin-bottom: 5px;
 }
 
-/* line 26, C:/xampp/htdocs/accescible/scss/_postitMonCompte.scss */
+/* line 41, /home/abbadix/Bureau/PRO/accescible/scss/_postitMonCompte.scss */
 .mainLeftCompte .postit .postit--left {
   width: 60%;
   font-weight: normal;
   float: left;
 }
 
-/* line 31, C:/xampp/htdocs/accescible/scss/_postitMonCompte.scss */
+/* line 46, /home/abbadix/Bureau/PRO/accescible/scss/_postitMonCompte.scss */
 .mainLeftCompte .postit .postit--right {
   width: 40%;
   float: right;
 }
 
-/* line 34, C:/xampp/htdocs/accescible/scss/_postitMonCompte.scss */
+/* line 49, /home/abbadix/Bureau/PRO/accescible/scss/_postitMonCompte.scss */
 .mainLeftCompte .postit .postit--right .postit--type {
   float: right;
   width: 100%;
   padding-bottom: 15px;
 }
 
-/* line 38, C:/xampp/htdocs/accescible/scss/_postitMonCompte.scss */
+/* line 53, /home/abbadix/Bureau/PRO/accescible/scss/_postitMonCompte.scss */
 .mainLeftCompte .postit .postit--right .postit--type .crossPostit {
   float: right;
   font-size: 40px;
@@ -336,25 +354,19 @@ a {
   z-index: 150;
 }
 
-/* line 45, C:/xampp/htdocs/accescible/scss/_postitMonCompte.scss */
+/* line 60, /home/abbadix/Bureau/PRO/accescible/scss/_postitMonCompte.scss */
 .mainLeftCompte .postit .postit--right .postit--signal {
   float: right;
   width: 100%;
 }
 
-/* line 48, C:/xampp/htdocs/accescible/scss/_postitMonCompte.scss */
-.mainLeftCompte .postit .postit--right .postit--signal .doigtSoutien {
-  height: 45px;
-  width: 45px;
+/* line 63, /home/abbadix/Bureau/PRO/accescible/scss/_postitMonCompte.scss */
+.mainLeftCompte .postit .postit--right .postit--signal #supprimerS {
+  height: 55px;
+  width: 55px;
 }
 
-/* line 52, C:/xampp/htdocs/accescible/scss/_postitMonCompte.scss */
-.mainLeftCompte .postit .postit--right .postit--signal .doigtSoutienImg {
-  height: 35px;
-  width: 35px;
-}
-
-/* line 56, C:/xampp/htdocs/accescible/scss/_postitMonCompte.scss */
+/* line 67, /home/abbadix/Bureau/PRO/accescible/scss/_postitMonCompte.scss */
 .mainLeftCompte .postit .postit--right .postit--signal .nbsoutiens {
   float: right;
   font-size: 2.7em;
@@ -363,7 +375,7 @@ a {
 
 /*******************************************************                      Notification
 \*******************************************************/
-/* line 1, C:/xampp/htdocs/accescible/scss/_notification.scss */
+/* line 1, /home/abbadix/Bureau/PRO/accescible/scss/_notification.scss */
 .notif {
   background-image: repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(255, 255, 255, 0.1) 20px, rgba(255, 255, 255, 0.1) 40px);
   color: #fff;
@@ -378,50 +390,50 @@ a {
   max-width: 100%;
 }
 
-/* line 15, C:/xampp/htdocs/accescible/scss/_notification.scss */
+/* line 15, /home/abbadix/Bureau/PRO/accescible/scss/_notification.scss */
 .info {
   background-color: #6af;
   border-color: #48d;
 }
 
-/* line 20, C:/xampp/htdocs/accescible/scss/_notification.scss */
+/* line 20, /home/abbadix/Bureau/PRO/accescible/scss/_notification.scss */
 .warning {
   background-color: #fa4;
   border-color: #d82;
 }
 
-/* line 25, C:/xampp/htdocs/accescible/scss/_notification.scss */
+/* line 25, /home/abbadix/Bureau/PRO/accescible/scss/_notification.scss */
 .success {
   background-color: #8d5;
   border-color: #6b3;
 }
 
-/* line 30, C:/xampp/htdocs/accescible/scss/_notification.scss */
+/* line 30, /home/abbadix/Bureau/PRO/accescible/scss/_notification.scss */
 .error {
   background-color: #f31;
   border-color: #d10;
 }
 
-/* line 1, C:/xampp/htdocs/accescible/scss/_connexion.scss */
+/* line 1, /home/abbadix/Bureau/PRO/accescible/scss/_connexion.scss */
 .indexMain {
   width: 100%;
   padding-top: 8em;
 }
 
-/* line 4, C:/xampp/htdocs/accescible/scss/_connexion.scss */
+/* line 4, /home/abbadix/Bureau/PRO/accescible/scss/_connexion.scss */
 .indexMain .video {
   width: 26em;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 8, C:/xampp/htdocs/accescible/scss/_connexion.scss */
+/* line 8, /home/abbadix/Bureau/PRO/accescible/scss/_connexion.scss */
 .indexMain .video video {
   width: 26em;
   height: 16em;
 }
 
-/* line 13, C:/xampp/htdocs/accescible/scss/_connexion.scss */
+/* line 13, /home/abbadix/Bureau/PRO/accescible/scss/_connexion.scss */
 .indexMain .button--index {
   background-color: #f1f0f0;
   width: auto;
@@ -435,18 +447,18 @@ a {
   cursor: pointer;
 }
 
-/* line 25, C:/xampp/htdocs/accescible/scss/_connexion.scss */
+/* line 25, /home/abbadix/Bureau/PRO/accescible/scss/_connexion.scss */
 .indexMain .button--index:hover {
   box-shadow: 0 12px 16px 0 rgba(34, 112, 155, 0.3);
 }
 
-/* line 28, C:/xampp/htdocs/accescible/scss/_connexion.scss */
+/* line 28, /home/abbadix/Bureau/PRO/accescible/scss/_connexion.scss */
 .indexMain .connexion {
   color: #045a95;
   margin: 6px;
 }
 
-/* line 32, C:/xampp/htdocs/accescible/scss/_connexion.scss */
+/* line 32, /home/abbadix/Bureau/PRO/accescible/scss/_connexion.scss */
 .indexMain .inscription {
   color: #df4a10;
   margin: 6px;
@@ -454,7 +466,7 @@ a {
 
 /******************************************************                      POPUP
 \*******************************************************/
-/* line 5, C:/xampp/htdocs/accescible/scss/_popup.scss */
+/* line 5, /home/abbadix/Bureau/PRO/accescible/scss/_popup.scss */
 .popup {
   top: 0;
   bottom: 0;
@@ -466,7 +478,7 @@ a {
   z-index: 1;
 }
 
-/* line 14, C:/xampp/htdocs/accescible/scss/_popup.scss */
+/* line 14, /home/abbadix/Bureau/PRO/accescible/scss/_popup.scss */
 .popup .popup--inside {
   width: 60%;
   border: 2px solid #22709b;
@@ -482,12 +494,12 @@ a {
   overflow-y: hidden;
 }
 
-/* line 27, C:/xampp/htdocs/accescible/scss/_popup.scss */
+/* line 27, /home/abbadix/Bureau/PRO/accescible/scss/_popup.scss */
 .popup .popup--inside .popup--title {
   color: #22709b;
 }
 
-/* line 30, C:/xampp/htdocs/accescible/scss/_popup.scss */
+/* line 30, /home/abbadix/Bureau/PRO/accescible/scss/_popup.scss */
 .popup .popup--inside .cross {
   font-size: 2em;
   position: absolute;
@@ -496,13 +508,13 @@ a {
   right: 23%;
 }
 
-/* line 37, C:/xampp/htdocs/accescible/scss/_popup.scss */
+/* line 37, /home/abbadix/Bureau/PRO/accescible/scss/_popup.scss */
 .popup .popup--inside .popup--form {
   margin-top: 0;
   padding: 0;
 }
 
-/* line 41, C:/xampp/htdocs/accescible/scss/_popup.scss */
+/* line 41, /home/abbadix/Bureau/PRO/accescible/scss/_popup.scss */
 .popup .popup--inside .popup--champs {
   background: #f1f0f0;
   width: auto;
@@ -518,37 +530,45 @@ a {
   cursor: pointer;
 }
 
-/* line 55, C:/xampp/htdocs/accescible/scss/_popup.scss */
+/* line 55, /home/abbadix/Bureau/PRO/accescible/scss/_popup.scss */
 .popup .popup--inside .popup--champs {
   box-shadow: 0 12px 16px 0 rgba(34, 112, 155, 0.3);
 }
 
-/* line 61, C:/xampp/htdocs/accescible/scss/_popup.scss */
+/* line 61, /home/abbadix/Bureau/PRO/accescible/scss/_popup.scss */
 #courrielContact {
   color: #df4a10;
   margin: 6px;
 }
 
-/* line 66, C:/xampp/htdocs/accescible/scss/_popup.scss */
+/* line 66, /home/abbadix/Bureau/PRO/accescible/scss/_popup.scss */
 #message {
   color: #045a95;
   margin: 6px;
 }
 
-/* line 71, C:/xampp/htdocs/accescible/scss/_popup.scss */
+/* line 71, /home/abbadix/Bureau/PRO/accescible/scss/_popup.scss */
 #doigtContact {
   height: 80px;
   width: 80px;
 }
 
-/* line 76, C:/xampp/htdocs/accescible/scss/_popup.scss */
+/* line 76, /home/abbadix/Bureau/PRO/accescible/scss/_popup.scss */
 #doigtContactImg {
   height: 70px;
 }
 
+/******************************************************                      VIDEO REMPLACEMENT CARTE
+\*******************************************************/
+/* line 1, /home/abbadix/Bureau/PRO/accescible/scss/_videoRemplacementCarte.scss */
+.videoR {
+  max-width: 40em;
+  max-height: 30em;
+}
+
 /******************************************************                      Footer
 \*******************************************************/
-/* line 1, C:/xampp/htdocs/accescible/scss/_footer.scss */
+/* line 1, /home/abbadix/Bureau/PRO/accescible/scss/_footer.scss */
 footer {
   float: left;
   width: 100%;
@@ -560,7 +580,7 @@ footer {
   font-weight: bold;
 }
 
-/* line 10, C:/xampp/htdocs/accescible/scss/_footer.scss */
+/* line 10, /home/abbadix/Bureau/PRO/accescible/scss/_footer.scss */
 footer .footerdiv {
   text-align: center;
   width: 33.33%;

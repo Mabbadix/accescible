@@ -1,88 +1,46 @@
-  /*
 /***************MAIN/CONTENT************/
-    
-    .mainUserCarte {
-        position: relative;
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-        height: 35em;
-        font-size: 20px;
-        font-weight: bold;
-        text-align: center;
-        color: rgb(4, 90, 149);
-    }
- 
+/*.mainUserCarte {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(4, 90, 149);
+}*/
+
+
     /***Vidéo si géoloc ne marche pas********/
-    
-    .videoR {
-        max-width: 40em;
-        max-height: 30em;
-    }
+
+
     /*******MoncCompteBis*******************/
-    
-    .mainUserCarteCompte {
-        position: relative;
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-        height: 35em;
-        font-size: 1em;
-        font-weight: bold;
-        text-align: center;
-        color: rgb(4, 90, 149);
-    }
-    
-    .mainLeftCompte {
-        float: left;
-        height: inherit;
-        max-width: 350px;
-        color: rgb(4, 90, 149);
-        overflow-y: scroll;
-        padding: 0.5em;
-    }
-    
-    .mesInfos {}
-    
-    .title-account2 {
-        color: rgb(223, 74, 16);
-    }
-    
-    .champsCompte {
-        width: auto;
-        border-radius: 12px;
-        border: 0.1em solid rgb(147, 188, 218);
-        padding: 0.4em 0.8em;
-        margin: 0.2em;
-        text-decoration: none;
-        font-size: 1em;
-        font-weight: bold;
-        cursor: pointer;
-    }
+
     /****************postit msgsignal dans userCarte******************/
 
 
 
 /***bouton soutien dans userCarte****/
-    
-    #SoutienImg {
+
+  /*  #SoutienImg {
         height: 55px;
         width: 55px;
     }
- 
+*/
+
     /********FORM SIGNALER****************/
-    
+
     fieldset {
         border: none;
         border-top: 1px solid rgb(223, 74, 16);
     }
-    
+
     #mapcanvas {
         cursor: pointer;
         height: inherit;
     }
     /*form sur le coté de signaler.php*/
-    
+
     #autocomplete {
         border: 2px solid rgb(4, 90, 149);
         background-color: #f0f0ff;
@@ -95,16 +53,16 @@
         font-weight: bold;
     }
     /***Si autocomplete et geocodereverse impossible alors form***/
-    
+
     .unSignalementField {
         width: 99%;
         max-width: 300px;
     }
-    
+
     .slimField1 {
         width: 50px;
     }
-    
+
     #geocodeReverse {
         min-width: 60px;
         min-height: 60px;
@@ -121,14 +79,14 @@
         transition-duration: 0.3s;
         transition-timing-function: ease;
     }
-    
+
     #geocodeReverse:hover {
         -moz-transform: scale(1.2);
         -webkit-transform: scale(1.2);
         transform: scale(1.2);
     }
     /*****les img symbolisant les pb****/
-    
+
     .imgType {
         max-width: 80px;
         max-height: 80px;
@@ -140,14 +98,14 @@
         transition-duration: 0.3s;
         transition-timing-function: ease;
     }
-    
+
     .imgType:hover:not(.imgTypeActif) {
         background-color: rgba(4, 90, 149, 0.5);
         -moz-transform: scale(1.2);
         -webkit-transform: scale(1.2);
         transform: scale(1.2);
     }
-    
+
     .imgTypeActif {
         max-width: 80px;
         max-height: 80px;
@@ -159,7 +117,7 @@
         -webkit-transition-timing-function: ease;
         transition-duration: 0.3s;
     }
-    
+
     .imgTypeActif:hover {
         transition-timing-function: ease;
         -moz-transform: scale(1.2);
@@ -167,19 +125,19 @@
         transform: scale(1.2);
     }
     /***Description + photo***/
-    
+
     textarea {
         border: 2px solid rgb(223, 74, 16);
         color: rgb(4, 90, 149);
         font-weight: bold;
     }
     /****champs upload de photo***/
-    
+
     #fileContainer {
         overflow: hidden;
         position: relative;
     }
-    
+
     #fileContainer [type=file] {
         cursor: inherit;
         display: block;
@@ -192,13 +150,13 @@
         text-align: right;
         top: 0;
     }
-    
+
     #putPhotoS {
         max-width: 70px;
         max-height: 70px;
     }
     /*bouton de signaler /valider/ soutenirr*/
-    
+
     .button--circle {
         background-color: rgb(4, 90, 149);
         border: 2px solid rgb(4, 90, 149);
@@ -210,9 +168,9 @@
         transition-duration: 0.3s;
         transition-timing-function: ease-out;
     }
-    
+
     /***************FOOTER****************************/
-    
+
     footer {
         float: left;
         width: 100%;
@@ -223,37 +181,37 @@
         font-size: 18px;
         font-weight: bold;
     }
-    
+
     .logo {
         height: 30px;
         width: 30px;
     }
-    
+
     .fa-facebook-official {
         color: #3b5998;
     }
-    
+
     .fa-twitter {
         color: #33ccff;
     }
-    
+
     .reseau {
         text-align: center;
     }
-    
+
     .footerdiv {
         text-align: center;
         width: 33.33%;
         float: left;
         padding-top: 30px;
     }
-    
+
     .fa {
         padding-top: 40px;
         padding-right: 15px;
         cursor: pointer;
     }
-    
+
     #logoPartenaire:hover {
         -webkit-filter: grayscale(0%);
         /* Chrome, Safari, Opera */
@@ -261,7 +219,7 @@
         -webkit-transition: all 0.9s;
         transition: all 0.9s;
     }
-    
+
     #logoPartenaire {
         width: 200px;
         padding-top: 30px;
@@ -270,7 +228,7 @@
         filter: grayscale(100%);
         cursor: pointer;
     }
-    
+
     #logoF {
         width: 165px;
         padding-top: 30px;
@@ -278,7 +236,7 @@
     }
     /***************** Notifications **************************/
     /*******Page MON COMPTE***********/
-    
+
     .compte-form {
         width: 600px;
         border: 1px solid black;
@@ -291,19 +249,19 @@
         background: white;
         text-align: center;
     }
-    
+
     .title-account {
         font-size: 2em;
         color: rgb(34, 112, 155);
     }
-    
+
     #cross {
         font-size: 2em;
         position: absolute;
         right: 37%;
     }
     /******************Page mentions legales**************/
-    
+
     .popupFooter {
         z-index: 1;
         background-color: rgba(255, 255, 255, .8);
@@ -313,7 +271,7 @@
         position: absolute;
         display: none;
     }
-    
+
     .mentionsLegales {
         width: 60%;
         height: 60%;
@@ -331,13 +289,13 @@
         font-weight: lighter;
         overflow-y: scroll;
     }
-    
+
     #titleML,
     h3,
     h4 {
         color: rgb(34, 112, 155);
     }
-    
+
     #crossFooter {
         font-size: 2em;
         position: absolute;
@@ -346,9 +304,9 @@
         right: 22%;
     }
     /**********************Nous contacter ****************
-   
+
     /********** Slideshow UnSignalement*******/
-    
+
     .slideshow-container {
         max-width: 500px;
         position: relative;
@@ -356,7 +314,7 @@
         margin-top: 20%;
     }
     /* Caption text */
-    
+
     .text {
         color: rgb(233, 95, 3);
         font-size: 30px;
@@ -367,7 +325,7 @@
         overflow: auto;
     }
     /* Number text (1/3 etc) */
-    
+
     .numbertext {
         color: #f2f2f2;
         font-size: 12px;
@@ -376,7 +334,7 @@
         top: 0;
     }
     /************MEDIA QUERRY***********/
-    
+
     @media only screen and (max-width: 1150px) {
         .imgType {
             max-width: 68px;
