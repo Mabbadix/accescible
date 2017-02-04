@@ -40,7 +40,6 @@ if (isset($_SESSION['emailU'])){
     <div class="site-pusher">
   <div class="site-content">
     <div class="container">
-    <main>
       <!--CENTER-->
       <div class="mainUserCarte">
         <div class="mainLeft">
@@ -167,7 +166,6 @@ if (isset($_SESSION['emailU'])){
 		<div id="mapcanvas"></div>
 		<?php	include 'signalerGeoloc&Autre.js';?>
 		</div>
-	</main>
   <?php include 'footer.php';?>
   </div>
   </div>
