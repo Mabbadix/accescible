@@ -64,7 +64,7 @@ require 'connData.php';
 											</div>
 											<div class="postit--right">
 											<div class="postit--type" onclick="zoomPost('.$si->getLat().', '.$si->getLng().', '.$si->getIdS().')">
-                      <img classe="latlng" src="img/'.$si->getTypeS().'.png" alt="Type du problème" height=60>
+                      <img class="latlng" src="img/'.$si->getTypeS().'.png" alt="Type du problème" height=60>
                       <div class="crossPostit" id="crossPostit'.$si->getIdS().'" onclick="revenir()" style ="display:none">X</div>
                       </div>
                       <div class="postit--signal"><input class="button--circle soutien" type="image" name="signaler" id="SoutienImg" src="img/jaime_orange.svg"  onclick="idS='.$si->getIdS().'"/>

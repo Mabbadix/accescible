@@ -154,7 +154,7 @@ $manageU = new UtilisateurManager($bdd);
     <div class="container">
 	<main>
 		<div class="indexMain">
-		<div class="video">
+		<div class="videoIndex">
 			<video controls preload='auto' poster='img/logo73.svg'>
 			<source src="img/rendu_anim_handicap.mp4" type="video/mp4">
 			Your browser does not support the video tag.

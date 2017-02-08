@@ -1,3 +1,6 @@
+$postit-bg: rgb(241, 240, 240);
+$postit-border:rgb(4, 90, 149);
+
 /*******************************************************\
 TOUT ELEMENTS SAUF NAVBAR
 \*******************************************************/
@@ -23,50 +26,36 @@ TOUT ELEMENTS SAUF NAVBAR
 }
 
 @media only screen and (max-width: 500px) {
-    header {
-        height: 2.555em;
-        background: rgba(233, 95, 3, 1);
-    }
     /**index =>connexion.scss****/
     .indexMain {
-        width: 100%;
-        padding-top: 6em;
+        padding-top: 2em;
         padding-bottom: 5em;
-        .video {
-            width: 26em;
+        .videoIndex {
+            width: 100%;
             margin-left: auto;
             margin-right: auto;
             video {
-                width: 26em;
-                height: 16em;
+                width: 100%;
             }
         }
         .button--index {
-            background-color: rgb(241, 240, 240);
-            width: auto;
-            border-radius: 12px;
-            border: 1px solid rgb(147, 188, 218);
-            padding: 15px 32px;
-            margin: 8px;
+          font-size: 1em;
+            padding: 1em 1.2em;
+            margin: 2px;
             text-decoration: none;
-            font-size: 26px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .button--index:hover {
-            box-shadow: 0 12px 16px 0 rgba(34, 112, 155, 0.3);
         }
         .connexion {
-            margin: 6px;
+            margin: 3px;
         }
         .inscription {
-            margin: 6px;
+            margin: 3px;
         }
     }
     /**autre page****/
     .mapcanvas {
         min-width: 100%;
         float: left;
+        overflow-y: scroll;
     }
     .videoR {
         max-width: 100%;
@@ -78,6 +67,7 @@ TOUT ELEMENTS SAUF NAVBAR
         min-width: 100%;
         overflow-y: scroll;
     }
+
     /******form sur signaler*******/
     .msgsignal {
         max-width: 100%;
@@ -95,24 +85,38 @@ TOUT ELEMENTS SAUF NAVBAR
         max-height: 55px;
     }
     /*****postit sur usercate******/
-    .gauchePost {
-        min-width: 60%;
+    .mainLeft {
+        .postit {
+            font-size: 0.6em;
+            height: 120px;
+            max-height: 120px;
+            border: 1px solid $postit-border;
+            margin-bottom: 5px;
+            .postit--left {
+            }
+            .postit--right {
+              .postit--type {
+                    padding-bottom: 5px;
+                    .crossPostit {
+                        font-size: 25px;
+                    }
+                }
+                .postit--signal {
+                    .doigtSoutien {
+                        height: 40px;
+                        width: 40px;
+                    }
+                    #SoutienImg {
+                        height: 40px;
+                        width: 40px;
+                    }
+                    .nbsoutiens {
+                    }
+                }
+            }
+        }
     }
-    .droitePost {
-        max-width: 40%;
-        margin-top: 0;
-    }
-    #doigtSoutien {
-        height: 40px;
-        width: 40px;
-    }
-    #doigtSoutienImg {
-        height: 30px;
-        width: 30px;
-    }
-    .nbsoutiens {
-        font-size: 2em;
-    }
+
     /**page contact + moncompte***/
     .title-page {
         font-size: 20px
@@ -179,39 +183,7 @@ TOUT ELEMENTS SAUF NAVBAR
 }
 
 
-
-@media only screen and (max-width: 400px) {
-    .title-page {
-        text-align: center;
-    }
-    .formContact {
-        min-width: 100%;
-        margin-bottom: 10px;
-    }
-    .champsContact {
-        max-width: 95%;
-    }
-    .footerdiv {
-        margin-top: 50px;
-    }
-}
-
-
-
 @media only screen and (max-width: 250px) {
-    header {
-        height: 2.555em;
-        background: rgba(233, 95, 3, 1);
-    }
-    .text {
-        font-size: 7px
-    }
-    .button {
-        font-size: 11px
-    }
-    .inscription {
-        margin-top: 8px
-    }
     .mainLeft {
         float: left;
         height: inherit;
@@ -222,6 +194,37 @@ TOUT ELEMENTS SAUF NAVBAR
     .msgsignal {
         max-width: 100%;
     }
+    .mainLeft {
+        .postit {
+            .postit--left {
+            }
+            .postit--right {
+                .postit--type {
+                    .latlng{
+                      height: 55px;
+                      width: 60px;
+                    }
+                    .crossPostit {
+                        font-size: 20px;
+                    }
+                }
+                .postit--signal {
+                    .doigtSoutien {
+                        height: 40px;
+                        width: 40px;
+                    }
+                    #SoutienImg {
+                        height: 40px;
+                        width: 40px;
+                    }
+                    .nbsoutiens {
+                      font-size: 1.5em;
+                    }
+                }
+            }
+        }
+    }
+
 }
 
 
