@@ -768,17 +768,17 @@ h4 {
 /*******************************************************TOUT ELEMENTS SAUF NAVBAR
 \*******************************************************/
 @media only screen and (max-width: 1150px) {
-  /* line 8, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 12, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .imgType {
     max-width: 68px;
     max-height: 68px;
   }
-  /* line 12, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 16, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .imgTypeActif {
     max-width: 68px;
     max-height: 68px;
   }
-  /* line 16, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 20, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .videoR {
     max-width: 30em;
     max-height: 25em;
@@ -786,58 +786,86 @@ h4 {
 }
 
 @media only screen and (max-width: 950px) {
-  /* line 22, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 26, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .videoR {
     max-width: 17em;
     max-height: 11em;
   }
 }
 
+@media only screen and (max-width: 750px) {
+  /**********************Nous contacter *****************/
+  /* line 35, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  .popup .popup--inside {
+    width: 90%;
+    margin-top: 50px;
+    margin-bottom: auto;
+    padding-bottom: 10px;
+  }
+  /* line 42, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  .popup .popup--inside .cross {
+    font-size: 1.7em;
+    right: 10%;
+  }
+  /* line 46, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  .popup .popup--inside .popup--form {
+    margin-top: 0;
+    padding: 0;
+  }
+  /* line 50, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  .popup .popup--inside .popup--champs {
+    background: #f1f0f0;
+    width: 95%;
+    font-size: 1em;
+    padding: 1em 1.2em;
+    margin: 2px;
+  }
+}
+
 @media only screen and (max-width: 500px) {
   /**index =>connexion.scss****/
-  /* line 30, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 65, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .indexMain {
     padding-top: 2em;
     padding-bottom: 5em;
   }
-  /* line 33, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 68, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .indexMain .videoIndex {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
   }
-  /* line 37, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 72, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .indexMain .videoIndex video {
     width: 100%;
   }
-  /* line 41, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 76, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .indexMain .button--index {
     font-size: 1em;
     padding: 1em 1.2em;
     margin: 2px;
-    text-decoration: none;
   }
-  /* line 47, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 81, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .indexMain .connexion {
     margin: 3px;
   }
-  /* line 50, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 84, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .indexMain .inscription {
     margin: 3px;
   }
   /**autre page****/
-  /* line 55, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 89, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .mapcanvas {
     min-width: 100%;
     float: left;
     overflow-y: scroll;
   }
-  /* line 60, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 94, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .videoR {
     max-width: 100%;
     float: left;
   }
-  /* line 64, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 98, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .mainLeft {
     float: left;
     height: auto;
@@ -845,27 +873,27 @@ h4 {
     overflow-y: scroll;
   }
   /******form sur signaler*******/
-  /* line 72, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 106, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .msgsignal {
     max-width: 100%;
   }
-  /* line 75, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 109, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .imgType {
     max-width: 68px;
     max-height: 68px;
   }
-  /* line 79, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 113, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .imgTypeActif {
     max-width: 68px;
     max-height: 68px;
   }
-  /* line 83, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 117, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   #putPhotoS {
     max-width: 55px;
     max-height: 55px;
   }
   /*****postit sur usercate******/
-  /* line 89, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 123, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .mainLeft .postit {
     font-size: 0.6em;
     height: 120px;
@@ -873,104 +901,116 @@ h4 {
     border: 1px solid #045a95;
     margin-bottom: 5px;
   }
-  /* line 98, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 132, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .mainLeft .postit .postit--right .postit--type {
     padding-bottom: 5px;
   }
-  /* line 100, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 134, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .mainLeft .postit .postit--right .postit--type .crossPostit {
     font-size: 25px;
   }
-  /* line 105, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 139, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .mainLeft .postit .postit--right .postit--signal .doigtSoutien {
     height: 40px;
     width: 40px;
   }
-  /* line 109, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 143, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .mainLeft .postit .postit--right .postit--signal #SoutienImg {
     height: 40px;
     width: 40px;
   }
   /**page contact + moncompte***/
-  /* line 121, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 155, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .title-page {
     font-size: 20px;
   }
-  /* line 124, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 158, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .champsContact {
     font-size: 15px;
   }
   /***footer***/
-  /* line 128, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 162, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .footerdiv {
     min-width: 100%;
   }
   /******************Page mentions legales**************/
-  /* line 132, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 166, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .popupFooter {
     bottom: -300%;
   }
-  /* line 135, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 169, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .mentionsLegales {
     width: 90%;
   }
   /**********************Nous contacter *****************/
-  /* line 139, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
-  #titleContact {
-    font-size: 1em;
-  }
-  /* line 142, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
-  .pageContact {
+  /* line 174, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  .popup .popup--inside {
     width: 90%;
-    margin-top: 15%;
-    border: 2px solid #22709b;
+    margin-top: 50px;
+    margin-bottom: auto;
+    padding-bottom: 10px;
   }
-  /* line 147, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
-  #crossContact {
-    font-size: 1em;
-    position: absolute;
-    color: #e95f03;
-    font-weight: bolder;
+  /* line 181, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  .popup .popup--inside .cross {
+    font-size: 1.7em;
     right: 10%;
   }
-  /* line 154, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
-  .formContact {
+  /* line 185, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  .popup .popup--inside .popup--form {
     margin-top: 0;
     padding: 0;
   }
-  /* line 158, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
-  #doigtContact {
-    height: 60px;
-    width: 60px;
+  /* line 189, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  .popup .popup--inside .popup--champs {
+    background: #f1f0f0;
+    width: 95%;
+    font-size: 1em;
+    padding: 1em 1.2em;
+    margin: 2px;
   }
-  /* line 162, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 201, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  #courrielContact {
+    color: #df4a10;
+    margin: 6px;
+  }
+  /* line 206, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  #message {
+    color: #045a95;
+    margin: 6px;
+  }
+  /* line 211, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  #doigtContact {
+    height: 70px;
+    width: 70px;
+  }
+  /* line 216, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   #doigtContactImg {
-    height: 50px;
+    height: 60px;
   }
 }
 
 @media only screen and (max-width: 400px) {
-  /* line 170, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 224, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .title-page {
     text-align: center;
   }
-  /* line 173, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 227, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .formContact {
     min-width: 100%;
     margin-bottom: 10px;
   }
-  /* line 177, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 231, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .champsContact {
     max-width: 95%;
   }
-  /* line 180, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 234, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .footerdiv {
     margin-top: 50px;
   }
 }
 
-@media only screen and (max-width: 250px) {
-  /* line 187, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+@media only screen and (max-width: 270px) {
+  /* line 241, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .mainLeft {
     float: left;
     height: inherit;
@@ -978,30 +1018,30 @@ h4 {
     color: #e56a17;
     overflow-y: scroll;
   }
-  /* line 194, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 248, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .msgsignal {
     max-width: 100%;
   }
-  /* line 203, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 257, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .mainLeft .postit .postit--right .postit--type .latlng {
     height: 55px;
     width: 60px;
   }
-  /* line 207, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 261, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .mainLeft .postit .postit--right .postit--type .crossPostit {
     font-size: 20px;
   }
-  /* line 212, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 266, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .mainLeft .postit .postit--right .postit--signal .doigtSoutien {
     height: 40px;
     width: 40px;
   }
-  /* line 216, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 270, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .mainLeft .postit .postit--right .postit--signal #SoutienImg {
     height: 40px;
     width: 40px;
   }
-  /* line 220, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 274, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .mainLeft .postit .postit--right .postit--signal .nbsoutiens {
     font-size: 1.5em;
   }
@@ -1010,12 +1050,12 @@ h4 {
 /*******************************************************NAVABAR
 \*******************************************************/
 @media only screen and (max-width: 875px) {
-  /* line 241, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 295, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .site-container {
     overflow: hidden;
     height: 100%;
   }
-  /* line 242, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 296, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .site-pusher {
     -webkit-transition-duration: 0.3s;
     -moz-transition-duration: 0.3s;
@@ -1028,11 +1068,11 @@ h4 {
     transform: translateX(0px);
     height: 100%;
   }
-  /* line 247, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 301, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .header {
     position: static;
   }
-  /* line 248, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 302, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .site-content {
     position: absolute;
     top: 0;
@@ -1044,7 +1084,7 @@ h4 {
     -webkit-overflow-scrolling: touch;
     background-color: #FFF;
   }
-  /* line 259, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 313, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .header__icon {
     position: relative;
     display: block;
@@ -1053,19 +1093,19 @@ h4 {
     height: 66px;
     cursor: pointer;
   }
-  /* line 267, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 321, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .header__icon .hamburger {
     height: 66px;
   }
-  /* line 268, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 322, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .header__icon .hamburger-box {
     padding-bottom: 40px;
   }
-  /* line 269, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 323, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .header__icon .hamburger-inner, .header__icon .hamburger-inner::before, .header__icon .hamburger-inner::after {
     background-color: #045a95;
   }
-  /* line 272, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 326, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .menu {
     position: absolute;
     right: 0;
@@ -1074,7 +1114,7 @@ h4 {
     background-color: #c7420e;
     width: 250px;
   }
-  /* line 280, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 334, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .menu a {
     display: block;
     height: 40px;
@@ -1083,7 +1123,7 @@ h4 {
     padding: 0px 20px;
     border-bottom: 1px solid #df4a10;
   }
-  /* line 291, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 345, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .with--sidebar .site-pusher {
     -webkit-transform: translateX(-250px);
     -moz-transform: translateX(-250px);
@@ -1091,7 +1131,7 @@ h4 {
     -o-transform: translateX(-250px);
     transform: translateX(-250px);
   }
-  /* line 292, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
+  /* line 346, /home/abbadix/Bureau/PRO/accescible/scss/_responsive.scss */
   .with--sidebar .site-cache {
     position: absolute;
     top: 0;

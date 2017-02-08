@@ -1,5 +1,9 @@
 $postit-bg: rgb(241, 240, 240);
 $postit-border:rgb(4, 90, 149);
+$cachecolor: rgba(255, 255, 255, .8);
+$popupbg:#FFF;
+$popup-border: rgb(34, 112, 155);
+$mainfontcolor: rgb(34, 112, 155);
 
 /*******************************************************\
 TOUT ELEMENTS SAUF NAVBAR
@@ -23,6 +27,37 @@ TOUT ELEMENTS SAUF NAVBAR
         max-width: 17em;
         max-height: 11em;
     }
+  }
+
+@media only screen and (max-width: 750px) {
+    /**********************Nous contacter *****************/
+    .popup {
+        .popup--inside {
+            width: 90%;
+            margin-top: 50px;
+            margin-bottom: auto;
+            padding-bottom: 10px;
+            .popup--title {
+            }
+            .cross {
+                font-size: 1.7em;
+                  right: 10%;
+            }
+            .popup--form {
+                margin-top: 0;
+                padding: 0;
+            }
+            .popup--champs {
+                background: rgb(241, 240, 240);
+                width: 95%;
+                font-size: 1em;
+                padding: 1em 1.2em;
+                margin: 2px;
+            }
+            .popup--champs {
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 500px) {
@@ -42,7 +77,6 @@ TOUT ELEMENTS SAUF NAVBAR
           font-size: 1em;
             padding: 1em 1.2em;
             margin: 2px;
-            text-decoration: none;
         }
         .connexion {
             margin: 3px;
@@ -136,31 +170,51 @@ TOUT ELEMENTS SAUF NAVBAR
         width: 90%;
     }
     /**********************Nous contacter *****************/
-    #titleContact {
-        font-size: 1em;
+    .popup {
+        .popup--inside {
+            width: 90%;
+            margin-top: 50px;
+            margin-bottom: auto;
+            padding-bottom: 10px;
+            .popup--title {
+            }
+            .cross {
+                font-size: 1.7em;
+                  right: 10%;
+            }
+            .popup--form {
+                margin-top: 0;
+                padding: 0;
+            }
+            .popup--champs {
+                background: rgb(241, 240, 240);
+                width: 95%;
+                font-size: 1em;
+                padding: 1em 1.2em;
+                margin: 2px;
+            }
+            .popup--champs {
+            }
+        }
     }
-    .pageContact {
-        width: 90%;
-        margin-top: 15%;
-        border: 2px solid rgb(34, 112, 155);
+
+    #courrielContact {
+        color: rgb(223, 74, 16);
+        margin: 6px;
     }
-    #crossContact {
-        font-size: 1em;
-        position: absolute;
-        color: rgba(233, 95, 3, 1);
-        font-weight: bolder;
-        right: 10%;
+
+    #message {
+        color: rgb(4, 90, 149);
+        margin: 6px;
     }
-    .formContact {
-        margin-top: 0;
-        padding: 0;
-    }
+
     #doigtContact {
-        height: 60px;
-        width: 60px;
+        height: 70px;
+        width: 70px;
     }
+
     #doigtContactImg {
-        height: 50px;
+        height: 60px;
     }
 }
 
@@ -183,7 +237,7 @@ TOUT ELEMENTS SAUF NAVBAR
 }
 
 
-@media only screen and (max-width: 250px) {
+@media only screen and (max-width: 270px) {
     .mainLeft {
         float: left;
         height: inherit;
