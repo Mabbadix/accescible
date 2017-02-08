@@ -12,9 +12,9 @@ if($manageU->isConnected() === true && $_SESSION['confirme']==1){
     </a>
     <a href="#" class="header__logo"><img src="img/logo7.png"></a>
     <nav class="menu">
-      <a href="userCarte.php">Carte</a>
-      <a href="signaler.php">Signaler</a>
-      <a href="monCompteBis.php" id="account">Mon compte</a>
+      <a <?php if ($nav_en_cours == 'usercarte') {echo ' class="active"';} ?>href="userCarte.php">Carte</a>
+      <a <?php if ($nav_en_cours == 'signaler') {echo ' class="active"';} ?>href="signaler.php">Signaler</a>
+      <a <?php if ($nav_en_cours == 'moncompte') {echo ' class="active"';} ?>href="monCompteBis.php" id="account">Mon compte</a>
       <a href="#" id="nousContacter">Contact</a>
       <a href="deconn.php">Déconnection</a>
     </nav>
@@ -39,8 +39,8 @@ if ($mailContact==true) {echo '<div id="notif" class="notif success"> <h2>Votre 
     </a>
     <a href="#" class="header__logo"><img src="img/logo7.png"></a>
     <nav class="menu">
-      <a href="userCarte.php">Carte</a>
-      <a href="monCompteBis.php" id="account">Mon compte</a>
+      <a <?php if ($nav_en_cours == 'usercarte') {echo ' class="active"';} ?>href="userCarte.php">Carte</a>
+      <a <?php if ($nav_en_cours == 'moncompte') {echo ' class="active"';} ?>href="monCompteBis.php" id="account">Mon compte</a>
       <a href="#" id="nousContacter">Contact</a>
       <a href="deconn.php">Déconnection</a>
     </nav>
@@ -66,8 +66,8 @@ if ($mailContact==true) {echo '<div id="notif" class="notif success"> <h2>Votre 
     </a>
     <a href="#" class="header__logo"><img src="img/logo7.png"></a>
     <nav class="menu">
-      <a href="userCarte.php">Carte</a>
-      <a href="index.php" id="account">Sign in/up </a>
+      <a <?php if ($nav_en_cours == 'usercarte') {echo ' class="active"';} ?>href="userCarte.php">Carte</a>
+      <a <?php if ($nav_en_cours == 'index') {echo ' class="active"';} ?>href="index.php" id="account">Sign in/up </a>
   </header>
   <?php
   include'pageContact.php';

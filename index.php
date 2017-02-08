@@ -147,7 +147,8 @@ $manageU = new UtilisateurManager($bdd);
 
 	<body>
 		<div class="site-container">
-    <?php include'header.php'; ?>
+    <?php $nav_en_cours ='index';
+    include'header.php'; ?>
 		<div class="site-pusher">
 		<div class="site-content">
     <div class="container">

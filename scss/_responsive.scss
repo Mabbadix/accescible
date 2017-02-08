@@ -1,3 +1,238 @@
+/*******************************************************\
+TOUT ELEMENTS SAUF NAVBAR
+\*******************************************************/
+@media only screen and (max-width: 1150px) {
+    .imgType {
+        max-width: 68px;
+        max-height: 68px;
+    }
+    .imgTypeActif {
+        max-width: 68px;
+        max-height: 68px;
+    }
+    .videoR {
+        max-width: 30em;
+        max-height: 25em;
+    }
+}
+@media only screen and (max-width: 950px) {
+    .videoR {
+        max-width: 17em;
+        max-height: 11em;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    header {
+        height: 2.555em;
+        background: rgba(233, 95, 3, 1);
+    }
+    /**index =>connexion.scss****/
+    .indexMain {
+        width: 100%;
+        padding-top: 6em;
+        padding-bottom: 5em;
+        .video {
+            width: 26em;
+            margin-left: auto;
+            margin-right: auto;
+            video {
+                width: 26em;
+                height: 16em;
+            }
+        }
+        .button--index {
+            background-color: rgb(241, 240, 240);
+            width: auto;
+            border-radius: 12px;
+            border: 1px solid rgb(147, 188, 218);
+            padding: 15px 32px;
+            margin: 8px;
+            text-decoration: none;
+            font-size: 26px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .button--index:hover {
+            box-shadow: 0 12px 16px 0 rgba(34, 112, 155, 0.3);
+        }
+        .connexion {
+            margin: 6px;
+        }
+        .inscription {
+            margin: 6px;
+        }
+    }
+    /**autre page****/
+    .mapcanvas {
+        min-width: 100%;
+        float: left;
+    }
+    .videoR {
+        max-width: 100%;
+        float: left;
+    }
+    .mainLeft {
+        float: left;
+        height: auto;
+        min-width: 100%;
+        overflow-y: scroll;
+    }
+    /******form sur signaler*******/
+    .msgsignal {
+        max-width: 100%;
+    }
+    .imgType {
+        max-width: 68px;
+        max-height: 68px;
+    }
+    .imgTypeActif {
+        max-width: 68px;
+        max-height: 68px;
+    }
+    #putPhotoS {
+        max-width: 55px;
+        max-height: 55px;
+    }
+    /*****postit sur usercate******/
+    .gauchePost {
+        min-width: 60%;
+    }
+    .droitePost {
+        max-width: 40%;
+        margin-top: 0;
+    }
+    #doigtSoutien {
+        height: 40px;
+        width: 40px;
+    }
+    #doigtSoutienImg {
+        height: 30px;
+        width: 30px;
+    }
+    .nbsoutiens {
+        font-size: 2em;
+    }
+    /**page contact + moncompte***/
+    .title-page {
+        font-size: 20px
+    }
+    .champsContact {
+        font-size: 15px;
+    }
+    /***footer***/
+    .footerdiv {
+        min-width: 100%;
+    }
+    /******************Page mentions legales**************/
+    .popupFooter {
+        bottom: -300%;
+    }
+    .mentionsLegales {
+        width: 90%;
+    }
+    /**********************Nous contacter *****************/
+    #titleContact {
+        font-size: 1em;
+    }
+    .pageContact {
+        width: 90%;
+        margin-top: 15%;
+        border: 2px solid rgb(34, 112, 155);
+    }
+    #crossContact {
+        font-size: 1em;
+        position: absolute;
+        color: rgba(233, 95, 3, 1);
+        font-weight: bolder;
+        right: 10%;
+    }
+    .formContact {
+        margin-top: 0;
+        padding: 0;
+    }
+    #doigtContact {
+        height: 60px;
+        width: 60px;
+    }
+    #doigtContactImg {
+        height: 50px;
+    }
+}
+
+
+
+@media only screen and (max-width: 400px) {
+    .title-page {
+        text-align: center;
+    }
+    .formContact {
+        min-width: 100%;
+        margin-bottom: 10px;
+    }
+    .champsContact {
+        max-width: 95%;
+    }
+    .footerdiv {
+        margin-top: 50px;
+    }
+}
+
+
+
+@media only screen and (max-width: 400px) {
+    .title-page {
+        text-align: center;
+    }
+    .formContact {
+        min-width: 100%;
+        margin-bottom: 10px;
+    }
+    .champsContact {
+        max-width: 95%;
+    }
+    .footerdiv {
+        margin-top: 50px;
+    }
+}
+
+
+
+@media only screen and (max-width: 250px) {
+    header {
+        height: 2.555em;
+        background: rgba(233, 95, 3, 1);
+    }
+    .text {
+        font-size: 7px
+    }
+    .button {
+        font-size: 11px
+    }
+    .inscription {
+        margin-top: 8px
+    }
+    .mainLeft {
+        float: left;
+        height: inherit;
+        min-width: 100%;
+        color: rgb(229, 106, 23);
+        overflow-y: scroll;
+    }
+    .msgsignal {
+        max-width: 100%;
+    }
+}
+
+
+
+
+
+
+
+/*******************************************************\
+NAVABAR
+\*******************************************************/
 $menu-width: 250px!default;
 @media only screen and (max-width: 875px) {
   .site-container{overflow: hidden; height: 100%;}
@@ -25,12 +260,12 @@ $menu-width: 250px!default;
     width: 70px;
     height: 66px;
     cursor: pointer;
-    
+
     .hamburger{height: 66px;}
     .hamburger-box{padding-bottom: 40px;}
     .hamburger-inner,.hamburger-inner::before,.hamburger-inner::after{background-color: $header-font-color;}
   }
-  
+
   .menu{
     position: absolute;
     right: 0;
@@ -48,7 +283,7 @@ $menu-width: 250px!default;
       border-bottom: 1px solid $header-bg;
     }
   }
-  
+
   .with--sidebar{
     .site-pusher{@include transform(translateX($menu-width * -1));}
     .site-cache{

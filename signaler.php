@@ -36,7 +36,8 @@ if (isset($_SESSION['emailU'])){
 
   <body>
     <div class="site-container">
-      <?php include'header.php';?>
+      <?php $nav_en_cours = 'signaler';
+      include'header.php';?>
     <div class="site-pusher">
   <div class="site-content">
     <div class="container">

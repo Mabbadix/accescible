@@ -54,11 +54,11 @@ $("#nousContacter").click(function(){
     $('#hamburger').removeClass('is-active');
     $(".popup").fadeIn("fast", function(){
     });
+
 });
 
 $("#crossContact").click(function(){
     $(".popup").fadeOut("fast", function(){
-
     });
 });
 
