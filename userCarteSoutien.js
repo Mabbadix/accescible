@@ -1,4 +1,4 @@
-$(".button--circle").click(function(){
+$(".soutien").click(function(){
   if (window.confirm("Voulez-vous soutenir ce signalement?")){
     $.ajax({
         async: false,

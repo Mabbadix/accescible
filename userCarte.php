@@ -67,7 +67,7 @@ require 'connData.php';
                       <img classe="latlng" src="img/'.$si->getTypeS().'.png" alt="Type du problème" height=60>
                       <div class="crossPostit" id="crossPostit'.$si->getIdS().'" onclick="revenir()" style ="display:none">X</div>
                       </div>
-                      <div class="postit--signal"><input class="button--circle" type="image" name="signaler" id="SoutienImg" src="img/jaime_orange.svg"  onclick="idS='.$si->getIdS().'"/>
+                      <div class="postit--signal"><input class="button--circle soutien" type="image" name="signaler" id="SoutienImg" src="img/jaime_orange.svg"  onclick="idS='.$si->getIdS().'"/>
 											<span class="nbsoutiens"> '.$si->getNSoutienS().'</span>
 											</div>
             				</div> </div>';

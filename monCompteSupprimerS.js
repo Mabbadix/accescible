@@ -12,7 +12,7 @@ var formModif = document.getElementById('formModif');
   }
 
 //gestion des suppressions des signlements de l'utilisateurs
-$(".button--circle").click(function(){
+$(".supprimer").click(function(){
   if (window.confirm("Voulez-vous vraiment supprimer ce signalement?")){
     $.ajax({
         async: false,

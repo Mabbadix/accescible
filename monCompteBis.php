@@ -104,7 +104,7 @@ $manageU = new UtilisateurManager($bdd);
                 <img classe="latlng" src="img/'.$si->getTypeS().'.png" alt="Type du problème" height=60>
                 <div class="crossPostit" id="crossPostit'.$si->getIdS().'" onclick="revenir()" style ="display:none">X</div>
                 </div>
-                <div class="postit--signal"><input class="button--circle" type="image" id="supprimerS" src="img/fermer.png"  onclick="idS='.$si->getIdS().'"/>
+                <div class="postit--signal"><input class="button--circle supprimer" type="image" id="supprimerS" src="img/fermer.png"  onclick="idS='.$si->getIdS().'"/>
                 <span class="nbsoutiens"> '.$si->getNSoutienS().'</span>
                 </div>
               </div> </div>';

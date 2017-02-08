@@ -12,5 +12,39 @@ footer {
         width: 33.33%;
         float: left;
         padding-top: 30px;
+        .fa {
+            padding-top: 40px;
+            padding-right: 15px;
+            cursor: pointer;
+        }
+        .fa-facebook-official {
+            color: #3b5998;
+        }
+
+        .fa-twitter {
+            color: #33ccff;
+        }
+        #logoPartenaire:hover {
+            -webkit-filter: grayscale(0%);
+            /* Chrome, Safari, Opera */
+            filter: grayscale(0%);
+            -webkit-transition: alls 0.9s;
+            transition: all 0.9s;
+        }
+
+        #logoPartenaire {
+            width: 200px;
+            padding-top: 30px;
+            -webkit-filter: grayscale(100%);
+            /* Chrome, Safari, Opera */
+            filter: grayscale(100%);
+            cursor: pointer;
+        }
+
+        #logoF {
+            width: 165px;
+            padding-top: 30px;
+            cursor: pointer;
+        }
     }
 }
