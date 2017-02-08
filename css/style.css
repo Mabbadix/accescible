@@ -267,9 +267,9 @@ a {
 }
 
 /* line 46, /home/abbadix/Bureau/PRO/accescible/scss/_postit.scss */
-.mainLeft .postit .postit--right .postit--signal .doigtSoutienImg {
-  height: 35px;
-  width: 35px;
+.mainLeft .postit .postit--right .postit--signal #SoutienImg {
+  height: 55px;
+  width: 55px;
 }
 
 /* line 50, /home/abbadix/Bureau/PRO/accescible/scss/_postit.scss */
@@ -418,23 +418,24 @@ a {
 /* line 1, /home/abbadix/Bureau/PRO/accescible/scss/_connexion.scss */
 .indexMain {
   width: 100%;
-  padding-top: 2em;
+  padding-top: 6em;
+  padding-bottom: 5em;
 }
 
-/* line 4, /home/abbadix/Bureau/PRO/accescible/scss/_connexion.scss */
+/* line 5, /home/abbadix/Bureau/PRO/accescible/scss/_connexion.scss */
 .indexMain .video {
   width: 26em;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 8, /home/abbadix/Bureau/PRO/accescible/scss/_connexion.scss */
+/* line 9, /home/abbadix/Bureau/PRO/accescible/scss/_connexion.scss */
 .indexMain .video video {
   width: 26em;
   height: 16em;
 }
 
-/* line 13, /home/abbadix/Bureau/PRO/accescible/scss/_connexion.scss */
+/* line 14, /home/abbadix/Bureau/PRO/accescible/scss/_connexion.scss */
 .indexMain .button--index {
   background-color: #f1f0f0;
   width: auto;
@@ -448,18 +449,18 @@ a {
   cursor: pointer;
 }
 
-/* line 25, /home/abbadix/Bureau/PRO/accescible/scss/_connexion.scss */
+/* line 26, /home/abbadix/Bureau/PRO/accescible/scss/_connexion.scss */
 .indexMain .button--index:hover {
   box-shadow: 0 12px 16px 0 rgba(34, 112, 155, 0.3);
 }
 
-/* line 28, /home/abbadix/Bureau/PRO/accescible/scss/_connexion.scss */
+/* line 29, /home/abbadix/Bureau/PRO/accescible/scss/_connexion.scss */
 .indexMain .connexion {
   color: #045a95;
   margin: 6px;
 }
 
-/* line 32, /home/abbadix/Bureau/PRO/accescible/scss/_connexion.scss */
+/* line 33, /home/abbadix/Bureau/PRO/accescible/scss/_connexion.scss */
 .indexMain .inscription {
   color: #df4a10;
   margin: 6px;
@@ -557,12 +558,6 @@ a {
 /* line 76, /home/abbadix/Bureau/PRO/accescible/scss/_popup.scss */
 #doigtContactImg {
   height: 70px;
-}
-
-/* line 80, /home/abbadix/Bureau/PRO/accescible/scss/_popup.scss */
-#SoutienImg {
-  height: 55px;
-  width: 55px;
 }
 
 /******************************************************                      VIDEO REMPLACEMENT CARTE

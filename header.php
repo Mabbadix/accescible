@@ -68,7 +68,6 @@ if ($mailContact==true) {echo '<div id="notif" class="notif success"> <h2>Votre 
     <nav class="menu">
       <a href="userCarte.php">Carte</a>
       <a href="index.php" id="account">Sign in/up </a>
-      <a href="#" id="nousContacter">Contact</a>
   </header>
   <?php
   include'pageContact.php';
