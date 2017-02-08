@@ -8,10 +8,11 @@ switch ($type) {
       <meta name="description" content="Carte des problèmes d'accessibilité signalés" />
       <meta name="keywords" content="accessibilité handicap aide" />
       <meta name="robots" content="index,follow" />
-      <meta name="author" content="Mehdi Abbadi, Dylan Bourdere Andreou, Design Emmanuela Brasselle" />
+      <meta name="author" content="Mehdi Abbadi, Dylan Bourdere Andreou, Design Emmanuella Brasselle" />
       <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
       <link href="css/hamburgers.css" rel="stylesheet">
       <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+      <link rel="stylesheet" type="text/css" href="css/styleUserBleu&Orange.css" media="screen" />
       <link rel="shortcut icon" href="img/logo7.png" />
       <link rel="icon" type="image/x-icon" sizes="16x16" href="img/logo7.png" />
       <link rel="icon" href="img/logo7.png" sizes="any" type="image/svg">
@@ -25,7 +26,7 @@ switch ($type) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
     <meta name="description" content="Signaler les problemes d'accessibilité près de chez vous afin que les personnes compétentes y remédient." />
     <meta name="robots" content="index, nofollow" />
-    <meta name="Author" content="Mehdi Abbadi, Dylan Bourdere Andreou, Design Emmanuela Brasselle" />
+    <meta name="Author" content="Mehdi Abbadi, Dylan Bourdere Andreou, Design Emmanuella Brasselle" />
     <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="../css/styleUserBleu&Orange.css" media="screen" />
     <link rel="shortcut icon" href="../img/logo7.png" />
@@ -43,7 +44,7 @@ switch ($type) {
       <meta name="description" content="Carte des problèmes d'accessibilité signalés" />
       <meta name="keywords" content="accessibilité handicap aide" />
       <meta name="robots" content="index,follow" />
-      <meta name="author" content="Mehdi Abbadi, Dylan Bourdere Andreou, Design Emmanuela Brasselle" />
+      <meta name="author" content="Mehdi Abbadi, Dylan Bourdere Andreou, Design Emmanuella Brasselle" />
       <link rel="stylesheet" type="text/css" href="css/styleUserBleu&Orange.css" media="screen" />
       <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
       <link href="css/hamburgers.css" rel="stylesheet">
@@ -64,7 +65,7 @@ switch ($type) {
         <meta name="description" content="Carte des problèmes d'accessibilité signalés" />
         <meta name="keywords" content="accessibilité handicap aide" />
         <meta name="robots" content="index,follow" />
-        <meta name="author" content="Mehdi Abbadi, Dylan Bourdere Andreou, Design Emmanuela Brasselle" />
+        <meta name="author" content="Mehdi Abbadi, Dylan Bourdere Andreou, Design Emmanuella Brasselle" />
         <link rel="stylesheet" type="text/css" href="css/styleUserBleu&Orange.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
         <link rel="shortcut icon" href="img/logo7.png" />

@@ -6,9 +6,18 @@ require 'class/Autoloader.php';
 $autoload = new Autoloader;
 $autoload->register();
 
+if (isset($_GET['deconnexion']))
+{
+  require 'deconn.php';
+}
+
+
 //******Connect BD********
 
 require 'connData.php';
+
+$manageU = new UtilisateurManager($bdd);
+
 
 /***********traitement sur la page index*/
 
@@ -125,12 +134,10 @@ require 'connData.php';
 	}
 ?>
 
-
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
-		<!-- Integration de toutes les metas et autres link
-				ATTENTION css propre à la page index = "style.css" -->
+		<!-- Integration de toutes les metas et autres link-->
 		<?php
 		$type = 'index';
 		include 'head.php';
@@ -139,10 +146,15 @@ require 'connData.php';
 	</head>
 
 	<body>
+		<div class="site-container">
+    <?php include'header.php'; ?>
+		<div class="site-pusher">
+		<div class="site-content">
+    <div class="container">
+	<main>
 		<div class="indexMain">
-
 		<div class="video">
-			<video preload="auto" poster="img/logo73.svg" onclick="play()"  ondblclick="pause()">
+			<video controls preload='auto' poster='img/logo73.svg'>
 			<source src="img/rendu_anim_handicap.mp4" type="video/mp4">
 			Your browser does not support the video tag.
 		</video >
@@ -162,10 +174,28 @@ require 'connData.php';
 			</form>
 		</div>
 		</div>
-			<br>
-
+	</main>
+		<?php include 'footer.php';?>
+	</div>
+  </div>
+  <div class="site-cache" id="site-cache"></div>
+  </div>
+  </div>
 		<noscript>
 			<div id="erreur"><b>Votre navigateur ne prend pas en charge JavaScript!</b> Veuillez activer JavaScript afin de profiter pleinement du site.</div>
 		</noscript>
 	</body>
+	<script src="js/app.js"></script>
+   <script>
+    var forEach=function(t,o,r){if("[object Object]"===Object.prototype.toString.call(t))for(var c in t)Object.prototype.hasOwnProperty.call(t,c)&&o.call(r,t[c],c,t);else for(var e=0,l=t.length;l>e;e++)o.call(r,t[e],e,t)};
+
+    var hamburgers = document.querySelectorAll(".hamburger");
+    if (hamburgers.length > 0) {
+      forEach(hamburgers, function(hamburger) {
+        hamburger.addEventListener("click", function() {
+          this.classList.toggle("is-active");
+        }, false);
+      });
+    }
+  </script>
 </html>

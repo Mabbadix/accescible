@@ -16,16 +16,13 @@ if (isset($_GET['deconnexion']))
 
 require 'connData.php';
 
-/***********traitement sur la page index*/
-
   $manageU = new UtilisateurManager($bdd);
 ?>
   <!DOCTYPE html>
   <html lang="fr">
 
   <head>
-    <!-- integration de toutes les metas et autres link
-				ATTENTION link styleUser.css different du "style.css" -->
+    <!-- integration de toutes les metas et autres link-->
     <?php
 		$type = 'utilisateur';
 		include 'head.php';

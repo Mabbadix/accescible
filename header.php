@@ -69,17 +69,15 @@ if ($mailContact==true) {echo '<div id="notif" class="notif success"> <h2>Votre 
       <a href="userCarte.php">Carte</a>
       <a href="index.php" id="account">Sign in/up </a>
       <a href="#" id="nousContacter">Contact</a>
-      <a href="deconn.php">Déconnection</a>
-    </nav>
   </header>
-<?php
-include'pageContact.php';
-if ($mailContact==true) {echo '<div id="notif" class="notif success"> <h2>Votre message a bien été envoyé</h2></div>';}
-?>
-<script>
-  $(document).ready(function(){
-    $("#notif").fadeOut(5000);
-  });
-</script>
+  <?php
+  include'pageContact.php';
+  if ($mailContact==true) {echo '<div id="notif" class="notif success"> <h2>Votre message a bien été envoyé</h2></div>';}
+  ?>
+  <script>
+    $(document).ready(function(){
+      $("#notif").fadeOut(5000);
+    });
+  </script>
 <?php
 } ?>
